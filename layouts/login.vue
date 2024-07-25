@@ -3,7 +3,7 @@
         class="w-full h-screen bg-[url(~/assets/images/prod-main-login-1.jpg)] bg-no-repeat bg-cover bg-center object-cover relative ">
         <video id="background-video" class="w-screen h-screen absolute top-0 left-0 object-cover" autoplay loop muted
             poster="~/assets/images/prod-main-login-1.jpg">
-            <source src="~/assets/videos/Welcome_pscm.mp4" type="video/mp4">
+            <!-- <source src="~/assets/videos/Welcome_pscm.mp4" type="video/mp4"> -->
         </video>
         <div class="absolute w-full h-screen top-0 left-0 bg-[#1A171760] flex items-center justify-center">
             <div class="w-[1150px] h-[700px] bg-[#F8F8F8] rounded-2xl flex">
