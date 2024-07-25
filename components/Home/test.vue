@@ -520,7 +520,7 @@
           }
             " :pagination="true" :loop="true">
             <SwiperSlide v-for="(slide, idx) in slides2" :key="idx">
-              <img src="assets/images/image 1560.jpg" alt="" class="w-full max-h-full" />
+              <img src="assets/images/zone5/video frame.png" alt="" class="w-full max-h-full" />
             </SwiperSlide>
 
             <!-- useSwiper() within a swiper instance -->
