@@ -1,0 +1,242 @@
+<template>
+  <div class="main-content">
+    <div class="col-center mt-[10%]">
+      <h class="header">News</h>
+      <div class="f-center flex-glow w-full relative small-view">
+        <h1 class="text-[150%] th-header">ข่าวสารประชาสัมพันธ์</h1>
+        <button
+          type="button"
+          class="absolute f-center button-orange right-[5%] SF-TH text-[30%] px-[3%] py-[1%] space-x-2 small-button"
+        >
+          <span>ดูทั้งหมด</span>
+          <IconsUpRight />
+        </button>
+      </div>
+      <div class="icons-underline-normal">
+        <IconsUnderline />
+      </div>
+      <div class="icons-underline-small">
+        <IconsUnderline />
+      </div>
+    </div>
+    <img src="assets/images/zone2/Vector 88.svg" 
+    class="image-ab w-[35%] mt-[-40px] hide" />
+    <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
+    <div class="f-center" style="max-width: 2000px">
+      <div class="f-row gap-[5%] mt-[5%] card-container " >
+        <!-- คอนเทนเนอร์ left image  -->
+        <div class="f-col content-w-re card-item hide">
+          <!-- ******** -->
+          <div class="content-re SF-TH">
+            <img src="assets/images/zone2/image 1561.png" class="image-full" />
+            <p class="bt-orange px-2 py-1 text-[7px] top-[70%] left-[5%]">มาใหม่ล่าสุด</p>
+            <p class="absolute text-[10px] SF-TH-Semi text-white top-[80%] left-[5%]">
+              โครงการแลกเปลี่ยนเรียนรู้ Clinical Observership<br />สำหรับนักศึกษาแพทย์จากญี่ปุ่น
+            </p>
+
+            <IconsCalenderZone2-1 />
+            <p class="absolute text-[2%] text-[#E2E2E2] left-[10%] top-[92%]">
+              24 พ.ค. 2567
+            </p>
+          </div>
+        </div>
+
+        <!-- คอนเทนเนอร์ right image  -->
+
+        <div class="f-col image-full gap-5 SF-TH card-item">
+          <div class="i-center gap-10 card-item-order sm-icon">
+            <img
+              src="assets/images/zone2/image 1561.png"
+              class="w-[30%] h-auto rounded-[40px]"
+              alt="news image1"
+            />
+            <div class="f-col gap-2 sm-text">
+              <p class="new-bt hide">มาใหม่ล่าสุด</p>
+              <div class="i-center sm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+              <p class="z-2-text">
+                โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น
+              </p>
+              <div class="i-center nm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+            </div>
+          </div>
+          <div class="i-center gap-10 card-item-order">
+            <img
+              src="assets/images/zone2/Rectangle 43142.png"
+              class="w-[30%] h-auto"
+              alt="news image1"
+            />
+            <div class="f-col gap-2 sm-text">
+              <p class="new-bt hide">มาใหม่ล่าสุด</p>
+              <div class="i-center sm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+              <p class="z-2-text">
+                โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น
+              </p>
+              <div class="i-center nm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+            </div>
+          </div>
+          <div class="i-center gap-10 card-item-order">
+            <img
+              src="assets/images/zone2/Rectangle 43058.png"
+              class="w-[30%] h-auto"
+              alt="news image2"
+            />
+            <div class="f-col gap-2 sm-text">
+              <p class="new-bt hide">มาใหม่ล่าสุด</p>
+              <div class="i-center sm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+              <p class="z-2-text">
+                โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น
+              </p>
+              <div class="i-center nm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+            </div>
+          </div>
+          <div class="i-center gap-10 card-item-order">
+            <img
+              src="assets/images/zone2/Rectangle 43143.png"
+              class="w-[30%] h-auto"
+              alt="news image3"
+            />
+            <div class="f-col gap-2 sm-text">
+              <p class="new-bt hide">มาใหม่ล่าสุด</p>
+              <div class="i-center sm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+              <p class="z-2-text">
+                โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น
+              </p>
+              <div class="i-center nm-icon">
+                <IconsCalenderZone22 />
+                <p class="z-2-date">24 พ.ค. 2567</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style scoped>
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-inline: 10vw;
+  margin-inline: 10vw;
+}
+
+.card-item {
+  flex: 1 1 45%;
+  min-width: 320px;
+  margin-bottom: 15px;
+}
+
+.icons-underline-small {
+  display: none;
+}
+
+.sm-icon{
+  display: none;
+
+}
+
+
+
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .card-item-order{
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+    
+
+  }
+
+  .sm-text{
+    position: relative;
+    align-items: start;
+    width: 100%;
+    
+
+  }
+  .hide{
+    display: none;
+
+  }
+
+  .card-item {
+    width: 100%;
+    margin-bottom: 15px;
+    
+  }
+  /* .card-item {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 15px;
+} */
+
+  .main-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  .small-button {
+    position: relative;
+    width: 70%;
+    height:7vw;
+    margin-top: 15px;
+    right:0;
+    justify-content: center;
+    font-size: 3vw;
+  }
+
+.small-view{
+  flex-direction: column;
+    align-items: center;
+
+}
+
+.icons-underline-normal {
+    display: block;
+  }
+
+  .icons-underline-small {
+    display: none;
+  }
+
+  .sm-icon{
+  display: flex;
+}
+.nm-icon{
+  display: none;
+}
+}
+
+</style>

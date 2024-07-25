@@ -1,0 +1,41 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build --spa",
+    "dev": "nuxt dev --spa",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/icon": "^1.0.0",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@vueuse/core": "^10.10.0",
+    "@vueuse/nuxt": "^10.9.0",
+    "crypto-js": "^4.2.0",
+    "firebase": "^10.12.0",
+    "flowbite": "^2.3.0",
+    "flowbite-datepicker": "^1.2.6",
+    "nuxt": "^3.11.2",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "plyr": "^3.7.8",
+    "sass": "^1.77.2",
+    "scss": "^0.2.4",
+    "swiper": "^11.1.4",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2",
+    "vue3-carousel-nuxt": "^1.1.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@types/socket.io-client": "^3.0.0",
+    "autoprefixer": "^10.4.19",
+    "nuxt-swiper": "^1.2.2",
+    "postcss": "^8.4.38",
+    "socket.io-client": "^2.3.0"
+  }
+}

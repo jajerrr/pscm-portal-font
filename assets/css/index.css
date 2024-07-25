@@ -1,0 +1,449 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: DB-Heavent;
+    src: url(~/assets/fonts/DB-Heavent/DB-Heavent.ttf);
+}
+
+@font-face {
+    font-family: DB-Heavent-Med;
+    src: url(~/assets/fonts/DB-Heavent/DB-Heavent-Med.ttf);
+}
+
+@font-face {
+    font-family: Fredoka;
+    src: url(~/assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf);
+}
+
+
+@font-face {
+    font-family: DB-Heavent-Bold;
+    src: url(~/assets/fonts/DB-Heavent/DB-Heavent-Bold.ttf);
+}
+
+@font-face {
+    font-family: Inter-Black;
+    src: url(~/assets/fonts/Inter/Inter-Black.ttf);
+}
+
+@font-face {
+    font-family: Inter-Bold;
+    src: url(~/assets/fonts/Inter/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: Athiti-Bold;
+    src: url(~/assets/fonts/Athiti/Athiti-Bold.ttf);
+}
+
+@font-face {
+    font-family: Inter-ExtraBold;
+    src: url(~/assets/fonts/Inter/Inter-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: Inter-ExtraLight;
+    src: url(~/assets/fonts/Inter/Inter-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: Athiti-ExtraLight;
+    src: url(~/assets/fonts/Athiti/Athiti-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: Inter-Light;
+    src: url(~/assets/fonts/Inter/Inter-Light.ttf);
+}
+
+@font-face {
+    font-family: Athiti-Light;
+    src: url(~/assets/fonts/Athiti/Athiti-Light.ttf);
+}
+
+@font-face {
+    font-family: Inter-Medium;
+    src: url(~/assets/fonts/Inter/Inter-Medium.ttf);
+}
+
+@font-face {
+    font-family: Athiti-Medium;
+    src: url(~/assets/fonts/Athiti/Athiti-Medium.ttf);
+}
+
+@font-face {
+    font-family: Inter-Regular;
+    src: url(~/assets/fonts/Inter/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: Athiti-Regular;
+    src: url(~/assets/fonts/Athiti/Athiti-Regular.ttf);
+}
+
+@font-face {
+    font-family: Inter-SemiBold;
+    src: url(~/assets/fonts/Inter/Inter-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Athiti-SemiBold;
+    src: url(~/assets/fonts/Athiti/Athiti-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Inter-Thin;
+    src: url(~/assets/fonts/Inter/Inter-Thin.ttf);
+}
+
+
+@font-face {
+    font-family: SF-Pro;
+    src: url(~/assets/fonts/SF-Pro/SF-Pro.ttf);
+}
+
+@font-face {
+    font-family: SF-Semi;
+    src: url(~/assets/fonts/SF-Pro/SFProText-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: SF-Med;
+    src: url(~/assets/fonts/SF-Pro/SFProText-Medium.ttf);
+}
+
+
+@font-face {
+    font-family: SF-Light;
+    src: url(~/assets/fonts/SF-Pro/SFProText-Light.ttf);
+}
+@font-face {
+    font-family: SF-Heavy;
+    src: url(~/assets/fonts/SF-Pro/SFProText-Heavy.ttf);
+}
+@font-face {
+    font-family: SF-Bold;
+    src: url(~/assets/fonts/SF-Pro/SFProText-Bold.ttf);
+}
+
+@font-face {
+    font-family: SF-TH-Semi;
+    src: url(~/assets/fonts/SF-Pro/SF-TH-Semi.ttf);
+}
+
+@font-face {
+    font-family: SF-TH;
+    src: url(~/assets/fonts/SF-Pro/SFProTH.woff2);
+}
+
+
+.Inter-Black {
+    font-family: Inter-Black
+}
+
+.Inter-Bold {
+    font-family: Inter-Bold, Athiti-Bold
+}
+
+.Inter-ExtraBold {
+    font-family: Inter-ExtraBold
+}
+
+.Inter-ExtraLight {
+    font-family: Inter-ExtraLight, Athiti-ExtraLight
+}
+
+.Inter-Light {
+    font-family: Inter-Light, Athiti-Light
+}
+
+.Inter-Medium {
+    font-family: Inter-Medium, Athiti-Medium
+}
+
+.Inter-Regular {
+    font-family: Inter-Regular, Athiti-Regular
+}
+
+.Inter-SemiBold {
+    font-family: Inter-SemiBold, Athiti-SemiBold
+}
+
+.Inter-Thin {
+    font-family: Inter-Thin
+}
+
+.DB-Heavent {
+    font-family: DB-Heavent
+}
+
+.DB-Heavent-Med {
+    font-family: DB-Heavent-Med
+}
+
+.DB-Heavent-Bold {
+    font-family: DB-Heavent-Bold
+}
+
+.Fredoka {
+    font-family: Fredoka
+}
+
+.SF-Pro {
+    font-family: SF-Pro
+}
+
+.SF-Semi {
+    font-family: SF-Semi
+}
+
+.SF-Med{
+    font-family: SF-Med
+}
+
+.SF-Light{
+    font-family: SF-Light
+}
+.SF-Heavy{
+    font-family: SF-Heavy
+}
+.SF-Bold {
+    font-family: SF-Bold
+
+}
+
+.SF-TH-Semi {
+    font-family: SF-TH-Semi , SF-Semi
+}
+
+.SF-TH {
+    font-family: SF-TH, SF-Pro
+}
+
+
+/* local css  */
+
+
+.header {
+    @apply text-[12px] text-[#FF7A00];
+}
+
+.th-header {
+    @apply  SF-TH-Semi text-[#2B2B2B] text-[150%];
+}
+
+.button-orange {
+    @apply bg-[#FF7A00] hover:bg-yellow-500 rounded-full text-center text-center text-white;
+}
+
+.image-type {
+    @apply h-auto object-cover;
+}
+
+.image-full{
+    @apply w-full h-auto;
+}
+
+.image-full-re{
+    @apply w-full h-auto relative;
+}
+
+.image-full-ab{
+    @apply w-full h-auto absolute object-cover;
+}
+
+.image-ab {
+    @apply absolute  h-auto object-cover;
+}
+
+.f-row{
+    @apply flex flex-row;
+}
+.f-col{
+    @apply flex flex-col;
+}
+.i-center {
+    @apply flex items-center;
+}
+
+.j-center {
+    @apply flex justify-center;
+}
+.g-center{
+    @apply grid justify-center;
+}
+
+.col-center {
+    @apply flex flex-col items-center justify-center;
+}
+
+.f-center{
+    @apply flex items-center justify-center;
+}
+
+.f-re {
+    @apply flex relative;
+}
+
+.f-ab {
+    @apply flex absolute;
+}
+
+.content-w-re{
+    @apply w-full h-auto relative;
+}
+.content-re{
+    @apply flex relative h-auto
+}
+
+/* css zone 1 */
+
+.first-main-content {
+    @apply w-full h-[60vw] bg-image relative overflow-hidden;
+}
+
+.bg-image {
+    @apply bg-[url("assets/images/ห้องสโม-1.svg")] bg-cover bg-center;
+}
+
+.z1-text {
+    @apply Fredoka text-white font-semibold ;
+}
+
+
+
+/* css zone 2 */
+
+.bt-orange {
+    @apply absolute text-white  bg-[#FF7A00] rounded-full;
+}
+
+.new-bt {
+    @apply text-[#FF7A00] bg-[#FFEBD9] rounded-full text-[8px] px-2.5 py-1 w-[4rem];
+}
+
+.z-2-text {
+    @apply text-[10%] SF-TH-Semi;
+}
+
+.z-2-date {
+    @apply text-[9%] text-[#797979] px-2
+}
+
+/* css zone 3 */
+.z-3-bt{
+    @apply rounded-full flex items-center justify-center bg-white shadow text-[10px];
+}
+
+.img-z-3-col {
+    @apply h-auto w-[100px] rounded-lg;
+}
+
+/* css zone 4 */
+.rank-card-content {
+    @apply flex relative justify-center SF-TH-Semi;
+    padding-inline: 10%;
+    margin-inline: 10%;
+
+}
+
+.num-rank{
+    @apply text-[180px] text-[#F3F7FD] font-bold z-30 mt-[60px];
+    -webkit-text-stroke: 2px #ff7a00;
+}
+
+.card-rank {
+    @apply w-[150px] h-[200px] max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white shadow-xl rounded-[15px];
+    margin-left: -30px;
+}
+
+.card-img {
+    @apply mx-auto w-[90px] h-[90px] relative mt-[15%] rounded-full overflow-hidden;
+}
+
+.z-4-img {
+    @apply object-cover object-center h-full;
+}
+
+.score{
+    @apply SF-TH-Semi text-[#FF7A00]
+}
+
+.name{
+    @apply text-xl SF-TH-Semi;
+    
+}
+
+
+/* css zone 6 */
+
+.container-z6{
+    @apply container md:max-w-xl p-6 rounded-lg shadow bg-[linear-gradient(280deg,rgb(255_255_255),rgb(232_220_254))];
+/*  max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-xl */
+}
+
+.carder-header-z6{
+    @apply text-[#FF7A00] SF-TH-Semi mb-3 text-lg tracking-tight text-[#2B2B2B] ;
+}
+
+.card-desc-z6{
+    @apply mb-3 SF-TH text-[#2B2B2B] text-xs;
+}
+
+.w-1-2-center {
+    @apply flex w-1/2 h-auto justify-center items-center;
+
+}
+
+/* css zone 7 */
+
+.container-z7{
+    @apply container h-full max-w-sm p-6 bg-white border rounded-lg shadow;
+}
+
+.card-head-z7{
+    @apply SF-TH-Semi mb-3 text-base tracking-tight text-[#2B2B2B];
+}
+
+.card.desc.z7{
+    @apply mb-3 SF-TH text-[#2B2B2B] text-sm;
+}
+
+/* css footer */
+.content-footer {
+    @apply w-full h-[30vw] bg-transparent relative overflow-hidden
+}
+
+.container-footer{
+    @apply flex  justify-start w-full relative text-white mt-[10%];
+}
+
+.footer-text{
+    @apply SF-TH text-[13px] text-white;
+}
+
+.col-footer {
+    @apply flex flex-col gap-3 mt-[25px];
+}
+
+.header-footer{
+    @apply SF-TH-Semi text-[20px] text-white;
+}
+
+.icon-z-8{
+    @apply w-7 h-7;
+}
+
+.content-footer-2{
+    @apply mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8;
+}
+
+.container-footer-2{
+    @apply grid grid-cols-2 sm:gap-6 sm:grid-cols-3 mt-[10%];
+}
+
+.bg-footer-image {
+    @apply bg-[url("assets/images/wave-footer.svg")] bg-cover w-full h-auto ;
+}
