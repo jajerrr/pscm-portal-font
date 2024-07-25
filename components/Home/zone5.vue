@@ -6,7 +6,7 @@
         <h class="th-header text-[150%]">สื่อวิดีโอ</h>
       </div>
       <IconsUnderline />
-      <div class="flex w-full relative">
+      <div class="flex w-screen relative m-[5%]">
         <Swiper
           class="w-full h-full"
           :modules="[SwiperAutoplay, SwiperEffectCoverflow, SwiperPagination]"
@@ -15,8 +15,8 @@
           :centeredSlides="true"
           :slidesPerView="'auto'"
           :coverflowEffect="{
-            rotate: 0,
-            stretch: 0,
+            rotate: 5,
+            stretch: 10,
             depth: 100,
             modifier: 3,
             slideShadows: true,
@@ -24,15 +24,13 @@
           :pagination="true"
           :loop="true"
         >
-          <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
+          <SwiperSlide v-for="(slide, idx) in slides" :key="idx" class ="max-w-full">
             <img
               src="assets/images/zone5/video frame.png"
               alt=""
               class="w-full max-h-full"
             />
           </SwiperSlide>
-
-          <!-- useSwiper() within a swiper instance -->
           <SwiperControls />
           <div class="swiper-pagination"></div>
         </Swiper>
@@ -62,7 +60,7 @@ const slides = ref([
   width: 50% !important;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .swiper-pagination-bullet {
@@ -76,6 +74,6 @@ const slides = ref([
   opacity: 1;
 }
 .swiper-3d {
-  perspective: 200px;
+  perspective: 50%;
 }
 </style>
