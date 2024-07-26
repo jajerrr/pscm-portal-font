@@ -15,7 +15,7 @@
           :centeredSlides="true"
           :slidesPerView="'auto'"
           :coverflowEffect="{
-            rotate: 5,
+            rotate: 0,
             stretch: 10,
             depth: 100,
             modifier: 3,
@@ -73,7 +73,7 @@ const slides = ref([
   background: #005194;
   opacity: 1;
 }
-.swiper-3d {
+/* .swiper-3d {
   perspective: 50%;
-}
+} */
 </style>

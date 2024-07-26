@@ -304,12 +304,31 @@
     @apply w-full h-[60vw] bg-image relative overflow-hidden;
 }
 
+
 .bg-image {
     @apply bg-[url("assets/images/ห้องสโม-1.svg")] bg-cover bg-center;
 }
 
 .z1-text {
     @apply Fredoka text-white font-semibold ;
+}
+.z1-header {
+    @apply Fredoka text-white font-semibold text-[7vw] ;
+}
+.z1-name-layout{
+    @apply ml-[10%] mt-[20%];
+}
+.img-women{
+    @apply image-ab top-[18%] right-[5%] w-[23%];
+}
+.img-men{
+    @apply image-ab top-[13%] right-[18%] w-[25%];
+}
+.bt-z1 {
+    @apply z1-text button-orange text-[2vw] px-[4%] py-[1%] ;
+}
+.botton-transparent {
+    @apply bg-transparent hover:bg-yellow-500 z1-text border-[5px] px-5 py-3 rounded-[20px] text-center text-white text-[15px] ml-[40vw];
 }
 
 
@@ -343,24 +362,22 @@
 
 /* css zone 4 */
 .rank-card-content {
-    @apply flex relative justify-center SF-TH-Semi;
-    padding-inline: 10%;
-    margin-inline: 10%;
+    @apply flex relative justify-center SF-TH-Semi px-[3vw];
 
 }
 
 .num-rank{
-    @apply text-[180px] text-[#F3F7FD] font-bold z-30 mt-[60px];
+    @apply text-[15vw] text-[#F3F7FD] font-bold z-30 mt-[5.5vw];
     -webkit-text-stroke: 2px #ff7a00;
 }
 
 .card-rank {
-    @apply w-[150px] h-[200px] max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white shadow-xl rounded-[15px];
-    margin-left: -30px;
+    @apply  w-[13vw] h-[18vw] max-w-[30vw] mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white shadow-xl rounded-[15px];
+    margin-left:-3.5vw;
 }
 
 .card-img {
-    @apply mx-auto w-[90px] h-[90px] relative mt-[15%] rounded-full overflow-hidden;
+    @apply mx-auto w-[7vw] h-auto relative mt-[15%] rounded-full overflow-hidden;
 }
 
 .z-4-img {
@@ -368,11 +385,11 @@
 }
 
 .score{
-    @apply SF-TH-Semi text-[#FF7A00]
+    @apply SF-TH-Semi text-[#FF7A00] text-[1.5vw];
 }
 
 .name{
-    @apply text-xl SF-TH-Semi;
+    @apply text-[1.5vw] SF-TH-Semi;
     
 }
 

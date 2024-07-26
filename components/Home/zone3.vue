@@ -61,52 +61,56 @@
           <!-- ******** -->
 
           <div class="relative j-center z-[2]">
-            <div class="f-col gap-4 top-[15%] right-5 absolute container-sm">
-              <div>
-                <img
-                  class="img-z-3-col"
-                  src="assets/images/zone3/sm-photo.png"
-                />
-              </div>
-              <div>
-                <img
-                  class="img-z-3-col"
-                  src="assets/images/zone3/sm-photo.png"
-                />
-              </div>
-              <div>
+            <div class="f-col top-[4vw] right-[3vw] absolute max-w-[7vw]">
+              <div class="space-y-4">
                 <img
                   class="img-z-3-col"
                   src="assets/images/zone3/sm-photo.png"
                   alt=""
                 />
-              </div>
-              <div class="f-center">
                 <img
-                  class="img-z-3-col relative"
-                  src="assets/images/zone3/morephoto.png"
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
                   alt=""
                 />
-                <p class="absolute text-white">+2</p>
+                <img
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
+                  alt=""
+                />
+                <img
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
+                  alt=""
+                />
+                <div class="f-center">
+                  <img
+                    class="img-z-3-col relative"
+                    src="assets/images/zone3/morephoto.png"
+                    alt=""
+                  />
+                  <p class="absolute text-white">+2</p>
+                </div>
               </div>
             </div>
+
             <div class="f-col absolute top-[10%] left-[5%] gap-1">
-              <p class="text-[20px] SF-TH-Semi">ห้องสโม</p>
-              <p class="text-[15px]">กิจกรรมภายในห้อง</p>
-              <div class="f-row">
+              <p class="text-[2vw] SF-TH-Semi">ห้องสโม</p>
+              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
+              <div class="f-row gap-5">
                 <div class="f-col f-center">
                   <img
                     src="assets/images/iconzone3-1.svg"
                     class="w-[60%] h-auto"
                   />
-                  <p class="text-[6px]">นิทรรศการอวัยวะ</p>
+                  <p class="text-[1vw]">นิทรรศการอวัยวะ</p>
                 </div>
                 <div class="f-col f-center">
                   <img
                     src="assets/images/iconzone3-2.svg"
                     class="w-[60%] h-auto"
                   />
-                  <p class="text-[6px]">เรียนรู้อวัยวะต่างๆ</p>
+                  <p class="text-[1vw]">เรียนรู้อวัยวะต่างๆ</p>
                 </div>
               </div>
             </div>
