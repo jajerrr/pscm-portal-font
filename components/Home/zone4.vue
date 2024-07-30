@@ -1,9 +1,9 @@
 <template>
-  <div class="content-w-re  mb-[5%]">
+  <div class="content-w-re  mb-[10%]">
     <div class="f-col f-center mb-[5%]">
       <h class="header">Ranking</h>
       <div class="j-center flex-glow w-full px-[10%]">
-        <h class="text-[150%] th-header">จัดอันดับคะแนน</h>
+        <h class=" th-header">จัดอันดับคะแนน</h>
       </div>
       <IconsUnderline />
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[5%]">
+  <div class="content-w-re mt-[5%] mb-[10%]">
     <div class="f-col f-center mb-[5%]">
       <h class="header">3D Learning object</h>
       <div class="flex-glow j-center w-full px-[10%]">
@@ -10,11 +10,11 @@
 
     <div class="f-center  flex-container">
       <div
-        class="w-1-2-center card-container ml-[10%]"
+        class="w-1-2-center card-container ml-[10%] p-[6%]"
         v-for="(card, index) in detailCard"
         :key="index"
       >
-        <div class="container-z6 ">
+        <div class="container-z6 p-[15%]">
           <div class="carder-header-z6">{{ card.header }}</div>
           <div class="card-desc-z6">{{ card.desc }}</div>
         </div>
@@ -22,7 +22,7 @@
       <div class="w-1-2-center image-container">
         <img
           src="assets/images/zone6/heart_3d 1.png"
-          class="w-[250px] h-full uppercase"
+          class="w-[25vw] h-full uppercase"
         />
       </div>
     </div>

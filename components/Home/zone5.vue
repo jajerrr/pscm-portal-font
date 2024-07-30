@@ -1,9 +1,9 @@
 <template>
   <div class="content-w-re">
-    <div class="f-center f-col">
+    <div class="f-center f-col mb-[10%]">
       <h class="header">Media</h>
       <div class="f-center flex-glow w-full px-[10%]">
-        <h class="th-header text-[150%]">สื่อวิดีโอ</h>
+        <h class="th-header">สื่อวิดีโอ</h>
       </div>
       <IconsUnderline />
       <div class="flex w-screen relative m-[5%]">

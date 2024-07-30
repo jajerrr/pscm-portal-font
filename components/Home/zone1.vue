@@ -7,12 +7,18 @@
             src="assets/images/Rectangle 43068.svg"
             class="w-[15%] h-auto object-cover line-sm"
           />
-          <h1 class="z1-header z1-header2-sm">PSCM</h1>
+          <h1 class="z1-header2 z1-header2-sm">PSCM</h1>
         </div>
         <NuxtLink to="/">
           <button
             type="button"
-            class=" bt-z1"
+            class="bt-z1"
+          >
+            Get start
+          </button>
+          <button
+            type="button"
+            class="bt-z1-sm"
           >
             Get start
           </button>
@@ -35,6 +41,9 @@
 </template>
 
 <style>
+.bt-z1-sm{
+  display: none;
+}
 @media (max-width:680px){
   .sm {
     width: 100%;
@@ -67,6 +76,12 @@
   left:27vw;
   width: 27vh;
   top:35vh;
+}
+.bt-z1-sm{
+  display: flex;
+}
+.bt-z1{
+  display: none;
 }
 
 }

@@ -3,7 +3,7 @@
     <div class="col-center mt-[10%]">
       <h class="header">News</h>
       <div class="f-center flex-glow w-full relative small-view">
-        <h1 class="text-[150%] th-header">ข่าวสารประชาสัมพันธ์</h1>
+        <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
         <button
           type="button"
           class="absolute f-center button-orange right-[5%] SF-TH text-[30%] px-[3%] py-[1%] space-x-2 small-button"
@@ -19,7 +19,7 @@
         <IconsUnderline />
       </div>
     </div>
-    <img src="assets/images/zone2/Vector 88.svg" 
+    <img src="assets/images/zone2/Vector 88.svg"
     class="image-ab w-[35%] mt-[-40px] hide" />
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
     <div class="f-center" style="max-width: 2000px">
@@ -224,11 +224,11 @@
 }
 
 .icons-underline-normal {
-    display: block;
+    display: none;
   }
 
-  .icons-underline-small {
-    display: none;
+.icons-underline-small {
+    display: block;
   }
 
   .sm-icon{

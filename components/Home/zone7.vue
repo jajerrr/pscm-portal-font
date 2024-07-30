@@ -1,8 +1,8 @@
 <template>
   <div class="content-w-re mb-[15%]">
-    <div class="f-col f-center mb-[5%] mt-[5%]">
+    <div class="f-col f-center mb-[15%] mt-[5%]">
       <h class="header">Our service</h>
-      <h1 class="th-header">บริการของเรา</h1>
+      <h1 class="th-header text-[2vw]">บริการของเรา</h1>
       <IconsUnderline />
     </div>
 

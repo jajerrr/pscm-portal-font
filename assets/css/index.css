@@ -227,7 +227,7 @@
 
 
 .header {
-    @apply text-[12px] text-[#FF7A00];
+    @apply text-[90%] text-[#FF7A00];
 }
 
 .th-header {
@@ -315,8 +315,11 @@
 .z1-header {
     @apply Fredoka text-white font-semibold text-[7vw] ;
 }
+.z1-header2 {
+    @apply Fredoka text-white font-semibold text-[10vw] ;
+}
 .z1-name-layout{
-    @apply ml-[10%] mt-[20%];
+    @apply ml-[10%] mt-[18%];
 }
 .img-women{
     @apply image-ab top-[18%] right-[5%] w-[23%];
@@ -327,8 +330,8 @@
 .bt-z1 {
     @apply z1-text button-orange text-[2vw] px-[4%] py-[1%] ;
 }
-.botton-transparent {
-    @apply bg-transparent hover:bg-yellow-500 z1-text border-[5px] px-5 py-3 rounded-[20px] text-center text-white text-[15px] ml-[40vw];
+.bt-z1-sm {
+    @apply bg-transparent hover:bg-yellow-500 z1-text border-[4px] px-4 py-2 rounded-[20px] text-center text-white text-[4vw] ml-[40vw];
 }
 
 
@@ -402,11 +405,11 @@
 }
 
 .carder-header-z6{
-    @apply text-[#FF7A00] SF-TH-Semi mb-3 text-lg tracking-tight text-[#2B2B2B] ;
+    @apply text-[#FF7A00] SF-TH-Semi mb-3 text-[150%] tracking-tight;
 }
 
 .card-desc-z6{
-    @apply mb-3 SF-TH text-[#2B2B2B] text-xs;
+    @apply mb-3 SF-TH text-[#2B2B2B] text-[80%];
 }
 
 .w-1-2-center {

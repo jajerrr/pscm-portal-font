@@ -1,13 +1,13 @@
 <template>
-  <div class="content-w-re">
+  <div class="content-w-re ">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
-      <li class="text-[150%]">รอบรู้กับ</li>
-      <p class="text-[100%]">ราชวิทยาลัยจุฬาพรณ์</p>
+      <li class="th-header">รอบรู้กับ</li>
+      <p class="text-[1vw]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
-    <div class="f-center mt-[10%] mb-[10%] z-[13]">
+    <div class="f-center mt-[5%] mb-[20%] z-[13]">
       <div class="j-center items-stretch h-auto mt-[10%]">
         <div class="absolute w-1/2 mt-[-10%]">
-          <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 2000px">
+          <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
             <img
               src="assets/images/zone3/lift-zone3.svg"
               class="image-full-ab"
@@ -101,14 +101,14 @@
                 <div class="f-col f-center">
                   <img
                     src="assets/images/iconzone3-1.svg"
-                    class="w-[60%] h-auto"
+                    class="w-[50%] h-auto"
                   />
                   <p class="text-[1vw]">นิทรรศการอวัยวะ</p>
                 </div>
                 <div class="f-col f-center">
                   <img
                     src="assets/images/iconzone3-2.svg"
-                    class="w-[60%] h-auto"
+                    class="w-[50%] h-auto"
                   />
                   <p class="text-[1vw]">เรียนรู้อวัยวะต่างๆ</p>
                 </div>
@@ -130,7 +130,7 @@
     />
     <img
       src="assets/images/zone3/Clip path group.svg"
-      class="image-ab top-[-20%] right-[-8%] w-[35%] z-[1]"
+      class="image-ab top-[-25%] right-[-8%] w-[30%] z-[1]"
       alt="right"
     />
 
