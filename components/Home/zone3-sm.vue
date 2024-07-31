@@ -10,8 +10,7 @@
         <div class="f-re text-white SF-TH-Semi gap-3">
           <div
             class="f-col SF-TH bg-[#FF7A00] hover:bg-yellow-500 f-center w-[15vw] h-[15vw] rounded-[10px]"
-            v-for="(id, index) in floorNumber"
-        :key="index"
+            v-for="(id, index) in floorNumber" :key="index"
           >
             <h class ="text-[3vw]">{{ id.header }}</h>
             <h

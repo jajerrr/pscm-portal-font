@@ -156,7 +156,7 @@
 .content-sm{
     display:none;
   }
-@media (max-width:750px) {
+@media (max-width:700px) {
 
   .content-sm{
     display:contents;

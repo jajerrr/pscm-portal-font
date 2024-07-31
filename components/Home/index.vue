@@ -1,45 +1,49 @@
 <template>
   <!-----------------------------------body-------------------------------------->
 
-  <div class="w-full h-auto relative text-[#2B2B2B]  SF-TH overflow-hidden">
+  <div class="w-full h-auto relative text-[#2B2B2B] SF-TH overflow-hidden">
     <!-----------------------------------navbar------------------------------------>
     <HomeNavbar />
-     <!-- <HomeNavbarSm /> -->
+    <!-- <HomeNavbarSm /> -->
 
     <!-----------------------------------first content ---------------------------->
 
     <HomeZone1 />
 
     <!---------------------------------- second content --------------------------->
-    
-      <HomeZone2 />
-      
+
+    <HomeZone2 />
+
     <!-----------------------------------third content ---------------------------->
-    <div class = "bg-[#F3F7FD]">
-    <HomeZone3 />
+    <div class="bg-[#F3F7FD]">
+      <HomeZone3 />
 
-    <!-----------------------------------forth content ---------------------------->
+      <!-----------------------------------forth content ---------------------------->
 
-    <HomeZone4 />
+      <HomeZone4 />
 
-    <!-----------------------------------fiv content ---------------------------->
+      <!-----------------------------------fiv content ---------------------------->
 
-    <HomeZone5 />
+      <HomeZone5 />
 
-    <!-----------------------------------six content ------------------------------>
+      <!-----------------------------------six content ------------------------------>
 
-    <HomeZone6 />
+      <HomeZone6 />
 
-    <!-----------------------------------seven content ---------------------------->
-    <HomeZone7 />
+      <!-----------------------------------seven content ---------------------------->
+      <HomeZone7 />
 
-    <!----------------------------------footer content ---------------------------->
-    <HomeFooter2 />
-    <!-- <HomeFooter /> -->
-  </div>
+      <!----------------------------------footer content ---------------------------->
+      <HomeFooter2 />
+      <!-- <HomeFooter /> -->
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+
+
+
+</script>
 
 <style></style>
