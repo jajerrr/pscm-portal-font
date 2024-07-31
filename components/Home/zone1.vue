@@ -44,7 +44,7 @@
 .bt-z1-sm{
   display: none;
 }
-@media (max-width:680px){
+@media (max-width:700px){
   .sm {
     width: 100%;
     height: 90vh;

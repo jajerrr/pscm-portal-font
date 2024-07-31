@@ -1,5 +1,8 @@
 <template>
-  <div class="content-w-re ">
+  <div class = 'content-sm'>
+  <HomeZone3Sm />
+  </div>
+  <div class="content-w-re content-nm">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[1vw]">ราชวิทยาลัยจุฬาพรณ์</p>
@@ -148,4 +151,19 @@
   </div>
 </template>
 
-<style></style>
+<style>
+
+.content-sm{
+    display:none;
+  }
+@media (max-width:750px) {
+
+  .content-sm{
+    display:contents;
+  }
+  .content-nm{
+    display:none;
+  }
+  
+}
+</style>
