@@ -31,6 +31,7 @@
             </div>
           </div>
         </div>
+      </div>
 
         <!-- <div class="flex ml-[-3vw] z-[28] w-full">
           <h class="num-rank">2</h>
@@ -123,7 +124,7 @@
           </div>
         </div> -->
 
-      </div>
+      
     </div>
   </div>
 </template>

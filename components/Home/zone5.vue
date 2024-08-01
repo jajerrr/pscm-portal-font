@@ -9,7 +9,7 @@
       <div class="flex w-screen relative m-[5%]">
         <Swiper
           class="w-full h-full"
-          :modules="[SwiperAutoplay, SwiperEffectCoverflow, SwiperPagination]"
+          :modules="[SwiperEffectCoverflow, SwiperPagination]"
           :effect="'coverflow'"
           :grabCursor="true"
           :centeredSlides="true"
@@ -32,7 +32,7 @@
             />
           </SwiperSlide>
           <SwiperControls />
-          <div class="swiper-pagination"></div>
+          <!-- <div class="swiper-pagination"></div> -->
         </Swiper>
       </div>
     </div>
@@ -70,10 +70,8 @@ const slides = ref([
 }
 
 .swiper-pagination-bullet-active {
-  background: #005194;
+  background: #0a1962;
   opacity: 1;
 }
-/* .swiper-3d {
-  perspective: 50%;
-} */
+
 </style>
