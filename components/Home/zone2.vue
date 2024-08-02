@@ -4,6 +4,9 @@
       <h class="header">News</h>
       <div class="f-center flex-glow w-full relative small-view">
         <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
+        <div class="icons-underline-small">
+        <IconsUnderline />
+      </div>
         <button
           type="button"
           class="absolute f-center button-orange right-[5%] SF-TH text-[30%] px-[3%] py-[1%] space-x-2 small-button"
@@ -15,9 +18,7 @@
       <div class="icons-underline-normal">
         <IconsUnderline />
       </div>
-      <div class="icons-underline-small">
-        <IconsUnderline />
-      </div>
+      
     </div>
     <img src="assets/images/zone2/Vector 88.svg"
     class="image-ab w-[35%] mt-[-40px] hide" />

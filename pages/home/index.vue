@@ -5,8 +5,10 @@
 </template>
 
 <script setup>
-const swiper = useSwiper()
-</script>
+// import { HomeOndrag } from '#build/components';
+
+// const swiper = useSwiper()
+// </script>
 
 <style lang="scss" scoped></style>
 

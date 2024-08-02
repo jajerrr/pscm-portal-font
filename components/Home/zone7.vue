@@ -57,13 +57,12 @@ const serviceCard = ref([
   flex-direction: row;
 
 }
-
 .card-item {
   flex: 1;
   min-width: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .card-container {
     flex-direction: column;
     align-items: center;

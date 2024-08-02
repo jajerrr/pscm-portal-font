@@ -1,5 +1,8 @@
 <template>
-  <div class="content-w-re">
+  <div class = 'content-sm'>
+  <HomeZone5Sm />
+  </div>
+  <div class="content-w-re content-nm">
     <div class="f-center f-col mb-[10%]">
       <h class="header">Media</h>
       <div class="f-center flex-glow w-full px-[10%]">
@@ -24,7 +27,7 @@
           :pagination="true"
           :loop="true"
         >
-          <SwiperSlide v-for="(slide, idx) in slides" :key="idx" class ="max-w-full">
+          <SwiperSlide v-for="(slide, idx) in slides" :key="idx" class ="max-w-full" style="width: 50% !important;">
             <img
               src="assets/images/zone5/video frame.png"
               alt=""
@@ -57,7 +60,6 @@ const slides = ref([
   align-items: center;
   font-size: 18px;
   height: 100%;
-  width: 50% !important;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
   border-radius: 30px;
@@ -74,4 +76,17 @@ const slides = ref([
   opacity: 1;
 }
 
+.content-sm{
+    display:none;
+  }
+@media (max-width:600px) {
+
+  .content-sm{
+    display:contents;
+  }
+  .content-nm{
+    display:none;
+  }
+  
+}
 </style>

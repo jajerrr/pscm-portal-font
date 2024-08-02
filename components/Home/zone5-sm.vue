@@ -6,7 +6,7 @@
           <h class="th-header">สื่อวิดีโอ</h>
         </div>
         <IconsUnderline />
-        <div class="flex w-screen relative m-[5%]">
+        <div class="flex w-screen relative m-[10%]">
           <Swiper
             class="w-full h-full"
             :modules="[SwiperPagination]"
@@ -15,7 +15,7 @@
             :spaceBetween="10"
             :pagination="true"
           >
-            <SwiperSlide v-for="(slide, idx) in slides" :key="idx" class ="max-w-full">
+            <SwiperSlide v-for="(slide, idx) in slides" :key="idx"  style="width: 90%;">
               <img
                 src="assets/images/zone5/video frame.png"
                 alt=""
@@ -49,7 +49,6 @@
     align-items: center;
     font-size: 18px;
     height: 100%;
-    width: 90% !important;
     font-weight: bold;
     font-family: "Roboto", sans-serif;
     border-radius: 30px;

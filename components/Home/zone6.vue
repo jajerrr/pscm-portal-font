@@ -8,7 +8,7 @@
       <IconsUnderline />
     </div>
 
-    <div class="f-center  flex-container">
+    <div class="f-center flex-container mt-[10%]">
       <div
         class="w-1-2-center card-container ml-[10%] p-[6%]"
         v-for="(card, index) in detailCard"
@@ -20,10 +20,8 @@
         </div>
       </div>
       <div class="w-1-2-center image-container">
-        <img
-          src="assets/images/zone6/heart_3d 1.png"
-          class="w-[25vw] h-full uppercase"
-        />
+        <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
+        <img src="assets/images/zone6/heart_3d 1.png" class="img-sm-z6" />
       </div>
     </div>
   </div>
@@ -43,8 +41,10 @@ const detailCard = ref([
   display: flex;
   flex-direction: row;
 }
-
-@media (max-width: 650px) {
+.img-sm-z6 {
+  display: none;
+}
+@media (max-width: 600px) {
   .flex-container {
     flex-direction: column;
   }
@@ -60,6 +60,15 @@ const detailCard = ref([
     margin-left: 0;
     padding-inline: 5%;
     margin-inline: 5%;
+  }
+  .img-sm-z6 {
+    display: flex;
+    width: 50vw;
+    height: 100%;
+    text-transform: uppercase;
+  }
+  .img-nm-z6 {
+    display: none;
   }
 }
 </style>

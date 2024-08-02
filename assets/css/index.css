@@ -418,6 +418,10 @@
 
 }
 
+.img-nm-z6 {
+    @apply w-[30vw] h-full uppercase max-w-md;
+}
+
 /* css zone 7 */
 
 .container-z7{

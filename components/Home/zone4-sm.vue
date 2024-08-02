@@ -6,16 +6,15 @@
         <h class="th-header">จัดอันดับคะแนน</h>
       </div>
       <IconsUnderline />
-      <div class="flex w-screen relative m-[5%]">
+      <div class="flex w-screen relative m-[10%]">
         <Swiper
-        :module ="[SwiperNavigation]"
-          :centeredSlides="true"
-          :slidesPerView="'auto'"
-          :effect ="'navigation'"
+            :centeredSlides="true"
+            :slidesPerView="'auto'"
+            :spaceBetween="10"
         >
           <!-- <div class="swiper-wrapper"> -->
-          <SwiperSlide v-for="(card, index) in cards" :key="index" class="swiper-card">
-            <div class="card ">
+          <SwiperSlide v-for="(card, index) in cards" :key="index" style="width: 50%;">
+            <div class="card">
               <img src="assets/images/zone4/rank-img.svg" alt="Card image" class="p-[10%]" />
               <div class="card-content">
                 <h3>{{ card.name }}</h3>
@@ -26,9 +25,6 @@
               </div>
             </div>
           </SwiperSlide>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          
           <!-- </div> -->
         </Swiper>
       </div>
@@ -72,13 +68,12 @@ const cards = ref([
 <style>
 
 
-.swiper-card {
+
+.swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 50% !important;
-
 }
 
 .card {
@@ -89,12 +84,15 @@ const cards = ref([
 }
 
 .card img {
-  width: auto;
-  height: 200px;
+  width: 100%;
+  height: 20%;
   object-fit: cover;
 }
 
-
+.card-content {
+  padding: 10px;
+  justify-items: center;
+}
 
 .card-content h3 {
   margin: 0 0 10px;
@@ -115,17 +113,5 @@ const cards = ref([
   width: 40px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
   margin-right: 10px;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #000;
-  top: 50%;
-  width: 27px;
-  height: 44px;
-  margin-top: -22px;
-  z-index: 10;
-  cursor: pointer;
-  display: block;
 }
 </style>

@@ -1,5 +1,8 @@
 <template>
-  <div class="content-w-re  mb-[10%]">
+   <div class = 'content-sm'>
+  <HomeZone4Sm />
+  </div>
+  <div class="content-w-re  mb-[10%] content-nm">
     <div class="f-col f-center mb-[5%]">
       <h class="header">Ranking</h>
       <div class="j-center flex-glow w-full px-[10%]">
@@ -163,6 +166,20 @@ const rankCard = ref([
 </script>
 
 <style scoped>
+
+.content-sm{
+    display:none;
+  }
+@media (max-width:600px) {
+
+  .content-sm{
+    display:contents;
+  }
+  .content-nm{
+    display:none;
+  }
+  
+}
 
 @media (max-width:1024px){
   .num-normal{

@@ -73,6 +73,9 @@ const cards = ref([
 .swiper-slide {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80% !important;
   
 }
 
@@ -91,6 +94,7 @@ const cards = ref([
 
 .card-content {
   padding: 10px;
+  justify-items: center;
 }
 
 .card-content h3 {
@@ -100,7 +104,7 @@ const cards = ref([
 
 .card-content p {
   margin: 0;
-  color: #666;
+  color: #FF7A00;
 }
 
 .inline-content {
