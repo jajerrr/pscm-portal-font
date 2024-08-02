@@ -1,14 +1,14 @@
 <template>
-  <img
+  <!-- <img
     src="assets/images/top-linear.svg"
-    class="fixed z-40 top-0 left-0 w-full"
+    class="fixed z-40 top-0 left-0 w-full "
     alt="top"
-  />
+  /> -->
   <div class="nav-small">
     <HomeNavbarSm />
   </div>
   <nav
-    class="fixed top-0 left-0 z-50 w-full flex p-3 space-x-3 justify-center items-center bg-transparent text-white SF-TH nav-normal"
+    class="fixed top-0 left-0 z-50 w-full flex p-3 space-x-3 justify-center items-center bg-nav text-white SF-TH nav-normal"
   >
     <img
       src="assets/images/pscm-logo.png"

@@ -1,5 +1,8 @@
 <template>
-  <div class="content-w-re mb-[15%]">
+  <div class = 'content-sm'>
+  <HomeZone7Sm />
+  </div>
+  <div class="content-w-re mb-[15%] content-nm">
     <div class="f-col f-center mb-[15%] mt-[5%]">
       <h class="header">Our service</h>
       <h1 class="th-header text-[2vw]">บริการของเรา</h1>
@@ -62,17 +65,19 @@ const serviceCard = ref([
   min-width: 0;
 }
 
-@media (max-width: 600px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-    padding-inline: 10%;
-    margin-inline: 5%;
+.content-sm{
+    display:none;
   }
+  
+@media (max-width:600px) {
 
-  .card-item {
-    width: 100%;
-    margin-bottom: 15px;
+  .content-sm{
+    display:contents;
   }
+  .content-nm{
+    display:none;
+  }
+  
 }
+
 </style>

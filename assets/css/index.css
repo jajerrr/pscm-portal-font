@@ -225,6 +225,10 @@
 
 /* local css  */
 
+.bg-nav{
+    @apply bg-[linear-gradient(180deg,rgba(32,45,65,1)_0%,rgba(43,66,101,0)_100%)];
+
+}
 
 .header {
     @apply text-[90%] text-[#FF7A00];
