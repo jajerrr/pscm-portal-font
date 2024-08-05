@@ -226,7 +226,7 @@
 /* local css  */
 
 .bg-nav{
-    @apply bg-[linear-gradient(180deg,rgba(32,45,65,1)_0%,rgba(43,66,101,0)_100%)];
+    @apply bg-[linear-gradient(180deg,rgba(32,45,65,1)_0%,rgba(43,66,101,0.06206232492997199)_100%)];
 
 }
 
@@ -374,7 +374,7 @@
 }
 
 .num-rank{
-    @apply text-[15vw] text-[#F3F7FD]  z-30 ml-[-1vw]  mt-[6vw];
+    @apply text-[15vw] text-[#F3F7FD]  z-30 ml-[-3vw]  mt-[6vw];
     -webkit-text-stroke: 2px #ff7a00;
     
 }
@@ -389,7 +389,7 @@
 }
 
 .z-4-img {
-    @apply object-cover object-center h-full;
+    @apply object-cover object-center h-auto;
 }
 
 .score{

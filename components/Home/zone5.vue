@@ -58,10 +58,7 @@ const slides = ref([
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
   height: 100%;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
   border-radius: 30px;
 }
 
@@ -79,7 +76,7 @@ const slides = ref([
 .content-sm{
     display:none;
   }
-@media (max-width:600px) {
+@media (max-width:650px) {
 
   .content-sm{
     display:contents;

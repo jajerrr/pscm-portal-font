@@ -47,10 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
     height: 100%;
-    font-weight: bold;
-    font-family: "Roboto", sans-serif;
     border-radius: 30px;
   }
   

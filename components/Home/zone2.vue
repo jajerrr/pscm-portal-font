@@ -165,7 +165,7 @@
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .card-container {
     flex-direction: column;
     align-items: center;

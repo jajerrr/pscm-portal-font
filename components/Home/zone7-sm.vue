@@ -15,7 +15,7 @@
         >
         <SwiperSlide class="relative  mx-[10px] card-item"
             v-for="(card, index) in serviceCard"
-            :key="index" style="width: 80%;">
+            :key="index" style="width: 60%;">
             <div class="container-z7">
               <IconsZone7-1 v-if="card.icon == 1" />
               <IconsZone7-2 v-if="card.icon == 2" />

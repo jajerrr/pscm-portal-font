@@ -44,7 +44,7 @@ const detailCard = ref([
 .img-sm-z6 {
   display: none;
 }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .flex-container {
     flex-direction: column;
   }

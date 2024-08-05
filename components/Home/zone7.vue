@@ -22,8 +22,8 @@
             <IconsZone7-2 v-if="card.icon == 2" />
             <IconsZone7-1 v-if="card.icon == 3" />
 
-            <div class="card-head-z7">{{ card.header }}</div>
-            <div class="card-desc-z7">{{ card.desc }}</div>
+            <div class="card-head-z7 SF-TH">{{ card.header }}</div>
+            <div class=" SF-TH">{{ card.desc }}</div>
             <div class="flex w-full">
               <IconsAllowupright />
             </div>
@@ -69,7 +69,7 @@ const serviceCard = ref([
     display:none;
   }
   
-@media (max-width:600px) {
+@media (max-width:650px) {
 
   .content-sm{
     display:contents;

@@ -1,9 +1,4 @@
 <template>
-  <!-- <img
-    src="assets/images/top-linear.svg"
-    class="fixed z-40 top-0 left-0 w-full "
-    alt="top"
-  /> -->
   <div class="nav-small">
     <HomeNavbarSm />
   </div>
