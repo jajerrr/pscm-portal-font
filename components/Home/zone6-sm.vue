@@ -16,7 +16,6 @@
         :centeredSlides="true"
         :slidesPerView="1"
         :spaceBetween="10"
-     
         :navigation="true"
         :thumbs="{ swiper: swiperRef2 }"
       >
@@ -30,7 +29,6 @@
             <div class="card-desc-z6">{{ card.desc }}</div>
           </div>
         </SwiperSlide>
-        
       </Swiper>
 
       <!-- Thumbs Swiper -->
