@@ -10,16 +10,14 @@
     <div class="flex">
       <!-- Main Swiper -->
       <Swiper
-        ref="swiperRef1"
-        class="main-swiper w-1-2-center h-auto container-z6 p-[10%]"
-        :modules="[Navigation, Thumbs]"
-        :centeredSlides="true"
+        @swiper="setSwiperRef"
+        class="main-swiper w-1-2-center h-auto container-z6 "
+        style="width: 50%; height: 50%; margin-left: 5%; margin-top: 10%; margin-right: 5%;"
+        :modules="[Thumbs]"
         :slidesPerView="1"
-        :spaceBetween="10"
-        :navigation="true"
-        :thumbs="{ swiper: swiperRef2 }"
+        
       >
-        <SwiperSlide
+      <SwiperSlide
           class="card-container p-[10%]"
           v-for="(card, index) in detailCard"
           :key="index"
@@ -29,24 +27,46 @@
             <div class="card-desc-z6">{{ card.desc }}</div>
           </div>
         </SwiperSlide>
+        <!-- <SwiperSlide
+          class="image-container"
+          v-for="(index) in detailCard"
+          :key="index"
+        >
+          <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
+        </SwiperSlide> -->
       </Swiper>
 
       <!-- Thumbs Swiper -->
-      <!-- <Swiper
-        @swiper="setSwiperRef"
-        class="thumbs-swiper w-1-2-center h-auto test-1"
-        :modules="[Thumbs]"
+
+      <Swiper
+        ref="swiperRef1"
+        class="thumbs-swiper w-1-2-center h-auto"
+        :modules="[Navigation, Thumbs]"
+        :centeredSlides="true"
         :slidesPerView="1"
-        
+        :spaceBetween="10"
+        :navigation="true"
+        :thumbs="{ swiper: swiperRef2 }"
       >
-        <SwiperSlide
+      <SwiperSlide
           class="image-container"
           v-for="(index) in detailCard"
           :key="index"
         >
           <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
         </SwiperSlide>
-      </Swiper> -->
+        <!-- <SwiperSlide
+          class="card-container p-[10%]"
+          v-for="(card, index) in detailCard"
+          :key="index"
+        >
+          <div class="">
+            <div class="carder-header-z6">{{ card.header }}</div>
+            <div class="card-desc-z6">{{ card.desc }}</div>
+          </div>
+        </SwiperSlide> -->
+      </Swiper>
+      
     </div>
   </div>
 </template>
@@ -85,7 +105,7 @@ const setSwiperRef = (swiper) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 
@@ -93,16 +113,16 @@ const setSwiperRef = (swiper) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 20%;
   height: auto;
 }
 
 .image-container img {
-  width: 100%;
+  width: 70%;
   height: auto;
 }
 
-.button-container {
+/* .button-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -120,5 +140,5 @@ button {
 
 button:hover {
   background-color: #0056b3;
-}
+} */
 </style>

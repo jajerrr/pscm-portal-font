@@ -422,7 +422,7 @@
 }
 
 .card-desc-z6{
-    @apply mb-3 SF-TH text-[#2B2B2B] text-[80%];
+    @apply mb-3 SF-TH text-[#2B2B2B] text-[60%];
 }
 
 .w-1-2-center {
