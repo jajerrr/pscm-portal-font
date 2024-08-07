@@ -12,16 +12,19 @@
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
       </button>
-      <div :class="{'hidden': !isMenuOpen, 'block': isMenuOpen}" class="w-full" id="navbar-hamburger">
+      <div :class="{'hidden': !isMenuOpen, 'block': isMenuOpen}" class="w-full SF-TH" id="navbar-hamburger">
         <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
           <li>
-            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">หน้าแรก</a>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">หน้าแรก</a>
           </li>
           <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">ประชาสัมพันธ์</a>
+            <a href="#zone2" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">ประชาสัมพันธ์</a>
           </li>
           <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">เข้าสู่ระบบ</a>
+            <a href="#zone8" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">ติดต่อเรา</a>
+          </li>
+          <li>
+            <a href="" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">เข้าสู่ระบบ</a>
           </li>
         </ul>
       </div>

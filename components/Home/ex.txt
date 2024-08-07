@@ -1,0 +1,113 @@
+<template>
+    <div class="content-w-re mt-[5%] mb-[10%]">
+      <div class="f-col f-center mb-[5%]">
+        <h class="header">3D Learning object</h>
+        <div class="flex-glow j-center w-full px-[10%]">
+          <h class="th-header">วิทยาลัยสร้างสรรค์</h>
+        </div>
+        <IconsUnderline />
+      </div>
+      <div class="flex">
+        <Swiper
+        ref="swiperRef1"
+          class="container-z6 p-[10%] w-1-2-center h-auto"
+          style="margin: 5%"
+          :modules="[SwiperNavigation]"
+          :centeredSlides="true"
+          :slidesPerView="'auto'"
+          :spaceBetween="10"
+          :loop="true"
+          :navigation = "true"
+        
+        >
+          <SwiperSlide
+            class="card-container p-[10%]"
+            v-for="(card, index) in detailCard"
+            :key="index"
+          >
+            <div class="">
+              <div class="carder-header-z6">{{ card.header }}</div>
+              <div class="card-desc-z6">{{ card.desc }}</div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+        <Swiper
+        ref="swiperRef2"
+          class="w-1-2-center h-auto"
+          :centeredSlides="true"
+          :slidesPerView="'auto'"
+          :loop="true"
+          
+        >
+          <SwiperSlide
+            class="image-container"
+            v-for="(card, index) in detailCard"
+            :key="index"
+          >
+            <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      <div class="button-container">
+        <button @click="slidePrev">Previous</button>
+        <button @click="slideNext">Next</button>
+      </div>
+    </div>
+  </template>
+  
+  <script setup>
+import { Navigation } from 'swiper/modules';
+import { ref, onMounted } from 'vue';
+import 'swiper/swiper-bundle.css'
+
+const swiperRef1 = ref(null);
+const swiperRef2 = ref(null);
+
+  const detailCard = ref([
+    {
+      header: "หัวใจ1",
+      desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+    },
+    {
+      header: "หัวใจ2",
+      desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+    },
+    {
+      header: "หัวใจ3",
+      desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+    },
+  ]);
+  
+
+  </script>
+  
+  <style scoped>
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+  

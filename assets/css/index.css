@@ -374,7 +374,13 @@
 }
 
 .num-rank{
-    @apply text-[15vw] text-[#F3F7FD]  z-30 ml-[-3vw]  mt-[6vw];
+    @apply text-[15vw] text-[#F3F7FD] SF-Bold z-30 ml-[-3vw]  mt-[6vw];
+    -webkit-text-stroke: 2px #ff7a00;
+    
+}
+
+.num-rank-sm{
+    @apply text-[34vw] text-[#F3F7FD] SF-Bold z-30 ml-[-3vw]  mt-[25vh] font-medium;
     -webkit-text-stroke: 2px #ff7a00;
     
 }
@@ -395,7 +401,9 @@
 .score{
     @apply SF-TH-Semi text-[#FF7A00] text-[1.5vw];
 }
-
+.score-sm{
+    @apply SF-TH-Semi text-[#FF7A00] text-[4vw];
+}
 .name{
     @apply text-[1.5vw] SF-TH-Semi;
     
@@ -405,7 +413,7 @@
 /* css zone 6 */
 
 .container-z6{
-    @apply container md:max-w-xl p-6 rounded-lg shadow bg-[linear-gradient(280deg,rgb(255_255_255),rgb(232_220_254))];
+    @apply container md:max-w-xl p-8 rounded-lg shadow bg-[linear-gradient(280deg,rgb(255_255_255),rgb(232_220_254))];
 /*  max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-xl */
 }
 
@@ -423,7 +431,7 @@
 }
 
 .img-nm-z6 {
-    @apply w-[30vw] h-full uppercase max-w-md;
+    @apply w-[30vw] h-full uppercase max-w-md p-[5%];
 }
 
 /* css zone 7 */

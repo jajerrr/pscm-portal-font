@@ -10,30 +10,33 @@
         <Swiper
           :centeredSlides="true"
           :slidesPerView="'auto'"
-          :spaceBetween="10"
+          :spaceBetween="15"
         >
-          <SwiperSlide 
+          <SwiperSlide
             v-for="(card, index) in cards"
             :key="index"
             style="width: 50%"
           >
-
-            <div class="card">
+          <div class="flex items-center">
+            <h class="num-rank-sm">{{ card.num }}</h>
+            <div class="card  ml-[-13%] mt-[15vw]">
+              
               <img
                 src="assets/images/zone4/rank-img.svg"
                 alt="Card image"
                 class="p-[10%]"
               />
-              <div class="card-content p-[10%]">
-                <h3>{{ card.name }}</h3>
+              <div class="card-content">
+                <h3 class="name">{{ card.name }}</h3>
                 <div class="inline-content">
                   <img
                     src="assets/images/zone4/coin 9.svg"
                     class="small-image"
                   />
-                  <p>{{ card.score }}</p>
+                  <p class="score-sm">{{ card.score }}</p>
                 </div>
               </div>
+            </div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -100,8 +103,9 @@ const cards = ref([
 }
 
 .card-content {
-  padding: 10px;
+  padding: 10%;
   justify-items: center;
+  margin-left: 5%;
 }
 
 .card-content h3 {

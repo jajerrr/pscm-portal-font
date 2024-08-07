@@ -14,9 +14,9 @@
       <div
         class="bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[80%] text-[#2D2D2D]"
       >
-        <NuxtLink to="">หน้าแรก</NuxtLink>
-        <NuxtLink to="">ประชาสัมพันธ์</NuxtLink>
-        <NuxtLink to="">ประชาสัมพันธ์</NuxtLink>
+        <a @click="scrollTo('#zone1')">หน้าแรก</a>
+        <a @click="scrollTo('#zone2')">ประชาสัมพันธ์</a>
+        <a @click="scrollTo('#zone8')">ติดต่อเรา</a>
       </div>
     </div>
     <p class="text-[80%]">ยังไม่สมัครสมาชิก?</p>
@@ -33,6 +33,18 @@
     </NuxtLink>
   </nav>
 </template>
+
+<script>
+import VueScrollTo from 'vue-scrollto'
+
+export default {
+  methods: {
+    scrollTo(element) {
+      VueScrollTo.scrollTo(element, 500)
+    }
+  }
+}
+</script>
 
 <style>
 .nav-small {

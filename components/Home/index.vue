@@ -4,16 +4,15 @@
   <div class="w-full h-auto relative text-[#2B2B2B] SF-TH overflow-hidden">
     <!-----------------------------------navbar------------------------------------>
     <HomeNavbar />
-    <!-- <HomeNavbarSm /> -->
 
     <!-----------------------------------first content ---------------------------->
-
+<div id="zone1">
     <HomeZone1 />
-
+</div>
     <!---------------------------------- second content --------------------------->
-
+    <div id="zone2">
     <HomeZone2 />
-
+</div>
     <!-----------------------------------third content ---------------------------->
     <div class="bg-[#F3F7FD]">
       <HomeZone3 />
@@ -29,14 +28,16 @@
 
       <!-----------------------------------six content ------------------------------>
 
-      <HomeZone6 />
+      <HomeZone6Sm />
 
       <!-----------------------------------seven content ---------------------------->
       <HomeZone7 />
 
       <!----------------------------------footer content ---------------------------->
+      <div id="zone8">
       <HomeFooter2 />
-      <!-- <HomeFooter /> -->
+    </div>
+      
     </div>
   </div>
 </template>

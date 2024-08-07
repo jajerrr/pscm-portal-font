@@ -30,6 +30,7 @@
     "swiper": "^11.1.9",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
+    "vue-scrollto": "^2.20.0",
     "vue3-carousel-nuxt": "^1.1.2"
   },
   "devDependencies": {
