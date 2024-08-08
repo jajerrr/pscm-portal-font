@@ -1,118 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <title>Swiper demo</title>
-  
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Viewer Example</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   <style>
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    swiper-container {
+    .progress-bar {
+      position: absolute;
       width: 100%;
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.5);
+      visibility: hidden;
+    }
+
+    .progress-bar.hide {
+      visibility: hidden;
+    }
+
+    .update-bar {
       height: 100%;
+      background-color: #3d85c6;
+      width: 0%;
     }
 
-    swiper-slide {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    #ar-button {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #3d85c6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
-    swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    #ar-prompt {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-   
-    swiper-container {
-      width: 100%;
-      height: 50;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    swiper-slide {
-      background-size: cover;
-      background-position: center;
-    }
-
-    .mySwiper {
-      height: 80%;
-      width: 100%;
-    }
-
-    .mySwiper2 {
-      height: 50%;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-
-    .mySwiper2 swiper-slide {
-      width: 25%;
-      height: 100%;
-      opacity: 0.4;
-    }
-
-    .mySwiper2 .swiper-slide-thumb-active {
-      opacity: 1;
-    }
-
-    swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    #ar-prompt img {
+      width: 24px;
+      height: 24px;
     }
   </style>
 </head>
-
 <body>
-
-  <swiper-container 
-    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" 
-    class="mySwiper"
-    thumbs-swiper=".mySwiper2" 
-    space-between="10" 
-    navigation="true">
-    <swiper-slide>
-      <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </swiper-slide>
-  </swiper-container>
-
-  <swiper-container
-    class="mySwiper2"
-    space-between="10"
-    slides-per-view="1"
-    free-mode="true"
-    watch-slides-progress="true">
-    <swiper-slide>
-      <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-      <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-    </swiper-slide>
-    <swiper-slide>
-      <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-    </swiper-slide>
-  </swiper-container>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+  <h1>Model Viewer Example</h1>
+  <model-viewer 
+  alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+  src="shared-assets/models/NeilArmstrong.glb" 
+  ar environment-image="shared-assets/environments/moon_1k.hdr" 
+  poster="shared-assets/models/NeilArmstrong.webp" 
+  shadow-intensity="1" 
+  camera-controls 
+  touch-action="pan-y">
+    <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+      View in your space
+    </button>
+    <div id="ar-prompt">
+      <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="AR Prompt">
+    </div>
+  </model-viewer>
 </body>
-
 </html>
