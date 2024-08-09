@@ -1,8 +1,7 @@
 <template>
-    <div>
-      <h1>Model Viewer Example</h1>
-      <ModelViewer />
-    </div>
+    <NuxtLayout name="model">
+        <HomeModelViewer />
+    </NuxtLayout>
   </template>
   
   <script>

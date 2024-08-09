@@ -8,6 +8,7 @@
       <IconsUnderline />
       <div class="flex w-screen relative m-[10%]">
         <Swiper
+         
           :centeredSlides="true"
           :slidesPerView="'auto'"
           :spaceBetween="15"
@@ -46,6 +47,8 @@
 </template>
 
 <script setup>
+import { Navigation } from 'swiper/modules';
+
 const cards = ref([
   {
     num: 1,

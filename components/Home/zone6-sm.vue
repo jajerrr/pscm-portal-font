@@ -38,7 +38,7 @@
 
       <!-- Thumbs Swiper -->
 
-      <Swiper
+      <!-- <Swiper
         ref="swiperRef1"
         class="thumbs-swiper w-1-2-center h-auto"
         :modules="[Navigation, Thumbs]"
@@ -55,17 +55,8 @@
         >
           <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
         </SwiperSlide>
-        <!-- <SwiperSlide
-          class="card-container p-[10%]"
-          v-for="(card, index) in detailCard"
-          :key="index"
-        >
-          <div class="">
-            <div class="carder-header-z6">{{ card.header }}</div>
-            <div class="card-desc-z6">{{ card.desc }}</div>
-          </div>
-        </SwiperSlide> -->
-      </Swiper>
+     
+      </Swiper> -->
       
     </div>
   </div>
@@ -122,23 +113,6 @@ const setSwiperRef = (swiper) => {
   height: auto;
 }
 
-/* .button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-}
 
-button:hover {
-  background-color: #0056b3;
-} */
 </style>

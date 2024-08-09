@@ -41,9 +41,9 @@ export default defineNuxtConfig({
           src: "https://scripts.sirv.com/sirvjs/v3/sirv.js",
         },
         {
-          src : "https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js",
-
-        },
+          src: 'https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js',
+          type: 'module',
+        }
       ],
       meta: [
         {
@@ -56,6 +56,6 @@ export default defineNuxtConfig({
     { src: "~/plugins/smv.client", mode: "client" },
     { src: "~/plugins/firebaseConfig", mode: "client" },
     "@/plugins/event-bus",
-    { src: '~/plugins/model-viewer.js', mode: 'client' }
+    // { src: '~/plugins/model-viewer.js', mode: 'client' }
   ],
 });
