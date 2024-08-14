@@ -38,7 +38,7 @@
 
       <!-- Thumbs Swiper -->
 
-      <!-- <Swiper
+      <Swiper
         ref="swiperRef1"
         class="thumbs-swiper w-1-2-center h-auto"
         :modules="[Navigation, Thumbs]"
@@ -49,14 +49,17 @@
         :thumbs="{ swiper: swiperRef2 }"
       >
       <SwiperSlide
-          class="image-container"
-          v-for="(index) in detailCard"
-          :key="index"
+      class = "i-center"
+         
         >
-          <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
+          <!-- <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" /> -->
+           <div class="w-1-2 h-[50%]">
+            <HomeModel /> 
+           </div>
+          
         </SwiperSlide>
      
-      </Swiper> -->
+      </Swiper>
       
     </div>
   </div>
@@ -109,7 +112,7 @@ const setSwiperRef = (swiper) => {
 }
 
 .image-container img {
-  width: 70%;
+  width: 50%;
   height: auto;
 }
 

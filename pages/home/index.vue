@@ -1,16 +1,12 @@
 <template>
-    <NuxtLayout name="model">
-        <HomeModelViewer />
-    </NuxtLayout>
-  </template>
-  
-  <script>
-  import ModelViewer from '~/components/ModelViewer.vue'
-  
-  export default {
-    components: {
-      ModelViewer
-    }
-  }
-  </script>
-  
+  <div>
+      <Model />
+  </div>
+</template>
+
+<script setup>
+import Model from '~/components/Home/model.vue'
+
+</script>
+
+<style lang="scss" scoped></style>
