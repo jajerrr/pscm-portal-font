@@ -53,7 +53,7 @@
          
         >
           <!-- <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" /> -->
-           <div class="w-1-2 h-[50%]">
+           <div class="w-1-2 bg-transparent">
             <HomeModel /> 
            </div>
           

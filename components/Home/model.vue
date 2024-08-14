@@ -1,6 +1,6 @@
 <template>
   <!-- คอนเทนเนอร์สำหรับฉากของ Three.js ซึ่งครอบคลุมหน้าจอทั้งหมด -->
-  <div ref="threeContainer" class="w-full h-auto"></div>
+  <div ref="threeContainer" class="w-full h-screen bg-transparent"></div>
 </template>
 
 <script setup>
@@ -36,8 +36,8 @@ onMounted(() => {
   controls.dampingFactor = 0.25  // ปรับค่า damping ตามความต้องการ
 
   // ตั้งค่าค่าต่ำสุดและค่าสูงสุดสำหรับการย่อขยาย
-  controls.minDistance = 4.0  // ค่าต่ำสุดของระยะทางกล้องจากโมเดล
-  controls.maxDistance = 8.0  // ค่าสูงสุดของระยะทางกล้องจากโมเดล
+  // controls.minDistance = 1.0  // ค่าต่ำสุดของระยะทางกล้องจากโมเดล
+  controls.maxDistance = 2.0  // ค่าสูงสุดของระยะทางกล้องจากโมเดล
 
   // เพิ่มแหล่งกำเนิดแสง
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.6)  // เพิ่มแสงรอบทิศทางเพื่อส่องสว่างฉากโดยทั่วไป
