@@ -12,7 +12,7 @@
       <Swiper
         @swiper="setSwiperRef"
         class="main-swiper w-1-2-center h-auto container-z6 "
-        style="width: 50%; height: 50%; margin-left: 5%; margin-top: 10%; margin-right: 5%;"
+        style="width: 50%; height: 50%; margin-left: 5%; margin-top: 20%; margin-right: 5%;"
         :modules="[Thumbs]"
         :slidesPerView="1"
         
@@ -50,6 +50,8 @@
       >
       <SwiperSlide
       class = "i-center"
+      v-for="(index) in detailCard"
+          :key="index"
          
         >
           <!-- <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" /> -->

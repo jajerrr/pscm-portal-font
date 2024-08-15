@@ -1,6 +1,6 @@
 <template>
   <!-- คอนเทนเนอร์สำหรับฉากของ Three.js ซึ่งครอบคลุมหน้าจอทั้งหมด -->
-  <div ref="threeContainer" class="w-full h-screen bg-transparent"></div>
+  <div ref="threeContainer" class="w-full h-screen"></div>
 </template>
 
 <script setup>
@@ -20,15 +20,18 @@ onMounted(() => {
     75,  // มุมมอง (Field of view)
     window.innerWidth / window.innerHeight,  // อัตราส่วนภาพตามขนาดของหน้าต่าง
     0.1,  // แผ่นตัดใกล้ (Near clipping plane)
-    1000  // แผ่นตัดไกล (Far clipping plane)
+    100  // แผ่นตัดไกล (Far clipping plane)
   )
   camera.position.set(0, 0, 50)  // ตำแหน่งของกล้องอยู่ตรงหน้าโมเดล
 
   // ตั้งค่าเรนเดอเรอร์
-  renderer = new THREE.WebGLRenderer({ antialias: true })  // สร้างเรนเดอเรอร์พร้อมการต้านทานการกะพริบ (antialiasing) เพื่อให้ขอบเรียบขึ้น
-  renderer.setSize(window.innerWidth, window.innerHeight)  // ตั้งขนาดของเรนเดอเรอร์ให้ตรงกับขนาดหน้าต่าง
-  renderer.setPixelRatio(window.devicePixelRatio)  // ปรับอัตราส่วนพิกเซลให้เหมาะกับหน้าจอที่มีความละเอียดสูง
-  threeContainer.value.appendChild(renderer.domElement)  // เพิ่มแคนวาสของเรนเดอเรอร์ลงในคอนเทนเนอร์
+renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })  // เพิ่ม alpha: true เพื่อทำให้เรนเดอเรอร์มีพื้นหลังโปร่งแสง
+renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setPixelRatio(window.devicePixelRatio)
+threeContainer.value.appendChild(renderer.domElement)
+
+// ตั้งค่าพื้นหลังของ scene ให้โปร่งแสง
+scene.background = null  // หรือใช้ 'transparent' ขึ้นอยู่กับความต้องการ
 
    // ตั้งค่าการควบคุม
    controls = new OrbitControls(camera, renderer.domElement)  // สร้างการควบคุมสำหรับการหมุนกล้องรอบฉาก
@@ -36,8 +39,8 @@ onMounted(() => {
   controls.dampingFactor = 0.25  // ปรับค่า damping ตามความต้องการ
 
   // ตั้งค่าค่าต่ำสุดและค่าสูงสุดสำหรับการย่อขยาย
-  // controls.minDistance = 1.0  // ค่าต่ำสุดของระยะทางกล้องจากโมเดล
-  controls.maxDistance = 2.0  // ค่าสูงสุดของระยะทางกล้องจากโมเดล
+  controls.minDistance = 1.8  // ค่าต่ำสุดของระยะทางกล้องจากโมเดล
+  controls.maxDistance = 1.8  // ค่าสูงสุดของระยะทางกล้องจากโมเดล
 
   // เพิ่มแหล่งกำเนิดแสง
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.6)  // เพิ่มแสงรอบทิศทางเพื่อส่องสว่างฉากโดยทั่วไป
