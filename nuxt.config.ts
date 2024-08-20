@@ -10,23 +10,28 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     
   ],
+
   carousel: {
     prefix: 'MyPrefix'
   },
+
   piniaPersistedstate: {
     cookieOptions: {
       sameSite: "strict",
     },
     storage: "localStorage",
   },
+
   devtools: { enabled: true },
   css: ["~/assets/css/index.css"],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   app: {
     head: {
       script: [
@@ -52,10 +57,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   plugins: [
     { src: "~/plugins/smv.client", mode: "client" },
     { src: "~/plugins/firebaseConfig", mode: "client" },
     "@/plugins/event-bus",
     // { src: '~/plugins/model-viewer.js', mode: 'client' }
   ],
+
+  compatibilityDate: "2024-08-20",
 });

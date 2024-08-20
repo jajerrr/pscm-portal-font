@@ -15,53 +15,53 @@
         style="width: 50%; height: 50%; margin-left: 5%; margin-top: 20%; margin-right: 5%;"
         :modules="[Thumbs]"
         :slidesPerView="1"
+        :allowTouchMove= "false"
+       
         
+
       >
       <SwiperSlide
           class="card-container p-[10%]"
           v-for="(card, index) in detailCard"
           :key="index"
+         
+          
         >
           <div class="">
             <div class="carder-header-z6">{{ card.header }}</div>
             <div class="card-desc-z6">{{ card.desc }}</div>
           </div>
         </SwiperSlide>
-        <!-- <SwiperSlide
-          class="image-container"
-          v-for="(index) in detailCard"
-          :key="index"
-        >
-          <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" />
-        </SwiperSlide> -->
       </Swiper>
 
       <!-- Thumbs Swiper -->
 
-      <Swiper
-        ref="swiperRef1"
-        class="thumbs-swiper w-1-2-center h-auto"
-        :modules="[Navigation, Thumbs]"
-        :centeredSlides="true"
-        :slidesPerView="1"
-        :spaceBetween="10"
-        :navigation="true"
-        :thumbs="{ swiper: swiperRef2 }"
-      >
-      <SwiperSlide
-      class = "i-center"
+      
+  <Swiper
+    ref="swiperRef1"
+    class="thumbs-swiper w-1-2-center h-auto"
+    :modules="[Navigation, Thumbs]"
+    :allowTouchMove= "false"
+    :centeredSlides="true"
+    :slidesPerView="1"
+    :spaceBetween="10"
+    :navigation="true"
+    :thumbs="{ swiper: swiperRef2 }"
+    
+    
+  >
+    <SwiperSlide
+      class="i-center"
       v-for="(index) in detailCard"
-          :key="index"
-         
-        >
-          <!-- <img src="assets/images/zone6/heart_3d 1.png" class="img-nm-z6" /> -->
-           <div class="w-1-2 bg-transparent">
-            <HomeModel /> 
-           </div>
-          
-        </SwiperSlide>
-     
-      </Swiper>
+      :key="index"
+    >
+      <div class="w-1-2 bg-transparent">
+        <HomeModel /> 
+      </div>
+    </SwiperSlide>
+  </Swiper>
+
+
       
     </div>
   </div>
