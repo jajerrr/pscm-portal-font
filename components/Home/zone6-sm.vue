@@ -7,25 +7,20 @@
       </div>
       <IconsUnderline />
     </div>
-    <div class="flex">
+    <div class="flex-container">
       <!-- Main Swiper -->
       <Swiper
         @swiper="setSwiperRef"
         class="main-swiper w-1-2-center h-auto container-z6 "
-        style="width: 50%; height: 50%; margin-left: 5%; margin-top: 20%; margin-right: 5%;"
+        style="width: 90%; height: 50%; margin-left: 5%; margin-top: 5%; margin-right: 5%;"
         :modules="[Thumbs]"
         :slidesPerView="1"
         :allowTouchMove= "false"
-       
-        
-
       >
       <SwiperSlide
           class="card-container p-[10%]"
           v-for="(card, index) in detailCard"
           :key="index"
-         
-          
         >
           <div class="">
             <div class="carder-header-z6">{{ card.header }}</div>
@@ -35,11 +30,10 @@
       </Swiper>
 
       <!-- Thumbs Swiper -->
-
-      
   <Swiper
     ref="swiperRef1"
     class="thumbs-swiper w-1-2-center h-auto"
+     style="width: 90%; height: 50vh; "
     :modules="[Navigation, Thumbs]"
     :allowTouchMove= "false"
     :centeredSlides="true"
@@ -47,22 +41,18 @@
     :spaceBetween="10"
     :navigation="true"
     :thumbs="{ swiper: swiperRef2 }"
-    
-    
   >
     <SwiperSlide
       class="i-center"
       v-for="(index) in detailCard"
       :key="index"
     >
-      <div class="w-1-2 bg-transparent">
-        <HomeModel /> 
+      <div>
+        <HomeModel  /> 
+        
       </div>
     </SwiperSlide>
   </Swiper>
-
-
-      
     </div>
   </div>
 </template>
@@ -71,8 +61,6 @@
 import { Thumbs, Navigation } from "swiper/modules";
 import { ref } from "vue";
 import "swiper/swiper-bundle.css";
-// import {Thumb}  from "swiper/swiper-bundle.js";
-
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
 
@@ -97,11 +85,42 @@ const setSwiperRef = (swiper) => {
 </script>
 
 <style scoped>
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 750px) {
+  .flex-container {
+    flex-direction: row;
+  }
+}
+
+.main-swiper {
+  order: 1;
+}
+
+.card-container {
+  order: 2;
+}
+
+@media screen and (max-width: 750px) {
+  .main-swiper {
+    order: 2;
+    text-transform: uppercase; /* ทำให้ตัวอักษรเป็นตัวใหญ่ */
+    width: 80%;
+  }
+
+  .card-container {
+    order: 1;
+  }
+}
+
 .main-swiper .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 80%;
   height: 100%;
 }
 
@@ -109,7 +128,7 @@ const setSwiperRef = (swiper) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 80%;
   height: auto;
 }
 
@@ -118,6 +137,5 @@ const setSwiperRef = (swiper) => {
   height: auto;
 }
 
-
-
 </style>
+
