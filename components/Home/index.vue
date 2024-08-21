@@ -6,39 +6,39 @@
     <HomeNavbar />
 
     <!-----------------------------------first content ---------------------------->
-<div id="zone1">
-    <HomeZone1 />  
-</div>
+    <div id="zone1">
+      <HomeZone1 />
+    </div>
     <!---------------------------------- second content --------------------------->
     <div id="zone2">
       <HomeZone2 />
     </div>
     <!-----------------------------------third content ---------------------------->
-    <!-- <div class="bg-[#F3F7FD]">
-      <HomeZone3 /> -->
+    <div class="bg-[#F3F7FD]">
+      <HomeZone3 />
 
       <!-----------------------------------forth content ---------------------------->
 
-      <!-- <HomeZone4 /> -->
+      <HomeZone4 />
 
       <!-----------------------------------fiv content ---------------------------->
 
-      <!-- <HomeZone5 /> -->
-      
+      <HomeZone5 />
+
 
       <!-----------------------------------six content ------------------------------>
 
-      <!-- <HomeZone6Sm /> -->
+      <HomeZone6 />
 
       <!-----------------------------------seven content ---------------------------->
-      <!-- <HomeZone7 /> -->
+      <HomeZone7 />
 
       <!----------------------------------footer content ---------------------------->
-      <!-- <div id="zone8">
-      <HomeFooter2 /> -->
-    <!-- </div> -->
-      
-    <!-- </div> -->
+      <div id="zone8">
+        <HomeFooter2 />
+      </div>
+
+    </div>
   </div>
 </template>
 
