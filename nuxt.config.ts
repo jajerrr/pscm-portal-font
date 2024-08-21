@@ -11,9 +11,9 @@ export default defineNuxtConfig({
     
   ],
 
-  carousel: {
-    prefix: 'MyPrefix'
-  },
+  
+
+ 
 
   piniaPersistedstate: {
     cookieOptions: {
@@ -62,7 +62,6 @@ export default defineNuxtConfig({
     { src: "~/plugins/smv.client", mode: "client" },
     { src: "~/plugins/firebaseConfig", mode: "client" },
     "@/plugins/event-bus",
-    // { src: '~/plugins/model-viewer.js', mode: 'client' }
   ],
 
   compatibilityDate: "2024-08-20",

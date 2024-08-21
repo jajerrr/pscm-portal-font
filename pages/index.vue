@@ -1,10 +1,11 @@
 <template>
-    <NuxtLayout name="home">
+    
         <Home />
-    </NuxtLayout>
+    
 </template>
 
 <script setup>
+import Home from '~/components/Home/index.vue'
 
 
 </script>

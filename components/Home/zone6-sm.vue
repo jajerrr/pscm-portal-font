@@ -12,13 +12,13 @@
       <Swiper
         @swiper="setSwiperRef"
         class="main-swiper w-1-2-center h-auto container-z6 "
-        style="width: 90%; height: 50%; margin-left: 5%; margin-top: 5%; margin-right: 5%;"
+        style="width: 90%; height: 50%; margin-left: 5%; margin-top: 5vw; margin-right: 5%;"
         :modules="[Thumbs]"
         :slidesPerView="1"
         :allowTouchMove= "false"
       >
       <SwiperSlide
-          class="card-container p-[10%]"
+          class="card-container p-[5%]"
           v-for="(card, index) in detailCard"
           :key="index"
         >
