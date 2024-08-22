@@ -25,6 +25,7 @@
     class="image-ab w-[35%] mt-[-40px] hide" />
   
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
+    <AnimationBounceInDown>
     <div class="f-center" >
       <div class="f-row gap-[5%] mt-[5%] card-container " >
         <!-- คอนเทนเนอร์ left image  -->
@@ -139,7 +140,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div></AnimationBounceInDown>
   </div>
 </template>
 

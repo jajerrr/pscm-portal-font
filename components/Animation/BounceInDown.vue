@@ -17,8 +17,11 @@ export default {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             this.isVisible = true; // เริ่มอนิเมชันเมื่อเข้ามาในมุมมอง
-            observer.unobserve(this.$refs.bounceIndown); // หยุดสังเกตการณ์หลังจากที่อนิเมชันเล่นไปแล้ว
+            // observer.unobserve(this.$refs.bounceIndown); // หยุดสังเกตการณ์หลังจากที่อนิเมชันเล่นไปแล้ว
           }
+          else {
+              this.isVisible = true; // รีเซ็ตสถานะเมื่อออกจากมุมมอง
+            }
         });
       },
       { threshold: 0.1 }
