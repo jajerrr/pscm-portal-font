@@ -1,7 +1,9 @@
 <template>
+  
     <div class="first-main-content sm">
+      
       <div class="z1-name-layout z1-name-layout-sm">
-        
+        <AnimationFadeInSection>
         <h1 class="z1-header z1-header-sm" >METAVERSE</h1>
         <div class="i-center mt-[-5vw] header2-sm">
           <img
@@ -11,12 +13,14 @@
           <h1 class="z1-header2 z1-header2-sm">PSCM</h1>
         </div>
 
+
           <button
             type="button"
             class="bt-z1"
           >
             Get start
           </button>
+        </AnimationFadeInSection>
 <div style="display: flex;
   justify-content: flex-end;
   margin-right: 2%;">
@@ -28,6 +32,7 @@
           </button></div>
         
       </div>
+       
           <img
               src="assets/images/men01.png"
               class="img-men img-men-sm"
@@ -36,14 +41,21 @@
               src="assets/images/women01.png"
               class="img-women img-women-sm"
             />
+       
           <img
             src="assets/images/waveheader.svg"
             class="image-ab bottom-0 w-full"
             alt=""
           />
+        
     </div>
+   
 </template>
+<script setup>
 
+
+
+</script>
 <style>
 .bt-z1-sm{
   display: none;

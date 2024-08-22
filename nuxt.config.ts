@@ -34,6 +34,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      link: [
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' }
+      ],
       script: [
         {
           src: "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.4.0/socket.io.js",

@@ -13,7 +13,7 @@
 
     <div class="rank-card-content">
       <div class="f-row" v-for="(id, index) in rankCard" :key="index">
-        <div :style="{ zIndex: 29 - (index) }" class="flex ml-[-3vw] w-full">
+        <div :style="{ zIndex: 29 - (index) }" class="flex ml-[-1.5vw] w-full">
           <h class="num-normal num-rank">{{ id.num }}</h>
           <div class="card-rank">
             <div class="card-img">

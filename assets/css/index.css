@@ -343,19 +343,19 @@
 /* css zone 2 */
 
 .bt-orange {
-    @apply absolute text-white  bg-[#FF7A00] rounded-full;
+    @apply  text-white  bg-[#FF7A00] rounded-full text-[10px] px-3 py-1 w-[5rem];
 }
 
 .new-bt {
-    @apply text-[#FF7A00] bg-[#FFEBD9] rounded-full text-[8px] px-2.5 py-1 w-[4rem];
+    @apply text-[#FF7A00] bg-[#FFEBD9] rounded-full text-[10px] px-3 py-1 w-[5rem];
 }
 
 .z-2-text {
-    @apply text-[10%] SF-TH-Semi;
+    @apply text-[0.75rem] SF-TH-Semi;
 }
 
 .z-2-date {
-    @apply text-[9%] text-[#797979] px-2
+    @apply text-[0.75rem] text-[#797979] px-2
 }
 
 /* css zone 3 */
@@ -422,7 +422,7 @@
 }
 
 .card-desc-z6{
-    @apply mb-3 SF-TH text-[#2B2B2B] text-[60%];
+    @apply mb-3 SF-TH text-[#2B2B2B] text-[80%];
 }
 
 .w-1-2-center {

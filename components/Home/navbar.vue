@@ -3,34 +3,29 @@
     <HomeNavbarSm />
   </div>
   <nav
-    class="fixed top-0 left-0 z-50 w-full flex p-3 space-x-3 justify-center items-center bg-nav text-white SF-TH nav-normal"
-  >
-    <img
-      src="assets/images/pscm-logo.png"
-      class="w-[15vw] h-auto mr-auto pl-3"
-      alt="logo"
-    />
+    class="fixed top-0 left-0 z-50 w-full 
+     bg-nav text-white SF-TH 
+    nav-normal ">
+    <div class ="flex p-3 space-x-3 justify-center 
+    items-center animate__animated animate__bounceInDown"> 
+    <img src="assets/images/pscm-logo.png" class="w-[15vw] h-auto mr-auto pl-3" alt="logo" />
     <div class="flex-grow flex justify-center">
-      <div
-        class="bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[80%] text-[#2D2D2D]"
-      >
+      <div class="bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
         <a @click="scrollTo('#zone1')">หน้าแรก</a>
         <a @click="scrollTo('#zone2')">ประชาสัมพันธ์</a>
         <a @click="scrollTo('#zone8')">ติดต่อเรา</a>
       </div>
     </div>
-    <p class="text-[80%]">ยังไม่สมัครสมาชิก?</p>
-    <div class="text-[#AFCFFF] text-[80%]">
-      <NuxtLink to="/login/register">สมัครสมาชิก</NuxtLink>
+    <p class="text-[90%]">ยังไม่สมัครสมาชิก?</p>
+    <div class="text-[#AFCFFF] text-[90%]">
+      <NuxtLink to="">สมัครสมาชิก</NuxtLink>
     </div>
-    <NuxtLink to="/login">
-      <button
-        type="button"
-        class="text-white bg-[#FF7A00] hover:bg-yellow-500 font-medium rounded-full text-[80%] p-2 text-center me-2 mb-2 ]"
-      >
+    <NuxtLink to="">
+      <button type="button"
+        class="text-white bg-[#FF7A00] hover:bg-yellow-500 font-medium rounded-full text-[90%] p-2 text-center me-2 mb-2 ]">
         เข้าสู่ระบบ
       </button>
-    </NuxtLink>
+    </NuxtLink></div>
   </nav>
 </template>
 
@@ -50,6 +45,7 @@ export default {
 .nav-small {
   display: none;
 }
+
 @media (max-width: 730px) {
   .nav-small {
     display: block;
