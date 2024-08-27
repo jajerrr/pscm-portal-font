@@ -10,9 +10,15 @@
     <div class="flex-container">
       <!-- Main Swiper -->
       <Swiper @swiper="setSwiperRef" class="main-swiper w-1-2-center h-auto container-z6 "
-        style="height: 50%; margin-left: 10%; margin-top: 5vw; margin-right: 5%;" :modules="[Thumbs]" :slidesPerView="1"
-        :allowTouchMove="false">
-        <SwiperSlide class="card-container p-[10%]" v-for="(card, index) in detailCard" :key="index">
+        style="height: 50%; margin-left: 10%; margin-top: 5vw; margin-right: 5%;" 
+        :modules="[Thumbs]" 
+        :slidesPerView="1"
+        :allowTouchMove="false"
+        :options="swiperOptions">
+        <SwiperSlide class="card-container p-[10%]" 
+        v-for="(card, index) in detailCard" :key="index"
+        transition: transform 5s ease, opacity 4.5s ease;
+        >
           <div class="">
             <div class="carder-header-z6">{{ card.header }}</div>
             <div class="card-desc-z6">{{ card.desc }}</div>
@@ -23,8 +29,12 @@
       <!-- Thumbs Swiper -->
       <Swiper ref="swiperRef1" class="thumbs-swiper w-1-2-center h-auto" style="width: 90%; height: 50vh; "
         :modules="[Navigation, Thumbs]" :allowTouchMove="false" :centeredSlides="true" :slidesPerView="1"
-        :spaceBetween="10" :navigation="true" :thumbs="{ swiper: swiperRef2 }">
-        <SwiperSlide class="i-center" v-for="(index) in detailCard" :key="index">
+        :spaceBetween="10" :navigation="true" 
+        :thumbs="{ swiper: swiperRef2 }"
+        :options="swiperOptions" >
+        <SwiperSlide class="i-center" 
+        v-for="(index) in detailCard" :key="index"
+        >
           <div>
             <HomeModel />
           </div>
@@ -40,6 +50,7 @@ import { ref } from "vue";
 import "swiper/swiper-bundle.css";
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
+
 
 const detailCard = ref([
   {
@@ -59,9 +70,18 @@ const detailCard = ref([
 const setSwiperRef = (swiper) => {
   swiperRef2.value = swiper;
 };
+
+const swiperOptions = {
+  speed: 10000, // ความเร็วในการเปลี่ยนสไลด์ (หน่วยเป็นมิลลิวินาที)
+  effect: 'fade', // ใช้เอฟเฟ็กต์การเปลี่ยนแบบ fade
+  pagination: { clickable: true },
+  navigation: true,
+}
 </script>
 
 <style scoped>
+
+
 .flex-container {
   display: flex;
   flex-direction: column;
@@ -114,4 +134,7 @@ const setSwiperRef = (swiper) => {
   width: 50%;
   height: auto;
 }
+
+
+
 </style>

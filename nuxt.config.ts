@@ -27,6 +27,8 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {},
     },
@@ -51,7 +53,8 @@ export default defineNuxtConfig({
         {
           src: 'https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js',
           type: 'module',
-        }
+        },
+       
       ],
       meta: [
         {
@@ -65,7 +68,9 @@ export default defineNuxtConfig({
     { src: "~/plugins/smv.client", mode: "client" },
     { src: "~/plugins/firebaseConfig", mode: "client" },
     "@/plugins/event-bus",
+    
   ],
+ 
 
   compatibilityDate: "2024-08-20",
 });

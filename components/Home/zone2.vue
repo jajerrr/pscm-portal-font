@@ -1,6 +1,7 @@
 <template>
-  <div class="main-content \\">
-    <AnimationBounceInDown>
+ 
+  <div class="main-content">
+    
     <div class="col-center mt-[10%]">
       <h class="header">News</h>
       <div class="f-center flex-glow w-full relative small-view">
@@ -20,12 +21,12 @@
         <IconsUnderline />
       </div>
     </div>
-  </AnimationBounceInDown>
+>
     <img src="assets/images/zone2/Vector 88.svg"
     class="image-ab w-[35%] mt-[-40px] hide" />
   
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
-    <AnimationBounceInDown>
+    
     <div class="f-center" >
       <div class="f-row gap-[5%] mt-[5%] card-container " >
         <!-- คอนเทนเนอร์ left image  -->
@@ -34,7 +35,7 @@
 
           <div class="content-re SF-TH">
             <img src="assets/images/zone2/image 1561.png" class="image-full w-[80%]" />
-             <div class="f-col gap-2 absolute mt-[50%] ml-[5%]">
+             <div class="f-col gap-3 absolute mt-[42%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
                 <IconsCalenderZone2-1 />
@@ -140,8 +141,9 @@
           </div>
         </div>
       </div>
-    </div></AnimationBounceInDown>
+    </div>
   </div>
+  
 </template>
 
 <script setup>

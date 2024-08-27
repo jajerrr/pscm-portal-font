@@ -1,9 +1,9 @@
 <template>
   
-    <div class="first-main-content sm">
+    <div class="first-main-content sm " >
       
       <div class="z1-name-layout z1-name-layout-sm">
-        <!-- <AnimationFadeInSection> -->
+       
         <h1 class="z1-header z1-header-sm" >METAVERSE</h1>
         <div class="i-center mt-[-5vw] header2-sm">
           <img
@@ -20,7 +20,7 @@
           >
             Get start
           </button>
-        <!-- </AnimationFadeInSection> -->
+     
 <div style="display: flex;
   justify-content: flex-end;
   margin-right: 2%;">
@@ -51,8 +51,42 @@
     </div>
    
 </template>
-<script setup>
+<script>
 
+import { onMounted, ref } from 'vue';
+
+export default {
+  setup() {
+    const animatedElement = ref(null);
+
+    onMounted(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const { bottom } = entry.boundingClientRect;
+            const viewportHeight = window.innerHeight;
+            
+            // ตรวจสอบว่าตำแหน่ง bottom ของ element อยู่ที่ 20% ของ viewport หรือไม่
+            if (bottom < viewportHeight * 0.8) {
+              entry.target.classList.add('animate__fadeInUp'); // เพิ่มคลาสแอนิเมชัน
+              observer.unobserve(entry.target); // หยุดการสังเกตถ้าไม่ต้องการให้แอนิเมชันเริ่มซ้ำ
+            }
+          }
+        });
+      }, {
+        threshold: [0] // ใช้ threshold = 0 เพื่อให้เกิดการตรวจจับเมื่อมีการตัดผ่าน
+      });
+
+      if (animatedElement.value) {
+        observer.observe(animatedElement.value);
+      }
+    });
+
+    return {
+      animatedElement
+    };
+  }
+}
 
 
 </script>

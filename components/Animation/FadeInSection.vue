@@ -1,9 +1,7 @@
 <template>
   <div 
-    ref="fadeInSection" 
-    @mouseenter="handleMouseEnter" 
-    @mouseleave="handleMouseLeave"
-    :class="{ 'animate__animated animate__fadeInUp': isVisible }"
+    ref="slideInUp" 
+    :class="{ 'animate__animated animate__slideInUp': isVisible }"
   >
     <slot></slot>
   </div>
@@ -14,26 +12,34 @@ export default {
   data() {
     return {
       isVisible: false,
-      hasAnimated: false, // ใช้เพื่อตรวจสอบว่าอนิเมชันเล่นไปแล้วหรือไม่
     };
   },
-  methods: {
-    handleMouseEnter() {
-      if (!this.hasAnimated) {
-        this.isVisible = true;  // เริ่มอนิเมชันเมื่อเมาส์เข้าสู่เฟรม
-        this.hasAnimated = true; // ทำเครื่องหมายว่าอนิเมชันได้เล่นไปแล้ว
-      }
-    },
-    handleMouseLeave() {
-      // ถ้าคุณต้องการให้อนิเมชันเล่นซ้ำเมื่อเมาส์ออกแล้วกลับเข้ามา
-      // คุณสามารถรีเซ็ตสถานะ isVisible และ hasAnimated ได้ที่นี่
-      this.isVisible = false;
-      this.hasAnimated = false;
-    }
+  mounted() {
+    const slideInUp = this.$refs.slideInUp;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const { bottom } = entry.boundingClientRect;
+          const viewportHeight = window.innerHeight;
+          
+          // ตรวจสอบว่าตำแหน่ง bottom ของ element อยู่ที่ 20% ของ viewport หรือไม่
+          if (bottom < viewportHeight * 0.8) {
+            this.isVisible = true; // เริ่มแอนิเมชัน
+            observer.unobserve(slideInUp); // หยุดการสังเกต
+          }
+        }
+      });
+    }, {
+      threshold: [0] // ใช้ threshold = 0 เพื่อให้เกิดการตรวจจับเมื่อมีการตัดผ่าน
+    });
+
+    observer.observe(slideInUp);
   },
 };
 </script>
 
 <style scoped>
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
 /* เพิ่มสไตล์เพิ่มเติมได้ถ้าต้องการ */
 </style>

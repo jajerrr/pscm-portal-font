@@ -1,11 +1,11 @@
 <template>
   <div>
-      <Model />
+      <Scroll/>
   </div>
 </template>
 
 <script setup>
-import Model from '~/components/Home/model.vue'
+import Scroll from '~/components/Home/Scroll.vue'
 
 </script>
 
