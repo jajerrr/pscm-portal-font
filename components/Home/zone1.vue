@@ -3,7 +3,7 @@
     <div class="first-main-content sm">
       
       <div class="z1-name-layout z1-name-layout-sm">
-        <AnimationFadeInSection>
+        <!-- <AnimationFadeInSection> -->
         <h1 class="z1-header z1-header-sm" >METAVERSE</h1>
         <div class="i-center mt-[-5vw] header2-sm">
           <img
@@ -20,7 +20,7 @@
           >
             Get start
           </button>
-        </AnimationFadeInSection>
+        <!-- </AnimationFadeInSection> -->
 <div style="display: flex;
   justify-content: flex-end;
   margin-right: 2%;">
