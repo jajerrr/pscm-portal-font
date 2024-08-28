@@ -8,8 +8,21 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "vue3-carousel-nuxt",
     "nuxt-swiper",
+    "@hypernym/nuxt-gsap"
     
   ],
+  gsap:{
+    composables:true,
+    provide: false,
+    extraPlugins:{
+      scrollTrigger: true ,
+      
+      
+     
+  
+      
+    }
+  },
 
   
 

@@ -10,15 +10,15 @@
     items-center animate__animated animate__bounceInDown"> 
     <img src="assets/images/pscm-logo.png" class="w-[15vw] h-auto mr-auto pl-3" alt="logo" />
     <div class="flex-grow flex justify-center">
-      <div class="bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
-        <a @click="scrollTo('#zone1')">หน้าแรก</a>
-        <a @click="scrollTo('#zone2')">ประชาสัมพันธ์</a>
-        <a @click="scrollTo('#zone8')">ติดต่อเรา</a>
+      <div class="!scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
+        <a @click="scrollTo('#zone1')" class=" hover:text-[#FF7A00] ">หน้าแรก</a>
+        <a @click="scrollTo('#zone2')" class=" hover:text-[#FF7A00] ">ประชาสัมพันธ์</a>
+        <a @click="scrollTo('#zone8')" class=" hover:text-[#FF7A00] ">ติดต่อเรา</a>
       </div>
     </div>
-    <p class="text-[90%]">ยังไม่สมัครสมาชิก?</p>
-    <div class="text-[#AFCFFF] text-[90%]">
-      <NuxtLink to="">สมัครสมาชิก</NuxtLink>
+    <p class="text-[90%] hover:text-[#FF7A00]">ยังไม่สมัครสมาชิก?</p>
+    <div class="text-[#AFCFFF] text-[90%] hover:text-[#FF7A00]">
+      <NuxtLink to="" >สมัครสมาชิก</NuxtLink>
     </div>
     <NuxtLink to="">
       <button type="button"
@@ -35,10 +35,25 @@ import VueScrollTo from 'vue-scrollto'
 export default {
   methods: {
     scrollTo(element) {
-      VueScrollTo.scrollTo(element, 500)
+      VueScrollTo.scrollTo(element, 800)
     }
   }
 }
+
+import { onMounted, ref } from 'vue';
+import { gsap } from 'gsap';
+
+const animatedElement = ref(null);
+
+onMounted(() => {
+  gsap.from(animatedElement.value, {
+    duration: 1,
+    opacity: 0,
+    y: -50,
+    delay: 0.5, // เพิ่ม delay ที่นี่
+    ease: 'power1.out'
+  });
+});
 </script>
 
 <style>

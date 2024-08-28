@@ -1,6 +1,6 @@
 <template>
  
-  <div class="main-content">
+  <div class="main-content" >
     
     <div class="col-center mt-[10%]">
       <h class="header">News</h>
@@ -27,7 +27,7 @@
   
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
     
-    <div class="f-center" >
+    <div class="f-center"  id = "b2">
       <div class="f-row gap-[5%] mt-[5%] card-container " >
         <!-- คอนเทนเนอร์ left image  -->
         <div class="f-col content-w-re card-item hide">
@@ -147,6 +147,8 @@
 </template>
 
 <script setup>
+
+
 
 </script>
 

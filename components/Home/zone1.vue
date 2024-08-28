@@ -1,22 +1,24 @@
 <template>
   
     <div class="first-main-content sm " >
-      
-      <div class="z1-name-layout z1-name-layout-sm">
+      <div id="b1">
+      <div class="z1-name-layout z1-name-layout-sm"  >
        
-        <h1 class="z1-header z1-header-sm" >METAVERSE</h1>
+        <h1  class="z1-header z1-header-sm" >METAVERSE</h1>
         <div class="i-center mt-[-5vw] header2-sm">
           <img
             src="assets/images/Rectangle 43068.svg"
             class="w-[15%] h-auto object-cover line-sm"
+            
           />
-          <h1 class="z1-header2 z1-header2-sm">PSCM</h1>
+          <h1   class="z1-header2 z1-header2-sm">PSCM</h1>
         </div>
 
 
           <button
             type="button"
             class="bt-z1"
+            
           >
             Get start
           </button>
@@ -36,12 +38,16 @@
           <img
               src="assets/images/men01.png"
               class="img-men img-men-sm"
+              
+             
             />
             <img
               src="assets/images/women01.png"
               class="img-women img-women-sm"
+              
+              
             />
-       
+       </div>
           <img
             src="assets/images/waveheader.svg"
             class="image-ab bottom-0 w-full"
@@ -51,45 +57,142 @@
     </div>
    
 </template>
-<script>
 
-import { onMounted, ref } from 'vue';
 
-export default {
-  setup() {
-    const animatedElement = ref(null);
+<script setup>
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-    onMounted(() => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const { bottom } = entry.boundingClientRect;
-            const viewportHeight = window.innerHeight;
-            
-            // ตรวจสอบว่าตำแหน่ง bottom ของ element อยู่ที่ 20% ของ viewport หรือไม่
-            if (bottom < viewportHeight * 0.8) {
-              entry.target.classList.add('animate__fadeInUp'); // เพิ่มคลาสแอนิเมชัน
-              observer.unobserve(entry.target); // หยุดการสังเกตถ้าไม่ต้องการให้แอนิเมชันเริ่มซ้ำ
-            }
-          }
-        });
-      }, {
-        threshold: [0] // ใช้ threshold = 0 เพื่อให้เกิดการตรวจจับเมื่อมีการตัดผ่าน
-      });
+gsap.registerPlugin(ScrollTrigger);
 
-      if (animatedElement.value) {
-        observer.observe(animatedElement.value);
+onMounted(() => {
+  gsap.from("#b1", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#b1",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        // ลบคลาสอนิเมชันเพื่อให้อนิเมชันเล่นอีกครั้ง
+        document.querySelector("#b1").classList.remove('animate__animated');
+        void document.querySelector("#b1").offsetWidth; // Trigger a reflow
+        document.querySelector("#b1").classList.add('animate__animated', 'animate__fadeInUp');
       }
-    });
+    }
+  });
 
-    return {
-      animatedElement
-    };
-  }
-}
+  gsap.from("#zone2", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#zone2",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        document.querySelector("#zone2").classList.remove('animate__animated');
+        void document.querySelector("#zone2").offsetWidth;
+        document.querySelector("#zone2").classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    }
+  });
 
-
+  gsap.from("#b3", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#b3",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        document.querySelector("#b3").classList.remove('animate__animated');
+        void document.querySelector("#b3").offsetWidth;
+        document.querySelector("#b3").classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    }
+  });
+  gsap.from("#b4", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#b4",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        document.querySelector("#b4").classList.remove('animate__animated');
+        void document.querySelector("#b4").offsetWidth;
+        document.querySelector("#b4").classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    }
+  });
+  gsap.from("#b5", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#b5",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        document.querySelector("#b5").classList.remove('animate__animated');
+        void document.querySelector("#b5").offsetWidth;
+        document.querySelector("#b5").classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    }
+  });
+  gsap.from("#b6", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#b6",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        document.querySelector("#b6").classList.remove('animate__animated');
+        void document.querySelector("#b6").offsetWidth;
+        document.querySelector("#b6").classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    }
+  });
+  gsap.from("#b7", {
+    y: 100,
+    opacity: 0,
+    delay: 1,
+    scrollTrigger: {
+      trigger: "#b7",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: true,
+      toggleActions: "play none none reverse",
+      onEnter: () => {
+        document.querySelector("#b7").classList.remove('animate__animated');
+        void document.querySelector("#b7").offsetWidth;
+        document.querySelector("#b7").classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    }
+  });
+});
 </script>
+
+
 <style>
 .bt-z1-sm{
   display: none;
