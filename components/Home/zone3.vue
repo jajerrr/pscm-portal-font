@@ -1,7 +1,9 @@
 <template>
+ 
   <div class = 'content-sm'>
   <HomeZone3Sm />
-  </div>
+  </div> 
+ 
   <div class="content-w-re content-nm">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
@@ -126,6 +128,7 @@
         </div>
       </div>
     </div>
+ 
     <img
       src="assets/images/zone3/Vector 87.svg"
       class="image-full-ab top-[-10vw] z-[-1]"

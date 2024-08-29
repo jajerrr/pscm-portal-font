@@ -21,7 +21,7 @@
         <IconsUnderline />
       </div>
     </div>
->
+
     <img src="assets/images/zone2/Vector 88.svg"
     class="image-ab w-[35%] mt-[-40px] hide" />
   

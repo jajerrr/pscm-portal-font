@@ -50,7 +50,7 @@ onMounted(() => {
     duration: 1,
     opacity: 0,
     y: -50,
-    delay: 0.5, // เพิ่ม delay ที่นี่
+    delay: 1, // เพิ่ม delay ที่นี่
     ease: 'power1.out'
   });
 });

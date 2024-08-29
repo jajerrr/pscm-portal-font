@@ -1,11 +1,11 @@
 <template>
   
     <div class="first-main-content sm " >
-      <div id="b1">
-      <div class="z1-name-layout z1-name-layout-sm"  >
+      
+      <div class="z1-name-layout z1-name-layout-sm animate__animated animate__bounceInUp"  >
        
-        <h1  class="z1-header z1-header-sm" >METAVERSE</h1>
-        <div class="i-center mt-[-5vw] header2-sm">
+        <h1  class="z1-header z1-header-sm " >METAVERSE</h1>
+        <div class="i-center mt-[-5vw] header2-sm ">
           <img
             src="assets/images/Rectangle 43068.svg"
             class="w-[15%] h-auto object-cover line-sm"
@@ -17,7 +17,8 @@
 
           <button
             type="button"
-            class="bt-z1"
+            class="bt-z1
+            "
             
           >
             Get start
@@ -37,17 +38,19 @@
        
           <img
               src="assets/images/men01.png"
-              class="img-men img-men-sm"
+              class="img-men img-men-sm animate__animated animate__bounceInUp"
+              
               
              
             />
             <img
               src="assets/images/women01.png"
-              class="img-women img-women-sm"
+              class="img-women img-women-sm animate__animated animate__bounceInUp"
+              
               
               
             />
-       </div>
+       
           <img
             src="assets/images/waveheader.svg"
             class="image-ab bottom-0 w-full"
@@ -67,16 +70,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  gsap.from("#b1", {
+  gsap.from("b1", {
     y: 100,
     opacity: 0,
-    delay: 1,
+    delay: 0.5,
     scrollTrigger: {
       trigger: "#b1",
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
+      toggleActions: "play none none reset",
       onEnter: () => {
         // ลบคลาสอนิเมชันเพื่อให้อนิเมชันเล่นอีกครั้ง
         document.querySelector("#b1").classList.remove('animate__animated');
@@ -95,7 +98,7 @@ onMounted(() => {
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
+      toggleActions: "play none none reset",
       onEnter: () => {
         document.querySelector("#zone2").classList.remove('animate__animated');
         void document.querySelector("#zone2").offsetWidth;
@@ -104,89 +107,135 @@ onMounted(() => {
     }
   });
 
-  gsap.from("#b3", {
+  gsap.from("#zone3", {
+  y: 100,
+  opacity: 0,
+  delay: 1,
+  scrollTrigger: {
+    trigger: "#zone3",
+    start: "top 80%",
+    end: "bottom 20%",
+    toggleActions: "play reset play reset",
+    onEnter: () => {
+      const el = document.querySelector("#zone3");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__fadeInUp');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone3");
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
+    }
+  }
+});
+  gsap.from("#zone4", {
     y: 100,
-    opacity: 0,
+    opacity: 1,
     delay: 1,
     scrollTrigger: {
-      trigger: "#b3",
+      trigger: "#zone4",
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
+      toggleActions: "play none none reset",
       onEnter: () => {
-        document.querySelector("#b3").classList.remove('animate__animated');
-        void document.querySelector("#b3").offsetWidth;
-        document.querySelector("#b3").classList.add('animate__animated', 'animate__fadeInUp');
-      }
+      const el = document.querySelector("#zone4");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__bounceInLeft');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone4");
+      el.classList.remove('animate__animated', 'animate__bounceInLeft');
+    }
     }
   });
-  gsap.from("#b4", {
+  gsap.from("#zone5", {
     y: 100,
     opacity: 0,
     delay: 1,
     scrollTrigger: {
-      trigger: "#b4",
+      trigger: "#zone5",
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
-      onEnter: () => {
-        document.querySelector("#b4").classList.remove('animate__animated');
-        void document.querySelector("#b4").offsetWidth;
-        document.querySelector("#b4").classList.add('animate__animated', 'animate__fadeInUp');
-      }
+      toggleActions: "play reset play reset",
+    onEnter: () => {
+      const el = document.querySelector("#zone5");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__fadeInUp');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone5");
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
+    }
     }
   });
-  gsap.from("#b5", {
+  gsap.from("#zone6", {
     y: 100,
     opacity: 0,
     delay: 1,
     scrollTrigger: {
-      trigger: "#b5",
+      trigger: "#zone6",
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
-      onEnter: () => {
-        document.querySelector("#b5").classList.remove('animate__animated');
-        void document.querySelector("#b5").offsetWidth;
-        document.querySelector("#b5").classList.add('animate__animated', 'animate__fadeInUp');
-      }
+      toggleActions: "play reset play reset",
+    onEnter: () => {
+      const el = document.querySelector("#zone6");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__fadeInUp');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone6");
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
+    }
     }
   });
-  gsap.from("#b6", {
+  gsap.from("#zone7", {
     y: 100,
     opacity: 0,
     delay: 1,
     scrollTrigger: {
-      trigger: "#b6",
+      trigger: "#zone7",
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
-      onEnter: () => {
-        document.querySelector("#b6").classList.remove('animate__animated');
-        void document.querySelector("#b6").offsetWidth;
-        document.querySelector("#b6").classList.add('animate__animated', 'animate__fadeInUp');
-      }
+      toggleActions: "play reset play reset",
+    onEnter: () => {
+      const el = document.querySelector("#zone7");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__bounceInRight');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone7");
+      el.classList.remove('animate__animated', 'animate__bounceInRight');
+    }
     }
   });
-  gsap.from("#b7", {
+  gsap.from("#zone8", {
     y: 100,
     opacity: 0,
-    delay: 1,
+    delay: 0.5,
     scrollTrigger: {
-      trigger: "#b7",
+      trigger: "#zone8",
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reverse",
-      onEnter: () => {
-        document.querySelector("#b7").classList.remove('animate__animated');
-        void document.querySelector("#b7").offsetWidth;
-        document.querySelector("#b7").classList.add('animate__animated', 'animate__fadeInUp');
-      }
+      toggleActions: "play reset play reset",
+    onEnter: () => {
+      const el = document.querySelector("#zone8");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__fadeInUp');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone8");
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
+    }
     }
   });
 });

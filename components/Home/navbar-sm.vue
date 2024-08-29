@@ -1,5 +1,5 @@
 <template>
-  <nav :class="navClass" class="fixed w-full top-0 left-0 z-50 SF-TH nav-small">
+  <nav :class="navClass" class="fixed w-full top-0 left-0 z-50 SF-TH nav-small animate__animated animate__bounceInDown">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <img
         src="assets/images/pscm-logo.png"
