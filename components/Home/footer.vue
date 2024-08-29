@@ -63,6 +63,6 @@
         </div>
       </div>
     </div>
-    <img src="assets/images/footer/bottom.svg" class="w-full" alt="" />
+    <!-- <img src="assets/images/footer/bottom.svg" class="w-full" alt="" /> -->
   </footer>
 </template>

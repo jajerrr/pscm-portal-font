@@ -100,13 +100,13 @@ onMounted(() => {
       scrub: true,
       toggleActions: "play reset play reset",
     onEnter: () => {
-      const el = document.querySelector("#zone3");
+      const el = document.querySelector("#zone2");
       el.classList.remove('animate__animated');
       void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
       el.classList.add('animate__animated', 'animate__fadeInUp');
     },
     onLeaveBack: () => {
-      const el = document.querySelector("#zone3");
+      const el = document.querySelector("#zone2");
       el.classList.remove('animate__animated', 'animate__fadeInUp');
     }
     }
@@ -136,22 +136,22 @@ onMounted(() => {
   gsap.from("#zone4", {
     y: 100,
     opacity: 1,
-    delay: 1,
+    delay: 0.5,
     scrollTrigger: {
       trigger: "#zone4",
-      start: "top 80%",
-      end: "bottom 20%",
+      start: "top 90%",
+      end: "bottom 10%",
       scrub: true,
       toggleActions: "play none none reset",
       onEnter: () => {
       const el = document.querySelector("#zone4");
       el.classList.remove('animate__animated');
       void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
-      el.classList.add('animate__animated', 'animate__bounceInLeft');
+      el.classList.add('animate__animated', 'animate__fadeInUp');
     },
     onLeaveBack: () => {
       const el = document.querySelector("#zone4");
-      el.classList.remove('animate__animated', 'animate__bounceInLeft');
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
     }
     }
   });
@@ -205,19 +205,19 @@ onMounted(() => {
     delay: 1,
     scrollTrigger: {
       trigger: "#zone7",
-      start: "top 80%",
-      end: "bottom 20%",
+      start: "top 90%",
+      end: "bottom 10%",
       scrub: true,
       toggleActions: "play reset play reset",
     onEnter: () => {
       const el = document.querySelector("#zone7");
       el.classList.remove('animate__animated');
       void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
-      el.classList.add('animate__animated', 'animate__bounceInRight');
+      el.classList.add('animate__animated', 'animate__fadeInUp');
     },
     onLeaveBack: () => {
       const el = document.querySelector("#zone7");
-      el.classList.remove('animate__animated', 'animate__bounceInRight');
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
     }
     }
   });

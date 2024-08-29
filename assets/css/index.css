@@ -228,11 +228,11 @@
 }
 
 .header {
-    @apply text-[90%] text-[#FF7A00];
+    @apply text-[1rem] text-[#FF7A00];
 }
 
 .th-header {
-    @apply  SF-TH-Semi text-[#2B2B2B] text-[150%];
+    @apply  SF-TH-Semi text-[#2B2B2B] text-[1.5rem];
 }
 
 .button-orange {
@@ -299,6 +299,7 @@
     @apply flex relative h-auto
 }
 
+
 /* css zone 1 */
 
 .first-main-content {
@@ -348,11 +349,11 @@
 }
 
 .z-2-text {
-    @apply text-[0.75rem] SF-TH-Semi;
+    @apply text-[0.8rem] SF-TH-Semi;
 }
 
 .z-2-date {
-    @apply text-[0.75rem] text-[#797979] px-2
+    @apply text-[0.8rem] text-[#797979] px-2
 }
 
 /* css zone 3 */

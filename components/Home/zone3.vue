@@ -7,7 +7,7 @@
   <div class="content-w-re content-nm">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
-      <p class="text-[1vw]">ราชวิทยาลัยจุฬาพรณ์</p>
+      <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
     <div class="f-center mt-[5%] mb-[20%] z-[13]">
       <div class="j-center items-stretch h-auto mt-[10%]">
