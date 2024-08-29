@@ -98,12 +98,17 @@ onMounted(() => {
       start: "top 80%",
       end: "bottom 20%",
       scrub: true,
-      toggleActions: "play none none reset",
-      onEnter: () => {
-        document.querySelector("#zone2").classList.remove('animate__animated');
-        void document.querySelector("#zone2").offsetWidth;
-        document.querySelector("#zone2").classList.add('animate__animated', 'animate__fadeInUp');
-      }
+      toggleActions: "play reset play reset",
+    onEnter: () => {
+      const el = document.querySelector("#zone3");
+      el.classList.remove('animate__animated');
+      void el.offsetWidth; // บังคับให้รีเฟรชการ reflow เพื่อให้แอนิเมชันเริ่มใหม่
+      el.classList.add('animate__animated', 'animate__fadeInUp');
+    },
+    onLeaveBack: () => {
+      const el = document.querySelector("#zone3");
+      el.classList.remove('animate__animated', 'animate__fadeInUp');
+    }
     }
   });
 
@@ -196,7 +201,7 @@ onMounted(() => {
   });
   gsap.from("#zone7", {
     y: 100,
-    opacity: 0,
+    opacity: 1,
     delay: 1,
     scrollTrigger: {
       trigger: "#zone7",
