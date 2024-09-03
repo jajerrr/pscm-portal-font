@@ -25,7 +25,7 @@
             <div class="card-head-z7 SF-TH">{{ card.header }}</div>
             <div class=" SF-TH">{{ card.desc }}</div>
             <div class="flex w-full">
-              <IconsAllowupright />
+              <IconsAllowupright class = "right-[5%]"/>
             </div>
           </div>
         </div>

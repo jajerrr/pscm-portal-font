@@ -10,7 +10,7 @@
           <IconsUnderline />
         </div>
         <button type="button"
-          class="absolute f-center button-orange right-[5%] SF-TH text-[30%] px-[3%] py-[1%] space-x-2 small-button">
+          class="absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
           <span>ดูทั้งหมด</span>
           <IconsUpRight />
         </button>
@@ -54,10 +54,10 @@
 
         <!-- คอนเทนเนอร์ right image  -->
 
-        <div class="f-col image-full gap-5 SF-TH card-item">
+        <div class="f-col image-full gap-7 SF-TH card-item">
           <div class="i-center gap-10 card-item-order sm-icon">
-            <img src="assets/images/zone2/image 1561.png" class="w-[30%] h-auto rounded-[40px]" alt="news image1" />
-            <div class="f-col gap-2 sm-text">
+            <img src="assets/images/zone2/image 1561.png" class="w-[30%] h-auto rounded-[20%]" alt="news image1" />
+            <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
                 <IconsCalenderZone22 />
@@ -76,7 +76,7 @@
           </div>
           <div class="i-center gap-10 card-item-order">
             <img src="assets/images/zone2/Rectangle 43142.png" class="w-[30%] h-auto" alt="news image1" />
-            <div class="f-col gap-2 sm-text">
+            <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
                 <IconsCalenderZone22 />
@@ -95,7 +95,7 @@
           </div>
           <div class="i-center gap-10 card-item-order">
             <img src="assets/images/zone2/Rectangle 43058.png" class="w-[30%] h-auto" alt="news image2" />
-            <div class="f-col gap-2 sm-text">
+            <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
                 <IconsCalenderZone22 />
@@ -114,7 +114,7 @@
           </div>
           <div class="i-center gap-10 card-item-order">
             <img src="assets/images/zone2/Rectangle 43143.png" class="w-[30%] h-auto" alt="news image3" />
-            <div class="f-col gap-2 sm-text">
+            <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
                 <IconsCalenderZone22 />
@@ -201,7 +201,10 @@
   .sm-text {
     position: relative;
     align-items: start;
-    width: 100%;
+    width: 55%;
+    margin-top: 3%;
+    gap: 0;
+   
 
 
   }
@@ -220,8 +223,9 @@
 
 
   .main-content img {
-    width: 100%;
+    width: 80%;
     height: auto;
+    padding-inline: 10%;
   }
 
   .small-button {
