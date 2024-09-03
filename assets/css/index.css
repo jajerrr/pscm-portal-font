@@ -341,19 +341,19 @@
 /* css zone 2 */
 
 .bt-orange {
-    @apply  text-white  bg-[#FF7A00] rounded-full text-[10px] px-3.5 py-1 w-[5rem];
+    @apply  text-white  bg-[#FF7A00] rounded-full text-[13px] px-3.5 py-1 w-[6rem];
 }
 
 .new-bt {
-    @apply text-[#FF7A00] bg-[#FFEBD9] rounded-full text-[10px] px-3.5 py-1 w-[5rem];
+    @apply text-[#FF7A00] bg-[#FFEBD9] rounded-full text-[13px] px-3.5 py-1 w-[6rem];
 }
 
 .z-2-text {
-    @apply text-[0.8rem] SF-TH-Semi;
+    @apply text-[15px] SF-TH-Semi;
 }
 
 .z-2-date {
-    @apply text-[0.8rem] text-[#797979] px-2
+    @apply text-[15px] text-[#797979] px-2
 }
 
 /* css zone 3 */
@@ -378,7 +378,7 @@
 }
 
 .num-rank-sm{
-    @apply text-[34vw] text-[#F3F7FD] SF-Bold z-30 ml-[-3vw]  mt-[25vh] font-medium;
+    @apply text-[34vw] text-[#F3F7FD] SF-Bold z-30 ml-[-1vw]  mt-[25vh] font-medium;
     -webkit-text-stroke: 2px #ff7a00;
     
 }
@@ -435,7 +435,7 @@
 /* css zone 7 */
 
 .container-z7{
-    @apply container h-full max-w-sm p-6 bg-white border rounded-lg shadow;
+    @apply container h-full  max-w-[20rem] p-7 bg-white border rounded-lg shadow;
 }
 
 .card-head-z7{

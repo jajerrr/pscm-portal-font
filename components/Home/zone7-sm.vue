@@ -10,8 +10,11 @@
     <div class="f-center">
       <div class="f-row  card-container">
           <Swiper
-          :centeredSlides="true"
-          :slidesPerView="'auto'"
+          :modules="[SwiperPagination]"
+            :centeredSlides="true"
+            :slidesPerView="'auto'"
+            :pagination="true"
+
       >
       <SwiperSlide class="relative  mx-[10px] card-item"
           v-for="(card, index) in serviceCard"
@@ -24,9 +27,9 @@
             <div class="card-head-z7">{{ card.header }}</div>
             <div class="card-desc-z7">{{ card.desc }}</div>
            
-            <!-- <div class="flex">
+            <div class="flex">
               <IconsAllowupright class="left-[70%]" />
-            </div> -->
+            </div>
           
           </div>
         </SwiperSlide>
@@ -65,6 +68,21 @@ justify-content: center;
 align-items: center;
 height: 100%;
 }
+
+.swiper-pagination {
+  position: absolute;
+  bottom: -10px; /* ปรับเปลี่ยนตำแหน่งตามต้องการ */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.swiper-pagination-bullet {
+  background-color: #ff0000; /* เปลี่ยนสีตามต้องการ */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #00ff00; /* เปลี่ยนสีของจุดที่ active */
+}
+
 
 
 </style>

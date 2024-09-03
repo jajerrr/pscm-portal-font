@@ -201,7 +201,7 @@
   .sm-text {
     position: relative;
     align-items: start;
-    width: 55%;
+    width: 60%;
     margin-top: 3%;
     gap: 0;
    
