@@ -13,7 +13,7 @@
         </svg>
       </button>
       <div :class="{'hidden': !isMenuOpen, 'block': isMenuOpen}" class="w-full SF-TH" id="navbar-hamburger">
-        <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+        <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-800 border-gray-700">
           <li>
             <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">หน้าแรก</a>
           </li>

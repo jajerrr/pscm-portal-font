@@ -1,68 +1,4 @@
-<template>
-  
-  <div class="first-main-content sm " >
-    
-    <div class="z1-name-layout z1-name-layout-sm animate__animated animate__fadeInUp"  >
-     
-      <h1  class="z1-header z1-header-sm " >METAVERSE</h1>
-      <div class="i-center mt-[-5vw] header2-sm ">
-        <img
-          src="assets/images/Rectangle 43068.svg"
-          class="w-[15%] h-auto object-cover line-sm"
-          
-        />
-        <h1   class="z1-header2 z1-header2-sm">PSCM</h1>
-      </div>
 
-
-        <button
-          type="button"
-          class="bt-z1
-          "
-          
-        >
-          Get start
-        </button>
-   
-<div style="display: flex;
-justify-content: flex-end;
-margin-right: 2%;">
-        <button
-          type="button"
-          class="bt-z1-sm"
-        >
-          Get start
-        </button></div>
-      
-    </div>
-     
-        <img
-            src="assets/images/men01.png"
-            class="img-men img-men-sm animate__animated animate__fadeInUp"
-            
-            
-           
-          />
-          <img
-            src="assets/images/women01.png"
-            class="img-women img-women-sm animate__animated animate__fadeInUp"
-            
-            
-            
-          />
-     
-        <img
-          src="assets/images/waveheader.svg"
-          class="image-ab bottom-0 w-full"
-          alt=""
-        />
-      
-  </div>
- 
-</template>
-
-
-<script setup>
 import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -161,7 +97,7 @@ gsap.from("#zone2-3", {
 gsap.from("#zone3", {
 y: 100,
 opacity: 0,
-delay: 0.3,
+delay: 1,
 scrollTrigger: {
   trigger: "#zone3",
   start: "top 80%",
@@ -179,9 +115,6 @@ scrollTrigger: {
   }
 }
 });
-
-
-
 gsap.from("#zone4", {
   y: 100,
   opacity: 1,
@@ -293,63 +226,3 @@ gsap.from("#zone8", {
   }
 });
 });
-</script>
-
-
-
-<style>
-.bt-z1-sm{
-display: none;
-}
-@media (max-width:600px){
-.sm {
-  width: 100%;
-  height: 95vh;
-  background: bg-image;
-  position: relative;
-  overflow:hidden;
-}
-.z1-name-layout-sm{
-  margin-top:20vh;
-}
-.z1-header-sm{
-font-size: 15vw;
-font-weight: 650;
-display: flex;
-justify-content: flex-end;
-margin-right: 5%;
-}
-
-.header2-sm{
-display: flex;
-justify-content: flex-end;
-margin-right: 5%;
-}
-.z1-header2-sm{
-font-size: 18vw;
-font-weight: 650;
-}
-.line-sm{
-width:22%;
-}
-.img-men-sm{
-left:-5vw;
-width: 28vh;
-top:38vh;
-}
-.img-women-sm{
-left:30vw;
-width: 24vh;
-top:45vh;
-}
-.bt-z1-sm{
-display: flex;
-justify-content: flex-end;
-margin-right: 5%;
-}
-.bt-z1{
-display: none;
-}
-
-}
-</style>

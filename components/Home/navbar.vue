@@ -7,7 +7,7 @@
      bg-nav text-white SF-TH 
     nav-normal ">
     <div class ="flex p-3 space-x-3 justify-center 
-    items-center animate__animated animate__bounceInDown"> 
+    items-center "> 
     <a  @click="scrollTo('#zone1')">
     <img  src="assets/images/pscm-logo.png" class="w-[15vw] h-auto mr-auto pl-3" alt="logo" />
     </a>
