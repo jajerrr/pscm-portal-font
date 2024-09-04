@@ -428,8 +428,8 @@
 
 }
 
-.img-nm-z6 {
-    @apply w-[30vw] h-full uppercase max-w-md p-[5%];
+.img-sm-z6 {
+    @apply w-[65vw] h-full uppercase max-w-md p-[5%];
 }
 
 /* css zone 7 */

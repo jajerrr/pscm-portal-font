@@ -11,15 +11,18 @@
       <!-- Main Swiper -->
       <Swiper @swiper="setSwiperRef" class="main-swiper w-1-2-center h-auto container-z6 "
         style="height: 50%; margin-left: 10%; margin-top: 5vw; margin-right: 5%;" 
-        :modules="[Thumbs]" 
+        :modules="[Thumbs , EffectFade]" 
+        :effect="'fade'"
         :slidesPerView="1"
         :allowTouchMove="false"
+        :fadeEffect="{ crossFade: true }" 
         :options="swiperOptions">
-        <SwiperSlide class="card-container p-[10%]" 
-        v-for="(card, index) in detailCard" :key="index"
-        transition: transform 5s ease, opacity 4.5s ease;
-        >
-          <div class="">
+        
+    <SwiperSlide class="card-container p-[10%]" 
+                 v-for="(card, index) in detailCard" 
+                 :key="index"
+                 style="transition: transform 2s ease, opacity 1.5s ease;">
+          <div>
             <div class="carder-header-z6">{{ card.header }}</div>
             <div class="card-desc-z6">{{ card.desc }}</div>
           </div>
@@ -29,14 +32,25 @@
       <!-- Thumbs Swiper -->
       <Swiper ref="swiperRef1" class="thumbs-swiper w-1-2-center h-auto" style="width: 90%; height: 50vh; "
         :modules="[Navigation, Thumbs]" :allowTouchMove="false" :centeredSlides="true" :slidesPerView="1"
-        :spaceBetween="10" :navigation="true" 
+        :spaceBetween="10" :navigation="true"   
         :thumbs="{ swiper: swiperRef2 }"
         :options="swiperOptions" >
         <SwiperSlide class="i-center" 
-        v-for="(index) in detailCard" :key="index"
+        v-for="(card,index) in detailCard" :key="index"
+        style="transition: transform 5s ease, opacity 4.5s ease;"
         >
           <div>
-            <HomeModel />
+            <HomeModel  class = "normal_model"/>
+
+            <!-- <img src ="assets/images/zone6/heart.png" 
+            class = "small_model 
+          img-sm-z6"/> -->
+
+          <img :src="(card.img)"
+     class="small_model img-sm-z6" />
+
+        
+          
           </div>
         </SwiperSlide>
       </Swiper>
@@ -45,25 +59,31 @@
 </template>
 
 <script setup>
-import { Thumbs, Navigation } from "swiper/modules";
+import { Thumbs, Navigation ,EffectFade} from "swiper/modules";
 import { ref } from "vue";
 import "swiper/swiper-bundle.css";
+import 'swiper/css/effect-fade';
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
 
 
 const detailCard = ref([
   {
-    header: "หัวใจ1",
+    header: "หัวใจ",
     desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+    img: 'assets/images/zone6/heart.png'
+
+      
   },
   {
-    header: "หัวใจ2",
+    header: "ตับ",
     desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+    img : "assets/images/zone6/liver.png"
   },
   {
-    header: "หัวใจ3",
+    header: "สมอง",
     desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+    img : "assets/images/zone6/brain.png"
   },
 ]);
 
@@ -73,9 +93,9 @@ const setSwiperRef = (swiper) => {
 
 const swiperOptions = {
   speed: 10000, // ความเร็วในการเปลี่ยนสไลด์ (หน่วยเป็นมิลลิวินาที)
-  effect: 'fade', // ใช้เอฟเฟ็กต์การเปลี่ยนแบบ fade
   pagination: { clickable: true },
   navigation: true,
+ 
 }
 </script>
 
@@ -85,6 +105,9 @@ const swiperOptions = {
 .flex-container {
   display: flex;
   flex-direction: column;
+}
+.small_model{
+  display: none
 }
 
 @media screen and (min-width: 750px) {
@@ -107,6 +130,12 @@ const swiperOptions = {
     text-transform: uppercase;
     /* ทำให้ตัวอักษรเป็นตัวใหญ่ */
     width: 80%;
+  }
+  .small_model{
+    display: flex;
+  }
+  .normal_model{
+    display : none;
   }
 
   .card-container {

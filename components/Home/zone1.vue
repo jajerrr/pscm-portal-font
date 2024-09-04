@@ -184,8 +184,8 @@ scrollTrigger: {
 
 gsap.from("#zone4", {
   y: 100,
-  opacity: 1,
-  delay: 0.5,
+  opacity: 0.5,
+  delay: 1,
   scrollTrigger: {
     trigger: "#zone4",
     start: "top 90%",

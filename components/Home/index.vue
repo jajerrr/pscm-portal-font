@@ -15,15 +15,17 @@
       <HomeZone2 />
     
     <!-----------------------------------third content ---------------------------->
-    <div class="bg-[#F3F7FD]">
-      
-
+    
+      <div class="bg-[#F3F7FD]">
+<div  id ="zone3">
+  
         <HomeZone3 />
-      
+
+      </div>
 
       <!-----------------------------------forth content ---------------------------->
-
-      <div id="zone4">
+      
+      <div id = "zone4">
         <HomeZone4 />
       </div>
 
@@ -49,8 +51,9 @@
       <div id="zone8">
         <HomeFooter />
       </div>
+      </div>
 
-    </div>
+   
 
   </div>
 </template>

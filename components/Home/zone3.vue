@@ -1,16 +1,16 @@
 <template>
  
-  <div class = 'content-sm' id ="zone3">
+  <div class = 'content-sm' >
   <HomeZone3Sm />
   </div> 
  
   <div class="content-w-re content-nm">
-    <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi" id ="zone3">
+    <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
 
-    <div class="f-center mt-[5%] mb-[20%] z-[13]" id ="zone3">
+    <div class="f-center mt-[5%] mb-[20%] z-[13]" >
       <div class="j-center items-stretch h-auto mt-[10%]">
         <div class="absolute w-1/2 mt-[-10%]">
           <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
@@ -66,7 +66,7 @@
         <div class="f-col image-full-re mt-[13vw] px-[5%]">
           <!-- ******** -->
 
-          <div class="relative j-center z-[10]" id ="zone3">
+          <div class="relative j-center z-[10]">
             <div class="f-col top-[4vw] right-[3vw] absolute max-w-[7vw]">
               <div class="space-y-4">
                 <img
@@ -153,7 +153,7 @@
       src="assets/images/zone3/Groupfloor.svg"
       class="image-full-ab bottom-[-6vw] z-[1]"
       alt="floor"
-      id = "zone3"
+      
     />
   </div>
 </template>
