@@ -1,5 +1,5 @@
 <template>
-  <nav :class="navClass" class="fixed w-full top-0 left-0 z-50 SF-TH nav-small animate__animated animate__bounceInDown">
+  <nav :class="navClass" class="fixed w-full top-0 left-0 z-50 SF-TH nav-small">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <img
         src="assets/images/pscm-logo.png"
@@ -15,16 +15,16 @@
       <div :class="{'hidden': !isMenuOpen, 'block': isMenuOpen}" class="w-full SF-TH" id="navbar-hamburger">
         <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-800 border-gray-700">
           <li>
-            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">หน้าแรก</a>
+            <a href="#" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">หน้าแรก</a>
           </li>
           <li>
-            <a href="#zone2" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">ประชาสัมพันธ์</a>
+            <a href="#zone2" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">ประชาสัมพันธ์</a>
           </li>
           <li>
-            <a href="#zone8" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">ติดต่อเรา</a>
+            <a href="#zone8" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">ติดต่อเรา</a>
           </li>
           <li>
-            <a href="" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">เข้าสู่ระบบ</a>
+            <a href="" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">เข้าสู่ระบบ</a>
           </li>
         </ul>
       </div>
@@ -38,7 +38,7 @@ import { ref, computed } from 'vue'
 const isMenuOpen = ref(false)
 
 const navClass = computed(() => {
-  return isMenuOpen.value ? 'border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700' : 'bg-nav'
+  return isMenuOpen.value ? ' bg-gray-800 border-gray-700' : 'bg-nav'
 })
 
 const toggleMenu = () => {

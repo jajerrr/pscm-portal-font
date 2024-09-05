@@ -7,9 +7,9 @@
           <div class="g-center">
             <img
               src="assets/images/pscm-logo.png"
-              class="h-20  uppercase"
+              class="h-[4rem]  uppercase"
               alt="Logo"
-            />
+            />        
             <ul class="text-gray-500 dark:text-gray-400">
               <li class="mb-4">
                 <a href="https://flowbite.com/" class="header-footer"
@@ -26,11 +26,11 @@
           <div class="g-center mt-7">
             <h2 class="mb-5 header-footer">เกี่ยวกับ</h2>
             <ul class="footer-text">
-              <li class="mb-4">e-learning</li>
-              <li class="mb-4">คู่มือการใช้งาน</li>
-              <li class="mb-4">คำถามที่พบบ่อย</li>
-              <li class="mb-4">เกี่ยวกับเรา</li>
-              <li class="mb-4">ติดต่อเรา</li>
+              <li class="mb-4 hover:underline">e-learning</li>
+              <li class="mb-4 hover:underline">คู่มือการใช้งาน</li>
+              <li class="mb-4 hover:underline">คำถามที่พบบ่อย</li>
+              <li class="mb-4 hover:underline">เกี่ยวกับเรา</li>
+              <li class="mb-4 hover:underline">ติดต่อเรา</li>
             </ul>
           </div>
           <div class="grid justify-start mt-7">

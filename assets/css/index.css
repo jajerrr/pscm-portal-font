@@ -429,7 +429,7 @@
 }
 
 .img-sm-z6 {
-    @apply w-[65vw] h-full uppercase max-w-md p-[5%];
+    @apply w-[60vw] h-full uppercase max-w-md p-[5%];
 }
 
 /* css zone 7 */

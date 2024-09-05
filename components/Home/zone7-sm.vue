@@ -28,7 +28,7 @@
             <div class="card-desc-z7">{{ card.desc }}</div>
            
             <div class="flex">
-              <IconsAllowupright class="left-[80%]" />
+              <IconsAllowupright class="left-[70%]" />
             </div>
           
           </div>

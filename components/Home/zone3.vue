@@ -31,12 +31,12 @@
 
             <div class="j-center absolute w-full mt-[17%] z-10">
               <div class="w-1/2 f-center">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
                   ชั้น<br />02
                 </button>
               </div>
               <div class="w-1/2 f-center">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
                   ชั้น<br />04
                 </button>
               </div>
@@ -44,7 +44,7 @@
 
             <div class="flex w-full mt-[30%] z-10">
               <div class="j-center w-1/5" style="justify-content: flex-end">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
                   ชั้น<br />01
                 </button>
               </div>
@@ -55,7 +55,7 @@
               <div class="j-center w-1/5"></div>
 
               <div class="j-center w-1/5" style="justify-content: flex-start">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
                   ชั้น<br />05
                 </button>
               </div>

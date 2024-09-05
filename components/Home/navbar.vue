@@ -13,13 +13,13 @@
     </a>
     <div class="flex-grow flex justify-center">
       <div class="!scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
-        <a @click="scrollTo('#zone1')" class=" hover:text-[#FF7A00] ">หน้าแรก</a>
-        <a @click="scrollTo('#zone2')" class=" hover:text-[#FF7A00] ">ประชาสัมพันธ์</a>
-        <a @click="scrollTo('#zone8')" class=" hover:text-[#FF7A00] ">ติดต่อเรา</a>
+        <a @click="scrollTo('#zone1')" class=" hover:text-[#FF7A00]  ">หน้าแรก</a>
+        <a @click="scrollTo('#zone2')" class=" hover:text-[#FF7A00]  ">ประชาสัมพันธ์</a>
+        <a @click="scrollTo('#zone8')" class=" hover:text-[#FF7A00]  ">ติดต่อเรา</a>
       </div>
     </div>
     <p class="text-[90%] hover:text-[#FF7A00]">ยังไม่สมัครสมาชิก?</p>
-    <div class="text-[#AFCFFF] text-[90%] hover:text-[#FF7A00]">
+    <div class="text-[#AFCFFF] text-[90%] hover:underline ">
       <NuxtLink to="" >สมัครสมาชิก</NuxtLink>
     </div>
     <NuxtLink to="">
