@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[5%] mb-[10%]">
+  <div class="content-w-re mt-[5%] mb-[30%]">
     <div class="f-col f-center mb-[5%]">
       <h class="header">3D Learning object</h>
       <div class="flex-glow j-center w-full px-[10%]">
@@ -48,6 +48,7 @@
               :src="getBodyImageSrc(card.img)" 
               class="small_model img-sm-z6"
               alt="body"
+              
             />
           </div>
         </SwiperSlide>
@@ -107,7 +108,10 @@ const swiperOptions = {
   flex-direction: column;
 }
 .small_model{
-  display: none
+  display: none;
+}
+.normal_model{
+  display: flex;
 }
 
 @media screen and (min-width: 750px) {

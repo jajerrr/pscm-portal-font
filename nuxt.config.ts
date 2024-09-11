@@ -8,25 +8,53 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "vue3-carousel-nuxt",
     "nuxt-swiper",
-    "@hypernym/nuxt-gsap"
-    
+    "@hypernym/nuxt-gsap",
+    "nuxt-lazy-load",
+
   ],
-  gsap:{
-    composables:true,
-    provide: false,
-    extraPlugins:{
-      scrollTrigger: true ,
-      
-      
-     
+
+  // lazyLoad: {
+  //   // These are the default values
+  // images: true,
+  // videos: true,
+  // audios: true,
+  // iframes: true,
+  // native: false,
+  // directiveOnly: false,
   
-      
+  // // Default image must be in the public folder
+  // // defaultImage: '/images/default-image.jpg',
+
+  // // To remove class set value to false
+  // loadingClass: 'isLoading',
+  // loadedClass: 'isLoaded',
+  // appendClass: 'lazyLoad',
+  
+  // observerConfig: {
+  //   // See IntersectionObserver documentation
+  //   rootMargin: '0px',  // ระยะห่างจาก viewport ที่จะเริ่มทำงาน
+  //   threshold: 0.1      // เปอร์เซ็นต์ขององค์ประกอบที่ต้องเห็นก่อนที่จะทำ lazy load
+  //   // ดูเอกสารเพิ่มเติมได้ที่ IntersectionObserver documentation
+  // }
+  // },
+
+  
+
+  gsap: {
+    composables: true,
+    provide: false,
+    extraPlugins: {
+      scrollTrigger: true,
+
+
+
+
+
     }
   },
 
-  
 
- 
+
 
   piniaPersistedstate: {
     cookieOptions: {
@@ -67,7 +95,7 @@ export default defineNuxtConfig({
           src: 'https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js',
           type: 'module',
         },
-       
+
       ],
       meta: [
         {
@@ -81,9 +109,9 @@ export default defineNuxtConfig({
     { src: "~/plugins/smv.client", mode: "client" },
     { src: "~/plugins/firebaseConfig", mode: "client" },
     "@/plugins/event-bus",
-    
+
   ],
- 
+
 
   compatibilityDate: "2024-08-20",
 });

@@ -2,7 +2,7 @@
   <div class='content-sm'>
     <HomeZone4Sm />
   </div>
-  <div class="content-w-re mb-[10%] content-nm" >
+  <div class="content-w-re mb-[30%] content-nm" >
     <div class="f-col f-center mb-[5%]">
       <h class="header">Ranking</h>
       <div class="j-center flex-glow w-full px-[10%]">

@@ -1,6 +1,6 @@
 <template>
   
-  <div class="first-main-content sm " >
+  <div class="first-main-content sm" >
     
     <div class="z1-name-layout z1-name-layout-sm animate__animated animate__fadeInUp"  >
      

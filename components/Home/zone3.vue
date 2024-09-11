@@ -4,7 +4,7 @@
   <HomeZone3Sm />
   </div> 
  
-  <div class="content-w-re content-nm">
+  <div class="content-w-re content-nm mb-[30%]">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>

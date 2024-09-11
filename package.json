@@ -25,6 +25,7 @@
     "jquery": "^3.7.1",
     "locomotive-scroll": "^4.1.4",
     "nuxt": "^3.11.2",
+    "nuxt-lazy-load": "^3.0.4",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "plyr": "^3.7.8",
