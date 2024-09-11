@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     "vue3-carousel-nuxt",
     "nuxt-swiper",
     "@hypernym/nuxt-gsap",
-    "nuxt-lazy-load",
+    // "nuxt-lazy-load",
 
   ],
 
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   //   // These are the default values
   // images: true,
   // videos: true,
-  // audios: true,
+  // audios: true, 
   // iframes: true,
   // native: false,
   // directiveOnly: false,

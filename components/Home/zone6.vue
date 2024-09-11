@@ -41,7 +41,7 @@
                      :key="index"
                      style="transition: transform 5s ease, opacity 4.5s ease;">
           <div>
-            <HomeModl class="normal_model" />
+            <HomeModel class="normal_model" />
 
             <!-- แสดงรูปภาพตามการเลือก -->
             <img 
@@ -62,6 +62,7 @@ import { Thumbs, Navigation, EffectFade } from "swiper/modules";
 import { ref } from "vue";
 import "swiper/swiper-bundle.css";
 import 'swiper/css/effect-fade';
+
 
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
