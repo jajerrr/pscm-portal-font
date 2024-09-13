@@ -67,7 +67,7 @@
           <!-- ******** -->
 
           <div class="relative j-center z-[10]">
-            <div class="f-col top-[4vw] right-[3vw] absolute max-w-[7vw]">
+            <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[7.5vw]">
               <div class="space-y-4">
                 <img
                   class="img-z-3-col"

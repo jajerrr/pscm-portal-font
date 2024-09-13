@@ -23,7 +23,7 @@
             <div class="card  ml-[-13%] mt-[15vw]">
               
               <img
-                src="assets/images/zone4/rank-img.svg"
+                :src="getImageSrc(card.image)"
                 alt="Card image"
                 class="p-[10%]"
               />
@@ -54,34 +54,39 @@ const cards = ref([
     num: 1,
     name: "Nuttida P.",
     score: "999",
-    image: "https://via.placeholder.com/300",
+    image: "/images/zone4/Group 1000003302.svg",
   },
 
   {
     num: 2,
     name: "Nuttida A.",
     score: "998",
-    image: "https://via.placeholder.com/300",
+    image: "/images/zone4/Group 1000003303.svg",
   },
   {
     num: 3,
     name: "Nuttida B.",
     score: "997",
-    image: "https://via.placeholder.com/300",
+    image: "/images/zone4/Group 1000003304.svg",
   },
   {
     num: 4,
     name: "Nuttida C.",
     score: "996",
-    image: "https://via.placeholder.com/300",
+    image: "/images/zone4/Group 1000003305.svg",
   },
   {
     num: 5,
     name: "Nuttida D.",
     score: "995",
-    image: "https://via.placeholder.com/300",
+    image: "/images/zone4/Group 1000003306.svg",
   },
 ]);
+
+// ฟังก์ชันเพื่อคืนพาธของรูปภาพ
+const getImageSrc = (imagePath) => {
+  return imagePath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
+};
 </script>
 
 <style>

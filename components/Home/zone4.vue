@@ -17,7 +17,7 @@
           <h class="num-normal num-rank">{{ id.num }}</h>
           <div class="card-rank">
             <div class="card-img">
-              <img class="z-4-img" src="assets/images/zone4/Group 1000003302.png" />
+              <img class="z-4-img" :src="getCharImageSrc(id.img)"  />
             </div>
             <div class="text-center mt-[2vw]">
               <h2 class="name">{{ id.name }}</h2>
@@ -37,12 +37,17 @@
 import { ref } from 'vue'
 
 const rankCard = ref([
-  { num: 1, name: "Nuttida P.", score: "999", img: "assets/images/zone4/Group 1000003302.png" },
-  { num: 2, name: "Nuttida P.", score: "994", img: "assets/images/zone4/Group 1000003302.png" },
-  { num: 3, name: "Nuttida P.", score: "993", img: "assets/images/zone4/Group 1000003302.png" },
-  { num: 4, name: "Nuttida P.", score: "992", img: "assets/images/zone4/Group 1000003302.png" },
-  { num: 5, name: "Nuttida P.", score: "991", img: "assets/images/zone4/Group 1000003302.png" },
+  { num: 1, name: "Nuttida A.", score: "999", img: "/images/zone4/Group 1000003302.svg" },
+  { num: 2, name: "Nuttida B.", score: "994", img: "/images/zone4/Group 1000003303.svg" },
+  { num: 3, name: "Nuttida C.", score: "993", img: "/images/zone4/Group 1000003304.svg" },
+  { num: 4, name: "Nuttida D.", score: "992", img: "/images/zone4/Group 1000003305.svg" },
+  { num: 5, name: "Nuttida E.", score: "991", img: "/images/zone4/Group 1000003306.svg" },
 ])
+
+// ฟังก์ชันเพื่อคืนพาธของรูปภาพ
+const getCharImageSrc = (imgPath) => {
+  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
+};
 </script>
 
 <style scoped>
