@@ -17,8 +17,7 @@
 
         <button
           type="button"
-          class="bt-z1
-          "
+          class="bt-z1"
           
         >
           Get start
@@ -39,6 +38,8 @@ margin-right: 2%;">
         <img
             src="assets/images/men01.png"
             class="img-men img-men-sm animate__animated animate__fadeInUp"
+            
+            
             
             
            
@@ -70,24 +71,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-gsap.from("b1", {
-  y: 100,
-  opacity: 0,
-  delay: 0.5,
-  scrollTrigger: {
-    trigger: "#b1",
-    start: "top 80%",
-    end: "bottom 20%",
-    scrub: true,
-    toggleActions: "play none none reset",
-    onEnter: () => {
-      // ลบคลาสอนิเมชันเพื่อให้อนิเมชันเล่นอีกครั้ง
-      document.querySelector("#b1").classList.remove('animate__animated');
-      void document.querySelector("#b1").offsetWidth; // Trigger a reflow
-      document.querySelector("#b1").classList.add('animate__animated', 'animate__fadeInUp');
-    }
-  }
-});
+
 
 gsap.from("#zone2", {
   y: 100,
