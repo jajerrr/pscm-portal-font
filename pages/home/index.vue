@@ -1,55 +1,131 @@
 <template>
-  <div   id="b1" class="flex h-screen animate__animated animate__backInLeft">
-    <div class="size-[300px] rounded-lg bg-green-400 shadow-sm ml-[20%] mt-[20%]"></div>
-  
-  </div>
+  <div>
+    <div class="circle">
+      <div v-for="( index) in items" :key="index" class="watch">
+        {{ index }}
+      </div>
+    </div>
 
-  <div id="b2" class="flex h-screen i-center j-center animate__animated">
-    <div class="size-[300px] rounded-lg bg-red-800 shadow-sm"></div>
-  </div>
+    <div class="next" @click="rotateNext">
+      Next
+    </div>
 
-  <div id="b3" class="flex h-screen i-center j-center animate__animated">
-    <div class="size-[300px] rounded-lg bg-blue-300 shadow-sm"></div>
-  </div>
-
-  <div id="b4" class="flex h-screen i-center j-center animate__animated">
-    <div class="size-[300px] rounded-lg bg-black shadow-sm"></div>
+    <div class="prev" @click="rotatePrev">
+      Prev
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+import Draggable from 'gsap/Draggable'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Draggable)
+
+const items = ref([...Array(11).keys()])
+let rotate = ref(0)
+let step = 360 / items.value.length
+let mainCircle = null
+
+const rotateNext = () => {
+  rotate.value -= step
+  gsap.to(mainCircle, {
+    rotation: rotate.value,
+    ease: "power3.inOut",
+    duration: 1
+  })
+}
+
+const rotatePrev = () => {
+  rotate.value += step
+  gsap.to(mainCircle, {
+    rotation: rotate.value,
+    ease: "power3.inOut",
+    duration: 1
+  })
+}
 
 onMounted(() => {
-  const animateElement = (selector, animationClass) => {
-    gsap.from(selector, {
-      y: 100,
-      opacity: 0,
-      delay: 1,
-      scrollTrigger: {
-        trigger: selector,
-        markers: true,
-        onEnter: () => {
-          const element = document.querySelector(selector);
-          element.classList.remove(animationClass); // Remove the class to reset the animation
-          void element.offsetWidth; // Trigger a reflow to restart the animation
-          element.classList.add(animationClass); // Re-add the class to play the animation
-        },
-        onLeave: () => {
-          const element = document.querySelector(selector);
-          element.classList.remove(animationClass); // Optionally remove the class when the element is out of view
-        }
-      }
-    });
-  };
+  mainCircle = document.querySelector('.circle')
 
-  animateElement("#b1", 'animate__rotateInUpRight');
-  animateElement("#b2", 'animate__backInLeft');
-  animateElement("#b3", 'animate__fadeInRight');
-  animateElement("#b4", 'animate__rotateInDownLeft');
-});
+  gsap.set(mainCircle, { rotation: rotate.value })
+
+  Draggable.create(mainCircle, {
+    type: "rotation",
+    inertia: true,
+    onDrag: function () {
+      let curRotation = gsap.getProperty(mainCircle, "rotation")
+      rotate.value = curRotation
+    },
+    snap: (value) => gsap.utils.snap(step)(value)
+  })
+})
 </script>
+
+<style scoped lang="scss">
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  position: relative;
+  width: $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $item-size;
+    height: $item-size;
+    margin: -($item-size / 2);
+
+    $angle: (360 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg)
+          translate($circle-size / 2)
+          rotate(90deg);
+      }
+      $rot: $rot + $angle;
+    }
+  }
+}
+
+.circle {
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 20%;
+  border: 5px solid red;
+  @include on-circle($item-count: 11, $circle-size: 600px, $item-size: 60px);
+  transform-origin: center center;
+}
+
+.watch {
+  width: 830px;
+  height: 80px;
+  border: 2px solid rgb(255, 0, 0);
+  border-radius: 50%;
+}
+
+.next {
+  background-color: green;
+  transform: translateY(100px);
+  width: 100px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  background-color: red;
+  transform: translateY(100px);
+  width: 100px;
+  cursor: pointer;
+}
+</style>

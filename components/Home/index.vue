@@ -19,7 +19,7 @@
       <div class="bg-[#F3F7FD]">
 <div  id ="zone3">
   
-        <HomeZone3 />
+        <HomeCircle />
 
       </div>
 

@@ -63,8 +63,8 @@
           </div>
         </div>
 
-        <div class="f-col image-full-re mt-[13vw] px-[5%]">
-          <!-- ******** -->
+        <!-- <div class="f-col image-full-re mt-[13vw] px-[5%]">
+        
 
           <div class="relative j-center z-[10]">
             <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[7.5vw]">
@@ -128,7 +128,7 @@
             />
             <img src="assets/images/Rectangle-zone3.png" class="w-full" />
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
  

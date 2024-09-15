@@ -25,7 +25,7 @@
           </div>
           <div class="g-center mt-7">
             <h2 class="mb-5 header-footer">เกี่ยวกับ</h2>
-            <ul class="footer-text">
+            <ul class="footer-text cursor-default">
               <li class="mb-4 hover:underline">e-learning</li>
               <li class="mb-4 hover:underline">คู่มือการใช้งาน</li>
               <li class="mb-4 hover:underline">คำถามที่พบบ่อย</li>

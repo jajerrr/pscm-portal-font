@@ -1,6 +1,11 @@
 <template>
   
   <div class="first-main-content sm" >
+
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="assets/images/zone1/videobgZone1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
     
     <div class="z1-name-layout z1-name-layout-sm animate__animated animate__fadeInUp"  >
      
@@ -71,6 +76,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
+
+  gsap.to('.video-bg', {
+    yPercent: 20,  // Adjust the parallax amount
+    ease: "none",
+    scrollTrigger: {
+      trigger: '.first-main-content',
+      start: 'top top',  // Start the effect when the section hits the top of the viewport
+      scrub: true        // Smooth scrolling effect
+    }
+  })
 
 
 gsap.from("#zone2", {

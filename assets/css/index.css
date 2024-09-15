@@ -303,9 +303,12 @@
 /* css zone 1 */
 
 .first-main-content {
-    @apply w-full h-[60vw] bg-image relative overflow-hidden;
+    @apply w-full h-[60vw]  relative overflow-hidden;
 }
 
+.video-bg {
+    @apply absolute w-full h-full object-cover -translate-x-2/4 -translate-y-2/4 z-[-1] left-2/4 top-2/4;
+  }
 
 .bg-image {
     @apply bg-[url("assets/images/ห้องสโม-1.svg")] bg-cover bg-center;
