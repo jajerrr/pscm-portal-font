@@ -13,6 +13,7 @@
     <div class="f-center mt-[5%] mb-[20%] z-[13]" >
       <div class="j-center items-stretch h-auto mt-[10%]">
         <div class="absolute w-1/2 mt-[-10%]">
+          
           <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
             <img
               src="assets/images/zone3/lift-zone3.svg"
@@ -63,7 +64,7 @@
           </div>
         </div>
 
-        <!-- <div class="f-col image-full-re mt-[13vw] px-[5%]">
+        <div class="f-col image-full-re mt-[13vw] px-[5%]">
         
 
           <div class="relative j-center z-[10]">
@@ -128,7 +129,7 @@
             />
             <img src="assets/images/Rectangle-zone3.png" class="w-full" />
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
  

@@ -1,214 +1,177 @@
 <template>
-<div id="smooth-wrapper">
-  <div id="smooth-content">
-    <header class="header">
-      <h1 class="title">ScrollSmoother</h1>
-     
-    </header>
-    <div class="box box-a" data-speed="clamp(0.5)">a</div>
-    <div class="box box-b" data-speed="clamp(0.8)">b</div>
-    <div class="box box-c" data-speed="1.5">c</div>
-    <div class="line"></div>
+ 
+  <div class = 'content-sm' >
+  <HomeZone3Sm />
+  </div> 
+ 
+  <div class="content-w-re content-nm mb-[30%]">
+    <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
+      <li class="th-header">รอบรู้กับ</li>
+      <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
+    </div>
+
+    <div class="f-center mt-[5%] mb-[20%] z-[13]" >
+      <div class="j-center items-stretch h-auto mt-[10%]">
+        <div class="absolute w-1/2 mt-[-10%]">
+          
+          <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
+            <img
+              src="assets/images/zone3/lift-zone3.svg"
+              class="image-full-ab"
+            />
+
+            <div class="j-center absolute w-full mt-[2%] z-10 SF-TH-Semi">
+              <button
+                type="button"
+                class="w-[7vw] h-[7vw] z-3-bt text-white"
+                style="background: linear-gradient(127deg, #ffebd9, #ff7600)"
+              >
+                ชั้น<br />03
+              </button>
+            </div>
+
+            <div class="j-center absolute w-full mt-[17%] z-10">
+              <div class="w-1/2 f-center">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
+                  ชั้น<br />02
+                </button>
+              </div>
+              <div class="w-1/2 f-center">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
+                  ชั้น<br />04
+                </button>
+              </div>
+            </div>
+
+            <div class="flex w-full mt-[30%] z-10">
+              <div class="j-center w-1/5" style="justify-content: flex-end">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
+                  ชั้น<br />01
+                </button>
+              </div>
+              <div class="j-center w-1/5"></div>
+              <div class="j-center w-1/5">
+                <h class="text-white text-[2vw] SF-TH-Semi">Floor</h>
+              </div>
+              <div class="j-center w-1/5"></div>
+
+              <div class="j-center w-1/5" style="justify-content: flex-start">
+                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
+                  ชั้น<br />05
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-col image-full-re mt-[13vw] px-[5%]">
+        
+
+          <div class="relative j-center z-[10]">
+            <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[7.5vw]">
+              <div class="space-y-4">
+                <img
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
+                  alt=""
+                />
+                <img
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
+                  alt=""
+                />
+                <img
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
+                  alt=""
+                />
+                <img
+                  class="img-z-3-col"
+                  src="assets/images/zone3/sm-photo.png"
+                  alt=""
+                />
+                <div class="f-center">
+                  <img
+                    class="img-z-3-col relative"
+                    src="assets/images/zone3/morephoto.png"
+                    alt=""
+                  />
+                  <p class="absolute text-white">+2</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="f-col absolute top-[10%] left-[5%] gap-1">
+              <p class="text-[2vw] SF-TH-Semi">ห้องสโม</p>
+              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
+              <div class="f-row gap-5">
+                <div class="f-col f-center">
+                  <img
+                    src="assets/images/iconzone3-1.svg"
+                    class="w-[50%] h-auto"
+                  />
+                  <p class="text-[1vw]">นิทรรศการอวัยวะ</p>
+                </div>
+                <div class="f-col f-center">
+                  <img
+                    src="assets/images/iconzone3-2.svg"
+                    class="w-[50%] h-auto"
+                  />
+                  <p class="text-[1vw]">เรียนรู้อวัยวะต่างๆ</p>
+                </div>
+              </div>
+            </div>
+            <img
+              src="assets/images/zone3/room1-zone3.png"
+              class="flex w-[45vw] absolute"
+              alt="ห้อง"
+            
+            />
+            <img src="assets/images/Rectangle-zone3.png" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <img
+      src="assets/images/zone3/Vector 87.svg"
+      class="image-full-ab top-[-10vw] z-[-1]"
+      alt="wave-top"
+    />
+    <img
+      src="assets/images/zone3/Clip path group.svg"
+      class="image-ab top-[-25%] right-[-8%] w-[30%] z-[1]"
+      alt="right"
+    />
+
+    <img
+      src="assets/images/zone3/Group 1000003307.svg"
+      class="image-ab top-[4%] left-[-28%] w-[55%] z-[1]"
+      alt="left"
+    />
+
+    <img
+      src="assets/images/zone3/Groupfloor.svg"
+      class="image-full-ab bottom-[-6vw] z-[1]"
+      alt="floor"
+      
+    />
   </div>
-</div>
-
 </template>
-<script>
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-ScrollTrigger.normalizeScroll(true)
-
-// create the smooth scroller FIRST!
-let smoother = ScrollSmoother.create({
-  smooth: 2,
-  effects: true,
-  normalizeScroll: true
-});
-
-// pin box-c when it reaches the center of the viewport, for 300px
-ScrollTrigger.create({
-  trigger: ".box-c",
-  pin: true,
-  start: "center center",
-  end: "+=300",
-  markers: true
-});
-
-document.querySelector("button").addEventListener("click", e => {
-  // scroll to the spot where .box-c is in the center.
-  // parameters: element, smooth, position
-  smoother.scrollTo(".box-c", true, "center center");
-  
-  // or you could animate the scrollTop:
-  // gsap.to(smoother, {
-  // 	scrollTop: smoother.offset(".box-c", "center center"),
-  // 	duration: 1
-  // });
-});
-
-
-
-</script>
 <style>
-:root {
-	--dark: #1d1d1d;
-  --grey-dark: #414141;
-	--light: #fff;
-	--mid: #ededed;
-  --grey: #989898;
-  --gray: #989898;
-	--green: #28a92b;
-  --green-dark: #4e9815;
-	--green-light: #6fb936;
-	--blue: #2c7ad2;
-	--purple: #8d3dae;
-	--red: #c82736;
-	--orange: #e77614;
-  accent-color: var(--green);
-}
-body {
-  background-color: #111;
-  font-family: "Signika Negative", sans-serif, Arial;
-  overscroll-behavior: none;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+.content-sm{
+    display:none;
+  }
+@media (max-width:700px) {
 
-
-#smooth-content {
-  overflow: visible;
-  width: 100%;
-  /* set a height because the contents are position: absolute, thus natively there's no height */
-  height: 4000px;
-
-  background-image:
-    linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px),
-    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-}
-
-button {
-  position: relative; 
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: #28a92b;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  line-height: 100px;
-  font-size: 50px;
-  text-align: center;
-  will-change: transform;
-}
-.box.active {
-  background-color: red;
-}
-
-.box-a {
-  top: 200px;
-  background-color: #8d3dae;
-}
-
-.box-b {
-  top: 600px;
-}
-
-.box-c {
-  top: 1000px;
-  background-color: #e26c16;
-  will-change: transform;
-}
-
-.line {
-  visibility: hidden;
-  width: 2px;
-  height: 4000px;
-  position: absolute;
-  left: 400px;
-  top: 0px;
-  background-color: #777;
-}
-
-header .name {
-  color: white;
-}
-
-.title {
-  text-align: center;
-  color: white;
-  font-weight: 400;
-  font-size: 40px;
-}
-footer {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  padding: 6px 10px 10px 12px;
-  border-top-left-radius: 26px;
-  z-index: 100;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.end {
-  position: absolute;
-  /*   bottom: 0; */
-  top: 2400px;
-  transform: translateY(-100%);
-  font-size: 30px;
-  color: white;
-}
-
-/* button:not('.box') { breaking for some reason in codepen? */
-button {
-	display: inline-block;
-	outline: none;
-	border: none;
-	padding: 8px 14px;
-	background: var(--light);
-  background-image: linear-gradient(to bottom, hsl(0deg 0% 100%), hsl(0deg 0% 94%));
-	-webkit-box-shadow: 0px 1px 0px #414141;
-	-moz-box-shadow: 0px 1px 0px #414141;
-	box-shadow: 0px 1px 0px #414141;
-	color: var(--dark);
-	text-decoration: none;
-	-webkit-border-radius: 4;
-	-moz-border-radius: 4;
-	border-radius: 4px;
-	padding: 12px 25px;
-	font-family: "Signika Negative", sans-serif;
-	text-transform: uppercase;
-	font-weight: 600;
-	cursor: pointer;
-	line-height: 18px;
-}
-
-.light button {
-    color: var(--light);
-  	background-image: linear-gradient(to bottom, #575757, #414141);
-}
-
-button:hover {
-	background: var(--green-light);
-	background-image: linear-gradient(to bottom, #57a818, #4d9916);
-	-webkit-box-shadow: 0px 1px 0px fefefe;
-	-moz-box-shadow: 0px 1px 0px fefefe;
-	box-shadow: 0px 1px 0px fefefe;
-	color: #ffffff;
-	text-decoration: none;
+  .content-sm{
+    display:contents;
+  }
+  .content-nm{
+    display:none;
+  }
+  
 }
 </style>

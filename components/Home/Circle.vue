@@ -1,110 +1,217 @@
 <template>
-    <div class="content-w-re content-nm mb-[30%]">
-      
-
-        <div class="f-center mt-[5%] mb-[20%] z-[13]">
-            <div class="j-center items-stretch h-auto mt-[10%]">
-                <div class="absolute w-1/2 mt-[-10%]">
-                    <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
-                        <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab" />
-
-                        <div
-                            class="wheel-container absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                            <button type="button" class="w-[7vw] h-[7vw] z-3-bt text-white"
-                                style="background: linear-gradient(127deg, #ffebd9, #ff7600)">
-                                ชั้น<br />03
-                            </button>
-                            <button type="button" class="w-[5vw] h-[5vw] z-3-bt hover:bg-[#ff9f44]">
-                                ชั้น<br />02
-                            </button>
-                            <button type="button" class="w-[5vw] h-[5vw] z-3-bt hover:bg-[#ff9f44]">
-                                ชั้น<br />04
-                            </button>
-                            <button type="button" class="w-[5vw] h-[5vw] z-3-bt hover:bg-[#ff9f44]">
-                                ชั้น<br />01
-                            </button>
-                            <button type="button" class="w-[5vw] h-[5vw] z-3-bt hover:bg-[#ff9f44]">
-                                ชั้น<br />05
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
+  <div>
+    <div class="container">
+      <div class="wrapper">
+        <div v-for="(item, index) in items" :key="index" :class="['item', { active: activeItem === index }]"
+          @click="handleItemClick(index)">
+          {{ index + 1 }}
         </div>
-
-
+        <svg viewBox="0 0 400 400">
+          <circle id="holder" class="st0" cx="200" cy="200" r="200" />
+        </svg>
+      </div>
     </div>
+    <!-- <div class="container space-x-4" style="text-align: center;">
+      <button @click="moveWheel(itemStep)">Prev</button>
+      <button @click="moveWheel(-itemStep)">Next</button>
+    </div> -->
+  </div>
 </template>
-<script >
-import { onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { Draggable } from 'gsap/Draggable';
 
-gsap.registerPlugin(Draggable);
+<script>
+import { gsap } from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 export default {
-  setup() {
-    onMounted(() => {
-      const wheelContainer = document.querySelector(".wheel-container");
-      if (!wheelContainer) {
-        console.error("Element with class 'wheel-container' not found");
-        return;
-      }
+  data() {
+    return {
+      items: new Array(8).fill(0),
+      activeItem: 0,
+      tracker: { item: 0 },
+      itemStep: 1 / 8,
+      numItems: 8,
+      tl: null,
+      circlePath: null,
+      snap: null,
+      wrapProgress: null,
+      wrapTracker: null,
+    };
+  },
+  mounted() {
+    gsap.registerPlugin(MotionPathPlugin);
+    this.initGSAP();
+    
+    const initialRotation = -720 / this.numItems; // ปรับมุมหมุนเริ่มต้น
+    gsap.set('.wrapper', { rotation: initialRotation });
+  },
+  methods: {
+    initGSAP() {
+      this.circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
+      this.circlePath.id = 'circlePath';
+      document.querySelector('svg').prepend(this.circlePath);
 
-      let rotate = 0;
-      const step = 72; // ขนาดการหมุนในแต่ละขั้น
-      
-      Draggable.create(wheelContainer, {
-        type: "rotation",
-        inertia: true,
-        onDrag() {
-          const curRotation = gsap.getProperty(wheelContainer, "rotation");
-          rotate = curRotation;
+      const items = gsap.utils.toArray('.item');
+      const numItems = items.length;
+      const itemStep = 1 / numItems;
+
+      this.snap = gsap.utils.snap(itemStep);
+      this.wrapProgress = gsap.utils.wrap(0, 1);
+      this.wrapTracker = gsap.utils.wrap(0, numItems);
+
+      gsap.set(items, {
+        motionPath: {
+          path: this.circlePath,
+          align: this.circlePath,
+          alignOrigin: [0.5, 0.5],
+          end: (i) => i / numItems,
         },
-        snap(value) {
-          rotate = Math.round(value / step) * step;
-          return rotate;
-        }
+        scale: 1.3,
       });
-    });
-  }
+
+      this.tl = gsap.timeline({ paused: true, reversed: true });
+
+      const initialRotation = -720 / numItems;
+      this.tl.to('.wrapper', {
+        rotation: initialRotation,
+        transformOrigin: 'center',
+        duration: 0,
+        ease: 'none',
+      });
+
+      this.tl.to('.wrapper', {
+        rotation: 360 + initialRotation,
+        transformOrigin: 'center',
+        duration: 1,
+        ease: 'none',
+      });
+
+      this.tl.to(
+        items,
+        {
+          rotation: '-=360',
+          transformOrigin: 'center',
+          duration: 1,
+          ease: 'none',
+        },
+        0
+      );
+
+      this.tl.to(
+        this.tracker,
+        {
+          item: numItems,
+          duration: 1,
+          ease: 'none',
+          modifiers: {
+            item: (value) => this.wrapTracker(numItems - Math.round(value)),
+          },
+        },
+        0
+      );
+    },
+    moveWheel(amount) {
+      let progress = this.tl.progress();
+      this.tl.progress(this.wrapProgress(this.snap(this.tl.progress() + amount)));
+      let next = this.tracker.item;
+      this.tl.progress(progress);
+
+      this.activeItem = next;
+
+      gsap.to(this.tl, {
+        progress: this.snap(this.tl.progress() + amount),
+        modifiers: {
+          progress: this.wrapProgress,
+        },
+      });
+    },
+    handleItemClick(index) {
+      const current = this.tracker.item;
+      const diff = current - index;
+
+      if (index === current) return;
+
+      this.activeItem = index;
+
+      if (Math.abs(diff) < this.numItems / 2) {
+        this.moveWheel(diff * this.itemStep);
+      } else {
+        const amt = this.numItems - Math.abs(diff);
+        if (current > index) {
+          this.moveWheel(amt * -this.itemStep);
+        } else {
+          this.moveWheel(amt * this.itemStep);
+        }
+      }
+    },
+  },
 };
 </script>
 
-<style>
-.wheel-container {
-    width: 200px;
-    /* ขนาดวงกลม */
-    height: 200px;
-    /* ขนาดวงกลม */
-    position: relative;
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.wheel-container button {
-    position: absolute;
-    transform-origin: center;
+body {
+  background: #fff;
+  position: relative;
 }
 
-.wheel-container button:nth-child(1) {
-    transform: rotate(0deg) translateY(-100px);
+.container {
+  position: relative;
+  width: 800px; /* ปรับขนาดของ container */
+  margin: auto;
+
+
 }
 
-.wheel-container button:nth-child(2) {
-    transform: rotate(72deg) translateY(-100px);
+.wrapper {
+  position: relative;
+  width: 500px; /* ปรับขนาดของ wrapper */
+  height: 500px; /* ปรับขนาดของ wrapper */
 }
 
-.wheel-container button:nth-child(3) {
-    transform: rotate(144deg) translateY(-100px);
+.item {
+  width: 70px; /* ขยายขนาดของ item */
+  height: 70px; /* ขยายขนาดของ item */
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 70px;
+  font-size: 30px; /* ปรับขนาดตัวอักษร */
+  font-family: "Roboto", sans-serif;
+  border-radius: 100%;
+  background-color: rgb(175, 175, 175);
+  z-index: 1;
+  cursor: pointer;
+  transform: translate3d(546px, 226px, 0px) rotate(90deg); /* ปรับตำแหน่งใหม่ */
 }
 
-.wheel-container button:nth-child(4) {
-    transform: rotate(216deg) translateY(-100px);
+.item.active {
+  background-color: #ff8400;
 }
 
-.wheel-container button:nth-child(5) {
-    transform: rotate(288deg) translateY(-100px);
+svg {
+  height: 500px; /* ขยายขนาดของ SVG */
+  width: 500px; /* ขยายขนาดของ SVG */
+  overflow: visible;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.st0 {
+  fill: none;
+  /* stroke: #000000;
+  stroke-width: 1;
+  stroke-miterlimit: 1; */
+}
+
+.start {
+  position: absolute;
+  top: 0%;
+  left: 45%;
 }
 </style>

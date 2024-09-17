@@ -19,7 +19,8 @@
       <div class="bg-[#F3F7FD]">
 <div  id ="zone3">
   
-        <HomeCircle />
+        <!-- <HomeZone3/> -->
+         <HomeScroll />
 
       </div>
 

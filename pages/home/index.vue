@@ -1,131 +1,218 @@
 <template>
   <div>
-    <div class="circle">
-      <div v-for="( index) in items" :key="index" class="watch">
-        {{ index }}
+    <div class="container">
+      <div class="wrapper">
+        <div v-for="(item, index) in items" :key="index" :class="['item', { active: activeItem === index }]"
+          @click="handleItemClick(index)">
+          {{ index + 1 }}
+        </div>
+        <svg viewBox="0 0 400 400">
+          <circle id="holder" class="st0" cx="200" cy="200" r="200" />
+        </svg>
       </div>
     </div>
-
-    <div class="next" @click="rotateNext">
-      Next
-    </div>
-
-    <div class="prev" @click="rotatePrev">
-      Prev
-    </div>
+    <!-- <div class="container space-x-4" style="text-align: center;">
+      <button @click="moveWheel(itemStep)">Prev</button>
+      <button @click="moveWheel(-itemStep)">Next</button>
+    </div> -->
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
-import gsap from 'gsap'
-import Draggable from 'gsap/Draggable'
+<script>
+import { gsap } from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-gsap.registerPlugin(Draggable)
+export default {
+  data() {
+    return {
+      items: new Array(8).fill(0),
+      activeItem: 0,
+      tracker: { item: 0 },
+      itemStep: 1 / 8,
+      numItems: 8,
+      tl: null,
+      circlePath: null,
+      snap: null,
+      wrapProgress: null,
+      wrapTracker: null,
+    };
+  },
+  mounted() {
+    gsap.registerPlugin(MotionPathPlugin);
+    this.initGSAP();
+    
+    const initialRotation = -720 / this.numItems; // ปรับมุมหมุนเริ่มต้น
+    gsap.set('.wrapper', { rotation: initialRotation });
+  },
+  methods: {
+    initGSAP() {
+      this.circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
+      this.circlePath.id = 'circlePath';
+      document.querySelector('svg').prepend(this.circlePath);
 
-const items = ref([...Array(11).keys()])
-let rotate = ref(0)
-let step = 360 / items.value.length
-let mainCircle = null
+      const items = gsap.utils.toArray('.item');
+      const numItems = items.length;
+      const itemStep = 1 / numItems;
 
-const rotateNext = () => {
-  rotate.value -= step
-  gsap.to(mainCircle, {
-    rotation: rotate.value,
-    ease: "power3.inOut",
-    duration: 1
-  })
-}
+      this.snap = gsap.utils.snap(itemStep);
+      this.wrapProgress = gsap.utils.wrap(0, 1);
+      this.wrapTracker = gsap.utils.wrap(0, numItems);
 
-const rotatePrev = () => {
-  rotate.value += step
-  gsap.to(mainCircle, {
-    rotation: rotate.value,
-    ease: "power3.inOut",
-    duration: 1
-  })
-}
+      gsap.set(items, {
+        motionPath: {
+          path: this.circlePath,
+          align: this.circlePath,
+          alignOrigin: [0.5, 0.5],
+          end: (i) => i / numItems,
+        },
+        scale: 1.3,
+      });
 
-onMounted(() => {
-  mainCircle = document.querySelector('.circle')
+      this.tl = gsap.timeline({ paused: true, reversed: true });
 
-  gsap.set(mainCircle, { rotation: rotate.value })
+      const initialRotation = -720 / numItems;
+      this.tl.to('.wrapper', {
+        rotation: initialRotation,
+        transformOrigin: 'center',
+        duration: 0,
+        ease: 'none',
+      });
 
-  Draggable.create(mainCircle, {
-    type: "rotation",
-    inertia: true,
-    onDrag: function () {
-      let curRotation = gsap.getProperty(mainCircle, "rotation")
-      rotate.value = curRotation
+      this.tl.to('.wrapper', {
+        rotation: 360 + initialRotation,
+        transformOrigin: 'center',
+        duration: 1,
+        ease: 'none',
+      });
+
+      this.tl.to(
+        items,
+        {
+          rotation: '-=360',
+          transformOrigin: 'center',
+          duration: 1,
+          ease: 'none',
+        },
+        0
+      );
+
+      this.tl.to(
+        this.tracker,
+        {
+          item: numItems,
+          duration: 1,
+          ease: 'none',
+          modifiers: {
+            item: (value) => this.wrapTracker(numItems - Math.round(value)),
+          },
+        },
+        0
+      );
     },
-    snap: (value) => gsap.utils.snap(step)(value)
-  })
-})
+    moveWheel(amount) {
+      let progress = this.tl.progress();
+      this.tl.progress(this.wrapProgress(this.snap(this.tl.progress() + amount)));
+      let next = this.tracker.item;
+      this.tl.progress(progress);
+
+      this.activeItem = next;
+
+      gsap.to(this.tl, {
+        progress: this.snap(this.tl.progress() + amount),
+        modifiers: {
+          progress: this.wrapProgress,
+        },
+      });
+    },
+    handleItemClick(index) {
+      const current = this.tracker.item;
+      const diff = current - index;
+
+      if (index === current) return;
+
+      this.activeItem = index;
+
+      if (Math.abs(diff) < this.numItems / 2) {
+        this.moveWheel(diff * this.itemStep);
+      } else {
+        const amt = this.numItems - Math.abs(diff);
+        if (current > index) {
+          this.moveWheel(amt * -this.itemStep);
+        } else {
+          this.moveWheel(amt * this.itemStep);
+        }
+      }
+    },
+  },
+};
 </script>
 
-<style scoped lang="scss">
-@mixin on-circle($item-count, $circle-size, $item-size) {
-  position: relative;
-  width: $circle-size;
-  height: $circle-size;
+<style scoped>
+* {
+  margin: 0;
   padding: 0;
-  border-radius: 50%;
-  list-style: none;
-
-  > * {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: $item-size;
-    height: $item-size;
-    margin: -($item-size / 2);
-
-    $angle: (360 / $item-count);
-    $rot: 0;
-
-    @for $i from 1 through $item-count {
-      &:nth-of-type(#{$i}) {
-        transform: rotate($rot * 1deg)
-          translate($circle-size / 2)
-          rotate(90deg);
-      }
-      $rot: $rot + $angle;
-    }
-  }
 }
 
-.circle {
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
+body {
+  background: #fff;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* จัดกลางแนวนอน */
+  align-items: center; /* จัดกลางแนวตั้ง */
+  height: 100vh; /* ใช้ความสูงของ viewport */
+  width: 100vw; /* ใช้ความกว้างของ viewport */
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+  width: 500px; /* ขนาดของ wrapper */
+  height: 500px; /* ขนาดของ wrapper */
+}
+
+.item {
+  width: 70px; /* ขยายขนาดของ item */
+  height: 70px; /* ขยายขนาดของ item */
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 70px;
+  font-size: 30px; /* ปรับขนาดตัวอักษร */
+  font-family: "Roboto", sans-serif;
+  border-radius: 100%;
+  background-color: rgb(175, 175, 175);
+  z-index: 1;
+  cursor: pointer;
+  transform: translate3d(546px, 226px, 0px) rotate(90deg); /* ปรับตำแหน่งใหม่ */
+}
+
+.item.active {
+  background-color: #ff8400;
+}
+
+svg {
+  height: 500px; /* ขยายขนาดของ SVG */
+  width: 500px; /* ขยายขนาดของ SVG */
+  overflow: visible;
+  z-index: -1;
   position: absolute;
-  top: 50px;
-  left: 20%;
-  border: 5px solid red;
-  @include on-circle($item-count: 11, $circle-size: 600px, $item-size: 60px);
-  transform-origin: center center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.watch {
-  width: 830px;
-  height: 80px;
-  border: 2px solid rgb(255, 0, 0);
-  border-radius: 50%;
+.st0 {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-miterlimit: 1;
 }
 
-.next {
-  background-color: green;
-  transform: translateY(100px);
-  width: 100px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.prev {
-  background-color: red;
-  transform: translateY(100px);
-  width: 100px;
-  cursor: pointer;
+.start {
+  position: absolute;
+  top: 0%;
+  left: 45%;
 }
 </style>
