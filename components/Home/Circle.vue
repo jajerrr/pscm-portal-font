@@ -11,10 +11,6 @@
         </svg>
       </div>
     </div>
-    <!-- <div class="container space-x-4" style="text-align: center;">
-      <button @click="moveWheel(itemStep)">Prev</button>
-      <button @click="moveWheel(-itemStep)">Next</button>
-    </div> -->
   </div>
 </template>
 
@@ -154,7 +150,7 @@ export default {
 }
 
 body {
-  background: #fff;
+  background: transparent;
   position: relative;
 }
 

@@ -1,8 +1,6 @@
 <template>
  
-  <div class = 'content-sm' >
-  <HomeZone3Sm />
-  </div> 
+
  
   <div class="content-w-re content-nm mb-[30%]">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
@@ -20,7 +18,13 @@
               class="image-full-ab"
             />
 
-            <div class="j-center absolute w-full mt-[2%] z-10 SF-TH-Semi">
+            <div class = "j-center absolute w-full mt-[2%] z-10">
+
+            
+
+            </div>
+
+            <!-- <div class="j-center absolute w-full mt-[2%] z-10 SF-TH-Semi">
               <button
                 type="button"
                 class="w-[7vw] h-[7vw] z-3-bt text-white"
@@ -60,7 +64,7 @@
                   ชั้น<br />05
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 

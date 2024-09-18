@@ -40,17 +40,24 @@
                      v-for="(card, index) in detailCard" 
                      :key="index"
                      style="transition: transform 5s ease, opacity 4.5s ease;">
-          <div>
-            <HomeModel class="normal_model" />
 
-            <!-- แสดงรูปภาพตามการเลือก -->
-            <img 
-              :src="getBodyImageSrc(card.img)" 
-              class="small_model img-sm-z6"
-              alt="body"
-              
-            />
-          </div>
+                   <div>
+                      <!-- <component :is="card.modelComponent" class="normal_model" /> -->
+                    
+                      <!-- <component
+      v-for="(icon, index) in icons"
+      :key="index"
+      :is="getIconComponent(icon)"
+    /> -->
+                      <IconsHeart />
+      
+    
+      <img 
+        :src="getBodyImageSrc(card.img)" 
+        class="small_model img-sm-z6"
+        alt="body"
+      /></div>
+   
         </SwiperSlide>
       </Swiper>
     </div>
@@ -62,33 +69,42 @@ import { Thumbs, Navigation, EffectFade } from "swiper/modules";
 import { ref } from "vue";
 import "swiper/swiper-bundle.css";
 import 'swiper/css/effect-fade';
+import { defineAsyncComponent } from 'vue';
 
+// Static import components
+// import HeartModel from '~/components/Model/heart.vue';
+// import LiverModel from '~/components/Model/liver.vue';
+// import BrainModel from '~/components/Model/brain.vue';
 
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
 
+const icons = ['Heart', 'Liver', 'Brain'];
+
+// รายละเอียดของ card ที่ต้องการแสดง
 const detailCard = ref([
   {
     header: "หัวใจ",
     desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
-    img: '/images/heart.svg'   
+    img: '/images/heart.svg',  
   },
   {
     header: "ตับ",
-    desc: "เป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
-    img: '/images/liver.svg'   
-  },
+    desc: "ป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
+    img: '/images/liver.svg',  
+     },
   {
     header: "สมอง",
     desc: "เป็นอวัยวะที่มีความซับซ้อนที่ควบคุมความคิด ความจำ อารมณ์ การสัมผัส ทักษะด้านการเคลื่อนไหว การมองเห็น การหายใจ การควบคุมอุณหภูมิ ความหิว และกระบวนการอื่นๆในการควบคุมร่างกาย และสมองร่วมกับไขสันหลังที่รวมเรียกว่าระบบประสาทส่วนกลาง",
-    img: '/images/brain.svg'   
-  },
+    img: '/images/brain.svg',  
+     },
 ]);
 
 // ฟังก์ชันเพื่อคืนพาธของรูปภาพ
 const getBodyImageSrc = (imgPath) => {
   return imgPath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
 };
+
 
 const setSwiperRef = (swiper) => {
   swiperRef2.value = swiper;
@@ -98,6 +114,11 @@ const swiperOptions = {
   speed: 10000, // ความเร็วในการเปลี่ยนสไลด์ (หน่วยเป็นมิลลิวินาที)
   pagination: { clickable: true },
   navigation: true,
+};
+
+// Dynamically import the icon components
+const getIconComponent = (icon) => {
+  return defineAsyncComponent(() => import(`@/components/Icons/${icon}.vue`));
 };
 </script>
 
