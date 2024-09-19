@@ -1,7 +1,8 @@
 
-bg video
+bg video //
 get ready zone1
 full funtion zone3 
-light zone 6
+light zone 6 ** มีปัญหาโมเดล
 bg zone 7
- option java wait for api
+zone5 video//
+option java wait for api

@@ -15,31 +15,61 @@
             :spaceBetween="10"
             :pagination="true"
           >
-            <SwiperSlide v-for="(slide, idx) in slides" :key="idx"  style="width: 90%;">
-              <img
-                src="assets/images/zone5/video frame.png"
-                alt=""
-                
-              />
-            </SwiperSlide>
+          <SwiperSlide
+            v-for="(slide, idx) in slides"
+            :key="idx"
+            class="max-w-full z-[9]"
+            style="width: 90% !important;"
+          >
+            <img
+              :src="getVDCover(slide.img)"
+              class="w-full max-h-full cursor-pointer"
+              @click="openVideo(slide.vdo)"
+            />
+          </SwiperSlide>
             <SwiperControls />
             
           </Swiper>
           
         </div>
       </div>
+      <div v-if="isModalOpen" class="modal-overlay z-[10]" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <video controls autoplay class="video-player-sm">
+          <source :src="currentVideo" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <button class="modal-close" @click="closeModal">Close</button>
+      </div>
+    </div>
     </div>
   </template>
   
   <script setup>
-  const slides = ref([
-    "assets/images/zone5/video frame.png",
-    "assets/images/zone5/video frame.png",
-    "assets/images/zone5/video frame.png",
-    "assets/images/zone5/video frame.png",
-    "assets/images/zone5/video frame.png",
-    "assets/images/zone5/video frame.png",
-  ]);
+ const slides = ref([
+  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
+  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
+  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
+  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
+  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' }
+]);
+
+const isModalOpen = ref(false);
+const currentVideo = ref(null);
+
+const getVDCover = (imgPath) => {
+  return imgPath;
+};
+
+const openVideo = (vdoPath) => {
+  currentVideo.value = vdoPath;
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  currentVideo.value = null;
+};
   </script>
   
   <style>
@@ -61,6 +91,44 @@
     background: #0a1962;
     opacity: 1;
   }
-  
+  .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.917);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: hidden;
+}
+
+.video-player-sm {
+  width: 100vh;
+  height:60vw;
+}
+
+.modal-close {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #ff5f0f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content-sm {
+  display: none;
+}
   </style>
   

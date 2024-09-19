@@ -49,7 +49,7 @@
       :key="index"
       :is="getIconComponent(icon)"
     /> -->
-                      <IconsHeart />
+                      <IconsBrain   class="normal_model"/>
       
     
       <img 
@@ -70,6 +70,7 @@ import { ref } from "vue";
 import "swiper/swiper-bundle.css";
 import 'swiper/css/effect-fade';
 import { defineAsyncComponent } from 'vue';
+
 
 // Static import components
 // import HeartModel from '~/components/Model/heart.vue';
