@@ -20,7 +20,11 @@
               class="image-full-ab"
             />
 
-            <div class="j-center absolute w-full mt-[2%] z-10 SF-TH-Semi">
+            <div class="j-center absolute w-full mt-[-10%] z-[20] SF-TH-Semi">
+              <HomeCircle class="z-[20] " />
+            </div>
+
+            <!-- <div class="j-center absolute w-full mt-[2%] z-10 SF-TH-Semi">
               <button
                 type="button"
                 class="w-[7vw] h-[7vw] z-3-bt text-white"
@@ -28,7 +32,7 @@
               >
                 ชั้น<br />03
               </button>
-            </div>
+            </div> -->
 
             <div class="j-center absolute w-full mt-[17%] z-10">
               <div class="w-1/2 f-center">

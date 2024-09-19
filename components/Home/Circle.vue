@@ -7,10 +7,14 @@
           {{ index + 1 }}
         </div>
         <svg viewBox="0 0 400 400">
-          <circle id="holder" class="st0" cx="200" cy="200" r="200" />
+          <circle id="holder" class="st0" cx="200" cy="200" r="300" />
         </svg>
       </div>
     </div>
+    <!-- <div class="container space-x-4" style="text-align: center;">
+      <button @click="moveWheel(itemStep)">Prev</button>
+      <button @click="moveWheel(-itemStep)">Next</button>
+    </div> -->
   </div>
 </template>
 
@@ -150,22 +154,23 @@ export default {
 }
 
 body {
-  background: transparent;
+  background: #fff;
   position: relative;
 }
 
 .container {
+  display: flex;
+  justify-content: center; /* จัดกลางแนวนอน */
+  align-items: center; /* จัดกลางแนวตั้ง */
+  height: 100vh; /* ใช้ความสูงของ viewport */
+  width: 100vw; /* ใช้ความกว้างของ viewport */
   position: relative;
-  width: 800px; /* ปรับขนาดของ container */
-  margin: auto;
-
-
 }
 
 .wrapper {
   position: relative;
-  width: 500px; /* ปรับขนาดของ wrapper */
-  height: 500px; /* ปรับขนาดของ wrapper */
+  width: 500px; /* ขนาดของ wrapper */
+  height: 500px; /* ขนาดของ wrapper */
 }
 
 .item {
@@ -180,7 +185,7 @@ body {
   background-color: rgb(175, 175, 175);
   z-index: 1;
   cursor: pointer;
-  transform: translate3d(546px, 226px, 0px) rotate(90deg); /* ปรับตำแหน่งใหม่ */
+  transform: translate3d(740px, 326px, 0px) rotate(90deg); /* ปรับตำแหน่งใหม่ */
 }
 
 .item.active {

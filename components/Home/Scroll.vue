@@ -24,47 +24,9 @@
 
             </div>
 
-            <!-- <div class="j-center absolute w-full mt-[2%] z-10 SF-TH-Semi">
-              <button
-                type="button"
-                class="w-[7vw] h-[7vw] z-3-bt text-white"
-                style="background: linear-gradient(127deg, #ffebd9, #ff7600)"
-              >
-                ชั้น<br />03
-              </button>
+            <div class="j-center absolute w-full mt-[-1%] z-10 SF-TH-Semi">
+              <HomeCircle />
             </div>
-
-            <div class="j-center absolute w-full mt-[17%] z-10">
-              <div class="w-1/2 f-center">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
-                  ชั้น<br />02
-                </button>
-              </div>
-              <div class="w-1/2 f-center">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
-                  ชั้น<br />04
-                </button>
-              </div>
-            </div>
-
-            <div class="flex w-full mt-[30%] z-10">
-              <div class="j-center w-1/5" style="justify-content: flex-end">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
-                  ชั้น<br />01
-                </button>
-              </div>
-              <div class="j-center w-1/5"></div>
-              <div class="j-center w-1/5">
-                <h class="text-white text-[2vw] SF-TH-Semi">Floor</h>
-              </div>
-              <div class="j-center w-1/5"></div>
-
-              <div class="j-center w-1/5" style="justify-content: flex-start">
-                <button type="button" class="w-[5vw] h-[5vw] z-3-bt  hover:bg-[#ff9f44] ">
-                  ชั้น<br />05
-                </button>
-              </div>
-            </div> -->
           </div>
         </div>
 
