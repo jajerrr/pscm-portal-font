@@ -4,16 +4,16 @@
   <div class="w-full h-auto relative text-[#2B2B2B] SF-TH overflow-hidden scrollContainer ">
 
     <!-----------------------------------navbar------------------------------------>
-    <HomeNavbar />
+    <!-- <HomeNavbar /> -->
 
     <!-----------------------------------first content ---------------------------->
     <div id="zone1">
       <HomeZone1 />
     </div>
     <!---------------------------------- second content --------------------------->
-    
+    <div>
       <HomeZone2 />
-    
+    </div>
     <!-----------------------------------third content ---------------------------->
     
       <div class="bg-[#F3F7FD]">
@@ -61,6 +61,10 @@
 
 <script setup>
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 </script>

@@ -2,26 +2,26 @@
 
   <div class="main-content">
 
-    <div class="col-center mt-[10%]" id="zone2">
+    <!-- <div class="col-center mt-[10%]" id="zone2"> -->
       <h class="header">News</h>
-      <div class="f-center flex-glow w-full relative small-view">
+      <!-- <div class="f-center flex-glow w-full relative small-view"> -->
         <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
-        <div class="icons-underline-small">
+        <!-- <div class="icons-underline-small">
           <IconsUnderline />
-        </div>
-        <button type="button"
+        </div> -->
+        <!-- <button type="button"
           class="absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
           <span>ดูทั้งหมด</span>
           <IconsUpRight />
-        </button>
-      </div>
-      <div class="icons-underline-normal">
+        </button> -->
+      <!-- </div> -->
+      <!-- <div class="icons-underline-normal">
         <IconsUnderline />
-      </div>
+      </div> -->
 
-    </div>
+    <!-- </div> -->
 
-    <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" />
+    <!-- <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" /> -->
 
 
     
@@ -31,9 +31,9 @@
     <div class="f-center">
       <div class="f-row gap-[5%] mt-[5%] card-container p-[5%] "
       >
-        <!-- คอนเทนเนอร์ left image  -->
-        <div class="f-col content-w-re card-item hide" id="zone2-2">
-          <!-- ******** -->
+        
+        <!-- <div class="f-col content-w-re card-item hide" id="zone2-2">
+          
 
           <div class="content-re SF-TH">
             <img src="assets/images/zone2/image 1561.png" class="image-full w-[80%]" />
@@ -54,11 +54,11 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- คอนเทนเนอร์ right image  -->
 
-        <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
+        <!-- <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
             <img src="assets/images/zone2/image 1561.png" class="w-[30%] h-auto rounded-[20%]" alt="news image1" />
             <div class="f-col gap-3 sm-text">
@@ -135,7 +135,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@
 
 
 
-@media (max-width: 650px) {
+/* @media (max-width: 650px) {
   .card-container {
     flex-direction: column;
     align-items: center;
@@ -263,5 +263,5 @@
   .nm-icon {
     display: none;
   }
-}
+} */
 </style>

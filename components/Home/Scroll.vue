@@ -1,8 +1,11 @@
 <template>
- 
+
+
 
  
-  <div class="content-w-re content-nm mb-[30%]">
+ 
+ 
+  <div class="content-w-re content-nm mb-[30%] bg-[#F3F7FD]">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
@@ -17,16 +20,12 @@
               src="assets/images/zone3/lift-zone3.svg"
               class="image-full-ab"
             />
-
-            <div class = "j-center absolute w-full mt-[2%] z-10">
-
             
-
-            </div>
-
-            <div class="j-center absolute w-full mt-[-1%] z-10 SF-TH-Semi">
+            <div class="j-center absolute w-full mt-[-7%] z-[20] SF-TH-Semi">
               <HomeCircle />
+        
             </div>
+            
           </div>
         </div>
 
@@ -34,7 +33,7 @@
         
 
           <div class="relative j-center z-[10]">
-            <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[7.5vw]">
+            <!-- <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[7.5vw]">
               <div class="space-y-4">
                 <img
                   class="img-z-3-col"
@@ -65,7 +64,7 @@
                   <p class="absolute text-white">+2</p>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="f-col absolute top-[10%] left-[5%] gap-1">
               <p class="text-[2vw] SF-TH-Semi">ห้องสโม</p>

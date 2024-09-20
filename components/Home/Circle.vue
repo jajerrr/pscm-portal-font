@@ -7,144 +7,143 @@
           {{ index + 1 }}
         </div>
         <svg viewBox="0 0 400 400">
-          <circle id="holder" class="st0" cx="200" cy="200" r="300" />
+          <circle id="holder" class="st0" cx="200" cy="200" r="200" />
         </svg>
       </div>
     </div>
-    <!-- <div class="container space-x-4" style="text-align: center;">
-      <button @click="moveWheel(itemStep)">Prev</button>
-      <button @click="moveWheel(-itemStep)">Next</button>
-    </div> -->
+
   </div>
 </template>
 
-<script>
-import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+<script setup>
+import { ref, onMounted } from 'vue'
+import { gsap } from 'gsap'
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 
-export default {
-  data() {
-    return {
-      items: new Array(8).fill(0),
-      activeItem: 0,
-      tracker: { item: 0 },
-      itemStep: 1 / 8,
-      numItems: 8,
-      tl: null,
-      circlePath: null,
-      snap: null,
-      wrapProgress: null,
-      wrapTracker: null,
-    };
-  },
-  mounted() {
-    gsap.registerPlugin(MotionPathPlugin);
-    this.initGSAP();
-    
-    const initialRotation = -720 / this.numItems; // ปรับมุมหมุนเริ่มต้น
-    gsap.set('.wrapper', { rotation: initialRotation });
-  },
-  methods: {
-    initGSAP() {
-      this.circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
-      this.circlePath.id = 'circlePath';
-      document.querySelector('svg').prepend(this.circlePath);
+gsap.registerPlugin(MotionPathPlugin)
 
-      const items = gsap.utils.toArray('.item');
-      const numItems = items.length;
-      const itemStep = 1 / numItems;
+// Reactive state
+const items = new Array(8).fill(0)
+const activeItem = ref(0)
+const tracker = ref({ item: 0 })
+const itemStep = 1 / 8
+const numItems = 8
 
-      this.snap = gsap.utils.snap(itemStep);
-      this.wrapProgress = gsap.utils.wrap(0, 1);
-      this.wrapTracker = gsap.utils.wrap(0, numItems);
+// Other variables
+let tl = null
+let circlePath = null
+let snap = null
+let wrapProgress = null
+let wrapTracker = null
 
-      gsap.set(items, {
-        motionPath: {
-          path: this.circlePath,
-          align: this.circlePath,
-          alignOrigin: [0.5, 0.5],
-          end: (i) => i / numItems,
-        },
-        scale: 1.3,
-      });
+const initGSAP = () => {
+  circlePath = MotionPathPlugin.convertToPath('#holder', false)[0]
+  circlePath.id = 'circlePath'
+  document.querySelector('svg').prepend(circlePath)
 
-      this.tl = gsap.timeline({ paused: true, reversed: true });
+  const itemsArray = gsap.utils.toArray('.item')
+  const numItemsLocal = itemsArray.length
+  const itemStepLocal = 1 / numItemsLocal
 
-      const initialRotation = -720 / numItems;
-      this.tl.to('.wrapper', {
-        rotation: initialRotation,
-        transformOrigin: 'center',
-        duration: 0,
-        ease: 'none',
-      });
+  snap = gsap.utils.snap(itemStepLocal)
+  wrapProgress = gsap.utils.wrap(0, 1)
+  wrapTracker = gsap.utils.wrap(0, numItemsLocal)
 
-      this.tl.to('.wrapper', {
-        rotation: 360 + initialRotation,
-        transformOrigin: 'center',
-        duration: 1,
-        ease: 'none',
-      });
-
-      this.tl.to(
-        items,
-        {
-          rotation: '-=360',
-          transformOrigin: 'center',
-          duration: 1,
-          ease: 'none',
-        },
-        0
-      );
-
-      this.tl.to(
-        this.tracker,
-        {
-          item: numItems,
-          duration: 1,
-          ease: 'none',
-          modifiers: {
-            item: (value) => this.wrapTracker(numItems - Math.round(value)),
-          },
-        },
-        0
-      );
+  gsap.set(itemsArray, {
+    motionPath: {
+      path: circlePath,
+      align: circlePath,
+      alignOrigin: [0.5, 0.5],
+      end: (i) => i / numItemsLocal,
     },
-    moveWheel(amount) {
-      let progress = this.tl.progress();
-      this.tl.progress(this.wrapProgress(this.snap(this.tl.progress() + amount)));
-      let next = this.tracker.item;
-      this.tl.progress(progress);
+    scale: 1.3,
+  })
 
-      this.activeItem = next;
+  tl = gsap.timeline({ paused: true, reversed: true })
 
-      gsap.to(this.tl, {
-        progress: this.snap(this.tl.progress() + amount),
-        modifiers: {
-          progress: this.wrapProgress,
-        },
-      });
+  const initialRotation = -720 / numItemsLocal
+  tl.to('.wrapper', {
+    rotation: initialRotation,
+    transformOrigin: 'center',
+    duration: 0,
+    ease: 'none',
+  })
+
+  tl.to('.wrapper', {
+    rotation: 360 + initialRotation,
+    transformOrigin: 'center',
+    duration: 1,
+    ease: 'none',
+  })
+
+  tl.to(
+    itemsArray,
+    {
+      rotation: '-=360',
+      transformOrigin: 'center',
+      duration: 1,
+      ease: 'none',
     },
-    handleItemClick(index) {
-      const current = this.tracker.item;
-      const diff = current - index;
+    0
+  )
 
-      if (index === current) return;
-
-      this.activeItem = index;
-
-      if (Math.abs(diff) < this.numItems / 2) {
-        this.moveWheel(diff * this.itemStep);
-      } else {
-        const amt = this.numItems - Math.abs(diff);
-        if (current > index) {
-          this.moveWheel(amt * -this.itemStep);
-        } else {
-          this.moveWheel(amt * this.itemStep);
-        }
-      }
+  tl.to(
+    tracker.value,
+    {
+      item: numItemsLocal,
+      duration: 1,
+      ease: 'none',
+      modifiers: {
+        item: (value) => wrapTracker(numItemsLocal - Math.round(value)),
+      },
     },
-  },
-};
+    0
+  )
+}
+
+const moveWheel = (amount) => {
+  let progress = tl.progress()
+  tl.progress(wrapProgress(snap(tl.progress() + amount)))
+  let next = tracker.value.item
+  tl.progress(progress)
+
+  activeItem.value = next
+
+  gsap.to(tl, {
+    progress: snap(tl.progress() + amount),
+    modifiers: {
+      progress: wrapProgress,
+    },
+  })
+}
+
+const handleItemClick = (index) => {
+  const current = tracker.value.item
+  const diff = current - index
+
+  if (index === current) return
+
+  activeItem.value = index
+
+  if (Math.abs(diff) < numItems / 2) {
+    moveWheel(diff * itemStep)
+  } else {
+    const amt = numItems - Math.abs(diff)
+    if (current > index) {
+      moveWheel(amt * -itemStep)
+    } else {
+      moveWheel(amt * itemStep)
+    }
+  }
+}
+
+// Lifecycle hook for when the component is mounted
+onMounted(() => {
+  initGSAP()
+
+  const initialRotation = -720 / numItems // Initial rotation angle
+  gsap.set('.wrapper', { rotation: initialRotation })
+})
 </script>
 
 <style scoped>
