@@ -154,7 +154,7 @@ onMounted(() => {
 
 body {
   background: #fff;
-  position: relative;
+  position: absolute;
 }
 
 .container {

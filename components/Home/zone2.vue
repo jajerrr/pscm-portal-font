@@ -2,7 +2,7 @@
 
   <div class="main-content">
 
-    <!-- <div class="col-center mt-[10%]" id="zone2"> -->
+    <div class="col-center mt-[10%]" id="zone2">
       <h class="header">News</h>
       <!-- <div class="f-center flex-glow w-full relative small-view"> -->
         <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
@@ -19,9 +19,9 @@
         <IconsUnderline />
       </div> -->
 
-    <!-- </div> -->
+    </div>
 
-    <!-- <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" /> -->
+    <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" />
 
 
     
