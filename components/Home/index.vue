@@ -4,7 +4,7 @@
   <div class="w-full h-auto relative text-[#2B2B2B] SF-TH overflow-hidden scrollContainer ">
 
     <!-----------------------------------navbar------------------------------------>
-    <!-- <HomeNavbar /> -->
+    <HomeNavbar />
 
     <!-----------------------------------first content ---------------------------->
     <div id="zone1">

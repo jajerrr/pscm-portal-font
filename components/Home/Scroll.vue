@@ -1,11 +1,9 @@
 <template>
+  <div class = 'content-sm' >
+  <HomeZone3Sm />
+  </div> 
 
-
-
- 
- 
- 
-  <div class="content-w-re content-nm mb-[30%] bg-[#F3F7FD]">
+  <div class="third-main-content content-nm mb-[30%] bg-[#F3F7FD]">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>

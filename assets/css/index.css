@@ -359,7 +359,17 @@
     @apply text-[15px] text-[#797979] px-2
 }
 
+
+.second-main-content {
+    @apply w-full h-auto  relative;
+}
+
 /* css zone 3 */
+
+.third-main-content {
+    @apply w-full h-auto relative;
+}
+
 .z-3-bt{
     @apply rounded-full flex items-center justify-center bg-white shadow text-[10px];
 }

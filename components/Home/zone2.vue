@@ -1,23 +1,26 @@
 <template>
 
-  <div class="main-content">
+  <div class="  second-main-content">
+    <!-- main-content -->
 
     <div class="col-center mt-[10%]" id="zone2">
       <h class="header">News</h>
-      <!-- <div class="f-center flex-glow w-full relative small-view"> -->
-        <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
-        <!-- <div class="icons-underline-small">
-          <IconsUnderline />
-        </div> -->
-        <!-- <button type="button"
+      <div class="f-center flex-glow w-full relative small-view">
+        <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>   
+        <div class="icons-underline-small">
+          <img src ="assets/images/zone2/underline.png" />
+        </div>
+        <button type="button"
           class="absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
           <span>ดูทั้งหมด</span>
-          <IconsUpRight />
-        </button> -->
-      <!-- </div> -->
-      <!-- <div class="icons-underline-normal">
-        <IconsUnderline />
-      </div> -->
+
+          <img src ="assets/images/zone2/arrowup.png"  class ="w-[1.5vw]"/>
+
+        </button>
+      </div>
+      <div class="icons-underline-normal">
+        <img src ="assets/images/zone2/underline.png"  class ="w-[35vw]"/>
+      </div>
 
     </div>
 
@@ -32,7 +35,7 @@
       <div class="f-row gap-[5%] mt-[5%] card-container p-[5%] "
       >
         
-        <!-- <div class="f-col content-w-re card-item hide" id="zone2-2">
+        <div class="f-col content-w-re card-item hide" id="zone2-2">
           
 
           <div class="content-re SF-TH">
@@ -40,7 +43,7 @@
             <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <IconsCalenderZone2-1 />
+                <img src ="assets/images/zone2/calendar.png"  class ="w-[1vw]"/>
                 <p class="text-[15px]  px-2 text-white">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -49,22 +52,22 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <IconsCalenderZone2-1 />
+                <img src ="assets/images/zone2/calendar.png"  class ="w-[1.5vw]"/>
                 <p class="text-[15px]  px-2 text-white">24 พ.ค. 2567</p>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
         <!-- คอนเทนเนอร์ right image  -->
 
-        <!-- <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
+        <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
             <img src="assets/images/zone2/image 1561.png" class="w-[30%] h-auto rounded-[20%]" alt="news image1" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -73,7 +76,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -83,7 +86,7 @@
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -92,7 +95,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -102,7 +105,7 @@
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -111,7 +114,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -121,7 +124,7 @@
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -130,12 +133,12 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <IconsCalenderZone22 />
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -186,7 +189,7 @@
 
 
 
-/* @media (max-width: 650px) {
+@media (max-width: 650px) {
   .card-container {
     flex-direction: column;
     align-items: center;
@@ -263,5 +266,5 @@
   .nm-icon {
     display: none;
   }
-} */
+}
 </style>
