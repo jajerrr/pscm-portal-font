@@ -1,20 +1,21 @@
 <template>
 
-  <div class="  second-main-content">
-    <!-- main-content -->
+  <div class="main-content second-main-content">
 
     <div class="col-center mt-[10%]" id="zone2">
       <h class="header">News</h>
       <div class="f-center flex-glow w-full relative small-view">
         <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>   
-        <div class="icons-underline-small">
-          <img src ="assets/images/zone2/underline.png" />
+        <div class="sm-icon">
+          <img src ="assets/images/zone2/underline.png"  class ="no-style"/>
         </div>
         <button type="button"
           class="absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
           <span>ดูทั้งหมด</span>
 
-          <img src ="assets/images/zone2/arrowup.png"  class ="w-[1.5vw]"/>
+          <img src ="assets/images/zone2/arrowup.png"  class ="w-[1.5vw] nm-icon"/>
+          <!-- <img src ="assets/images/zone2/arrowup.png"  class ="w-[10px] sm-icon"/> -->
+
 
         </button>
       </div>
@@ -67,7 +68,7 @@
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="calender-style"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -76,7 +77,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1.5vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -86,7 +87,7 @@
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="calender-style"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -95,7 +96,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1.5vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -105,7 +106,7 @@
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="calender-style"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -114,7 +115,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1.5vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -123,8 +124,8 @@
             <img src="assets/images/zone2/Rectangle 43143.png" class="w-[30%] h-auto" alt="news image3" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
-              <div class="i-center sm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+              <div class="i-center sm-icon ">
+                <img src ="assets/images/zone2/calender_right.png"  class ="calender-style"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
               <div class="text-container">
@@ -133,7 +134,7 @@
                 </p>
               </div>
               <div class="i-center nm-icon">
-                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1vw]"/>
+                <img src ="assets/images/zone2/calender_right.png"  class ="w-[1.5vw]"/>
                 <p class="z-2-date">24 พ.ค. 2567</p>
               </div>
             </div>
@@ -235,9 +236,24 @@
     padding-inline: 10%;
   }
 
+  .main-content img.no-style {
+    width: 30rem;
+    height: auto;
+    padding-inline: 10%;
+  }
+
+  .main-content img.calender-style {
+    width: 2rem;
+    height: auto;
+    padding-inline: 0%;
+  }
+
+
+ 
+
   .small-button {
     position: relative;
-    width: 70%;
+    width: 50%;
     height: 7vw;
     margin-top: 15px;
     right: 0;

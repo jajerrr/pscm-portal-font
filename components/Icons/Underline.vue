@@ -1,5 +1,5 @@
 <template>
-  <svg width="13rem" height="100%" viewBox="0 0 486 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="15rem" height="100%" viewBox="0 0 486 19" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="243" cy="9.5" rx="243" ry="9.5" fill="url(#paint0_radial_498_1424)" />
     <defs>
       <radialGradient id="paint0_radial_498_1424" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"

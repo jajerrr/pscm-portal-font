@@ -371,11 +371,11 @@
 }
 
 .z-3-bt{
-    @apply rounded-full flex items-center justify-center bg-white shadow text-[10px];
+    @apply rounded-full flex items-center justify-center shadow text-[10px];
 }
 
 .img-z-3-col {
-    @apply h-auto w-[100px] rounded-lg;
+    @apply h-auto w-[350px] rounded-lg;
 }
 
 /* css zone 4 */

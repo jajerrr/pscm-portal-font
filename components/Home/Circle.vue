@@ -4,6 +4,7 @@
       <div class="wrapper">
         <div v-for="(item, index) in items" :key="index" :class="['item', { active: activeItem === index }]"
           @click="handleItemClick(index)">
+          ชั้น
           {{ index + 1 }}
         </div>
         <svg viewBox="0 0 400 400">
@@ -159,41 +160,60 @@ body {
 
 .container {
   display: flex;
-  justify-content: center; /* จัดกลางแนวนอน */
-  align-items: center; /* จัดกลางแนวตั้ง */
-  height: 100vh; /* ใช้ความสูงของ viewport */
-  width: 100vw; /* ใช้ความกว้างของ viewport */
+  justify-content: center;
+  /* จัดกลางแนวนอน */
+  align-items: center;
+  /* จัดกลางแนวตั้ง */
+  height: 100vh;
+  /* ใช้ความสูงของ viewport */
+  width: 100vw;
+  /* ใช้ความกว้างของ viewport */
   position: relative;
 }
 
 .wrapper {
   position: relative;
-  width: 500px; /* ขนาดของ wrapper */
-  height: 500px; /* ขนาดของ wrapper */
+  width: 500px;
+  /* ขนาดของ wrapper */
+  height: 500px;
+  /* ขนาดของ wrapper */
 }
 
 .item {
-  width: 70px; /* ขยายขนาดของ item */
-  height: 70px; /* ขยายขนาดของ item */
-  color: rgb(255, 255, 255);
+
+  width: 70px;
+  /* ขยายขนาดของ item */
+  height: 70px;
+  /* ขยายขนาดของ item */
+  color: #4D5986;
   text-align: center;
   line-height: 70px;
-  font-size: 30px; /* ปรับขนาดตัวอักษร */
-  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  /* ปรับขนาดตัวอักษร */
+  font-family: "SF-TH", "SF-Pro";
   border-radius: 100%;
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(255, 255, 255);
   z-index: 1;
   cursor: pointer;
-  transform: translate3d(740px, 326px, 0px) rotate(90deg); /* ปรับตำแหน่งใหม่ */
+  transform: translate3d(740px, 326px, 0px) rotate(90deg);
+  /* ปรับตำแหน่งใหม่ */
 }
 
 .item.active {
-  background-color: #ff8400;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(160deg, rgba(255, 235, 217, 1) 17%, rgba(255, 118, 0, 1) 100%);
+}
+
+.item:hover {
+  background-color: #ff9f46;
+  /* สีเมื่อ hover */
 }
 
 svg {
-  height: 500px; /* ขยายขนาดของ SVG */
-  width: 500px; /* ขยายขนาดของ SVG */
+  height: 500px;
+  /* ขยายขนาดของ SVG */
+  width: 500px;
+  /* ขยายขนาดของ SVG */
   overflow: visible;
   z-index: -1;
   position: absolute;

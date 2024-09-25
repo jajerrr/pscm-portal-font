@@ -1,8 +1,8 @@
 <template>
  
-  <div class = 'content-sm' >
+  <!-- <div class = 'content-sm' >
   <HomeZone3Sm />
-  </div> 
+  </div>  -->
  
   <div class="content-w-re content-nm mb-[30%]">
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">

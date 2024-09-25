@@ -13,6 +13,9 @@ export default defineNuxtConfig({
 
   ],
 
+  
+
+
   // lazyLoad: {
   //   // These are the default values
   // images: true,
