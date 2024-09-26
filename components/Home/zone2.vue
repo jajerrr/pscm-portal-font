@@ -243,7 +243,7 @@
   }
 
   .main-content img.calender-style {
-    width: 2rem;
+    width: 1rem;
     height: auto;
     padding-inline: 0%;
   }
