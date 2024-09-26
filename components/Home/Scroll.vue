@@ -16,7 +16,7 @@
             <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab" />
 
             <div class="j-center absolute w-full mt-[-10%] z-[1] SF-TH-Semi">
-              <HomeCircle class="z-[10] " />
+              <HomeCircle :selectedFloor="selectedFloor" @update:selectedFloor="selectFloor" class="z-[10] " />
               <!-- <div class="j-center absolute w-full mt-[10%] z-10 SF-TH-Semi">
                 <button @click="selectFloor(3)" type="button" :class="{
                   'bg-[#FF7A00]': selectedFloor === 3,  // สีปุ่มเมื่อเลือก

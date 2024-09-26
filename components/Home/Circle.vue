@@ -145,6 +145,20 @@ onMounted(() => {
   const initialRotation = -720 / numItems // Initial rotation angle
   gsap.set('.wrapper', { rotation: initialRotation })
 })
+
+
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  selectedFloor: Number
+});
+
+const emit = defineEmits();
+
+// ฟังก์ชันเพื่อส่ง event ขึ้นไปยัง component แม่
+function updateSelectedFloor(floor) {
+  emit('update:selectedFloor', floor);
+}
 </script>
 
 <style scoped>
