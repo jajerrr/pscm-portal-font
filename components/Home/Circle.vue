@@ -20,6 +20,7 @@
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
+import { useItemStore } from '@/stores/item.ts'  // Import store
 
 gsap.registerPlugin(MotionPathPlugin)
 
@@ -36,6 +37,9 @@ let circlePath = null
 let snap = null
 let wrapProgress = null
 let wrapTracker = null
+
+// Use the store to share activeItem
+const itemStore = useItemStore()
 
 const initGSAP = () => {
   circlePath = MotionPathPlugin.convertToPath('#holder', false)[0]
@@ -125,6 +129,11 @@ const handleItemClick = (index) => {
   if (index === current) return
 
   activeItem.value = index
+  itemStore.setActiveItem(index)  // Update activeItem in the store
+
+  // ตรวจสอบว่าค่า 
+  console.log('Active item updated in store:', index)
+  console.log('Store activeItem:', itemStore.activeItem) // printค่าที่เก็บในstore
 
   if (Math.abs(diff) < numItems / 2) {
     moveWheel(diff * itemStep)
@@ -138,27 +147,27 @@ const handleItemClick = (index) => {
   }
 }
 
-// Lifecycle hook for when the component is mounted
+
 onMounted(() => {
   initGSAP()
 
-  const initialRotation = -720 / numItems // Initial rotation angle
+  const initialRotation = -720 / numItems
   gsap.set('.wrapper', { rotation: initialRotation })
 })
 
 
-import { defineProps, defineEmits } from 'vue';
+// import { defineProps, defineEmits } from 'vue';
 
-const props = defineProps({
-  selectedFloor: Number
-});
+// const props = defineProps({
+//   selectedFloor: Number
+// });
 
-const emit = defineEmits();
+// const emit = defineEmits();
 
-// ฟังก์ชันเพื่อส่ง event ขึ้นไปยัง component แม่
-function updateSelectedFloor(floor) {
-  emit('update:selectedFloor', floor);
-}
+// // ฟังก์ชันเพื่อส่ง event ขึ้นไปยัง component แม่
+// function updateSelectedFloor(floor) {
+//   emit('update:selectedFloor', floor);
+// }
 </script>
 
 <style scoped>

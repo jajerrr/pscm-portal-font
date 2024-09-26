@@ -16,62 +16,8 @@
             <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab" />
 
             <div class="j-center absolute w-full mt-[-10%] z-[1] SF-TH-Semi">
-              <HomeCircle :selectedFloor="selectedFloor" @update:selectedFloor="selectFloor" class="z-[10] " />
-              <!-- <div class="j-center absolute w-full mt-[10%] z-10 SF-TH-Semi">
-                <button @click="selectFloor(3)" type="button" :class="{
-                  'bg-[#FF7A00]': selectedFloor === 3,  // สีปุ่มเมื่อเลือก
-                  'bg-white hover:bg-yellow-500': selectedFloor !== 3  // สีปุ่มที่ไม่ได้ถูกเลือก
-                }" class="w-[5vw] h-[5vw] z-3-bt">
-                  ชั้น<br />03
-                </button>
-              </div>
-
-              <div class="j-center absolute w-full mt-[17%] z-10">
-                <div class="w-1/2 f-center">
-                  <button @click="selectFloor(2)" type="button" :class="{
-                    'bg-[#FF7A00]': selectedFloor === 2,  // สีปุ่มเมื่อเลือก
-                    'bg-white hover:bg-yellow-500': selectedFloor !== 2  // สีปุ่มที่ไม่ได้ถูกเลือก
-                  }" class="w-[5vw] h-[5vw] z-3-bt">
-                    ชั้น<br />02
-                  </button>
-                </div>
-                <div class="w-1/2 f-center">
-                  <button @click="selectFloor(4)" type="button" :class="{
-                    'bg-[#FF7A00]': selectedFloor === 4,  // สีปุ่มเมื่อเลือก
-                    'bg-white hover:bg-yellow-500': selectedFloor !== 4  // สีปุ่มที่ไม่ได้ถูกเลือก
-                  }" class="w-[5vw] h-[5vw] z-3-bt">
-                    ชั้น<br />04
-                  </button>
-                </div>
-              </div>
-
-              <div class="flex w-full mt-[30%] z-10">
-                <div class="j-center w-1/5" style="justify-content: flex-end">
-                  <button @click="selectFloor(1)" type="button" :class="{
-                    'bg-[#FF7A00]': selectedFloor === 1,  // สีปุ่มเมื่อเลือก
-                    'bg-white hover:bg-yellow-500': selectedFloor !== 1  // สีปุ่มที่ไม่ได้ถูกเลือก
-                  }" class="w-[5vw] h-[5vw] z-3-bt">
-                    ชั้น<br />01
-                  </button>
-                </div>
-                <div class="j-center w-1/5"></div>
-                <div class="j-center w-1/5 mt-[10%]">
-                  <h class="text-white text-[2vw] SF-TH-Semi">Floor</h>
-                </div>
-                <div class="j-center w-1/5"></div>
-
-                <div class="j-center w-1/5" style="justify-content: flex-start">
-                  <button @click="selectFloor(0)" type="button" :class="{
-                    'bg-[#FF7A00]': selectedFloor === 5,  // สีปุ่มเมื่อเลือก
-                    'bg-white hover:bg-yellow-500': selectedFloor !== 5  // สีปุ่มที่ไม่ได้ถูกเลือก
-                  }" class="w-[5vw] h-[5vw] z-3-bt">
-                    ชั้น<br />05
-                  </button>
-                </div>
-
-
-
-              </div> -->
+              <HomeCircle class="z-[10] " />
+            
 
             </div>
           </div>
@@ -93,77 +39,22 @@
             </div>
 
             <!-- แสดงเนื้อหาตามชั้นที่เลือก -->
-            <div v-if="selectedFloor === 1" class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ Room[0].name }}</div>
+            <div v-if="activeRoom"
+            class="f-col absolute top-[10%] left-[5%] gap-1">
+              <div class="text-[2vw] SF-TH-Semi">{{ activeRoom.name }}</div>
               <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
               <div class="f-row gap-5">
                 <div class="f-col f-center">
                   <img src="assets/images/iconzone3-1.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[0].iconName1 }}</div>
+                  <div class="text-[1vw]">{{ activeRoom.iconName1 }}</div>
                 </div>
                 <div class="f-col f-center">
                   <img src="assets/images/iconzone3-2.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[0].iconName2 }}</div>
+                  <div class="text-[1vw]">{{ activeRoom.iconName2 }}</div>
                 </div>
               </div>
             </div>
-            <div v-if="selectedFloor === 2" class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ Room[1].name }}</div>
-              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
-              <div class="f-row gap-5">
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-1.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[1].iconName1 }}</div>
-                </div>
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-2.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[1].iconName2 }}</div>
-                </div>
-              </div>
-            </div>
-            <div v-if="selectedFloor === 3" class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ Room[2].name }}</div>
-              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
-              <div class="f-row gap-5">
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-1.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[2].iconName1 }}</div>
-                </div>
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-2.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[2].iconName2 }}</div>
-                </div>
-              </div>
-            </div>
-            <div v-if="selectedFloor === 4" class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ Room[3].name }}</div>
-              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
-              <div class="f-row gap-5">
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-1.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[3].iconName1 }}</div>
-                </div>
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-2.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[3].iconName2 }}</div>
-                </div>
-              </div>
-            </div>
-            <div v-if="selectedFloor === 5" class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ Room[4].name }}</div>
-              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
-              <div class="f-row gap-5">
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-1.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[4].iconName1 }}</div>
-                </div>
-                <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-2.svg" class="w-[50%] h-auto" />
-                  <div class="text-[1vw]">{{ Room[4].iconName2 }}</div>
-                </div>
-              </div>
-            </div>
-
+            
 
             <img :src="roomFloorSrc" class="flex w-[45vw] absolute" alt="ห้อง" />
 
@@ -183,42 +74,47 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue'
+import { useItemStore } from '@/stores/item.ts'  // นำเข้า Pinia store
 
+// ใช้ store เพื่อดึงค่า activeItem
+const itemStore = useItemStore()
+
+// ข้อมูลห้องทั้งหมดที่จะแสดง
 const Room = ref([
-
   { name: "ห้อง1", iconName1: "นิทรรศการอวัยวะ1", iconName2: "เรียนรู้อวัยวะต่างๆ1" },
   { name: "ห้อง2", iconName1: "นิทรรศการอวัยวะ2", iconName2: "เรียนรู้อวัยวะต่างๆ2" },
   { name: "ห้อง3", iconName1: "นิทรรศการอวัยวะ3", iconName2: "เรียนรู้อวัยวะต่างๆ3" },
   { name: "ห้อง4", iconName1: "นิทรรศการอวัยวะ4", iconName2: "เรียนรู้อวัยวะต่างๆ4" },
   { name: "ห้อง5", iconName1: "นิทรรศการอวัยวะ5", iconName2: "เรียนรู้อวัยวะต่างๆ5" },
   { name: "ห้อง6", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" },
+  { name: "ห้อง7", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" },
+  { name: "ห้อง8", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" },
 
+])
 
-]);
-
-const selectedFloor = ref(4); // เริ่มต้นที่ชั้น 3
-
-function selectFloor(floor) {
-  console.log('Selected Floor:', floor); // ตรวจสอบว่าฟังก์ชันถูกเรียกไหม
-  selectedFloor.value = floor;
-}
-
-
-
-// คำนวณ path ของรูปภาพที่จะแสดงตามชั้นที่เลือก
+// คำนวณ path ของรูปภาพที่จะแสดงตาม activeItem จาก store
 const roomFloorSrc = computed(() => {
-  return `/images/${roomZone3.value[selectedFloor.value].room}`;
-});
+  const roomImages = [
+    "/images/roomZone3.jpg",
+    "/images/room-sm.png",
+    "/images/roomZone3.jpg",
+    "/images/room-sm.png",
+    "/images/roomZone3.jpg",
+    "/images/room-sm.png",
+    "/images/roomZone3.jpg",
+    "/images/room-sm.png",
+  ]
+  return roomImages[itemStore.activeItem]  // เปลี่ยนรูปตาม activeItem
+})
 
-const roomZone3 = ref([
-  { room: "roomZone3.jpg" },
-  { room: "room-sm-2.jpg" },
-  { room: "roomZone3.jpg" },
-  { room: "room-sm-2.jpg" },
-  { room: "roomZone3.jpg" }
-]);
+// แสดงข้อมูลห้องตาม activeItem
+const activeRoom = computed(() => {
+  return Room.value[itemStore.activeItem]  // ใช้ค่า activeItem เพื่อดึงห้องที่ตรงกัน
+})
 </script>
+
+
 <style>
 .content-sm {
   display: none;
