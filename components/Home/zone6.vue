@@ -30,37 +30,30 @@
       </Swiper>
 
       <!-- Thumbs Swiper -->
-      <Swiper ref="swiperRef1" class="thumbs-swiper w-1-2-center h-auto" style="width: 90%; height: 50vh; "
-        :modules="[Navigation, Thumbs]" :allowTouchMove="false" :centeredSlides="true" :slidesPerView="1"
-        :spaceBetween="10" :navigation="true"   
-        :thumbs="{ swiper: swiperRef2 }"
-        :options="swiperOptions" >
-        
-        <SwiperSlide class="i-center" 
-                     v-for="(card, index) in detailCard" 
-                     :key="index"
-                     style="transition: transform 5s ease, opacity 4.5s ease;">
+<Swiper ref="swiperRef1" class="thumbs-swiper w-1-2-center h-auto" style="width: 90%; height: 50vh;"
+  :modules="[Navigation, Thumbs]" :allowTouchMove="false" :centeredSlides="true" :slidesPerView="1"
+  :spaceBetween="10" :navigation="true" :thumbs="{ swiper: swiperRef2 }" :options="swiperOptions">
 
-                   <div>
-                    
-                      <component
-                      v-for="(icon, index) in icons"
-                      :key="index"
-                      :is="getIconComponent(icon)"
-                      class="normal_model"
-                    />
-                      <!-- <IconsHeart  class="normal_model"/> -->
-      
-        
+  <SwiperSlide class="i-center" v-for="(card, index) in detailCard" :key="index"
+    style="transition: transform 5s ease, opacity 4.5s ease;">
+    
+    <div>
+      <!-- วนลูปไอคอนภายใน SwiperSlide -->
+      <<component
+  v-for="(icon, iIndex) in card.icons" 
+  :key="iIndex"
+  :is="getIconComponent(icon)"
+  class="normal_model"
+/>
+     
       <img 
         :src="getBodyImageSrc(card.img)" 
         class="small_model img-sm-z6"
         alt="body"
       />
     </div>
-   
-        </SwiperSlide>
-      </Swiper>
+  </SwiperSlide>
+</Swiper>
     </div>
   </div>
 </template>
@@ -73,17 +66,10 @@ import 'swiper/css/effect-fade';
 import { defineAsyncComponent } from 'vue';
 
 
-// Static import components
-// import HeartModel from 'public/images/model/Heart.vue';
-// import LiverModel from 'public/images/model/Brain.vue';
-// import BrainModel from 'public/images/model/Liver.vue';
-
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
 
-const icons = [ 'Heart',
-                'Liver',
-                'Brain' ];
+
 
 // รายละเอียดของ card ที่ต้องการแสดง
 const detailCard = ref([
@@ -91,16 +77,19 @@ const detailCard = ref([
     header: "หัวใจ",
     desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
     img: '/images/heart.svg',  
+    icons: ['Heart']  
   },
   {
     header: "ตับ",
     desc: "ป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
-    img: '/images/liver.svg',  
+    img: '/images/liver.svg',
+    icons: ['Liver']   
      },
   {
     header: "สมอง",
     desc: "เป็นอวัยวะที่มีความซับซ้อนที่ควบคุมความคิด ความจำ อารมณ์ การสัมผัส ทักษะด้านการเคลื่อนไหว การมองเห็น การหายใจ การควบคุมอุณหภูมิ ความหิว และกระบวนการอื่นๆในการควบคุมร่างกาย และสมองร่วมกับไขสันหลังที่รวมเรียกว่าระบบประสาทส่วนกลาง",
-    img: '/images/brain.svg',  
+    img: '/images/brain.svg',
+    icons: ['Brain']   
      },
 ]);
 
