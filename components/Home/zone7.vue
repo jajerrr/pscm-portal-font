@@ -8,7 +8,7 @@
       <h1 class="th-header text-[2vw]">บริการของเรา</h1>
       <IconsUnderline />
     </div>
-
+                                                                                                                 
     <!----------------------------------------------------  card service  --------------------------------------------------------->
     <div class="f-center">
       <div class="f-row  card-container">
@@ -35,6 +35,28 @@
 </template>
 
 <script setup>
+
+// import { ref, onMounted } from 'vue';
+// import axios from 'axios';
+
+// // Create a ref for serviceCard
+// const serviceCard = ref([]);
+
+// // Fetch data from API
+// const fetchServiceData = async () => {
+//   try {
+//     const response = await axios.get('https://api.example.com/service'); // แก้ไข URL นี้เป็น URL ของ API จริง
+//     serviceCard.value = response.data;
+//   } catch (error) {
+//     console.error('Error fetching service data:', error);
+//   }
+// };
+
+// // Fetch data on component mount
+// onMounted(() => {
+//   fetchServiceData();
+// });
+
 const serviceCard = ref([
   {
     icon: 1,

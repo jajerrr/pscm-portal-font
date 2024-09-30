@@ -42,21 +42,22 @@
                      style="transition: transform 5s ease, opacity 4.5s ease;">
 
                    <div>
-                      <!-- <component :is="card.modelComponent" class="normal_model" /> -->
                     
-                      <!-- <component
-      v-for="(icon, index) in icons"
-      :key="index"
-      :is="getIconComponent(icon)"
-    /> -->
-                      <IconsBrain   class="normal_model"/>
+                      <component
+                      v-for="(icon, index) in icons"
+                      :key="index"
+                      :is="getIconComponent(icon)"
+                      class="normal_model"
+                    />
+                      <!-- <IconsHeart  class="normal_model"/> -->
       
-    
+        
       <img 
         :src="getBodyImageSrc(card.img)" 
         class="small_model img-sm-z6"
         alt="body"
-      /></div>
+      />
+    </div>
    
         </SwiperSlide>
       </Swiper>
@@ -73,14 +74,16 @@ import { defineAsyncComponent } from 'vue';
 
 
 // Static import components
-// import HeartModel from '~/components/Model/heart.vue';
-// import LiverModel from '~/components/Model/liver.vue';
-// import BrainModel from '~/components/Model/brain.vue';
+// import HeartModel from 'public/images/model/Heart.vue';
+// import LiverModel from 'public/images/model/Brain.vue';
+// import BrainModel from 'public/images/model/Liver.vue';
 
 const swiperRef1 = ref(null);
 const swiperRef2 = ref(null);
 
-const icons = ['Heart', 'Liver', 'Brain'];
+const icons = [ 'Heart',
+                'Liver',
+                'Brain' ];
 
 // รายละเอียดของ card ที่ต้องการแสดง
 const detailCard = ref([
@@ -119,7 +122,7 @@ const swiperOptions = {
 
 // Dynamically import the icon components
 const getIconComponent = (icon) => {
-  return defineAsyncComponent(() => import(`@/components/Icons/${icon}.vue`));
+  return defineAsyncComponent(() => import(`@/components/Model/${icon}.vue`));
 };
 </script>
 

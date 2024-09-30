@@ -15,8 +15,9 @@
           <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
             <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab" />
 
-            <div class="j-center absolute w-full mt-[-10%] z-[1] SF-TH-Semi">
-              <HomeCircle class="z-[10] " />
+            <div class="j-center absolute w-full circle-position z-[1] SF-TH-Semi">
+              <HomeCircle  />
+              
             
 
             </div>
@@ -27,7 +28,6 @@
           <div class="relative j-center z-[10]">
             <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw]">
               <div class="space-y-4">
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
                 <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
                 <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
                 <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
@@ -118,6 +118,20 @@ const activeRoom = computed(() => {
 <style>
 .content-sm {
   display: none;
+}
+.circle-position{
+  margin-top: -8%;
+}
+@media (max-width: 950px){
+  .circle-position{
+    margin-top: -25%;
+  }
+}
+
+@media (max-width: 750px){
+  .circle-position{
+    margin-top: -50%;
+  }
 }
 
 @media (max-width:700px) {

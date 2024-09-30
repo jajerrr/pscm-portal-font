@@ -61,7 +61,8 @@ const initGSAP = () => {
       alignOrigin: [0.5, 0.5],
       end: (i) => i / numItemsLocal,
     },
-    scale: 1.3,
+    scale: 1.3, 
+    //scale : 1
   })
 
   tl = gsap.timeline({ paused: true, reversed: true })
@@ -156,18 +157,6 @@ onMounted(() => {
 })
 
 
-// import { defineProps, defineEmits } from 'vue';
-
-// const props = defineProps({
-//   selectedFloor: Number
-// });
-
-// const emit = defineEmits();
-
-// // ฟังก์ชันเพื่อส่ง event ขึ้นไปยัง component แม่
-// function updateSelectedFloor(floor) {
-//   emit('update:selectedFloor', floor);
-// }
 </script>
 
 <style scoped>
@@ -247,9 +236,7 @@ svg {
 
 .st0 {
   fill: none;
-  /* stroke: #000000;
-  stroke-width: 1;
-  stroke-miterlimit: 1; */
+
 }
 
 .start {
@@ -257,4 +244,47 @@ svg {
   top: 0%;
   left: 45%;
 }
+
+@media (max-width: 950px) {
+  .wrapper {
+    width: 400px;
+    height: 400px;
+  }
+
+  .item {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    transform: translate3d(350px, 176px, 0px) rotate(90deg);  
+  }
+
+  svg {
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 750px) {
+  .wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .item {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    transform: translate3d(150px, 0px, 0px) rotate(90deg);
+  }
+
+  svg {
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+  }
+}
+
 </style>

@@ -1,8 +1,4 @@
 
-bg video //
-get ready zone1
-full funtion zone3 
-light zone 6 ** มีปัญหาโมเดล
-bg zone 7
-zone5 video//
-option java wait for api
+ปรับขนาดของวงล้อให้เป็ย resdponsive
+set api ทุกโซน
+swiper thumb zone 3
