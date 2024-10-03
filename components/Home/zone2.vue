@@ -62,7 +62,7 @@
 
         <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
-            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto rounded-[20%]" alt="news image1" />
+            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto " alt="news image1" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -111,9 +111,9 @@
 import { ref } from 'vue'
 
 const rightContentData = ref([
-  { img: "/images/image 1560.jpg", date: "24 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
   { img: "/images/image 1560.jpg", date: "25 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
   { img: "/images/image 1560.jpg", date: "26 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
+  { img: "/images/image 1560.jpg", date: "27 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
 ])
 
 const getContentImageSrc = (imgPath) => {
