@@ -41,20 +41,20 @@
 
       <!-- ****white box**** -->
       <div class="relative j-center z-[5] mt-[70%]">
-        <div class="f-col f-center absolute top-[15%] gap-3">
-          <p class="text-[4vw] SF-TH-Semi">ห้องสโม</p>
-          <p class="text-[3.5vw]">กิจกรรมภายในห้อง</p>
-          <div class="f-row gap-5">
-            <div class="f-col f-center">
-              <img src="assets/images/iconzone3-1.svg" class="w-[7vw] h-auto" />
-              <p class="text-[3vw]">นิทรรศการอวัยวะ</p>
-            </div>
-            <div class="f-col f-center">
-              <img src="assets/images/iconzone3-2.svg" class="w-[7vw] h-auto" />
-              <p class="text-[3vw]">เรียนรู้อวัยวะต่างๆ</p>
-            </div>
+        <div v-if="roomNumber" class="f-col f-center absolute top-[15%] gap-3">
+        <p class="text-[4vw] SF-TH-Semi">{{ currentRoom.name }}</p>
+        <p class="text-[3.5vw]">กิจกรรมภายในห้อง</p>
+        <div class="f-row gap-5">
+          <div class="f-col f-center">
+            <img :src="currentRoom.iconImg1" class="w-[7vw] h-auto"/>
+            <p class="text-[3vw]">{{ currentRoom.iconName1 }}</p>
+          </div>
+          <div class="f-col f-center">
+            <img :src="currentRoom.iconImg2" class="w-[7vw] h-auto"/>
+            <p class="text-[3vw]">{{ currentRoom.iconName2 }}</p>
           </div>
         </div>
+      </div>
 
         <img
           src="assets/images/Rectangle-zone3.png"
@@ -87,18 +87,23 @@ const floorNumber = ref([
 ]);
 
 const roomNumber = ref([
-  { room: "room-sm.png" },
-  { room: "room-sm-2.jpg" },
-  { room: "image-1575.jpg" },
-  { room: "room-sm.png" },
-  { room: "room-sm-2.jpg" }
+  { room: "/images/zone3/room-sm.png" , name: "ห้อง1", iconName1: "นิทรรศการอวัยวะ1", iconName2: "เรียนรู้อวัยวะต่างๆ1" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { room: "/images/zone3/room-sm-2.jpg" , name: "ห้อง2", iconName1: "นิทรรศการอวัยวะ2", iconName2: "เรียนรู้อวัยวะต่างๆ2" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { room: "/images/zone3/image-1575.jpg" , name: "ห้อง3", iconName1: "นิทรรศการอวัยวะ3", iconName2: "เรียนรู้อวัยวะต่างๆ3" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { room: "/images/zone3/room-sm.png" , name: "ห้อง4", iconName1: "นิทรรศการอวัยวะ4", iconName2: "เรียนรู้อวัยวะต่างๆ4" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { room: "/images/zone3/room-sm-2.jpg" , name: "ห้อง5", iconName1: "นิทรรศการอวัยวะ5", iconName2: "เรียนรู้อวัยวะต่างๆ5" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"}
 ]);
 
 const selectedFloor = ref(0); // เก็บสถานะชั้นที่เลือก
 
 // คำนวณ path ของรูปภาพที่จะแสดงตามชั้นที่เลือก
 const roomImageSrc = computed(() => {
-  return `/images/${roomNumber.value[selectedFloor.value].room}`;
+  return roomNumber.value[selectedFloor.value].room;
+});
+
+// คำนวณข้อมูลห้องที่จะแสดงตามชั้นที่เลือก
+const currentRoom = computed(() => {
+  return roomNumber.value[selectedFloor.value];
 });
 
 const selectFloor = (index) => {
