@@ -47,11 +47,12 @@
     <!-- Modal for Video -->
     <div v-if="isModalOpen" class="modal-overlay z-[10]" @click="closeModal">
       <div class="modal-content" @click.stop>
+        <button class="modal-close" @click="closeModal">x</button>
         <video controls autoplay class="video-player">
           <source :src="currentVideo" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <button class="modal-close" @click="closeModal">Close</button>
+        
       </div>
     </div>
   </div>
@@ -113,7 +114,7 @@ const closeModal = () => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.917);
   display: flex;
   justify-content: center;
@@ -121,28 +122,34 @@ const closeModal = () => {
 }
 
 .modal-content {
-  background: white;
+  background: rgb(0, 0, 0);
   padding: 20px;
   border-radius: 10px;
-  max-width: 80%;
-  max-height: 80%;
+  width: 90vw;
+  height: 45vw;
   overflow: hidden;
+  position: relative;
 }
 
 .video-player {
   width: 100%;
-  height:30vw;
+  height:40vw;
 }
 
 .modal-close {
-  margin-top: 10px;
   padding: 5px 10px;
-  background: #ff5f0f;
-  color: white;
+  position: absolute; /* เปลี่ยนเป็น absolute */
+  top: 10px; /* ระยะห่างจากด้านบน */
+  right: 10px; /* ระยะห่างจากด้านขวา */
+  background: #ffffff8e;
+  color: rgb(0, 0, 0);
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
+
 
 .content-sm {
   display: none;

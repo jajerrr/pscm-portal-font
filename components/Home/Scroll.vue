@@ -9,15 +9,14 @@
       <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
 
-    <div class="f-center mt-[5%] mb-[20%] z-[13]">
+    <div class="f-center mt-[5%] mb-[20%] z-[13]" style="max-width: 1600px">
       <div class="j-center items-stretch h-auto mt-[10%]">
         <div class="absolute w-1/2 mt-[-10%]">
-          <div class="f-re text-[#4D5986] SF-TH-Semi" style="max-width: 1800px">
-            <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab" />
+          <div class="f-re text-[#4D5986] SF-TH-Semi" >
+            <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab mt-[2vw]" />
 
             <div class="j-center absolute w-full circle-position z-[1] SF-TH-Semi">
-              <HomeCircle  />
-              
+              <HomeCircle class="z-[10] " />
             
 
             </div>
@@ -28,14 +27,9 @@
           <div class="relative j-center z-[10]">
             <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw]">
               <div class="space-y-4">
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
-                <div class="f-center">
-                  <img class="img-z-3-col relative" src="assets/images/zone3/morephoto.png" alt="" />
-                  <p class="absolute text-white">+2</p>
-                </div>
-              </div>
+                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="1" />
+                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="2" />
+                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="3" />              </div>
             </div>
 
             <!-- แสดงเนื้อหาตามชั้นที่เลือก -->
@@ -45,11 +39,11 @@
               <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
               <div class="f-row gap-5">
                 <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-1.svg" class="w-[50%] h-auto" />
+                  <img :src="getImageSrc(activeRoom.iconImg1)" class="w-[50%] h-auto" />
                   <div class="text-[1vw]">{{ activeRoom.iconName1 }}</div>
                 </div>
                 <div class="f-col f-center">
-                  <img src="assets/images/iconzone3-2.svg" class="w-[50%] h-auto" />
+                  <img :src="getImageSrc(activeRoom.iconImg2)" class="w-[50%] h-auto" />
                   <div class="text-[1vw]">{{ activeRoom.iconName2 }}</div>
                 </div>
               </div>
@@ -82,36 +76,41 @@ const itemStore = useItemStore()
 
 // ข้อมูลห้องทั้งหมดที่จะแสดง
 const Room = ref([
-  { name: "ห้อง1", iconName1: "นิทรรศการอวัยวะ1", iconName2: "เรียนรู้อวัยวะต่างๆ1" },
-  { name: "ห้อง2", iconName1: "นิทรรศการอวัยวะ2", iconName2: "เรียนรู้อวัยวะต่างๆ2" },
-  { name: "ห้อง3", iconName1: "นิทรรศการอวัยวะ3", iconName2: "เรียนรู้อวัยวะต่างๆ3" },
-  { name: "ห้อง4", iconName1: "นิทรรศการอวัยวะ4", iconName2: "เรียนรู้อวัยวะต่างๆ4" },
-  { name: "ห้อง5", iconName1: "นิทรรศการอวัยวะ5", iconName2: "เรียนรู้อวัยวะต่างๆ5" },
-  { name: "ห้อง6", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" },
-  { name: "ห้อง7", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" },
-  { name: "ห้อง8", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" },
+  { name: "ห้อง1", iconName1: "นิทรรศการอวัยวะ1", iconName2: "เรียนรู้อวัยวะต่างๆ1" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { name: "ห้อง2", iconName1: "นิทรรศการอวัยวะ2", iconName2: "เรียนรู้อวัยวะต่างๆ2" ,iconImg1 : "/images/zone3/iconzone3-2.svg" , iconImg2 : "/images/zone3/iconzone3-1.svg"},
+  { name: "ห้อง3", iconName1: "นิทรรศการอวัยวะ3", iconName2: "เรียนรู้อวัยวะต่างๆ3" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { name: "ห้อง4", iconName1: "นิทรรศการอวัยวะ4", iconName2: "เรียนรู้อวัยวะต่างๆ4" ,iconImg1 : "/images/zone3/iconzone3-2.svg" , iconImg2 : "/images/zone3/iconzone3-1.svg"},
+  { name: "ห้อง5", iconName1: "นิทรรศการอวัยวะ5", iconName2: "เรียนรู้อวัยวะต่างๆ5" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { name: "ห้อง6", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" ,iconImg1 : "/images/zone3/iconzone3-2.svg" , iconImg2 : "/images/zone3/iconzone3-1.svg"},
+  { name: "ห้อง7", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" ,iconImg1 : "/images/zone3/iconzone3-1.svg" , iconImg2 : "/images/zone3/iconzone3-2.svg"},
+  { name: "ห้อง8", iconName1: "นิทรรศการอวัยวะ6", iconName2: "เรียนรู้อวัยวะต่างๆ6" ,iconImg1 : "/images/zone3/iconzone3-2.svg" , iconImg2 : "/images/zone3/iconzone3-1.svg"},
 
 ])
 
 // คำนวณ path ของรูปภาพที่จะแสดงตาม activeItem จาก store
 const roomFloorSrc = computed(() => {
-  const roomImages = [
-    "/images/roomZone3.jpg",
-    "/images/room-sm.png",
-    "/images/roomZone3.jpg",
-    "/images/room-sm.png",
-    "/images/roomZone3.jpg",
-    "/images/room-sm.png",
-    "/images/roomZone3.jpg",
-    "/images/room-sm.png",
-  ]
+  const roomImages = ([
+   
+    "/images/zone3/room-sm.png",
+    "/images/zone3/roomZone3.jpg",
+    "/images/zone3/room-sm.png",
+    "/images/zone3/roomZone3.jpg",
+    "/images/zone3/room-sm.png",
+    "/images/zone3/roomZone3.jpg",
+    "/images/zone3/room-sm.png",
+    "/images/zone3/roomZone3.jpg",
+  ])
   return roomImages[itemStore.activeItem]  // เปลี่ยนรูปตาม activeItem
 })
 
-// แสดงข้อมูลห้องตาม activeItem
+//  activeItem
 const activeRoom = computed(() => {
   return Room.value[itemStore.activeItem]  // ใช้ค่า activeItem เพื่อดึงห้องที่ตรงกัน
 })
+
+const getImageSrc = (imgPath) => {
+  return imgPath;  
+};
 </script>
 
 
@@ -119,20 +118,42 @@ const activeRoom = computed(() => {
 .content-sm {
   display: none;
 }
+
+
 .circle-position{
-  margin-top: -8%;
+    margin-top:0;
+  }
+
+@media (min-width: 1200px){
+  .circle-position{
+    margin-top: -5vw;
+  }
 }
+
+/* @media (min-width: 1440px){
+  .circle-position{
+    margin-top: -8vw;
+  }
+} */
+
+@media (min-width: 1650px){
+  .circle-position{
+    margin-top: -12vh;
+  }
+}
+
 @media (max-width: 950px){
   .circle-position{
-    margin-top: -25%;
+    margin-top: -13vw;
   }
 }
 
 @media (max-width: 750px){
   .circle-position{
-    margin-top: -50%;
+    margin-top: -15vw;
   }
 }
+
 
 @media (max-width:700px) {
 

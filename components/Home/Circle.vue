@@ -193,13 +193,13 @@ body {
 
 .item {
 
-  width: 70px;
+  width: 60px;
   /* ขยายขนาดของ item */
-  height: 70px;
+  height: 60px;
   /* ขยายขนาดของ item */
   color: #4D5986;
   text-align: center;
-  line-height: 70px;
+  line-height: 60px;
   font-size: 15px;
   /* ปรับขนาดตัวอักษร */
   font-family: "SF-TH", "SF-Pro";
@@ -207,7 +207,7 @@ body {
   background-color: rgb(255, 255, 255);
   z-index: 1;
   cursor: pointer;
-  transform: translate3d(740px, 326px, 0px) rotate(90deg);
+  transform: translate3d(195px, 420px, 0px) rotate(90deg);
   /* ปรับตำแหน่งใหม่ */
 }
 
@@ -245,10 +245,33 @@ svg {
   left: 45%;
 }
 
+
+@media (min-width: 1650px) {
+  .wrapper {
+    width: 600px;
+    height: 600px;
+  }
+
+  .item {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 15px;
+    /* คำนวณใหม่โดยใช้รัศมีที่ใหญ่ขึ้น */
+    transform: translate3d(225px, 450px, 0px) rotate(90deg);
+  }
+
+  svg {
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+  }
+}
+
 @media (max-width: 950px) {
   .wrapper {
-    width: 400px;
-    height: 400px;
+    width: 370px;
+    height: 370px;
   }
 
   .item {
@@ -256,12 +279,12 @@ svg {
     height: 50px;
     line-height: 50px;
     font-size: 12px;
-    transform: translate3d(350px, 176px, 0px) rotate(90deg);  
+    transform: translate3d(330px, 156px, 0px) rotate(90deg);  
   }
 
   svg {
-    width: 400px;
-    height: 400px;
+    width: 370px;
+    height: 370px;
     transform: translate(-50%, -50%);
   }
 }

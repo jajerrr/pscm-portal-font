@@ -39,7 +39,7 @@
     
     <div>
       <!-- วนลูปไอคอนภายใน SwiperSlide -->
-      <<component
+      <component
   v-for="(icon, iIndex) in card.icons" 
   :key="iIndex"
   :is="getIconComponent(icon)"
@@ -81,7 +81,7 @@ const detailCard = ref([
   },
   {
     header: "ตับ",
-    desc: "ป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
+    desc: "เป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
     img: '/images/liver.svg',
     icons: ['Liver']   
      },
@@ -109,7 +109,7 @@ const swiperOptions = {
   navigation: true,
 };
 
-// Dynamically import the icon components
+//Dynamically import the icon components
 const getIconComponent = (icon) => {
   return defineAsyncComponent(() => import(`@/components/Model/${icon}.vue`));
 };

@@ -48,9 +48,9 @@
   <script setup>
  const slides = ref([
   { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
+  { img: '/images/zone3/room-sm-2.jpg', vdo: '/images/vdo.mp4' },
   { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
-  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
-  { img: '/images/video frame.png', vdo: '/images/vdo.mp4' },
+  { img: '/images/zone3/room-sm-2.jpg', vdo: '/images/vdo.mp4' },
   { img: '/images/video frame.png', vdo: '/images/vdo.mp4' }
 ]);
 
@@ -103,14 +103,6 @@ const closeModal = () => {
   align-items: center;
 }
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 80%;
-  max-height: 80%;
-  overflow: hidden;
-}
 
 .video-player-sm {
   width: 100vh;

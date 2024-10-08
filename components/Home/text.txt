@@ -1,0 +1,252 @@
+
+set api ทุกโซน zone 2 ฝั่งงขวาไม่ขึ้น
+
+swiper thumb zone 3
+
+
+pop up video flowbite
+
+แบ่งโมเดล เป็นรูปเเละเรียกใช้เมื่อคลื๊กเข้าไปดูค่อยเเสดงโมเดล
+
+ปรับให้โมเดลวสมารถซูมเข้าอออกได้
+
+
+
+
+<template>
+  <div class="main-content second-main-content">
+    <div class="col-center mt-[10%]" id="zone2">
+      <h class="header">News</h>
+      <div class="f-center flex-glow w-full relative small-view">
+        <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
+        <div class="sm-icon">
+          <img src="assets/images/zone2/underline.png" class="no-style" />
+        </div>
+        <button type="button"
+          class="absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
+          <span>ดูทั้งหมด</span>
+          <img src="assets/images/zone2/arrowup.png" class="w-[1.5vw] nm-icon" />
+        </button>
+      </div>
+      <div class="icons-underline-normal">
+        <img src="assets/images/zone2/underline.png" class="w-[35vw]" />
+      </div>
+    </div>
+
+    <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" />
+
+    <div class="f-center">
+      <div class="f-row gap-[5%] mt-[5%] card-container p-[5%]">
+        <!-- วนลูปข้อมูลข่าวสารทั้งหมดจาก newsStore -->
+        <div v-for="(news, index) in newsStore.newsItems" :key="index">
+          <!-- ข่าวแรกอยู่ฝั่งซ้าย -->
+          <div v-if="index == -1" class="f-col content-w-re card-item hide" id="zone2-2">
+            <div class="content-re SF-TH">
+              <img :src="news.img" class="image-full w-[80%]" />
+              <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
+                <p class="bt-orange hide">มาใหม่ล่าสุด</p>
+                <div class="text-container text-[15px] SF-TH-Semi text-white text-ellipsis">
+                  {{ news.header }}
+                </div>
+                <div class="i-center sm-icon">
+                  <img src="assets/images/zone2/calendar.png" class="w-[1vw]" />
+                  <p class="text-[15px]  px-2 text-white">{{ news.date }}</p>
+                </div>
+                <div class="i-center nm-icon">
+                  <img src="assets/images/zone2/calendar.png" class="w-[1.5vw]" />
+                  <p class="text-[15px]  px-2 text-white">{{ news.date }}</p>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ข่าวที่เหลืออยู่ฝั่งขวา -->
+          <div v-else class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
+            <div class="i-center gap-10 card-item-order sm-icon">
+              <img :src="news.img" class="w-[30%] h-auto" alt="news image" />
+              <div class="f-col gap-3 sm-text">
+                <p class="new-bt hide">มาใหม่ล่าสุด</p>
+                <div class="text-container z-2-text text-ellipsis">
+                  {{ news.header }}
+                </div>
+                <div class="i-center sm-icon">
+                  <img src="assets/images/zone2/calender_right.png" class="calender-style" />
+                  <p class="z-2-date">{{ news.date }}</p>
+                </div>
+                <div class="i-center nm-icon">
+                  <img src="assets/images/zone2/calender_right.png" class="w-[1.5vw]" />
+                  <p class="z-2-date">{{ news.date }}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { useNewsStore } from '@/stores/contentNews.ts';
+import { onMounted } from 'vue';
+
+// ใช้ store ของข่าวสาร
+const newsStore = useNewsStore();
+
+// เมื่อ component ถูก mounted ให้ดึงข้อมูลข่าวสารทั้งหมด
+onMounted(() => {
+  newsStore.fetchNewsItems();  // ดึงข่าวสารจาก store
+  console.log(newsStore.newsItems);  // ทดสอบดูข้อมูลใน console
+});
+
+// newsStore.addNewsItem({
+//   date: '3 ต.ค. 2567',
+//   header: 'ข่าวสารเพิ่มเติม',
+//   detail: 'รายละเอียดข่าวสารเพิ่มเติม',
+//   img: '/images/image 1560.jpg'
+// } , 3 
+// );
+
+
+
+</script>
+
+
+<style>
+.text-container {
+  width: 60%;
+  /* หรือกำหนดเป็น % หรือ px ตามขนาดที่ต้องการ */
+  overflow: hidden;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  /* ไม่ให้ข้อความตัดบรรทัด */
+  overflow: hidden;
+  /* ซ่อนข้อความที่เกิน */
+  text-overflow: ellipsis;
+  /* แสดง ... เมื่อข้อความเกิน */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.card-item {
+  flex: 1 1 45%;
+  min-width: 400px;
+  margin-bottom: 15px;
+
+}
+
+.icons-underline-small {
+  display: none;
+}
+
+.sm-icon {
+  display: none;
+
+}
+
+
+
+@media (max-width: 650px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+
+
+  }
+
+  .card-item-order {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+
+  }
+
+  .sm-text {
+    position: relative;
+    align-items: start;
+    width: 60%;
+    margin-top: 3%;
+    gap: 0;
+
+
+
+  }
+
+  .hide {
+    display: none;
+
+  }
+
+  .card-item {
+    width: 100%;
+    margin-bottom: 15px;
+
+  }
+
+
+
+  .main-content img {
+    width: 80%;
+    height: auto;
+    padding-inline: 10%;
+  }
+
+  .main-content img.no-style {
+    width: 30rem;
+    height: auto;
+    padding-inline: 10%;
+  }
+
+  .main-content img.calender-style {
+    width: 1rem;
+    height: auto;
+    padding-inline: 0%;
+  }
+
+
+
+
+  .small-button {
+    position: relative;
+    width: 50%;
+    height: 7vw;
+    margin-top: 15px;
+    right: 0;
+    justify-content: center;
+    font-size: 3vw;
+  }
+
+  .small-view {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .icons-underline-normal {
+    display: none;
+  }
+
+  .icons-underline-small {
+    display: block;
+  }
+
+  .sm-icon {
+    display: flex;
+  }
+
+  .nm-icon {
+    display: none;
+  }
+}
+</style>

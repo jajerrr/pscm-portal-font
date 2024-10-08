@@ -18,8 +18,9 @@
       >
       <SwiperSlide class="relative  mx-[10px] card-item"
           v-for="(card, index) in serviceCard"
-          :key="index">
-          <div class="container-z7">
+          :key="index"
+          >
+          <div class="container-z7" style="width: 75%; min-height: 35vh">
             <IconsZone7-1 v-if="card.icon == 1" />
             <IconsZone7-2 v-if="card.icon == 2" />
             <IconsZone7-1 v-if="card.icon == 3" />
@@ -67,6 +68,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100%;
+
 }
 
 .swiper-pagination {
@@ -75,13 +77,7 @@ height: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
-.swiper-pagination-bullet {
-  background-color: #ff0000; /* เปลี่ยนสีตามต้องการ */
-}
 
-.swiper-pagination-bullet-active {
-  background-color: #00ff00; /* เปลี่ยนสีของจุดที่ active */
-}
 
 
 
