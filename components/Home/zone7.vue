@@ -14,8 +14,7 @@
       <div class="f-row  card-container">
         <div
           class="relative  mx-[10px] card-item"
-          v-for="(card, index) in serviceCard"
-          :key="index"
+         v-for="(card, index) in serviceCardStore.serviceCards" :key="index"
         >
           <div class="container-z7">
             <IconsZone7-1 v-if="card.icon == 1" />
@@ -35,45 +34,15 @@
 </template>
 
 <script setup>
+import { useServiceCardStore } from '@/stores/service.ts';  // นำเข้า Pinia store
 
-// import { ref, onMounted } from 'vue';
-// import axios from 'axios';
+// import { onMounted } from 'vue';
 
-// // Create a ref for serviceCard
-// const serviceCard = ref([]);
+const serviceCardStore = useServiceCardStore();  // ใช้ store จาก Pinia
 
-// // Fetch data from API
-// const fetchServiceData = async () => {
-//   try {
-//     const response = await axios.get('https://api.example.com/service'); // แก้ไข URL นี้เป็น URL ของ API จริง
-//     serviceCard.value = response.data;
-//   } catch (error) {
-//     console.error('Error fetching service data:', error);
-//   }
-// };
-
-// // Fetch data on component mount
 // onMounted(() => {
-//   fetchServiceData();
+//   serviceCardStore.fetchServiceCards();  // ดึงข้อมูลบริการจาก API
 // });
-
-const serviceCard = ref([
-  {
-    icon: 1,
-    header: "บริการทางการศึกษา",
-    desc: "ผลิตบัณฑิตที่มีความเป็นเลิศด้านวิชาการและวิชาชีพพร้อมบริการสังคมด้วยความรู้ความชำนาญคุณธรรมจริยธรรมและความมุ่งมั่น",
-  },
-  {
-    icon: 2,
-    header: "บริการทางการแพทย์และสาธารณะสุข",
-    desc: "ทุกชีวิตของคนไข้คือหัวใจของเรา",
-  },
-  {
-    icon: 3,
-    header: "งานวิจัย นวัตกรรม และความร่วมมือ",
-    desc: "บูรณาการงานวิจัยและเทคโนโลยีสู่นวัตกรรมเพื่อเศรษฐกิจสังคมและคุณภาพชีวิตที่ดีของประชาชน",
-  },
-]);
 </script>
 
 <style scoped>

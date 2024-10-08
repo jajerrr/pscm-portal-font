@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[5%] mb-[20%]">
+  <div class="content-w-re mt-[30%] mb-[20%]">
     <div class="f-col f-center mb-[5%]">
       <h class="header">3D Learning object</h>
       <div class="flex-glow j-center w-full px-[10%]">
@@ -39,12 +39,12 @@
     
     <div>
       <!-- วนลูปไอคอนภายใน SwiperSlide -->
-      <component
+      <!-- <component
   v-for="(icon, iIndex) in card.icons" 
   :key="iIndex"
   :is="getIconComponent(icon)"
   class="normal_model"
-/>
+/> -->
      
       <img 
         :src="getBodyImageSrc(card.img)" 

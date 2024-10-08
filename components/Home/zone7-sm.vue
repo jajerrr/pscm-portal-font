@@ -17,8 +17,7 @@
 
       >
       <SwiperSlide class="relative  mx-[10px] card-item"
-          v-for="(card, index) in serviceCard"
-          :key="index"
+          v-for="(card, index) in serviceCardStore.serviceCards" :key="index"
           >
           <div class="container-z7" style="width: 75%; min-height: 35vh">
             <IconsZone7-1 v-if="card.icon == 1" />
@@ -42,23 +41,9 @@
 </template>
 
 <script setup>
-const serviceCard = ref([
-  {
-    icon: 1,
-    header: "บริการทางการศึกษา",
-    desc: "ผลิตบัณฑิตที่มีความเป็นเลิศด้านวิชาการและวิชาชีพพร้อมบริการสังคมด้วยความรู้ความชำนาญคุณธรรมจริยธรรมและความมุ่งมั่น",
-  },
-  {
-    icon: 2,
-    header: "บริการทางการแพทย์และสาธารณะสุข",
-    desc: "ทุกชีวิตของคนไข้คือหัวใจของเรา",
-  },
-  {
-    icon: 3,
-    header: "งานวิจัย นวัตกรรม และความร่วมมือ",
-    desc: "บูรณาการงานวิจัยและเทคโนโลยีสู่นวัตกรรมเพื่อเศรษฐกิจสังคมและคุณภาพชีวิตที่ดีของประชาชน",
-  },
-]);
+import { useServiceCardStore } from '@/stores/service.ts';  // นำเข้า Pinia store
+
+const serviceCardStore = useServiceCardStore();  // ใช้ store จาก Pinia
 </script>
 
 <style scoped>

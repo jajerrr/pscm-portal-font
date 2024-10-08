@@ -32,7 +32,7 @@
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
 
     <div class="f-center">
-      <div v-for="(left, index) in mainContentData" :key="index" class="f-row gap-[5%] mt-[5%] card-container p-[5%] ">
+      <div v-for="(left, index) in newsStore.mainContentData" :key="index" class="f-row gap-[5%] mt-[5%] card-container p-[5%] ">
 
         <div class="f-col content-w-re card-item hide" id="zone2-2">
 
@@ -81,7 +81,7 @@
             </div>
           </div>
 
-          <div v-for="(right, index) in rightContentData" :key="index" class="i-center gap-10 card-item-order">
+          <div v-for="(right, index) in newsStore.rightContentData" :key="index" class="i-center gap-10 card-item-order">
             <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto" alt="image" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
@@ -108,21 +108,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useNewsStore } from '@/stores/contentNews.ts';  // นำเข้า Pinia store
 
-const rightContentData = ref([
-  { img: "/images/image 1560.jpg", date: "25 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
-  { img: "/images/image 1560.jpg", date: "26 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
-  { img: "/images/image 1560.jpg", date: "27 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
-])
+const newsStore = useNewsStore();  // ใช้ store จาก Pinia
 
 const getContentImageSrc = (imgPath) => {
-  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
+  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array
 };
-
-const mainContentData = ref([
-  { img: "/images/image 1560.jpg", date: "24 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
-])
 </script>
 
 <style>

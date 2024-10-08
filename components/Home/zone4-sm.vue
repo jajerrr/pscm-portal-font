@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re">
+  <div class="content-w-re mt-[30%]">
     <div class="f-center f-col mb-[10%]">
       <h class="header">Ranking</h>
       <div class="f-center flex-glow w-full px-[10%]">
@@ -14,8 +14,7 @@
           :spaceBetween="15"
         >
           <SwiperSlide
-            v-for="(card, index) in cards"
-            :key="index"
+            v-for="(card, index) in rankCardStore.rankCard" :key="index"
             style="width: 50%"
           >
           <div class="flex items-center">
@@ -23,7 +22,7 @@
             <div class="card  ml-[-13%] mt-[15vw]">
               
               <img
-                :src="getImageSrc(card.image)"
+                :src="getImageSrc(card.img)"
                 alt="Card image"
                 class="p-[10%]"
               />
@@ -47,45 +46,13 @@
 </template>
 
 <script setup>
-import { Navigation } from 'swiper/modules';
+import { useRankCardStore } from '@/stores/ranking.ts'; // นำเข้า store ที่สร้างไว้
 
-const cards = ref([
-  {
-    num: 1,
-    name: "Nuttida P.",
-    score: "999",
-    image: "/images/zone4/Group 1000003302.svg",
-  },
-
-  {
-    num: 2,
-    name: "Nuttida A.",
-    score: "998",
-    image: "/images/zone4/Group 1000003303.svg",
-  },
-  {
-    num: 3,
-    name: "Nuttida B.",
-    score: "997",
-    image: "/images/zone4/Group 1000003304.svg",
-  },
-  {
-    num: 4,
-    name: "Nuttida C.",
-    score: "996",
-    image: "/images/zone4/Group 1000003305.svg",
-  },
-  {
-    num: 5,
-    name: "Nuttida D.",
-    score: "995",
-    image: "/images/zone4/Group 1000003306.svg",
-  },
-]);
+const rankCardStore = useRankCardStore(); // เรียกใช้งาน store
 
 // ฟังก์ชันเพื่อคืนพาธของรูปภาพ
-const getImageSrc = (imagePath) => {
-  return imagePath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
+const getImageSrc = (imgPath) => {
+  return imgPath;
 };
 </script>
 

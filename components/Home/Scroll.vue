@@ -100,7 +100,7 @@ const roomFloorSrc = computed(() => {
     "/images/zone3/room-sm.png",
     "/images/zone3/roomZone3.jpg",
   ])
-  return roomImages[itemStore.activeItem]  // เปลี่ยนรูปตาม activeItem
+  return roomImages[itemStore.activeItem]  
 })
 
 //  activeItem
@@ -126,7 +126,7 @@ const getImageSrc = (imgPath) => {
 
 @media (min-width: 1200px){
   .circle-position{
-    margin-top: -5vw;
+    margin-top: -2vw;
   }
 }
 

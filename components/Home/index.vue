@@ -11,13 +11,14 @@
       <HomeZone1 />
     </div>
     <!---------------------------------- second content --------------------------->
-    <div>
+    <div class = "mt-[20%]">
       <HomeZone2 />
     </div>
     <!-----------------------------------third content ---------------------------->
     
       <div class="bg-[#F3F7FD]">
-<div  id ="zone3">
+<div   class = "mt-[30%]"
+id ="zone3">
   
         <!-- <HomeZone3/> -->
          <HomeScroll />
@@ -27,25 +28,25 @@
 
       <!-----------------------------------forth content ---------------------------->
       
-      <div id = "zone4">
+      <div class = "mt-[30%]" id = "zone4">
         <HomeZone4 />
       </div>
 
       <!-----------------------------------fiv content ---------------------------->
 
-      <div id="zone5">
+      <div class = "mt-[30%]" id="zone5">
         <HomeZone5 />
       </div>
 
 
       <!-----------------------------------six content ------------------------------>
 
-      <div id="zone6">
+      <div class = "mt-[30%]" id="zone6">
         <HomeZone6 />
       </div>
 
       <!-----------------------------------seven content ---------------------------->
-      <div id="zone7">
+      <div class = "mt-[30%]" id="zone7">
         <HomeZone7 />
       </div>
 

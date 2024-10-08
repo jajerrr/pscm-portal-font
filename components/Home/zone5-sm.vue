@@ -1,5 +1,5 @@
 <template>
-    <div class="content-w-re">
+    <div class="content-w-re mt-[30%]">
       <div class="f-center f-col mb-[10%]">
         <h class="header">Media</h>
         <div class="f-center flex-glow w-full px-[10%]">
@@ -34,12 +34,12 @@
         </div>
       </div>
       <div v-if="isModalOpen" class="modal-overlay z-[10]" @click="closeModal">
-      <div class="modal-content" @click.stop>
+      <div class="" @click.stop>
         <video controls autoplay class="video-player-sm">
           <source :src="currentVideo" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <button class="modal-close" @click="closeModal">Close</button>
+        
       </div>
     </div>
     </div>

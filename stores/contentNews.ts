@@ -1,44 +1,20 @@
 import { defineStore } from "pinia";
-import type { NewsStore } from "@/interfaces/news";
+import type { NewsItem } from "@/interfaces/news";
 
+// สร้าง store สำหรับจัดการข้อมูลข่าว
 export const useNewsStore = defineStore("news", {
-  state: (): NewsStore => ({
-    newsItems: [] // สร้างstateเก็บข่าว
-  }),
+  state: () => ({
+  mainContentData: [
+    { img: "/images/image 1560.jpg", date: "24 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" }
+  ] as NewsItem[],  // ใช้เป็น array ของ NewsItem
+  rightContentData: [
+    { img: "/images/zone2/new-1.png", date: "25 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
+    { img: "/images/zone2/new-2.png", date: "26 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
+    { img: "/images/zone2/new-3.png", date: "27 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" }
+  ] as NewsItem[]
+}),
 
-  actions: {
-    fetchNewsItems() {      
-      // ดึงข้อมูลข่าวสารทั้งหมด (ใช้ mock data ในที่นี้)
-      this.newsItems = [
-        {
-          date: "1 ต.ค. 2567",
-          header: "ข่าวสารล่าสุด",
-          detail: "รายละเอียดข่าวสาร",
-          img: "/images/image 1560.jpg"
-        },
-        {
-          date: "2 ต.ค. 2567",
-          header: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observership",
-          detail: "รายละเอียดข่าวสารเพิ่มเติม",
-          img: "/images/image 1560.jpg"
-        },
-        {
-            date: "3 ต.ค. 2567",
-            header: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observership",
-            detail: "รายละเอียดข่าวสารเพิ่มเติม",
-            img: "/images/image 1560.jpg"
-          },
-          {
-            date: "4 ต.ค. 2567",
-            header: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observership",
-            detail: "รายละเอียดข่าวสารเพิ่มเติม",
-            img: "/images/image 1560.jpg"
-          },
-          
-          
-        
-        // ข้อมูลข่าวสารอื่น ๆ
-      ];
-    },
-  },
 });
+
+
+

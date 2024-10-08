@@ -2,7 +2,7 @@
   <div class='content-sm'>
     <HomeZone4Sm />
   </div>
-  <div class="content-w-re mb-[20%] content-nm" >
+  <div class="content-w-re mb-[20%] content-nm">
     <div class="f-col f-center mb-[5%]">
       <h class="header">Ranking</h>
       <div class="j-center flex-glow w-full px-[10%]">
@@ -12,12 +12,12 @@
     </div>
 
     <div class="rank-card-content">
-      <div class="f-row" v-for="(id, index) in rankCard" :key="index">
+      <div class="f-row" v-for="(id, index) in rankCardStore.rankCard" :key="index">
         <div :style="{ zIndex: 29 - (index) }" class="flex ml-[-1.5vw] w-full">
           <h class="num-normal num-rank">{{ id.num }}</h>
           <div class="card-rank">
             <div class="card-img">
-              <img class="z-4-img" :src="getCharImageSrc(id.img)"  />
+              <img class="z-4-img" :src="getCharImageSrc(id.img)" />
             </div>
             <div class="text-center mt-[2vw]">
               <h2 class="name">{{ id.name }}</h2>
@@ -34,21 +34,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useRankCardStore } from '@/stores/ranking.ts'; // นำเข้า store ที่สร้างไว้
 
-const rankCard = ref([
-  { num: 1, name: "Nuttida A.", score: "999", img: "/images/zone4/Group 1000003302.svg" },
-  { num: 2, name: "Nuttida B.", score: "994", img: "/images/zone4/Group 1000003303.svg" },
-  { num: 3, name: "Nuttida C.", score: "993", img: "/images/zone4/Group 1000003304.svg" },
-  { num: 4, name: "Nuttida D.", score: "992", img: "/images/zone4/Group 1000003305.svg" },
-  { num: 5, name: "Nuttida E.", score: "991", img: "/images/zone4/Group 1000003306.svg" },
-])
+const rankCardStore = useRankCardStore(); // เรียกใช้งาน store
 
 // ฟังก์ชันเพื่อคืนพาธของรูปภาพ
 const getCharImageSrc = (imgPath) => {
-  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
+  return imgPath;
 };
 </script>
+
 
 <style scoped>
 .content-sm {
