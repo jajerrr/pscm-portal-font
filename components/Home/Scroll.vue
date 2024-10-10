@@ -25,11 +25,15 @@
 
         <div class="f-col image-full-re mt-[16vw] px-[5%]" alt="content">
           <div class="relative j-center z-[10]">
-            <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw]">
-              <div class="space-y-4">
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="1" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="2" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="3" />              </div>
+            <div  class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw] gap-9">
+              <div
+      v-for="(image, index) in roomNumber[itemStore.activeItem].room"
+      :key="index"
+      @click="selectFloor(index)"
+      class="f-col SF-TH f-center overflow-hidden w-[10vw] h-[5vw] rounded-[10px] bg-[#69696954]"
+    >
+      <img :src="image" class="img-z-3-col" alt="Room Image" />
+    </div>
             </div>
 
             <!-- แสดงเนื้อหาตามชั้นที่เลือก -->
@@ -50,7 +54,7 @@
             </div>
             
 
-            <img :src="roomFloorSrc" class="flex w-[45vw] absolute" alt="ห้อง" />
+            <img :src="roomImageSrc"  class="flex w-[45vw] absolute" alt="ห้อง" />
 
             <img src="assets/images/Rectangle-zone3.png" class="w-full" />
           </div>
@@ -87,29 +91,43 @@ const Room = ref([
 
 ])
 
-// คำนวณ path ของรูปภาพที่จะแสดงตาม activeItem จาก store
-const roomFloorSrc = computed(() => {
-  const roomImages = ([
-   
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-  ])
-  return roomImages[itemStore.activeItem]  
-})
+
 
 //  activeItem
 const activeRoom = computed(() => {
-  return Room.value[itemStore.activeItem]  // ใช้ค่า activeItem เพื่อดึงห้องที่ตรงกัน
+  return Room.value[itemStore.activeItem];  // ใช้ค่า activeItem เพื่อดึงห้องที่ตรงกัน
 })
 
 const getImageSrc = (imgPath) => {
-  return imgPath;  
+  return imgPath;
+};
+
+// ข้อมูลรูปภาพของห้องแต่ละชั้น
+const roomNumber = ref([
+  { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone2/new-1.png", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone2/new-2.png", "/images/zone3/roomZone3.jpg", ] }, 
+  { room: ["/images/zone2/new-3.png", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/image 1560.jpg", "/images/zone3/roomZone3.jpg", ] },  
+  { room: ["/images/zone3/room_main.png", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone3/room_lib.png", "/images/zone3/roomZone3.jpg", ] },
+  { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },  
+
+
+]);
+
+const selectedFloor = ref(0); // เก็บสถานะชั้นที่เลือก
+
+// คำนวณ path ของรูปภาพที่จะแสดงตามชั้นที่เลือกและ activeItem
+const roomImageSrc = computed(() => {
+  return roomNumber.value[itemStore.activeItem].room[selectedFloor.value]; // ดึงรูปตาม activeItem และชั้นที่เลือก
+});
+
+
+
+// ฟังก์ชันสำหรับเลือกชั้น
+const selectFloor = (index) => {
+  selectedFloor.value = index; // อัพเดทชั้นที่เลือก
 };
 </script>
 

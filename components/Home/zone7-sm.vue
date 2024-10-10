@@ -3,7 +3,8 @@
     <div class="f-col f-center mb-[15%] mt-[5%]">
       <h class="header">Our service</h>
       <h1 class="th-header text-[2vw]">บริการของเรา</h1>
-      <IconsUnderline />
+      <img src="assets/images/zone2/underline.png" class="w-[20rem]" />
+
     </div>
 
     <!----------------------------------------------------  card service  --------------------------------------------------------->
@@ -17,7 +18,7 @@
 
       >
       <SwiperSlide class="relative  mx-[10px] card-item"
-          v-for="(card, index) in serviceCardStore.serviceCards" :key="index"
+            v-for="(card, index) in serviceCardStore.serviceCards" :key="index"
           >
           <div class="container-z7" style="width: 75%; min-height: 35vh">
             <IconsZone7-1 v-if="card.icon == 1" />
@@ -37,13 +38,28 @@
       </div>
   
     </div>
+    <img src="/images/OBJECTS7.png" class="image-full-ab top-[-25%]  z-[-1]" style="
+    width: 40vw;
+   " />
+    <img src="/images/Rectangle 43086.png" class="image-full-ab top-[-5%]  z-[-1]" style="opacity: 10%;
+    width: 100vw;
+   " />
+    <img src="/images/bg-z7.png" class="image-full-ab  top-[0%] z-[-1]" style="opacity:15%;
+    width: 100vw;
+    height: 100vh;" />
   </div>
 </template>
 
 <script setup>
 import { useServiceCardStore } from '@/stores/service.ts';  // นำเข้า Pinia store
 
+import { onMounted } from 'vue';
+
 const serviceCardStore = useServiceCardStore();  // ใช้ store จาก Pinia
+
+onMounted(() => {
+  serviceCardStore.fetchServiceCards();  // ดึงข้อมูลบริการจาก API
+});
 </script>
 
 <style scoped>

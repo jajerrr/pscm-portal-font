@@ -72,6 +72,8 @@
       class="image-full-ab bottom-[-5vw] z-[1]"
       alt="floor"
     />
+
+    
   </div>
 </template>
 

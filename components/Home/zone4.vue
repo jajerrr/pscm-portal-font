@@ -2,13 +2,16 @@
   <div class='content-sm'>
     <HomeZone4Sm />
   </div>
-  <div class="content-w-re mb-[20%] content-nm">
+  <div class="content-w-re mb-[10%] content-nm">
     <div class="f-col f-center mb-[5%]">
       <h class="header">Ranking</h>
       <div class="j-center flex-glow w-full px-[10%]">
         <h class="th-header">จัดอันดับคะแนน</h>
       </div>
-      <IconsUnderline />
+     
+        <img src="assets/images/zone2/underline.png" class="w-[30vw]" />
+     
+      
     </div>
 
     <div class="rank-card-content">
@@ -17,7 +20,7 @@
           <h class="num-normal num-rank">{{ id.num }}</h>
           <div class="card-rank">
             <div class="card-img">
-              <img class="z-4-img" :src="getCharImageSrc(id.img)" />
+              <img class="z-4-img" :src="getImageSrc(id.img)" />
             </div>
             <div class="text-center mt-[2vw]">
               <h2 class="name">{{ id.name }}</h2>
@@ -30,18 +33,32 @@
         </div>
       </div>
     </div>
+    <img src="/images/zone4/top.png" class="image-full-ab top-[-60%]  z-[-1]" style="
+    width: 100vw;
+   " />
+    <img src="/images/zone4/leftvector.png" class="image-full-ab top-[-15%] left-[3%] z-[-1]" style="
+    width: 18vw;
+   " />
+   <img src="/images/zone4/rightvector.png" class="image-full-ab top-[-10%] right-[3%] z-[-1]" style="
+    width: 15vw;
+   " />
   </div>
 </template>
 
 <script setup>
 import { useRankCardStore } from '@/stores/ranking.ts'; // นำเข้า store ที่สร้างไว้
+// import { onMounted } from 'vue';
 
 const rankCardStore = useRankCardStore(); // เรียกใช้งาน store
 
 // ฟังก์ชันเพื่อคืนพาธของรูปภาพ
-const getCharImageSrc = (imgPath) => {
+const getImageSrc = (imgPath) => {
   return imgPath;
 };
+
+// onMounted(() => {
+//   rankCardStore.fetchRankCards();  // ดึงข้อมูลบริการจาก API
+// });
 </script>
 
 

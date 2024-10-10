@@ -205,7 +205,7 @@ const getContentImageSrc = (imgPath) => {
   }
 
   .main-content img.no-style {
-    width: 30rem;
+    width: 20rem;
     height: auto;
     padding-inline: 10%;
   }

@@ -32,7 +32,7 @@ export const useServiceCardStore = defineStore("serviceCard", {
   actions: {
     async fetchServiceCards() {
       try {
-        const response = await axios.get('https://api.example.com/services'); 
+        const response = await axios.post(' http://27.254.62.100:30021/pscm/api/mock/data'); 
         this.serviceCards = response.data;  // เก็บข้อมูลใน state
       } catch (error) {
         console.error('Error fetching service cards:', error);

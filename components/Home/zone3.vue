@@ -27,9 +27,9 @@
           <div class="relative j-center z-[10]">
             <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw]">
               <div class="space-y-4">
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="" />              </div>
+                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="1" />
+                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="2" />
+                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="3" />              </div>
             </div>
 
             <!-- แสดงเนื้อหาตามชั้นที่เลือก -->
@@ -100,7 +100,7 @@ const roomFloorSrc = computed(() => {
     "/images/zone3/room-sm.png",
     "/images/zone3/roomZone3.jpg",
   ])
-  return roomImages[itemStore.activeItem]  // เปลี่ยนรูปตาม activeItem
+  return roomImages[itemStore.activeItem]  
 })
 
 //  activeItem

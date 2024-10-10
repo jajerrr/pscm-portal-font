@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import type { RankCardItem } from "@/interfaces/ranking";
+import axios from "axios";
 
 export const useRankCardStore = defineStore("rankCard", {
   state: () => ({
@@ -12,3 +13,20 @@ export const useRankCardStore = defineStore("rankCard", {
     ] as RankCardItem[],
   }),
 });
+
+
+// export const useRankCardStore = defineStore("rankCard", {
+//   state: () => ({
+//     rankCard: [] as RankCardItem[],  
+//   }),
+//   actions: {
+//     async fetchRankCards() {
+//       try {
+//         const response = await axios.post(' '); 
+//         this.rankCard = response.data;  // เก็บข้อมูลใน state
+//       } catch (error) {
+//         console.error('Error fetching service cards:', error);
+//       }
+//     }
+//   }
+// });

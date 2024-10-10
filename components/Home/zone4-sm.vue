@@ -5,7 +5,7 @@
       <div class="f-center flex-glow w-full px-[10%]">
         <h class="th-header">จัดอันดับคะแนน</h>
       </div>
-      <IconsUnderline />
+      <img src="assets/images/zone2/underline.png" class="w-[20rem]" />
       <div class="flex w-screen relative m-[10%]">
         <Swiper
          
@@ -42,11 +42,21 @@
         </Swiper>
       </div>
     </div>
+    <img src="/images/zone4/top.png" class="image-full-ab top-[-19%]  z-[-1]" style="
+    width: 100vw;
+   " />
+    <img src="/images/zone4/leftvector.png" class="image-full-ab top-[-15%] left-[3%] z-[-1]" style="
+    width: 25vw;
+   " />
+   <img src="/images/zone4/rightvector.png" class="image-full-ab top-[-10%] right-[3%] z-[-1]" style="
+    width: 20vw;
+   " />
   </div>
 </template>
 
 <script setup>
 import { useRankCardStore } from '@/stores/ranking.ts'; // นำเข้า store ที่สร้างไว้
+import { onMounted } from 'vue';
 
 const rankCardStore = useRankCardStore(); // เรียกใช้งาน store
 
@@ -54,6 +64,10 @@ const rankCardStore = useRankCardStore(); // เรียกใช้งาน s
 const getImageSrc = (imgPath) => {
   return imgPath;
 };
+
+// onMounted(() => {
+//   rankCardStore.fetchRankCards();  // ดึงข้อมูลบริการจาก API
+// });
 </script>
 
 <style>

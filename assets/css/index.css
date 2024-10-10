@@ -423,10 +423,11 @@
 
 /* css zone 6 */
 
-.container-z6{
-    @apply container md:max-w-xl p-8 rounded-lg shadow bg-[linear-gradient(280deg,rgb(255_255_255),rgb(232_220_254))];
-/*  max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-xl */
-}
+.container-z6 {
+    @apply  md:max-w-xl p-8 rounded-lg ;
+    background: linear-gradient(159deg, rgb(255 255 255 / 28%), rgb(232 220 254));
+  }
+  
 
 .carder-header-z6{
     @apply text-[#FF7A00] SF-TH-Semi mb-3 text-[150%] tracking-tight;
