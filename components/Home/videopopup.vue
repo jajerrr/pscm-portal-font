@@ -48,7 +48,7 @@ const closeModal = () => {
     width: 100vw;
     height: 100vh;
     /* Full screen height */
-    background: rgba(19, 18, 18, 0.9);
+    background:  rgba(0, 0, 0, 0.963);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,8 +64,8 @@ const closeModal = () => {
 }
 
 .video-player {
-    width: 100%;
-    height: 40vw;
+    width: 40vw;
+    height: auto;
 }
 
 .modal-close {

@@ -424,17 +424,17 @@
 /* css zone 6 */
 
 .container-z6 {
-    @apply  md:max-w-xl p-8 rounded-lg ;
+    @apply  container h-full  max-w-[30rem] p-5 rounded-lg ;
     background: linear-gradient(159deg, rgb(255 255 255 / 28%), rgb(232 220 254));
   }
   
 
 .carder-header-z6{
-    @apply text-[#FF7A00] SF-TH-Semi mb-3 text-[150%] tracking-tight;
+    @apply text-[#FF7A00] SF-TH-Semi mb-6 text-[150%] tracking-tight;
 }
 
 .card-desc-z6{
-    @apply mb-3 SF-TH text-[#2B2B2B] text-[80%];
+    @apply mb-8 SF-TH text-[#2B2B2B] text-[93%];
 }
 
 .w-1-2-center {

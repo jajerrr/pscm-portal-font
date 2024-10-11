@@ -105,12 +105,12 @@ const getImageSrc = (imgPath) => {
 // ข้อมูลรูปภาพของห้องแต่ละชั้น
 const roomNumber = ref([
   { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },
-  { room: ["/images/zone2/new-1.png", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone3/image-1575.jpg", "/images/zone3/roomZone3.jpg", ] },
   { room: ["/images/zone2/new-2.png", "/images/zone3/roomZone3.jpg", ] }, 
   { room: ["/images/zone2/new-3.png", "/images/zone3/image-1575.jpg", ] },
   { room: ["/images/image 1560.jpg", "/images/zone3/roomZone3.jpg", ] },  
-  { room: ["/images/zone3/room_main.png", "/images/zone3/image-1575.jpg", ] },
-  { room: ["/images/zone3/room_lib.png", "/images/zone3/roomZone3.jpg", ] },
+  { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone3/image-1575.jpg", "/images/zone3/roomZone3.jpg", ] },
   { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },  
 
 
