@@ -6,7 +6,7 @@
         <h class="th-header">จัดอันดับคะแนน</h>
       </div>
       <img src="assets/images/zone2/underline.png" class="w-[20rem]" />
-      <div class="flex w-screen relative m-[10%]">
+      <div class="flex w-screen relative m-[10%]" id = "zone4">
         <Swiper
          
           :centeredSlides="true"

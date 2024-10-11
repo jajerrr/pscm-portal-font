@@ -3,13 +3,13 @@
     <HomeZone3Sm />
   </div>
 
-  <div class="third-main-content content-nm mb-[30%] bg-[#F3F7FD]">
+  <div class="third-main-content content-nm mb-[30%] bg-[#F3F7FD]" >
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
 
-    <div class="f-center mt-[5%] mb-[20%] z-[13]" style="max-width: 1600px">
+    <div class="f-center mt-[5%] mb-[20%] z-[13]"  >
       <div class="j-center items-stretch h-auto mt-[10%]">
         <div class="absolute w-1/2 mt-[-10%]">
           <div class="f-re text-[#4D5986] SF-TH-Semi" >
@@ -23,14 +23,14 @@
           </div>
         </div>
 
-        <div class="f-col image-full-re mt-[16vw] px-[5%]" alt="content">
+        <div class="f-col image-full-re mt-[14vw] px-[5%]" alt="content">
           <div class="relative j-center z-[10]">
-            <div  class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw] gap-9">
+            <div  class="f-col top-[4vw] right-[5%] absolute max-w-[8vw] gap-9">
               <div
       v-for="(image, index) in roomNumber[itemStore.activeItem].room"
       :key="index"
       @click="selectFloor(index)"
-      class="f-col SF-TH f-center overflow-hidden w-[10vw] h-[5vw] rounded-[10px] bg-[#69696954]"
+      class="f-col SF-TH f-center overflow-hidden w-[8vw] h-[5vw] rounded-[10px] bg-[#69696954]"
     >
       <img :src="image" class="img-z-3-col" alt="Room Image" />
     </div>
@@ -54,7 +54,7 @@
             </div>
             
 
-            <img :src="roomImageSrc"  class="flex w-[45vw] absolute" alt="ห้อง" />
+            <img :src="roomImageSrc"  class="flex w-[45vw]  max-w-[40vw] absolute top-[3%]" style="padding-inline:3vw ;" alt="ห้อง" />
 
             <img src="assets/images/Rectangle-zone3.png" class="w-full" />
           </div>
@@ -139,12 +139,12 @@ const selectFloor = (index) => {
 
 
 .circle-position{
-    margin-top:0;
+    margin-top:-2vw;
   }
 
-@media (min-width: 1200px){
+@media (min-width: 1250px){
   .circle-position{
-    margin-top: -2vw;
+    margin-top: -5vw;
   }
 }
 
@@ -154,21 +154,28 @@ const selectFloor = (index) => {
   }
 } */
 
-@media (min-width: 1650px){
+@media (min-width: 1500px){
   .circle-position{
     margin-top: -12vh;
   }
 }
 
-@media (max-width: 950px){
+
+@media (width: 1950px){
   .circle-position{
-    margin-top: -13vw;
+    margin-top: -7vw;
   }
 }
 
-@media (max-width: 750px){
+@media (max-width: 1000px){
   .circle-position{
-    margin-top: -15vw;
+    margin-top: -10vw;
+  }
+}
+
+@media (max-width: 850px){
+  .circle-position{
+    margin-top: -17vw;
   }
 }
 

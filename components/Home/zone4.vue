@@ -2,7 +2,7 @@
   <div class='content-sm'>
     <HomeZone4Sm />
   </div>
-  <div class="content-w-re mb-[10%] content-nm">
+  <div class="content-w-re mb-[10%] content-nm" >
     <div class="f-col f-center mb-[5%]">
       <h class="header">Ranking</h>
       <div class="j-center flex-glow w-full px-[10%]">
@@ -14,7 +14,7 @@
       
     </div>
 
-    <div class="rank-card-content">
+    <div class="rank-card-content" >
       <div class="f-row" v-for="(id, index) in rankCardStore.rankCard" :key="index">
         <div :style="{ zIndex: 29 - (index) }" class="flex ml-[-1.5vw] w-full">
           <h class="num-normal num-rank">{{ id.num }}</h>

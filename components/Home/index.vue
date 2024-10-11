@@ -17,8 +17,8 @@
     <!-----------------------------------third content ---------------------------->
     
       <div class="bg-[#F3F7FD]">
-<div   class = "mt-[30%]"
-id ="zone3">
+<div   class = "mt-[30%]" id = "zone3"
+>
   
         <!-- <HomeZone3/> -->
          <HomeScroll />
@@ -28,7 +28,7 @@ id ="zone3">
 
       <!-----------------------------------forth content ---------------------------->
       
-      <div class = "mt-[30%]" id = "zone4">
+      <div class = "mt-[30%]"  id = "zone4">
         <HomeZone4 />
       </div>
 

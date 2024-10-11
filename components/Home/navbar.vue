@@ -3,7 +3,7 @@
     <HomeNavbarSm />
   </div>
   <nav
-    class="fixed top-0 left-0 z-50 w-full 
+    class="fixed top-0 left-0 z-[50] w-full 
      bg-nav text-white SF-TH 
     nav-normal ">
     <div class ="flex p-3 space-x-3 justify-center 

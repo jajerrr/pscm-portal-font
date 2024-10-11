@@ -268,7 +268,7 @@ svg {
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .wrapper {
     width: 370px;
     height: 370px;
@@ -289,7 +289,7 @@ svg {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   .wrapper {
     width: 300px;
     height: 300px;
