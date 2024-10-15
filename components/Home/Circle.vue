@@ -244,9 +244,50 @@ svg {
   top: 0%;
   left: 45%;
 }
+@media (min-width: 2300px) {
+  .wrapper {
+    width: 800px;
+    height: 800px;
+  }
 
+  .item {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 20px;
+    /* คำนวณใหม่โดยใช้รัศมีที่ใหญ่ขึ้น */
+    transform: translate3d(calc(400px * cos(90deg)), calc(400px * sin(90deg)), 0) rotate(90deg);
+  }
 
-@media (min-width: 1650px) {
+  svg {
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (min-width: 1800px) {
+  .wrapper {
+    width: 700px;
+    height: 700px;
+  }
+
+  .item {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 20px;
+    /* คำนวณใหม่โดยใช้รัศมีที่ใหญ่ขึ้น */
+    transform: translate3d(calc(350px * cos(90deg)), calc(350px * sin(90deg)), 0) rotate(90deg);
+  }
+
+  svg {
+    width: 700px;
+    height: 700px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 1500px) {
   .wrapper {
     width: 600px;
     height: 600px;
@@ -258,12 +299,33 @@ svg {
     line-height: 75px;
     font-size: 15px;
     /* คำนวณใหม่โดยใช้รัศมีที่ใหญ่ขึ้น */
-    transform: translate3d(225px, 450px, 0px) rotate(90deg);
-  }
+    transform: translate3d(calc(300px * cos(90deg)), calc(300px * sin(90deg)), 0) rotate(90deg);  }
 
   svg {
     width: 600px;
     height: 600px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    width: 500px;
+    height: 500px;
+  }
+
+  .item {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 15px;
+    /* คำนวณใหม่โดยใช้รัศมีที่ใหญ่ขึ้น */
+    transform: translate3d(calc(250px * cos(90deg)), calc(250px * sin(90deg)), 0) rotate(90deg);
+  }
+
+  svg {
+    width: 500px;
+    height: 500px;
     transform: translate(-50%, -50%);
   }
 }

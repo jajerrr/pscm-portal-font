@@ -5,8 +5,8 @@
 
   <div class="third-main-content content-nm mb-[30%] bg-[#F3F7FD]" >
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
-      <li class="th-header">รอบรู้กับ</li>
-      <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
+      <li class=" text-[2vw]">รอบรู้กับ</li>
+      <p class="text-[1.5vw]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
 
     <div class="f-center mt-[5%] mb-[20%] z-[13]"  >
