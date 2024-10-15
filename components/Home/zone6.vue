@@ -30,7 +30,7 @@
             <div class="carder-header-z6">{{ card.header }}</div>
             <div class="card-desc-z6 scrollable-text">{{ card.desc }}</div>
             <button type="button"
-            @click="openModel"
+            @click="openModel(card.models)"
           class=" f-center button-orange SF-TH text-[13px] px-[3%] py-[1%] ">
           ดูแบบ360°
         </button>
@@ -56,7 +56,7 @@
 /> -->
 <img 
         :src="getBodyImageSrc(card.img)" 
-        class="normal_model "
+        class="normal_model"
         alt="body"
       />
       <img 
@@ -82,6 +82,11 @@
       <div class="modal-content" @click.stop>
         <!-- Empty gray modal window content -->
         <p>Model 360</p>
+        <component v-for="(model, iIndex) in selectedModels" 
+                   :key="iIndex"
+                   :is="getIconComponent(model)"
+                   class=""
+        />
         <button @click="closeModel" type="button"
                 class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-hide="popup-modal">
@@ -103,17 +108,23 @@
 <script setup>
 
 
+// สร้างตัวแปรเพื่อเก็บสถานะการเปิด modal และโมเดลที่ถูกเลือก
 const isModalOpen = ref(false);
+const selectedModels = ref([]);
 
-const openModel = () => {
+// ฟังก์ชันเปิด modal พร้อมกับรับ models
+const openModel = (models) => {
+  selectedModels.value = models; // รับ models จาก card
   isModalOpen.value = true;
 };
 
+// ฟังก์ชันปิด modal
 const closeModel = () => {
   isModalOpen.value = false;
+  selectedModels.value = [];
 };
 
-
+// ตรวจสอบการเปลี่ยนแปลงสถานะของ isModalOpen เพื่อเพิ่ม/ลบ class 'lock-scroll'
 watch(isModalOpen, (newVal) => {
   if (newVal) {
     document.body.classList.add('lock-scroll');
@@ -121,6 +132,7 @@ watch(isModalOpen, (newVal) => {
     document.body.classList.remove('lock-scroll');
   }
 });
+
 
 
 import { Thumbs, Navigation, EffectFade } from "swiper/modules";
@@ -201,14 +213,14 @@ const getIconComponent = (model) => {
 }
 
 /* Modal content */
-.modal-content {
+/* .modal-content {
   background: white;
   padding: 20px;
   border-radius: 8px;
   width: 80%;
   max-width: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .scrollable-text {
   max-height: 5.6em; 

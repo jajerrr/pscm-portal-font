@@ -23,9 +23,9 @@
           </div>
         </div>
 
-        <div class="f-col image-full-re mt-[14vw] px-[5%]" alt="content">
+        <div class="f-col image-full-re mt-[14vw] " alt="content">
           <div class="relative j-center z-[10]">
-            <div  class="f-col top-[4vw] right-[5%] absolute max-w-[8vw] gap-9">
+            <div  class="f-col top-[3vw] right-[4%] absolute max-w-[8vw] gap-9">
               <div
       v-for="(image, index) in roomNumber[itemStore.activeItem].room"
       :key="index"
@@ -39,24 +39,24 @@
             <!-- แสดงเนื้อหาตามชั้นที่เลือก -->
             <div v-if="activeRoom"
             class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ activeRoom.name }}</div>
-              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
+              <div class="text-[1.5vw] SF-TH-Semi">{{ activeRoom.name }}</div>
+              <p class="text-[1.2vw]">กิจกรรมภายในห้อง</p>
               <div class="f-row gap-5">
                 <div class="f-col f-center">
-                  <img :src="getImageSrc(activeRoom.iconImg1)" class="w-[50%] h-auto" />
+                  <img :src="getImageSrc(activeRoom.iconImg1)" class="w-[40%] h-auto" />
                   <div class="text-[1vw]">{{ activeRoom.iconName1 }}</div>
                 </div>
                 <div class="f-col f-center">
-                  <img :src="getImageSrc(activeRoom.iconImg2)" class="w-[50%] h-auto" />
+                  <img :src="getImageSrc(activeRoom.iconImg2)" class="w-[40%] h-auto" />
                   <div class="text-[1vw]">{{ activeRoom.iconName2 }}</div>
                 </div>
               </div>
             </div>
             
 
-            <img :src="roomImageSrc"  class="flex w-[45vw]  max-w-[40vw] absolute top-[3%]" style="padding-inline:3vw ;" alt="ห้อง" />
+            <img :src="roomImageSrc"  class="flex w-[45vw]   absolute top-[3%]" style="padding-inline:3vw ;" alt="ห้อง" />
 
-            <img src="assets/images/Rectangle-zone3.png" class="w-full" />
+            <img src="assets/images/Rectangle-zone3.png" class="w-[85vw]" />
           </div>
         </div>
       </div>
