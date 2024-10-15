@@ -30,10 +30,10 @@
             <div class="carder-header-z6">{{ card.header }}</div>
             <div class="card-desc-z6 scrollable-text">{{ card.desc }}</div>
             <button type="button"
-            @click="openModel(card.models)"
-          class=" f-center button-orange SF-TH text-[13px] px-[3%] py-[1%] ">
-          ดูแบบ360°
-        </button>
+  @click="openModel(card.models, card.header)"  
+  class="f-center button-orange SF-TH text-[13px] px-[3%] py-[1%]">
+  ดูแบบ360°
+</button>
           </div>
         </SwiperSlide>
       </Swiper>
@@ -78,25 +78,23 @@
     width:46vw;
    " />
 <teleport to="body">
-<div v-if="isModalOpen" class="modal-overlay" @click="closeModel">
+    <div v-if="isModalOpen" class="modal-overlay" @click="closeModel">
       <div class="modal-content" @click.stop>
-        <!-- Empty gray modal window content -->
-        <p>Model 360</p>
-        <component v-for="(model, iIndex) in selectedModels" 
-                   :key="iIndex"
-                   :is="getIconComponent(model)"
-                   class=""
-        />
+        
+        <p class = "text-[2vw] text-white SF-TH p-[5%] absolute">ตัวอย่างโมเดลอวัยวะ "{{ selectedModelHeader }}"</p>
+        <div v-for="model in selectedModels" :key="model">
+          <component :is="getIconComponent(model)" class="" />
+        </div>
         <button @click="closeModel" type="button"
-                class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                data-modal-hide="popup-modal">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                </svg>
-                <span class="sr-only">Close modal</span>
-            </button>
+          class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="popup-modal">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
       </div>
     </div>
   </teleport>
@@ -111,10 +109,12 @@
 // สร้างตัวแปรเพื่อเก็บสถานะการเปิด modal และโมเดลที่ถูกเลือก
 const isModalOpen = ref(false);
 const selectedModels = ref([]);
+const selectedModelHeader = ref(''); // เพิ่มตัวแปรเพื่อเก็บ header ของโมเดล
 
 // ฟังก์ชันเปิด modal พร้อมกับรับ models
-const openModel = (models) => {
-  selectedModels.value = models; // รับ models จาก card
+const openModel = (models, header) => {
+  selectedModels.value = models;    // รับ models จาก card
+  selectedModelHeader.value = header;  // รับ header จาก card
   isModalOpen.value = true;
 };
 
@@ -122,6 +122,7 @@ const openModel = (models) => {
 const closeModel = () => {
   isModalOpen.value = false;
   selectedModels.value = [];
+  selectedModelHeader.value = ''; // รีเซ็ตค่า header เมื่อปิด modal
 };
 
 // ตรวจสอบการเปลี่ยนแปลงสถานะของ isModalOpen เพื่อเพิ่ม/ลบ class 'lock-scroll'
@@ -205,7 +206,7 @@ const getIconComponent = (model) => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.963); /* Gray background */
+  background: rgba(0, 0, 0, 0.933); /* Gray background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -213,14 +214,7 @@ const getIconComponent = (model) => {
 }
 
 /* Modal content */
-/* .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-} */
+
 
 .scrollable-text {
   max-height: 5.6em; 
