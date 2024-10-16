@@ -74,64 +74,62 @@
 
    
 <teleport to="body">
- 
+    <div v-if="isModalOpen" class="modal-overlay" @click="closeModel">
+      <p class="text-[2vw] text-white SF-TH p-[5%] absolute j-center top-1 w-full">
+        ตัวอย่างโมเดลอวัยวะ "{{ selectedModelHeader }}"
+      </p>
 
-  <div v-if="isModalOpen" class="modal-overlay" @click="closeModel">
-    
-    <div class="modal-content" @click.stop>
-     
-      
-      
-      
-      <div v-if="isLoading" class="flex items-center justify-center w-full">
-        <div class="relative ">
+      <div class="modal-content" @click.stop>
+        <div v-if="isLoading" class="flex items-center justify-center w-full">
+          <div class="relative w-full">
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                :style="{ width: loadingPercent + '%' }"
+                transition="width 0.1s linear"
+              ></div>
+            </div>
+            <div class=" mt-[5%] px-10 py-3 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
+              loading... {{ loadingPercent }}%
+            </div>
+          </div>
+        </div>
+
+        <div v-else>
           <div
-            class="absolute top-0 left-0 h-full"
-            :style="{ width: '100%' }"
-            transition="width 2s ease" 
-          ></div>
+            v-for="(model, index) in selectedModels"
+            :key="model"
+            :style="{ 'animation-duration': '4s', 'animation-delay': `${index * 0.8}s` }"
+            class="animate__animated animate__zoomIn"
+          >
+            <component :is="getIconComponent(model)" class="" />
+          </div>
         </div>
-        <div class="px-10 py-3 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">loading...</div>
       </div>
-
-      <div v-else>
-        <div
-          v-for="(model, index) in selectedModels"
-          :key="model"
-          :style="{ 'animation-duration': '3.5s', 'animation-delay': `${index * 0.8}s` }" 
-          class="animate__animated animate__zoomIn"
+      <button
+          @click="closeModel"
+          type="button"
+          class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
         >
-        <p class="text-[2vw] text-white SF-TH p-[5%] absolute j-center w-full">ตัวอย่างโมเดลอวัยวะ "{{ selectedModelHeader }}"</p>
-
-          <component :is="getIconComponent(model)" class="" />
-          
-        </div>
-        
-      </div>
-
-      <!-- <button @click="closeModel" type="button"
-        class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-        data-modal-hide="popup-modal">
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-        </svg>
-        <span class="sr-only">Close modal</span>
-      </button> -->
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
     </div>
-    <button @click="closeModel" type="button"
-        class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-        data-modal-hide="popup-modal">
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-        </svg>
-        <span class="sr-only">Close modal</span>
-      </button>
-  </div>
-</teleport>
+  </teleport>
 
 
 
@@ -147,39 +145,83 @@ import { gsap } from 'gsap';
 // สร้างตัวแปรเพื่อเก็บสถานะการเปิด modal และโมเดลที่ถูกเลือก
 const isModalOpen = ref(false);
 const selectedModels = ref([]);
-const selectedModelHeader = ref(''); // เพิ่มตัวแปรเพื่อเก็บ header ของโมเดล
+const selectedModelHeader = ref('');
 const isLoading = ref(false);
-
+const loadingPercent = ref(0); // ตัวแปรสำหรับเปอร์เซ็นต์การโหลด
 
 const openModel = async (models, header) => {
-  isLoading.value = true; // เริ่มการโหลด
-  selectedModels.value = models; // รับ models จาก card
-  selectedModelHeader.value = header; // รับ header จาก card
+  isLoading.value = true;
+  selectedModels.value = models;
+  selectedModelHeader.value = header;
   isModalOpen.value = true;
 
-  // จำลองการโหลดโมเดล (ตัวอย่างใช้ setTimeout)
-  await new Promise((resolve) => setTimeout(resolve, 2000)); // เปลี่ยนเวลา 2000 มิลลิวินาทีตามต้องการ
+  // เริ่มการโหลด
+  loadingPercent.value = 0; // รีเซ็ตเปอร์เซ็นต์การโหลด
+
+  // เรียกใช้ฟังก์ชันที่โหลดโมเดล
+  await loadModel();
 
   isLoading.value = false; // เสร็จสิ้นการโหลด
 
   // เพิ่ม GSAP Animation
-  gsap.fromTo(".modal-content", 
-    { scale: 0, opacity: 0, y: -200 }, // เริ่มต้นโมเดลที่ขนาดเล็กและลอยขึ้น
-    { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" } // ซูมเข้ามาและลอยลงมา
+  gsap.fromTo(
+    '.modal-content',
+    { scale: 0, opacity: 0, y: -200 },
+    { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
   );
 };
 
+// ฟังก์ชันจำลองการโหลดโมเดล
+const loadModel = async (model) => {
+  return new Promise((resolve) => {
+    let loaded = 0;
+
+    const simulateLoading = setInterval(() => {
+      loaded += 2; // เพิ่มเปอร์เซ็นต์การโหลด
+      loadingPercent.value = loaded;
+
+      if (loaded >= 100) {
+        clearInterval(simulateLoading);
+        resolve(); // โมเดลโหลดเสร็จ
+      }
+    }, 100); // เปลี่ยนเวลา 100 มิลลิวินาทีตามต้องการ
+
+    // โค้ดสำหรับการโหลดโมเดลจริง
+    fetchModel(model).then(() => {
+      // เมื่อโมเดลโหลดเสร็จ
+      clearInterval(simulateLoading);
+      loadingPercent.value = 100;
+      resolve();
+    });
+  });
+};
+
+// ฟังก์ชันจำลองการโหลดโมเดลจริง
+const fetchModel = (model) => {
+  return new Promise((resolve) => {
+    // จำลองการโหลดโมเดลจริง
+    setTimeout(() => {
+      resolve(); // โมเดลโหลดเสร็จ
+    }, 20000); // เวลาที่จำเป็นในการโหลดโมเดล
+  });
+};
 
 // ฟังก์ชันปิด modal
 const closeModel = () => {
-  gsap.to(".modal-content", { scale: 0, opacity: 0, y: -200, duration: 0.8, onComplete: () => {
-    isModalOpen.value = false;
-    selectedModels.value = [];
-    selectedModelHeader.value = ''; // รีเซ็ตค่า header เมื่อปิด modal
-  }});
+  gsap.to('.modal-content', {
+    scale: 0,
+    opacity: 0,
+    y: -200,
+    duration: 0.8,
+    onComplete: () => {
+      isModalOpen.value = false;
+      selectedModels.value = [];
+      selectedModelHeader.value = '';
+    },
+  });
 };
 
-// ตรวจสอบการเปลี่ยนแปลงสถานะของ isModalOpen เพื่อเพิ่ม/ลบ class 'lock-scroll'
+// ตรวจสอบการเปลี่ยนแปลงสถานะของ isModalOpen
 watch(isModalOpen, (newVal) => {
   if (newVal) {
     document.body.classList.add('lock-scroll');
@@ -260,7 +302,7 @@ const getIconComponent = (model) => {
 .progress-fill {
   height: 100%;
   background-color: #3b82f6; /* สีของ progress */
-  transition: width 2s ease; /* เวลาเปลี่ยนของแถบ */
+  transition: width 0.1s linear; /* เวลาเปลี่ยนของแถบ */
 }
 
 /* Modal overlay - covers the entire screen */
