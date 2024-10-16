@@ -39,8 +39,8 @@
     controls.dampingFactor = 0.25  // ปรับค่า damping ตามความต้องการ
   
     // ตั้งค่าค่าต่ำสุดและค่าสูงสุดสำหรับการย่อขยาย
-    controls.minDistance = 0.5 // ค่าต่ำสุดของระยะทางกล้องจากโมเดล
-    // controls.maxDistance = 5  // ค่าสูงสุดของระยะทางกล้องจากโมเดล
+    controls.minDistance = 0.1 // ค่าต่ำสุดของระยะทางกล้องจากโมเดล
+  controls.maxDistance = 1.3  // ค่าสูงสุดของระยะทางกล้องจากโมเดล
   
     // เพิ่มแหล่งกำเนิดแสง
     const ambientLight = new THREE.AmbientLight(0xffffff, 1)  // เพิ่มแสงรอบทิศทางเพื่อส่องสว่างฉากโดยทั่วไป
