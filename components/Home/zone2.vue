@@ -32,7 +32,8 @@
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
 
     <div class="f-center">
-      <div v-for="(left, index) in newsStore.mainContentData" :key="index" class="f-row gap-[5%] mt-[5%] card-container p-[5%] ">
+      <div v-for="(left, index) in newsStore.mainContentData" :key="index"
+        class="f-row gap-[5%] mt-[5%] card-container p-[5%] ">
 
         <div class="f-col content-w-re card-item hide" id="zone2-2">
 
@@ -81,7 +82,8 @@
             </div>
           </div>
 
-          <div v-for="(right, index) in newsStore.rightContentData" :key="index" class="i-center gap-10 card-item-order">
+          <div v-for="(right, index) in newsStore.rightContentData" :key="index"
+            class="i-center gap-10 card-item-order">
             <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto" alt="image" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>

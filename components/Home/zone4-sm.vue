@@ -56,7 +56,7 @@
 
 <script setup>
 import { useRankCardStore } from '@/stores/ranking.ts'; // นำเข้า store ที่สร้างไว้
-import { onMounted } from 'vue';
+// import { onMounted } from 'vue';
 
 const rankCardStore = useRankCardStore(); // เรียกใช้งาน store
 

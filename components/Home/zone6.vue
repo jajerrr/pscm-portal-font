@@ -14,7 +14,7 @@
         style="height: 50%; margin-left: 10%; margin-top: 5vw; margin-right: 5%;" :modules="[Thumbs, EffectFade]"
         :effect="'fade'" :slidesPerView="1" :allowTouchMove="false" :fadeEffect="{ crossFade: true }"
         :options="swiperOptions">
-        <SwiperSlide class="card-container p-[10%]" v-for="(card, index) in detailCard" :key="index"
+        <SwiperSlide class="card-container p-[10%]" v-for="(card, index) in detailCards" :key="index"
           style="transition: transform 2s ease, opacity 0s ease;">
           <div>
             <div class="carder-header-z6">{{ card.header }}</div>
@@ -31,7 +31,7 @@
         :modules="[Navigation, Thumbs]" :allowTouchMove="false" :centeredSlides="true" :slidesPerView="1"
         :spaceBetween="10" :navigation="true" :thumbs="{ swiper: swiperRef2 }" :options="swiperOptions">
 
-        <SwiperSlide class="i-center" v-for="(card, index) in detailCard" :key="index"
+        <SwiperSlide class="i-center" v-for="(card, index) in detailCards" :key="index"
           style="transition: transform 5s ease, opacity 4.5s ease;">
 
           <div>
@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div
-                class=" mt-[5%] px-10 py-3 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
+                class=" mt-[20%] px-10 py-3 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
                 loading... {{ loadingPercent }}%
               </div>
             </div>
@@ -101,7 +101,60 @@
 
 
 import { gsap } from 'gsap';
+import { Thumbs, Navigation, EffectFade } from "swiper/modules";
+import { ref, watch } from 'vue';
+import "swiper/swiper-bundle.css";
+import 'swiper/css/effect-fade';
+import { defineAsyncComponent } from 'vue';
 
+import { useDetailCardStore } from '@/stores/model.ts';
+
+const detailCardStore = useDetailCardStore();
+const detailCards = detailCardStore.detailCard;
+
+
+const swiperRef1 = ref(null);
+const swiperRef2 = ref(null);
+
+// รายละเอียดของ card ที่ต้องการแสดง
+// const detailCard = ref([
+//   {
+//     header: "หัวใจ",
+//     desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
+//     img: '/images/heart.svg',
+//     models: ['Heart']
+//   },
+//   {
+//     header: "ตับ",
+//     desc: "เป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
+//     img: '/images/liver.svg',
+//     models: ['Liver']
+//   },
+//   {
+//     header: "สมอง",
+//     desc: "เป็นอวัยวะที่มีความซับซ้อนที่ควบคุมความคิด ความจำ อารมณ์ การสัมผัส ทักษะด้านการเคลื่อนไหว การมองเห็น การหายใจ การควบคุมอุณหภูมิ ความหิว และกระบวนการอื่นๆในการควบคุมร่างกาย และสมองร่วมกับไขสันหลังที่รวมเรียกว่าระบบประสาทส่วนกลาง",
+//     img: '/images/brain.svg',
+//     models: ['Brain']
+//   },
+// ]);
+
+// ฟังก์ชันเพื่อคืนพาธของรูปภาพ
+
+const getBodyImageSrc = (imgPath) => {
+  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
+};
+const setSwiperRef = (swiper) => {
+  swiperRef2.value = swiper;
+};
+const swiperOptions = {
+  speed: 10000, // ความเร็วในการเปลี่ยนสไลด์ (หน่วยเป็นมิลลิวินาที)
+  pagination: { clickable: true },
+  navigation: true,
+};
+//Dynamically import the icon components
+const getIconComponent = (model) => {
+  return defineAsyncComponent(() => import(`@/components/Model/${model}.vue`));
+};
 
 // สร้างตัวแปรเพื่อเก็บสถานะการเปิด modal และโมเดลที่ถูกเลือก
 const isModalOpen = ref(false);
@@ -109,7 +162,6 @@ const selectedModels = ref([]);
 const selectedModelHeader = ref('');
 const isLoading = ref(false);
 const loadingPercent = ref(0); // ตัวแปรสำหรับเปอร์เซ็นต์การโหลด
-
 const openModel = async (models, header) => {
   isLoading.value = true;
   selectedModels.value = models;
@@ -131,7 +183,6 @@ const openModel = async (models, header) => {
     { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
   );
 };
-
 // ฟังก์ชันจำลองการโหลดโมเดล
 const loadModel = async (model) => {
   return new Promise((resolve) => {
@@ -156,9 +207,8 @@ const loadModel = async (model) => {
     });
   });
 };
-
 // ฟังก์ชันจำลองการโหลดโมเดลจริง
-const fetchModel = (model) => {
+const fetchModel = (_model) => {
   return new Promise((resolve) => {
     // จำลองการโหลดโมเดลจริง
     setTimeout(() => {
@@ -166,7 +216,6 @@ const fetchModel = (model) => {
     }, 20000); // เวลาที่จำเป็นในการโหลดโมเดล
   });
 };
-
 // ฟังก์ชันปิด modal
 const closeModel = () => {
   gsap.to('.modal-content', {
@@ -181,7 +230,6 @@ const closeModel = () => {
     },
   });
 };
-
 // ตรวจสอบการเปลี่ยนแปลงสถานะของ isModalOpen
 watch(isModalOpen, (newVal) => {
   if (newVal) {
@@ -191,60 +239,6 @@ watch(isModalOpen, (newVal) => {
   }
 });
 
-import { Thumbs, Navigation, EffectFade } from "swiper/modules";
-import { ref, watch } from 'vue';
-import "swiper/swiper-bundle.css";
-import 'swiper/css/effect-fade';
-import { defineAsyncComponent } from 'vue';
-
-
-const swiperRef1 = ref(null);
-const swiperRef2 = ref(null);
-
-
-
-// รายละเอียดของ card ที่ต้องการแสดง
-const detailCard = ref([
-  {
-    header: "หัวใจ",
-    desc: "เป็นอวัยวะกล้ามเนื้อซึ่งสูบเลือดทั่วหลอดเลือดไปยังส่วนต่างๆของร่างกายโดยการหดตัวเป็นจังหวะซ้ำ ๆ พบในสัตว์ทุกชนิดที่มีระบบไหลเวียนซึ่งรวมสัตว์มีกระดูกสันหลังด้วยหัวใจสัตว์มีกระดูกสันหลังนั้นประกอบด้วยกล้ามเนื้อหัวใจ และเนื้อเยื่อเกี่ยวพันเป็นหลัก กล้ามเนื้อหัวใจเป็นกล้ามเนื้อลายที่อยู่นอกเหนืออำนาจจิตใจ พบเฉพาะที่หัวใจ และทำให้หัวใจสามารถสูบเลือดได้",
-    img: '/images/heart.svg',
-    models: ['Heart']
-  },
-  {
-    header: "ตับ",
-    desc: "เป็นอวัยวะที่มีขนาดใหญ่ที่สุดในช่องท้อง อยู่ใต้กระดูกซี่โครงบริเวณชายโครงขวาเลยมาถึงลิ้นปี่ ปกติกล้ามเนื้อตับจะมีสีแดง หนักประมาณ 1.5 กิโลกรัม ในแต่ละวันเลือดในร่างกายของคนเราซึ่งมีอยู่ราวๆ 5 ลิตรจะไหลผ่านตับรอบแล้วรอบเล่าถึง 360 รอบ ซึ่งหากวัดปริมาณเลือดที่ผ่านตับก็จะมากถึงวันละ 1,800 ลิตรเลยทีเดียว",
-    img: '/images/liver.svg',
-    models: ['Liver']
-  },
-  {
-    header: "สมอง",
-    desc: "เป็นอวัยวะที่มีความซับซ้อนที่ควบคุมความคิด ความจำ อารมณ์ การสัมผัส ทักษะด้านการเคลื่อนไหว การมองเห็น การหายใจ การควบคุมอุณหภูมิ ความหิว และกระบวนการอื่นๆในการควบคุมร่างกาย และสมองร่วมกับไขสันหลังที่รวมเรียกว่าระบบประสาทส่วนกลาง",
-    img: '/images/brain.svg',
-    models: ['Brain']
-  },
-]);
-
-// ฟังก์ชันเพื่อคืนพาธของรูปภาพ
-const getBodyImageSrc = (imgPath) => {
-  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array `detailCard`
-};
-
-
-const setSwiperRef = (swiper) => {
-  swiperRef2.value = swiper;
-};
-
-const swiperOptions = {
-  speed: 10000, // ความเร็วในการเปลี่ยนสไลด์ (หน่วยเป็นมิลลิวินาที)
-  pagination: { clickable: true },
-  navigation: true,
-};
-
-//Dynamically import the icon components
-const getIconComponent = (model) => {
-  return defineAsyncComponent(() => import(`@/components/Model/${model}.vue`));
-};
 
 
 </script>
