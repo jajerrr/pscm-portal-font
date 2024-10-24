@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[30%]">
+  <div class="content-w-re mt-[10%]">
     <div class="f-col ml-[5%] mt-[15%] SF-TH-Semi">
       <li class="th-header">รอบรู้กับ</li>
       <p class="text-[100%]">ราชวิทยาลัยจุฬาภรณ์</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[30%]">
+  <div class="content-w-re mt-[10%]">
     <div class="f-center f-col mb-[10%]">
       <h class="header">Media</h>
       <div class="f-center flex-glow w-full px-[10%]">

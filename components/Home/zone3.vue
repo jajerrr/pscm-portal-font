@@ -3,7 +3,7 @@
     <HomeZone3Sm />
   </div>
 
-  <div class="third-main-content content-nm mb-[30%] bg-[#F3F7FD]" >
+  <div class="third-main-content content-nm mb-[10%] bg-[#F3F7FD]" >
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
       <li class=" text-[2vw]">รอบรู้กับ</li>
       <p class="text-[1.5vw]">ราชวิทยาลัยจุฬาพรณ์</p>
@@ -59,6 +59,8 @@
             <img src="assets/images/Rectangle-zone3.png" class="w-[85vw]" />
           </div>
         </div>
+
+        
       </div>
     </div>
 

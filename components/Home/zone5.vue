@@ -2,7 +2,7 @@
   <div class='content-sm'>
     <HomeZone5Sm />
   </div>
-  <div class="content-w-re content-nm mb-[20%]">
+  <div class="content-w-re content-nm ">
     <div class="f-center f-col mb-[10%]">
       <h class="header">Media</h>
       <div class="f-center flex-glow w-full px-[10%]">

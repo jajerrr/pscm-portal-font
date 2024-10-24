@@ -9,7 +9,7 @@
     <div class ="flex p-3 space-x-3 justify-center 
     items-center "> 
     <a  @click="scrollTo('#zone1')">
-    <img  src="assets/images/pscm-logo.png" class="w-[15vw] h-auto mr-auto pl-3" alt="logo" />
+    <img  src="assets/images/pscm-logo.png" class="cursor-pointer w-[15vw] h-auto mr-auto pl-3" alt="logo" />
     </a>
     <div class="flex-grow flex justify-center">
       <div class="!scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">

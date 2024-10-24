@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[30%]">
+  <div class="content-w-re mt-[10%]">
     <div class="f-center f-col mb-[10%]">
       <h class="header">Ranking</h>
       <div class="f-center flex-glow w-full px-[10%]">
@@ -42,13 +42,13 @@
         </Swiper>
       </div>
     </div>
-    <img src="/images/zone4/top.png" class="image-full-ab top-[-19%]  z-[-1]" style="
+    <img src="/images/zone4/top.png" class="image-full-ab top-[-12%]  z-[-1]" style="
     width: 100vw;
    " />
-    <img src="/images/zone4/leftvector.png" class="image-full-ab top-[-15%] left-[3%] z-[-1]" style="
+    <img src="/images/zone4/leftvector.png" class="image-full-ab top-[-10%] left-[3%] z-[-1]" style="
     width: 25vw;
    " />
-   <img src="/images/zone4/rightvector.png" class="image-full-ab top-[-10%] right-[3%] z-[-1]" style="
+   <img src="/images/zone4/rightvector.png" class="image-full-ab top-[-6%] right-[3%] z-[-1]" style="
     width: 20vw;
    " />
   </div>

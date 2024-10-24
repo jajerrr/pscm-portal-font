@@ -6,13 +6,17 @@
         class="w-[20vh] h-auto mr-auto pl-3"
         alt="logo"
       />
-      <button @click="toggleMenu" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-white rounded-lg dark:text-white" aria-controls="navbar-hamburger" aria-expanded="false">
+      <!-- <button @click="toggleMenu" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-white rounded-lg dark:text-white" aria-controls="navbar-hamburger" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
-        <!-- <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg> -->
         <img src="assets/images/footer/fi_align-right.png" class=""/>
-      </button>
+      </button> -->
+
+      <button   @click="toggleMenu" data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-300 rounded-lg hover:text-white" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <!-- <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg> -->
+    </button>
       <div :class="{'hidden': !isMenuOpen, 'block': isMenuOpen}" class="w-full SF-TH" id="navbar-hamburger">
         <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-800 border-gray-700">
           <li>

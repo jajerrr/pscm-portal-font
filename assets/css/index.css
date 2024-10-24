@@ -449,7 +449,7 @@
 /* css zone 7 */
 
 .container-z7{
-    @apply container h-full  max-w-[20rem] p-7 bg-white border rounded-lg shadow;
+    @apply container h-full  max-w-[20rem] p-7 bg-white hover:bg-gray-100 border rounded-lg shadow;
 }
 
 .card-head-z7{

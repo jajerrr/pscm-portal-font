@@ -38,8 +38,8 @@
       </div>
   
     </div>
-    <img src="/images/OBJECTS7.png" class="image-full-ab top-[-25%]  z-[-1]" style="
-    width: 40vw;
+    <img src="/images/OBJECTS7.png" class="image-full-ab top-[-12%]  z-[-1]" style="
+    width: 35vw;
    " />
     <img src="/images/Rectangle 43086.png" class="image-full-ab top-[-5%]  z-[-1]" style="opacity: 10%;
     width: 100vw;

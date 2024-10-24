@@ -2,7 +2,7 @@
 
   <div class="main-content second-main-content">
 
-    <div class="col-center mt-[10%]" id="zone2">
+    <div class="col-center" id="zone2">
       <h class="header">News</h>
       <div class="f-center flex-glow w-full relative small-view">
         <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
@@ -31,14 +31,14 @@
 
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
 
-    <div class="f-center">
+    <div class="f-center ">
       <div v-for="(left, index) in newsStore.mainContentData" :key="index"
-        class="f-row gap-[5%] mt-[5%] card-container p-[5%] ">
+        class="f-row gap-[5%] mt-[5%] card-container p-[5%]">
 
         <div class="f-col content-w-re card-item hide" id="zone2-2">
 
 
-          <div class="content-re SF-TH">
+          <div class="content-re SF-TH cursor-pointer">
             <img :src="getContentImageSrc(left.img)" class="image-full w-[80%]" />
             <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
@@ -47,7 +47,7 @@
                 <p class="text-[15px]  px-2 text-white">{{ left.date }}</p>
               </div>
               <div class="text-container">
-                <p class="text-[15px] SF-TH-Semi text-white text-ellipsis">
+                <p class="text-[15px] SF-TH-Semi text-white text-ellipsis  hover:text-[#212398]">
                   {{ left.content }}
                 </p>
               </div>
@@ -61,7 +61,7 @@
 
         <!-- คอนเทนเนอร์ right image  -->
 
-        <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
+        <div class="f-col image-full gap-7 SF-TH card-item cursor-pointer" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
             <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto " alt="news image1" />
             <div class="f-col gap-3 sm-text">
@@ -71,7 +71,7 @@
                 <p class="z-2-date">{{ left.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis">
+                <p class="z-2-text text-ellipsis  hover:text-[#212398]">
                   {{ left.content }}
                 </p>
               </div>
@@ -92,7 +92,7 @@
                 <p class="z-2-date">{{ right.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis">
+                <p class="z-2-text text-ellipsis hover:text-[#212398]">
                   {{ right.content }}
                 </p>
               </div>

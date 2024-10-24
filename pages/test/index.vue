@@ -5,7 +5,7 @@
   </template>
   
   <script setup>
-  import Scroll from "~/components/Home/Scroll.vue";
+  import Scroll from "~/components/Home/Circle.vue";
   </script>
   
   <style lang="scss" scoped></style>

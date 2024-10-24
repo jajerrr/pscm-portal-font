@@ -1,5 +1,5 @@
 <template>
-  <div class="content-w-re mt-[30%] mb-[20%]">
+  <div class="content-w-re mt-[10%]">
     <div class="f-col f-center mb-[5%]">
       <h class="header">3D Learning object</h>
       <div class="flex-glow j-center w-full px-[10%]">
@@ -45,8 +45,8 @@
     <img src="/images/OBJECTS6.png" class="normal_model image-full-ab top-[-25%] left-[-5%] z-[-1]" style="
     width: 25vw;
    " />
-    <img src="/images/OBJECTS6.png" class="small_model image-full-ab top-[-15%] left-[-5%] z-[-1]" style="
-    width: 50vw;
+    <img src="/images/OBJECTS6.png" class="small_model image-full-ab top-[-11%] left-[-5%] z-[-1]" style="
+    width: 45vw;
    " />
     <img src="/images/vector6.png" class="normal_model image-full-ab top-[7%] right-[-2%] z-[-1]" style="
     width:46vw;
