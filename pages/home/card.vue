@@ -1,37 +1,41 @@
 <template >
     <div @click="resetClick ">
-    <Swiper 
-      class="w-[50%] overflow-hidden bg-[#ffffff]"
-      :modules="[SwiperEffectCoverflow, SwiperPagination]" 
-      :effect="'coverflow'"
-      :grabCursor="true" 
-      :centeredSlides="true" 
-      :slidesPerView="'auto'"
-      :coverflowEffect="{
-        rotate: 0,
-        stretch: 10,
-        depth: 100,
-        modifier: 3,
-        slideShadows: true
-      }" 
-      :pagination="true" 
-      :loop="flase"
-    >
+      <Swiper 
+  class="w-[50%] overflow-hidden bg-[#ffffff]"
+  :modules="[SwiperEffectCoverflow, SwiperPagination, Navigation]" 
+  :effect="'coverflow'"
+  :grabCursor="true" 
+  :centeredSlides="true" 
+  :slidesPerView="'auto'"
+  :coverflowEffect="{
+    rotate: 5,
+    stretch: 0,
+    depth: 100,
+    modifier: 2,
+    slideShadows: true
+  }" 
+  :navigation="true"
+  :loop="true" 
+  
+>
+
       <!-- สร้าง SwiperSlide สำหรับการ์ดแต่ละใบ -->
       <SwiperSlide 
-        v-for="(card, index) in cards" 
-        :key="index" 
-        class="flex" 
-         @click.stop="toggleClick(index)"
-        style="width: 30% !important;"
-      >
-        <div class="card_effect  justify-center" :class="{ 'clicked': card.isClicked }">
-          <!-- แสดง title และ description เมื่อคลิก -->
-          <h4 v-if="card.isClicked">{{ card.title }}</h4>
-          <p v-if="card.isClicked">{{ card.description }}</p>
-  
-          <div class="shine"></div>
-          <div class="background">
+      v-for="(card, index) in cards" 
+    :key="index" 
+    class="flex" 
+    @click.stop="toggleClick(index)"
+    style="width: 30% !important;"
+>
+    <div 
+        class="card_effect justify-center" 
+        :class="{ 'clicked': card.isClicked }" 
+        :style="{ backgroundImage: `url(${card.backgroundImage})` }"
+    >
+        <h4 v-if="card.isClicked">{{ card.title }}</h4>
+        <p v-if="card.isClicked">{{ card.description }}</p>
+        <div class="shine"></div>
+        <div class="background">
             <div class="tiles">
               <div class="tile tile-1"></div>
               <div class="tile tile-2"></div>
@@ -50,6 +54,7 @@
           </div>
         </div>
       </SwiperSlide>
+      <SwiperController/>
   
       <!-- Swiper controls เช่น pagination -->
      
@@ -57,17 +62,20 @@
 </div>
   </template>
   
-  <script setup>  
-  // กำหนดข้อมูลของการ์ด
-  const cards = reactive([
-    { title: 'Products', description: 'This is the Products card.', isClicked: false },
-    { title: 'Categories', description: 'This is the Categories card.', isClicked: false },
-    { title: 'Services', description: 'This is the Services card.', isClicked: false },
-    { title: 'Products', description: 'This is the Products card.', isClicked: false },
-    { title: 'Categories', description: 'This is the Categories card.', isClicked: false },
-    { title: 'Services', description: 'This is the Services card.', isClicked: false },
+  <script setup>
+import { Navigation } from 'swiper/modules';
 
-  ]);
+  
+  // กำหนดข้อมูลของการ์ด
+const cards = reactive([
+    { title: 'Products', description: 'This is the Products card.', isClicked: false, backgroundImage: '/images/cat.jpg' },
+    { title: 'Categories', description: 'This is the Categories card.', isClicked: false, backgroundImage: '/images/cat2.jpg' },
+    { title: 'Services', description: 'This is the Services card.', isClicked: false, backgroundImage: '/images/cat.jpg' },
+    { title: 'Products', description: 'This is the Products card.', isClicked: false, backgroundImage: '/images/cat2.jpg' },
+    { title: 'Categories', description: 'This is the Categories card.', isClicked: false, backgroundImage: '/images/cat.jpg' },
+    { title: 'Services', description: 'This is the Services card.', isClicked: false, backgroundImage: '/images/cat2.jpg' },
+]);
+
   
   // ฟังก์ชัน toggle สำหรับการคลิกการ์ด
 function toggleClick(index) {
@@ -85,9 +93,9 @@ function toggleClick(index) {
 function resetClick() {
   cards.forEach(card => (card.isClicked = false));
 }
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   
   :root.toggle .grid * {
     transition-duration: 0s !important;
@@ -102,9 +110,6 @@ function resetClick() {
   }
   
   .card_effect {
-  
-    /* background-color: #18181B; */
-    background-image: url('/images/cat.jpg');
     background-size: cover; 
     background-position: center; 
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05), 
@@ -112,7 +117,6 @@ function resetClick() {
     0 0 0 1px rgba(255, 255, 255, 0.1);
     padding: 56px 16px 16px 16px;
     height: 350px;
-   
     border-radius: 15px;
     cursor: pointer;
     position: relative;
@@ -299,58 +303,49 @@ function resetClick() {
     }
   }
   .card_effect .background .line {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.35s;
-  }
-  .card_effect .background .line:before, 
-  .card_effect .background .line:after {
-    content: "";
-    position: absolute;
-    background-color: #2A2B2C;
-    transition: transform 0.35s;
-  }
-  .card_effect .background .line:before {
-    left: 0;
-    right: 0;
-    height: 1px;
-    transform-origin: 0 50%;
-    transform: scaleX(0);
-  }
-  .card_effect .background .line:after {
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    transform-origin: 50% 0;
-    transform: scaleY(0);
-  }
-  .card_effect .background .line.line-1:before {
-    top: 10%;
-  }
-  .card_effect .background .line.line-1:after {
-    left: 22.5%;
-  }
-  .card_effect .background .line.line-1:before, 
-  .card_effect .background .line.line-1:after {
-    transition-delay: 0.3s;
-  }
-  .card_effect .background .line.line-2:before {
-    top: 32.5%;
-  }
-  .card_effect .background .line.line-2:after {
-    left: 50%;
-  }
-  .card_effect .background .line.line-2:before, 
-  .card_effect .background .line.line-2:after {
-    transition-delay: 0.15s;
-  }
-  .card_effect .background .line.line-3:before {
-    top: 55%;
-  }
-  .card_effect .background .line.line-3:after {
-    right: 22.5%;
-  }
+  position: absolute;
+  width: 80%; /* หรือปรับตามขนาดที่ต้องการ */
+  height: 2px; /* ทำให้เป็นสี่เหลี่ยมบาง */
+  
+  left: 10%; /* ตรงกลางการ์ด */
+  top: 50%; /* ปรับตำแหน่งตามที่ต้องการ */
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.card_effect .background .line {
+  position: absolute;
+  width: 80%; /* ปรับให้เป็นสี่เหลี่ยมแนวนอน */
+  height: 2px;
+  
+  left: 10%;
+  top: 50%;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.card_effect .background .line.line-1 {
+  width: 80%;
+  height: 2px;
+  left: 10%;
+  top: 30%; /* ปรับตำแหน่งให้เหมาะสม */
+  
+}
+
+.card_effect .background .line.line-2 {
+  width: 2px; /* สร้างเส้นสี่เหลี่ยมแนวตั้ง */
+  height: 80%;
+  left: 50%;
+  top: 10%;
+  
+}
+
+/* ลบส่วนการปรับ scale และ transform-origin ออก */
+.card_effect .background .line:before, 
+.card_effect .background .line:after {
+  display: none;
+}
+
   .card_effect.clicked {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.04), 
     0px 15px 25px  rgba(0, 0, 0, 0.3), 

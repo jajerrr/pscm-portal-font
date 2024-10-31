@@ -28,8 +28,14 @@
       </Swiper>
       <!-- Thumbs Swiper -->
       <Swiper ref="swiperRef1" class="thumbs-swiper w-1-2-center h-auto" style="width: 90%; height: 50vh;"
-        :modules="[Navigation, Thumbs]" :allowTouchMove="false" :centeredSlides="true" :slidesPerView="1"
-        :spaceBetween="10" :navigation="true" :thumbs="{ swiper: swiperRef2 }" :options="swiperOptions">
+        :modules="[Navigation, Thumbs]" 
+        :allowTouchMove="false" 
+        :centeredSlides="true" 
+        :slidesPerView="1"
+        :spaceBetween="10" 
+        :navigation="true" 
+        :thumbs="{ swiper: swiperRef2 }" 
+        :options="swiperOptions">
 
         <SwiperSlide class="i-center" v-for="(card, index) in detailCards" :key="index"
           style="transition: transform 5s ease, opacity 4.5s ease;">
