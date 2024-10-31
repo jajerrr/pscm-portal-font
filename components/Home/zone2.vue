@@ -39,7 +39,9 @@
 
 
           <div class="content-re SF-TH cursor-pointer">
-            <img :src="getContentImageSrc(left.img)" class="image-full w-[80%]" />
+            <div class="">
+  <img :src="getContentImageSrc(left.img)" class="image-full  inner-img" />
+</div>
             <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -47,7 +49,7 @@
                 <p class="text-[15px]  px-2 text-white">{{ left.date }}</p>
               </div>
               <div class="text-container">
-                <p class="text-[15px] SF-TH-Semi text-white text-ellipsis  hover:text-[#212398]">
+                <p class="text-[15px] SF-TH-Semi text-white text-ellipsis   hover:underline">
                   {{ left.content }}
                 </p>
               </div>
@@ -63,7 +65,7 @@
 
         <div class="f-col image-full gap-7 SF-TH card-item cursor-pointer" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
-            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto " alt="news image1" />
+            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto  " alt="news image1" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -84,7 +86,8 @@
 
           <div v-for="(right, index) in newsStore.rightContentData" :key="index"
             class="i-center gap-10 card-item-order">
-            <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto" alt="image" />
+            
+            <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto inner-img" alt="image" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -92,7 +95,7 @@
                 <p class="z-2-date">{{ right.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis hover:text-[#212398]">
+                <p class="z-2-text text-ellipsis hover:text-[#212398] hover:underline">
                   {{ right.content }}
                 </p>
               </div>
@@ -120,6 +123,27 @@ const getContentImageSrc = (imgPath) => {
 </script>
 
 <style>
+
+
+.img-wrapper {
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius:20px;
+  /* border: 1px solid #000; */ /* Optional */
+}
+
+.inner-img {
+  transition: transform 0.3s ease;
+}
+
+.inner-img:hover {
+  transform: scale(1.1);
+}
+
 .text-container {
   width: 60%;
   /* หรือกำหนดเป็น % หรือ px ตามขนาดที่ต้องการ */

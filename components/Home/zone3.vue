@@ -77,6 +77,7 @@
 import { ref, computed } from 'vue'
 import { useItemStore } from '@/stores/item.ts'  // นำเข้า Pinia store
 
+
 // ใช้ store เพื่อดึงค่า activeItem
 const itemStore = useItemStore()
 
