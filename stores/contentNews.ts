@@ -5,7 +5,8 @@ import type { NewsItem } from "@/interfaces/news";
 export const useNewsStore = defineStore("news", {
   state: () => ({
   mainContentData: [
-    { img: "/images/image 1560.jpg", date: "24 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" }
+    { img: "/images/image 1560.jpg", date: "24 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },
+
   ] as NewsItem[],  // ใช้เป็น array ของ NewsItem
   rightContentData: [
     { img: "/images/zone2/new-1.png", date: "25 พ.ค. 2567", content: "โครงการแลกเปลี่ยนเรียนรู้ Clinical Observershipสำหรับนักศึกษาแพทย์จากญี่ปุ่น" },

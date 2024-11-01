@@ -311,7 +311,7 @@
   }
 
 .bg-image {
-    @apply bg-[url("assets/images/ห้องสโม-1.svg")] bg-cover bg-center;
+    @apply bg-[url("assets/images/e-learning/topbg.png")] bg-cover bg-center;
 }
 
 .z1-text {

@@ -15,6 +15,7 @@
       <div class="!scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
         <a @click="scrollTo('#zone1')" class=" hover:text-[#FF7A00] cursor-pointer  ">หน้าแรก</a>
         <a @click="scrollTo('#zone2')" class=" hover:text-[#FF7A00] cursor-pointer ">ประชาสัมพันธ์</a>
+        <NuxtLink to="/e-learning" class="hover:text-[#FF7A00] cursor-pointer">e-Learning</NuxtLink>
         <a @click="scrollTo('#zone8')" class=" hover:text-[#FF7A00]  cursor-pointer">ติดต่อเรา</a>
       </div>
     </div>
