@@ -2,7 +2,7 @@
   <div class='content-sm'>
     <HomeZone5Sm />
   </div>
-  <div class="content-w-re content-nm mb-[20%]">
+  <div class="content-w-re content-nm ">
     <div class="f-center f-col mb-[10%]">
       <h class="header">Media</h>
       <div class="f-center flex-glow w-full px-[10%]">
@@ -10,8 +10,13 @@
       </div>
       <img src="assets/images/zone2/underline.png" class="w-[30vw]" />
       <div class="flex w-screen relative m-[5%]">
-        <Swiper class="w-full h-full" :modules="[SwiperEffectCoverflow, SwiperPagination]" :effect="'coverflow'"
-          :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'" :coverflowEffect="{
+        <Swiper class="w-full h-full" 
+        :modules="[SwiperEffectCoverflow, SwiperPagination]" 
+        :effect="'coverflow'"
+          :grabCursor="true" 
+          :centeredSlides="true" 
+          :slidesPerView="'auto'" 
+          :coverflowEffect="{
             rotate: 0,
             stretch: 10,
             depth: 100,

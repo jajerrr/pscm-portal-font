@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <img src="/images/zone4/top.png" class="image-full-ab top-[-60%]  z-[-1]" style="
+    <img src="/images/zone4/top.png" class="image-full-ab top-[-35%]  z-[-1]" style="
     width: 100vw;
    " />
     <img src="/images/zone4/leftvector.png" class="image-full-ab top-[-15%] left-[3%] z-[-1]" style="

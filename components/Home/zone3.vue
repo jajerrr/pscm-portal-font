@@ -3,13 +3,13 @@
     <HomeZone3Sm />
   </div>
 
-  <div class="third-main-content content-nm mb-[30%] bg-[#F3F7FD]">
+  <div class="third-main-content content-nm mb-[10%] bg-[#F3F7FD]" >
     <div class="f-col ml-[15%] mt-[15%] SF-TH-Semi">
-      <li class="th-header">รอบรู้กับ</li>
-      <p class="text-[1rem]">ราชวิทยาลัยจุฬาพรณ์</p>
+      <li class=" text-[2vw]">รอบรู้กับ</li>
+      <p class="text-[1.5vw]">ราชวิทยาลัยจุฬาพรณ์</p>
     </div>
 
-    <div class="f-center mt-[5%] mb-[20%] z-[13]" style="max-width: 1600px">
+    <div class="f-center mt-[5%] mb-[20%] z-[13]"  >
       <div class="j-center items-stretch h-auto mt-[10%]">
         <div class="absolute w-1/2 mt-[-10%]">
           <div class="f-re text-[#4D5986] SF-TH-Semi" >
@@ -23,38 +23,44 @@
           </div>
         </div>
 
-        <div class="f-col image-full-re mt-[16vw] px-[5%]" alt="content">
+        <div class="f-col image-full-re mt-[14vw] " alt="content">
           <div class="relative j-center z-[10]">
-            <div class="f-col top-[4vw] right-[3.5vw] absolute max-w-[8vw]">
-              <div class="space-y-4">
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="1" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="2" />
-                <img class="img-z-3-col" src="assets/images/zone3/sm-photo.png" alt="3" />              </div>
+            <div  class="f-col top-[3vw] right-[4%] absolute max-w-[8vw] gap-9">
+              <div
+      v-for="(image, index) in roomNumber[itemStore.activeItem].room"
+      :key="index"
+      @click="selectFloor(index)"
+      class="f-col SF-TH f-center overflow-hidden w-[8vw] h-[5vw] rounded-[10px] bg-[#69696954]"
+    >
+      <img :src="image" class="img-z-3-col" alt="Room Image" />
+    </div>
             </div>
 
             <!-- แสดงเนื้อหาตามชั้นที่เลือก -->
             <div v-if="activeRoom"
             class="f-col absolute top-[10%] left-[5%] gap-1">
-              <div class="text-[2vw] SF-TH-Semi">{{ activeRoom.name }}</div>
-              <p class="text-[1.5vw]">กิจกรรมภายในห้อง</p>
+              <div class="text-[1.5vw] SF-TH-Semi">{{ activeRoom.name }}</div>
+              <p class="text-[1.2vw]">กิจกรรมภายในห้อง</p>
               <div class="f-row gap-5">
                 <div class="f-col f-center">
-                  <img :src="getImageSrc(activeRoom.iconImg1)" class="w-[50%] h-auto" />
+                  <img :src="getImageSrc(activeRoom.iconImg1)" class="w-[40%] h-auto" />
                   <div class="text-[1vw]">{{ activeRoom.iconName1 }}</div>
                 </div>
                 <div class="f-col f-center">
-                  <img :src="getImageSrc(activeRoom.iconImg2)" class="w-[50%] h-auto" />
+                  <img :src="getImageSrc(activeRoom.iconImg2)" class="w-[40%] h-auto" />
                   <div class="text-[1vw]">{{ activeRoom.iconName2 }}</div>
                 </div>
               </div>
             </div>
             
 
-            <img :src="roomFloorSrc" class="flex w-[45vw] absolute" alt="ห้อง" />
+            <img :src="roomImageSrc"  class="flex w-[45vw]   absolute top-[3%]" style="padding-inline:3vw ;" alt="ห้อง" />
 
-            <img src="assets/images/Rectangle-zone3.png" class="w-full" />
+            <img src="assets/images/Rectangle-zone3.png" class="w-[85vw]" />
           </div>
         </div>
+
+        
       </div>
     </div>
 
@@ -70,6 +76,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useItemStore } from '@/stores/item.ts'  // นำเข้า Pinia store
+
 
 // ใช้ store เพื่อดึงค่า activeItem
 const itemStore = useItemStore()
@@ -87,29 +94,43 @@ const Room = ref([
 
 ])
 
-// คำนวณ path ของรูปภาพที่จะแสดงตาม activeItem จาก store
-const roomFloorSrc = computed(() => {
-  const roomImages = ([
-   
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-    "/images/zone3/room-sm.png",
-    "/images/zone3/roomZone3.jpg",
-  ])
-  return roomImages[itemStore.activeItem]  
-})
+
 
 //  activeItem
 const activeRoom = computed(() => {
-  return Room.value[itemStore.activeItem]  // ใช้ค่า activeItem เพื่อดึงห้องที่ตรงกัน
+  return Room.value[itemStore.activeItem];  // ใช้ค่า activeItem เพื่อดึงห้องที่ตรงกัน
 })
 
 const getImageSrc = (imgPath) => {
-  return imgPath;  
+  return imgPath;
+};
+
+// ข้อมูลรูปภาพของห้องแต่ละชั้น
+const roomNumber = ref([
+  { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone3/image-1575.jpg", "/images/zone3/roomZone3.jpg", ] },
+  { room: ["/images/zone2/new-2.png", "/images/zone3/roomZone3.jpg", ] }, 
+  { room: ["/images/zone2/new-3.png", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/image 1560.jpg", "/images/zone3/roomZone3.jpg", ] },  
+  { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },
+  { room: ["/images/zone3/image-1575.jpg", "/images/zone3/roomZone3.jpg", ] },
+  { room: ["/images/zone3/roomZone3.jpg", "/images/zone3/image-1575.jpg", ] },  
+
+
+]);
+
+const selectedFloor = ref(0); // เก็บสถานะชั้นที่เลือก
+
+// คำนวณ path ของรูปภาพที่จะแสดงตามชั้นที่เลือกและ activeItem
+const roomImageSrc = computed(() => {
+  return roomNumber.value[itemStore.activeItem].room[selectedFloor.value]; // ดึงรูปตาม activeItem และชั้นที่เลือก
+});
+
+
+
+// ฟังก์ชันสำหรับเลือกชั้น
+const selectFloor = (index) => {
+  selectedFloor.value = index; // อัพเดทชั้นที่เลือก
 };
 </script>
 
@@ -121,12 +142,12 @@ const getImageSrc = (imgPath) => {
 
 
 .circle-position{
-    margin-top:0;
+    margin-top:-2vw;
   }
 
-@media (min-width: 1200px){
+@media (min-width: 1250px){
   .circle-position{
-    margin-top: -2vw;
+    margin-top: -5vw;
   }
 }
 
@@ -136,21 +157,28 @@ const getImageSrc = (imgPath) => {
   }
 } */
 
-@media (min-width: 1650px){
+@media (min-width: 1500px){
   .circle-position{
     margin-top: -12vh;
   }
 }
 
-@media (max-width: 950px){
+
+@media (width: 1950px){
   .circle-position{
-    margin-top: -13vw;
+    margin-top: -7vw;
   }
 }
 
-@media (max-width: 750px){
+@media (max-width: 1000px){
   .circle-position{
-    margin-top: -15vw;
+    margin-top: -10vw;
+  }
+}
+
+@media (max-width: 850px){
+  .circle-position{
+    margin-top: -17vw;
   }
 }
 

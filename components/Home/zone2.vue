@@ -2,7 +2,7 @@
 
   <div class="main-content second-main-content">
 
-    <div class="col-center mt-[10%]" id="zone2">
+    <div class="col-center" id="zone2">
       <h class="header">News</h>
       <div class="f-center flex-glow w-full relative small-view">
         <h1 class=" th-header">ข่าวสารประชาสัมพันธ์</h1>
@@ -31,14 +31,17 @@
 
     <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
 
-    <div class="f-center">
-      <div v-for="(left, index) in newsStore.mainContentData" :key="index" class="f-row gap-[5%] mt-[5%] card-container p-[5%] ">
+    <div class="f-center ">
+      <div v-for="(left, index) in newsStore.mainContentData" :key="index"
+        class="f-row gap-[5%] mt-[5%] card-container p-[5%]">
 
         <div class="f-col content-w-re card-item hide" id="zone2-2">
 
 
-          <div class="content-re SF-TH">
-            <img :src="getContentImageSrc(left.img)" class="image-full w-[80%]" />
+          <div class="content-re SF-TH cursor-pointer">
+            <div class="">
+  <img :src="getContentImageSrc(left.img)" class="image-full  inner-img" />
+</div>
             <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -46,7 +49,7 @@
                 <p class="text-[15px]  px-2 text-white">{{ left.date }}</p>
               </div>
               <div class="text-container">
-                <p class="text-[15px] SF-TH-Semi text-white text-ellipsis">
+                <p class="text-[15px] SF-TH-Semi text-white text-ellipsis   hover:underline">
                   {{ left.content }}
                 </p>
               </div>
@@ -60,9 +63,9 @@
 
         <!-- คอนเทนเนอร์ right image  -->
 
-        <div class="f-col image-full gap-7 SF-TH card-item" id="zone2-3">
+        <div class="f-col image-full gap-7 SF-TH card-item cursor-pointer" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
-            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto " alt="news image1" />
+            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto  " alt="news image1" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -70,7 +73,7 @@
                 <p class="z-2-date">{{ left.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis">
+                <p class="z-2-text text-ellipsis  hover:text-[#212398]">
                   {{ left.content }}
                 </p>
               </div>
@@ -81,8 +84,10 @@
             </div>
           </div>
 
-          <div v-for="(right, index) in newsStore.rightContentData" :key="index" class="i-center gap-10 card-item-order">
-            <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto" alt="image" />
+          <div v-for="(right, index) in newsStore.rightContentData" :key="index"
+            class="i-center gap-10 card-item-order">
+            
+            <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto inner-img" alt="image" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -90,7 +95,7 @@
                 <p class="z-2-date">{{ right.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis">
+                <p class="z-2-text text-ellipsis hover:text-[#212398] hover:underline">
                   {{ right.content }}
                 </p>
               </div>
@@ -118,6 +123,27 @@ const getContentImageSrc = (imgPath) => {
 </script>
 
 <style>
+
+
+.img-wrapper {
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius:20px;
+  /* border: 1px solid #000; */ /* Optional */
+}
+
+.inner-img {
+  transition: transform 0.3s ease;
+}
+
+.inner-img:hover {
+  transform: scale(1.1);
+}
+
 .text-container {
   width: 60%;
   /* หรือกำหนดเป็น % หรือ px ตามขนาดที่ต้องการ */
