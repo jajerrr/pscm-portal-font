@@ -11,12 +11,12 @@
     <a  @click="scrollTo('#zone1')">
     <img  src="assets/images/pscm-logo.png" class="cursor-pointer w-[15vw] h-auto mr-auto pl-3" alt="logo" />
     </a>
-    <div class="flex-grow flex justify-center">
-      <div class="!scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
-        <a @click="scrollTo('#zone1')" class=" hover:text-[#FF7A00] cursor-pointer  ">หน้าแรก</a>
-        <a @click="scrollTo('#zone2')" class=" hover:text-[#FF7A00] cursor-pointer ">ประชาสัมพันธ์</a>
-        <NuxtLink to="/e-learning" class="hover:text-[#FF7A00] cursor-pointer">e-Learning</NuxtLink>
-        <a @click="scrollTo('#zone8')" class=" hover:text-[#FF7A00]  cursor-pointer">ติดต่อเรา</a>
+    <div class="flex-grow flex justify-center ">
+      <div class=" !scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]">
+        <a @click="scrollTo('#zone1')" class="transition ease-in-out hover:text-[#FF7A00] cursor-pointer  ">หน้าแรก</a>
+        <a @click="scrollTo('#zone2')" class="transition ease-in-out hover:text-[#FF7A00] cursor-pointer ">ประชาสัมพันธ์</a>
+        <NuxtLink to="/e-learning" class="transition ease-in-out hover:text-[#FF7A00] cursor-pointer">e-Learning</NuxtLink>
+        <a @click="scrollTo('#zone8')" class="transition ease-in-out hover:text-[#FF7A00]  cursor-pointer">ติดต่อเรา</a>
       </div>
     </div>
     <p class="text-[90%] hover:text-[#FF7A00] cursor-pointer">ยังไม่สมัครสมาชิก?</p>
