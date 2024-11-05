@@ -19,15 +19,16 @@
         <a @click="scrollTo('#zone8')" class="transition ease-in-out hover:text-[#FF7A00]  cursor-pointer">ติดต่อเรา</a>
       </div>
     </div>
-    <p class="text-[90%] hover:text-[#FF7A00] cursor-pointer">ยังไม่สมัครสมาชิก?</p>
-    <div class="text-[#AFCFFF] text-[90%] hover:underline cursor-pointer">
+    <p class="text-[90%] hover:text-[#FF7A00] cursor-pointer transition ease-in-out">ยังไม่สมัครสมาชิก?</p>
+    <div class="text-[#AFCFFF] text-[90%] hover:underline cursor-pointer transition ease-in-out">
       <NuxtLink to="" >สมัครสมาชิก</NuxtLink>
     </div>
     <NuxtLink to="">
       <button type="button"
-        class="text-white bg-[#FF7A00] hover:bg-yellow-500 font-medium rounded-full text-[90%] p-2 text-center me-2 mb-2 ]">
+        class=" transition ease-in-out text-white bg-[#FF7A00] hover:bg-[#e06600] font-medium rounded-full text-[90%] p-2 text-center me-2 mb-2 ]">
         เข้าสู่ระบบ
-      </button>
+      </button> 
+      <!-- ffd166 -->
     </NuxtLink></div>
   </nav>
 </template>

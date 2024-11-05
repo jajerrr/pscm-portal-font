@@ -5,7 +5,7 @@
     <nav
   class="fixed top-0 left-0 z-[50] w-full bg-nav text-white SF-TH nav-normal"
 >
-  <div class="flex p-3 space-x-3 justify-center items-center">
+  <div class="flex p-3 space-x-3 justify-center items-center ">
     <NuxtLink to="/" class="cursor-pointer">
       <img
         src="assets/images/pscm-logo.png"
@@ -18,14 +18,26 @@
         class="!scroll-smooth bg-[#CDCDCD] px-10 py-3 rounded-full flex space-x-5 items-center text-[90%] text-[#2D2D2D]"
       >
         <!-- Update links to use NuxtLink for page navigation -->
-        <NuxtLink to="/" class="hover:text-[#FF7A00] cursor-pointer">หน้าแรก</NuxtLink>
-        <NuxtLink to="/" class="hover:text-[#FF7A00] cursor-pointer">ประชาสัมพันธ์</NuxtLink>
-        <NuxtLink to="/e-learning" class="text-[#FF7A00] cursor-pointer">e-Learning</NuxtLink>
-        <a @click="scrollTo('#zone8')" class=" hover:text-[#FF7A00]  cursor-pointer">ติดต่อเรา</a>
+        <NuxtLink to="/" class="transition ease-in-out hover:text-[#FF7A00] cursor-pointer">หน้าแรก</NuxtLink>
+        <NuxtLink to="/" class="transition ease-in-out hover:text-[#FF7A00] cursor-pointer">ประชาสัมพันธ์</NuxtLink>
+        <NuxtLink to="/e-learning" class="transition ease-in-out text-[#FF7A00] cursor-pointer">e-Learning</NuxtLink>
+        <a @click="scrollTo('#zone8')" class=" transition ease-in-out hover:text-[#FF7A00]  cursor-pointer">ติดต่อเรา</a>
       </div>
       
     </div>
-    <img src="assets/images/e-learning/userprofile.png" class="cursor-pointer" style="margin-right: 10%;">
+    <div class="flex cursor-default" style="margin-right: 1rem;">
+      <div class = "f-col SF-Bold text-[1vw]">
+        <p>NUTTIDA</p>
+        <div class="inline-content">
+                  <img
+                    src="assets/images/zone4/coin 9.svg"
+                    class="w-[1.5vw]"
+                  />
+                  <p class="text-[#FF7A00]">999</p>
+                </div>
+              </div>
+    <img src="assets/images/e-learning/profile.png" class="cursor-pointer w-[3.5vw]" style="margin-left: 2rem;">
+  </div>
   </div>
 </nav>
 

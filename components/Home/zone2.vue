@@ -10,7 +10,7 @@
           <img src="assets/images/zone2/underline.png" class="no-style" />
         </div>
         <button type="button"
-          class="absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
+          class=" transition ease-in-out absolute f-center button-orange right-[5%] SF-TH text-[15px] px-[3%] py-[1%] space-x-2 small-button">
           <span>ดูทั้งหมด</span>
 
           <img src="assets/images/zone2/arrowup.png" class="w-[1.5vw] nm-icon" />
@@ -40,7 +40,7 @@
 
           <div class="content-re SF-TH cursor-pointer">
             <div class="">
-  <img :src="getContentImageSrc(left.img)" class="image-full  inner-img" />
+  <img :src="getContentImageSrc(left.img)" class="image-full transition ease-in-out inner-img" />
 </div>
             <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
@@ -65,7 +65,7 @@
 
         <div class="f-col image-full gap-7 SF-TH card-item cursor-pointer" id="zone2-3">
           <div class="i-center gap-10 card-item-order sm-icon">
-            <img :src="getContentImageSrc(left.img)" class="w-[30%] h-auto  " alt="news image1" />
+            <img :src="getContentImageSrc(left.img)" class="transition ease-in-out w-[30%] h-auto  inner-img" alt="news image1" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -73,7 +73,7 @@
                 <p class="z-2-date">{{ left.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis  hover:text-[#212398]">
+                <p class="transition ease-in-out z-2-text text-ellipsis  hover:text-[#212398]">
                   {{ left.content }}
                 </p>
               </div>
@@ -87,7 +87,7 @@
           <div v-for="(right, index) in newsStore.rightContentData" :key="index"
             class="i-center gap-10 card-item-order">
             
-            <img :src="getContentImageSrc(right.img)" class="w-[30%] h-auto inner-img" alt="image" />
+            <img :src="getContentImageSrc(right.img)" class="transition ease-in-out w-[30%] h-auto inner-img" alt="image" />
             <div class="f-col gap-3 sm-text">
               <p class="new-bt hide">มาใหม่ล่าสุด</p>
               <div class="i-center sm-icon">
@@ -95,7 +95,7 @@
                 <p class="z-2-date">{{ right.date }}</p>
               </div>
               <div class="text-container">
-                <p class="z-2-text text-ellipsis hover:text-[#212398] hover:underline">
+                <p class="transition ease-in-out z-2-text text-ellipsis hover:text-[#212398] hover:underline">
                   {{ right.content }}
                 </p>
               </div>

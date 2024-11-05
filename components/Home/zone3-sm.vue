@@ -11,7 +11,7 @@
             v-for="(id, index) in floorNumber"
             :key="index"
             @click="selectFloor(index)"
-            class="f-col SF-TH f-center w-[15vw] h-[15vw] rounded-[10px]"
+            class="transition ease-in-out cursor-pointer f-col SF-TH f-center w-[15vw] h-[15vw] rounded-[10px]"
             :class="{
               'bg-[#FF7A00]': selectedFloor === index,  // สีปุ่มเมื่อเลือก
               'bg-gray-300  hover:bg-yellow-500 ': selectedFloor !== index // สีเทาสำหรับปุ่มที่ไม่ได้ถูกเลือก

@@ -7,30 +7,20 @@
       
       <div class="z1-name-layout z1-name-layout-sm animate__animated animate__fadeInUp"  >
        
-        <h1  class="SF-TH text-white  text-[7vw]" >บทเรียนออนไลน์</h1>
+        <h1  class="SF-TH text-white  text-[5vw]" >บทเรียนออนไลน์</h1>
         <div class="i-center mt-[-5vw] header2-sm ">
 
-          <h1   class="z1-header2 z1-header2-sm">e-Learning</h1>
+          <h1 class="Fredoka text-white font-semibold text-[8vw] mt-[1%] *:z1-header2-sm">e-Learning</h1>
         </div>
   
   
-          <button
+          <div
             
-            class="SF-TH bg-[#FF7A00] rounded-full text-center text-white text-[2vw] px-[4%] py-[1%]"
+            class="w-[20vw] SF-TH bg-[#FF7A00] rounded-full  mt-[3%] text-center text-white text-[2vw] px-[2%] py-[1%]"
             
           >
             กายวิภาคศาสตร์
-          </button>
-     
-  <div style="display: flex;
-  justify-content: flex-end;
-  margin-right: 2%;">
-          <button
-            type="button"
-            class="bt-z1-sm"
-          >
-            Get start
-          </button></div>
+      </div>
         
       </div>
 
@@ -272,6 +262,9 @@
   
   
   <style>
+  .bg-image {
+    @apply bg-[url("assets/images/e-learning/topbg.png")] bg-cover bg-center;
+}  
   .bt-z1-sm{
   display: none;
   }

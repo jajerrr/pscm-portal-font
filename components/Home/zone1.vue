@@ -22,7 +22,7 @@
 
         <button
           type="button"
-          class="bt-z1"
+          class="bt-z1  transition ease-in-out cursor-pointer"
           
         >
           Get start
@@ -33,7 +33,7 @@ justify-content: flex-end;
 margin-right: 2%;">
         <button
           type="button"
-          class="bt-z1-sm"
+          class="bt-z1-sm transition ease-in-out cursor-pointer"
         >
           Get start
         </button></div>

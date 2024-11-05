@@ -20,7 +20,7 @@
             <div class="carder-header-z6">{{ card.header }}</div>
             <div class="card-desc-z6 scrollable-text">{{ card.desc }}</div>
             <button type="button" @click="openModel(card.models, card.header)"
-              class="f-center button-orange SF-TH text-[13px] px-[3%] py-[1%]">
+              class="transition ease-in-out cursor-pointer f-center button-orange SF-TH text-[13px] px-[3%] py-[1%]">
               ดูแบบ360°
             </button>
           </div>

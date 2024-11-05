@@ -236,7 +236,7 @@
 }
 
 .button-orange {
-    @apply bg-[#FF7A00] hover:bg-yellow-500 rounded-full text-center text-white;
+    @apply bg-[#FF7A00] hover:bg-[#e06600] rounded-full text-center text-white;
 }
 
 .image-type {
@@ -310,9 +310,6 @@
     @apply absolute w-full h-[100%] object-cover -translate-x-2/4 -translate-y-2/4 z-[-1] left-2/4 top-2/4;
   }
 
-.bg-image {
-    @apply bg-[url("assets/images/e-learning/topbg.png")] bg-cover bg-center;
-}
 
 .z1-text {
     @apply Fredoka text-white font-semibold ;

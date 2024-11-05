@@ -16,7 +16,7 @@
             <img src="assets/images/zone3/lift-zone3.svg" class="image-full-ab mt-[2vw]" />
 
             <div class="j-center absolute w-full circle-position z-[1] SF-TH-Semi">
-              <HomeCircle class="z-[10] " />
+              <HomeCircle class="z-[10]" />
             
 
             </div>
@@ -32,7 +32,7 @@
       @click="selectFloor(index)"
       class="f-col SF-TH f-center overflow-hidden w-[8vw] h-[5vw] rounded-[10px] bg-[#69696954]"
     >
-      <img :src="image" class="img-z-3-col" alt="Room Image" />
+      <img :src="image" class="cursor-pointer img-z-3-col" alt="Room Image" />
     </div>
             </div>
 

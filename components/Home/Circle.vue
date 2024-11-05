@@ -3,7 +3,8 @@
     <div class="container">
       <div class="wrapper">
         <div v-for="(item, index) in items" :key="index" :class="['item', { active: activeItem === index }]"
-          @click="handleItemClick(index)">
+          @click="handleItemClick(index)"
+          class ="transition-colors">
           ชั้น
           {{ index + 1 }}
         </div>
@@ -218,6 +219,7 @@ body {
 
 .item:hover {
   background-color: #ff9f46;
+  
   /* สีเมื่อ hover */
 }
 
