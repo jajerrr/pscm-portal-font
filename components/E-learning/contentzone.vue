@@ -30,9 +30,9 @@
 
                     <div class="content-re SF-TH cursor-pointer wrap">
                         <NuxtLink :to="left.path">
-                            <div class="text-[#5A5A5A]  relative " style="align-content: center;">
+                            <div class="text-[#5A5A5A] relative" style="align-content: center;">
 
-                                <img :src="getContentImageSrc(left.img)" class="w-auto h-[20vw] justify-center"
+                                <img :src="getContentImageSrc(left.img)" class="w-auto h-[20vw] justify-center transition ease-in-out inner-img " 
                                     @click="openModal(left)" />
 
                                 <!-- Modal Popup -->
@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </teleport> -->
-                                <div class="f-col gap-2 mt-[2%]">
+                                <div class="f-col gap-2 mt-[5%]">
                                     <p
                                         class=" text-[#FF7A00] bg-[#FFE7CE] rounded-full text-[13px] px-3 py-1 w-[4rem] hide text-center">
                                         {{ left.toppic }}</p>
@@ -154,13 +154,13 @@ function openModal(content) {
 }
 
 // Method to close the modal
-function closeModal() {
-    selectedContent.value = null;
-}
+// function closeModal() {
+//     selectedContent.value = null;
+// }
 </script>
 
 <style>
-.e-modal-overlay {
+/* .e-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -190,26 +190,17 @@ function closeModal() {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-}
+} */
 
-.img-wrapper {
 
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    border-radius: 20px;
-}
 
 .inner-img {
-    transition: transform 0.3s ease;
+transition: transform 0.3s ease;
 }
 
 .inner-img:hover {
-    transform: scale(1.1);
+transform: scale(1.1);
 }
-
 
 
 .text-ellipsis {

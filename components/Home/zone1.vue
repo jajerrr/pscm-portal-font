@@ -22,7 +22,7 @@
 
         <button
           type="button"
-          class="bt-z1  transition ease-in-out cursor-pointer"
+          class="bt-z1  transition  ease-in-out cursor-pointer"
           
         >
           Get start
