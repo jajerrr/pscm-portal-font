@@ -33,7 +33,10 @@
         :centeredSlides="true" 
         :slidesPerView="1"
         :spaceBetween="10" 
-        :navigation="true" 
+        :navigation="{
+        prevEl: '.slidePrev-btn',
+        nextEl: '.slideNext-btn'
+      }" 
         :thumbs="{ swiper: swiperRef2 }" 
         :options="swiperOptions">
 
@@ -46,6 +49,18 @@
             <img :src="getBodyImageSrc(card.img)" class="small_model img-sm-z6" alt="body" />
           </div>
         </SwiperSlide>
+        <SwiperController />
+
+      <div class="slide-arrow slide-arrow__prev slidePrev-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div class="slide-arrow slide-arrow__next slideNext-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
       </Swiper>
     </div>
     <img src="/images/OBJECTS6.png" class="normal_model image-full-ab top-[-25%] left-[-5%] z-[-1]" style="
@@ -318,6 +333,52 @@ watch(isModalOpen, (newVal) => {
 .normal_model {
   display: flex;
 }
+
+.slide-arrow {
+  position: absolute;
+  display: block;
+  z-index: 10;
+  top: 50%;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.slide-arrow:hover {
+  opacity: 0.6;
+}
+
+.slide-arrow__prev {
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FF7A00;
+  border: 2px solid #FF7A00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+.slide-arrow__next {
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FF7A00;
+  border: 2px solid #FF7A00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+.slide-arrow.swiper-button-disabled {
+  display: none;
+}
+
 
 @media screen and (min-width: 750px) {
   .flex-container {

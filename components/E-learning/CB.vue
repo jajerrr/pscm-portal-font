@@ -4,11 +4,11 @@
     <ELearningNav2 />
 
     <!-- Content Section -->
-    <div class="cb-main-content sm">
+    <div class="cb-main-content sm  ">
       <div class="cb-bg"></div>
 
       <!-- Image and Card Section -->
-      <div class="flex items-center justify-center px-10 pt-[13rem]">
+      <div class="f-row  flex-wrap items-center justify-center mb-[1rem]  px-10 pt-[13rem]">
         <!-- Left Image Section with Transition -->
         <div class="flex justify-end pr-6">
           <div class="transition-wrapper" :class="{ 'fade': isTransitioning }">
@@ -18,8 +18,8 @@
         </div>
 
         <!-- Right Card Section -->
-        <div class="w-[25%] p-[2rem] bg-white rounded-lg shadow-lg">
-          <h2 class="text-2xl font-bold mb-2 text-ellipsis">{{selectedCourse}}</h2>
+        <div class="max-w-[30%] sm-card-cb  p-[2rem] bg-white rounded-lg shadow-lg">
+          <h2 class="text-2xl font-bold mb-2 text-cb-ellipsis">{{ selectedCourse }}</h2>
           <p class="text-gray-700 text-sm mb-4">
             This course examines the carotid body (CB), a multimodal sensory organ located at the junction of the common
             carotid artery.
@@ -27,36 +27,30 @@
           <!-- Course Details -->
           <div class="mb-4">
             <p class="text-gray-600 text-sm">รายละเอียด</p>
-            <ul class="text-gray-700 text-sm list-none space-y-1 mt-2">
-              <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" 
-                viewBox="0 0 512 512">
-                <path fill="#5A5A5A" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
-              </svg> 
-              {{selectedDuration}}</li>
-              <li v-if="expandedIndex === null" class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                viewBox="0 0 384 512">
-                  <path  fill="#5A5A5A" d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
-                </svg>
-                {{selectedTopic}}</li>
-              <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 512 512">
-                    <path fill="#5A5A5A"
-                      d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
-                  </svg>
-                  {{selectedVideo}}</li>
-              <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15 " viewBox="0 0 512 512">
-                    <path fill="#5A5A5A"
-                      d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                  </svg>
-                  {{selectedTest}}</li>
+            <ul class="text-gray-700 text-sm  f-row list-none gap-4 mt-2 w-[100%]">
+              <li class="e-toppic-card">
+                <img src = "/images/e-learing/clock.png" >
+                {{ selectedDuration }}
+              </li>
+              <li v-if="expandedIndex === null" class="e-toppic-card">  
+                
+                <img src = "/images/e-learing/news.png" >
+                {{ selectedTopic }}
+              </li>
+              <li class="e-toppic-card">
+                <img src = "/images/e-learing/youtube.png" >
+                {{ selectedVideo }}
+              </li>
+              <li class="e-toppic-card">
+                <img src = "/images/e-learing/form.png" >
+                 
+                {{ selectedTest }}
+              </li>
             </ul>
           </div>
           <!-- Enter Course Button -->
           <button @click="openModal"
-            class="bg-[#FF7A00] text-white w-full py-[4%] px-[10%] rounded-[40px] hover:bg-[#D14905] transition">
+            class="bg-[#FF7A00] text-white w-full py-[3%] rounded-[40px] hover:bg-[#D14905] transition">
             เข้าเรียน
           </button>
         </div>
@@ -70,8 +64,9 @@
         <!-- Each topic item -->
         <div v-for="(topic, index) in topics" :key="index"
           class="p-4 bg-[#f3f7fd69] hover:bg-[#F3F7FD] rounded-lg transition cursor-pointer flex flex-col"
-          @click="toggleTopic(index, topic)">
-          <div class="flex justify-between items-center">
+          @click="toggleTopic(index, topic)"
+          >
+          <div class="flex justify-between items-center" @click="scrollToTop">
             <div class="flex items-center space-x-2">
               <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
                   viewBox="0,0,256,256">
@@ -158,24 +153,89 @@
       </div>
     </div>
 
+    <div class="px-[10rem] mt-[5rem] pb-[5rem]">
+      <h3 class="text-xl font-bold mb-4">วิชาอื่นๆ</h3>
+      <div class="e-cb-container f-row mt-[5%]">
+        <div v-for="(left, index) in ContentStore.mainContentData" :key="index">
+
+          <div  v-if="index === 1 " class="content-w-re card-item hide">
+
+            <div class="content-re SF-TH cursor-pointer wrap">
+              <NuxtLink :to="left.path">
+                <div class="text-[#5A5A5A] relative" style="align-content: center;">
+
+                  <img :src="getContentImageSrc(left.img)"
+                    class="w-auto h-[10vw] justify-center transition ease-in-out inner-img " @click="openModal(left)" />
+                  <div class="f-col gap-2 mt-[5%] w-[70%]">
+                    <p class="text-[20px] SF-TH-Semi">
+                      {{ left.toppic }}</p>
+                    <div class="i-center sm-icon">
+                      <p class="text-[15px]  px-2">{{ left.date }}</p>
+                    </div>
+                    <div class="text-container">
+                      <p class="text-[15px] SF-TH-Semi text-cb-ellipsis   hover:underline" @click="openModal(left)">
+                        {{ left.content }}
+                      </p>
+                    </div>
+                    <div class="i-center nm-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                        viewBox="0,0,256,256">
+                        <g fill="#5A5A5A" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                          stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                          font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                          style="mix-blend-mode: normal">
+                          <g transform="scale(5.33333,5.33333)">
+                            <path
+                              d="M12.5,4c-2.4675,0 -4.5,2.0325 -4.5,4.5v31c0,2.4675 2.0325,4.5 4.5,4.5h23c2.4675,0 4.5,-2.0325 4.5,-4.5v-21c-0.00008,-0.3978 -0.15815,-0.77928 -0.43945,-1.06055l-0.01562,-0.01562l-12.98437,-12.98437c-0.28127,-0.2813 -0.66275,-0.43938 -1.06055,-0.43945zM12.5,7h11.5v8.5c0,2.4675 2.0325,4.5 4.5,4.5h8.5v19.5c0,0.8465 -0.6535,1.5 -1.5,1.5h-23c-0.8465,0 -1.5,-0.6535 -1.5,-1.5v-31c0,-0.8465 0.6535,-1.5 1.5,-1.5zM27,9.12109l7.87891,7.87891h-6.37891c-0.8465,0 -1.5,-0.6535 -1.5,-1.5zM17.5,25c-0.54095,-0.00765 -1.04412,0.27656 -1.31683,0.74381c-0.27271,0.46725 -0.27271,1.04514 0,1.51238c0.27271,0.46725 0.77588,0.75146 1.31683,0.74381h13c0.54095,0.00765 1.04412,-0.27656 1.31683,-0.74381c0.27271,-0.46725 0.27271,-1.04514 0,-1.51238c-0.27271,-0.46725 -0.77588,-0.75146 -1.31683,-0.74381zM17.5,32c-0.54095,-0.00765 -1.04412,0.27656 -1.31683,0.74381c-0.27271,0.46725 -0.27271,1.04514 0,1.51238c0.27271,0.46725 0.77588,0.75146 1.31683,0.74381h9c0.54095,0.00765 1.04412,-0.27656 1.31683,-0.74381c0.27271,-0.46725 0.27271,-1.04514 0,-1.51238c-0.27271,-0.46725 -0.77588,-0.75146 -1.31683,-0.74381z">
+                            </path>
+                          </g>
+                        </g>
+                      </svg>
+                      <p class="text-[15px]  px-2">{{ left.file }}</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                        viewBox="0,0,256,256">
+                        <g fill="#5A5A5A" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                          stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                          font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                          style="mix-blend-mode: normal">
+                          <g transform="scale(5.33333,5.33333)">
+                            <path
+                              d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM22.47656,11.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c0.00008,0.3978 0.15815,0.77928 0.43945,1.06055l5,5c0.37623,0.39185 0.9349,0.54969 1.46055,0.41265c0.52565,-0.13704 0.93616,-0.54754 1.07319,-1.07319c0.13704,-0.52565 -0.0208,-1.08432 -0.41265,-1.46055l-4.56055,-4.56055v-10.37891c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z">
+                            </path>
+                          </g>
+                        </g>
+                      </svg>
+                      <p class="text-[15px]  px-2 ">{{ left.time }}</p>
+
+
+
+                    </div>
+                  </div>
+
+                </div>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
     <!-- Footer -->
     <div id="zone8">
       <HomeFooter />
     </div>
 
     <teleport to="body">
-      <button @click="closeModal" type="button"
-        class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-        data-modal-hide="popup-modal">
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-        </svg>
-        <span class="sr-only">Close modal</span>
-      </button>
       <div v-if="selectedContent" class="e-modal-overlay" @click="closeModal">
+        
+      <Video_elearning />
+   
       </div>
     </teleport>
+
+
 
   </div>
 </template>
@@ -183,36 +243,26 @@
 
 <script setup>
 
-import { ref, computed } from 'vue';
+import { ref, computed ,watch, onBeforeUnmount } from 'vue';
+import Video_elearning from './video_elearning.vue';
+import { useELearnStore } from '@/stores/e-learn.ts';  // นำเข้า Pinia store
 
-// Define the ref to store selected content for the modal
+
+const ContentStore = useELearnStore();  // ใช้ store จาก Pinia
+const getContentImageSrc = (imgPath) => {
+  return imgPath;  // ใช้พาธที่กำหนดไว้ใน array
+};
 const selectedContent = ref(null);
 const isModalOpen = ref(false);
-
-// Method to open the modal and set selected content
-function openModal(content) {
-  selectedContent.value = content;
-  isModalOpen.value = true;
-}
-
-// Method to close the modal
-function closeModal() {
-  selectedContent.value = null;
-}
-
-// Track the current expanded topic
 const expandedIndex = ref(null);
-// const currentImage = ref('/images/e-learing/content1.jpg');
 const isTransitioning = ref(false);
 
-// Default values for the course display
-const defaultCourse = 'FNM';
+const defaultCourse = 'CB';
 const defaultDuration = '50 นาที';
 const defaultVideo = '6 วิดีโอ';
 const defaultTest = '6 แบบทดสอบ';
 const defaultImage = '/images/e-learing/content1.jpg';
 
-// Initialize reactive variables with default values
 const selectedCourse = ref(defaultCourse);
 const selectedDuration = ref(defaultDuration);
 const selectedTopic = computed(() => `${topics.value.length} หัวข้อ`);
@@ -225,45 +275,75 @@ const topics = ref([
     name: 'Chest wall and anatomy of ventilation, Pleural cavity and lung 1',
     duration: '20 นาที',
     details: [{ type: 'video', text: '20 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content2.jpg',
   },
   {
     name: 'Chest wall and anatomy of ventilation, Pleural cavity and lung 2',
     duration: '16 นาที',
     details: [{ type: 'video', text: '16 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content1.jpg',
   },
   {
     name: 'Heart and its chambers, Muscle and blood vessels',
     duration: '30 นาที',
     details: [{ type: 'video', text: '30 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content2.jpg',
   },
   {
     name: 'Histology of lung',
     duration: '16 นาที',
     details: [{ type: 'video', text: '16 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content1.jpg',
   },
   {
     name: 'Heart and its chambers, Muscle and blood',
     duration: '10 นาที',
     details: [{ type: 'video', text: '10 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content2.jpg',
   },
   {
     name: 'Anatomy and Imaging- The heart, mediastinum, diaphragm and structures related to the posterior thoracic wall and vertebral column',
     duration: '16 นาที',
     details: [{ type: 'video', text: '16 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content1.jpg',
   },
 ]);
+
+
+
+const openModal = (content) => {
+  selectedContent.value = content;
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  selectedContent.value = null;
+  isModalOpen.value = false; 
+};
+
+watch(isModalOpen, (newVal) => {
+  if (newVal) {
+    document.body.classList.add('lock-scroll');
+  } else {
+    document.body.classList.remove('lock-scroll');
+  }
+});
+onBeforeUnmount(() => {
+  document.body.classList.remove('lock-scroll');
+});
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
 
 // Toggle function to expand only one topic at a time and update title and image
 function toggleTopic(index, topic) {
@@ -274,11 +354,6 @@ function toggleTopic(index, topic) {
   } else {
     expandedIndex.value = index;
 
-    // Update current image with a transition if the image is different
-    // if (selectedImage.value !== topic.img_toppic) {
-    //   isTransitioning.value = true;
-    //   selectedImage.value = topic.img_toppic;
-    // }
 
     // Update course details based on the selected topic
     selectedCourse.value = topic.name;
@@ -306,12 +381,8 @@ function resetToDefaults() {
 
 
 <style>
-.cb-bg {
-  @apply absolute w-full h-[70%] object-cover -translate-x-2/4 -translate-y-2/4 z-[-1] left-2/4 top-2/4 bg-[url("assets/images/e-learning/topbg.png")] bg-cover bg-center;
-}
-
-.cb-main-content {
-  @apply w-full relative overflow-hidden;
+.lock-scroll {
+  overflow: hidden;
 }
 
 .transition-wrapper {
@@ -337,7 +408,7 @@ function resetToDefaults() {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("/images/e-learing/video.jpg");
+  /* background: url("/images/e-learing/video.jpg"); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -363,5 +434,27 @@ function resetToDefaults() {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.e-cb-container {
+  /* display: grid; */
+  /* grid-template-columns: repeat( minmax(300px, 1fr)); */
+  gap: 3rem;
+  /* justify-content: center; */
+  width: 60%;
+}
+
+.text-cb-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30%;
+  text-overflow: ellipsis;
+}
+
+@media (max-width:1350px) {
+  .sm-card-cb{
+   
+   max-width: 90%;
+  }
 }
 </style>

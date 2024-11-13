@@ -493,3 +493,18 @@
 .bg-footer-image {
     @apply bg-[url("assets/images/wave-footer.svg")] bg-cover w-full h-auto ;
 }
+
+
+/* elearn */
+.e-toppic-card{
+    @apply f-col items-center text-center gap-3 p-4 bg-[#F3F7FD] rounded-lg w-[25%];
+
+  }
+
+  .cb-bg {
+  @apply absolute w-full h-[80%] object-cover -translate-x-2/4 -translate-y-2/4 z-[-1] left-2/4 top-2/4 bg-[url("assets/images/e-learning/topbg.png")] bg-cover bg-center;
+}
+
+.cb-main-content {
+  @apply w-full relative overflow-hidden;
+}

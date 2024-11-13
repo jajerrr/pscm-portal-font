@@ -82,7 +82,7 @@
                                         <p class="text-[15px]  px-2">{{ left.date }}</p>
                                     </div>
                                     <div class="text-container">
-                                        <p class="text-[15px] SF-TH-Semi text-ellipsis   hover:underline"
+                                        <p class="text-[15px] SF-TH-Semi el-text-ellipsis   hover:underline"
                                             @click="openModal(left)">
                                             {{ left.content }}
                                         </p>
@@ -160,37 +160,6 @@ function openModal(content) {
 </script>
 
 <style>
-/* .e-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.456);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.e-modal-content {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 80%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.e-enter-button {
-    margin-top: 1rem;
-    background-color: #ff7a00;
-    color: white;
-    padding: 0.5rem 1.7rem;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-} */
 
 
 
@@ -203,14 +172,11 @@ transform: scale(1.1);
 }
 
 
-.text-ellipsis {
-    white-space: nowrap;
-    width: 90%;
-    /* ไม่ให้ข้อความตัดบรรทัด */
+.el-text-ellipsis {
+    white-space: wrap;
     overflow: hidden;
-    /* ซ่อนข้อความที่เกิน */
+    /* width: 90%; */
     text-overflow: ellipsis;
-    /* แสดง ... เมื่อข้อความเกิน */
 }
 
 .e-container {
@@ -219,6 +185,7 @@ transform: scale(1.1);
     gap: 5rem;
     justify-content: center;
     padding: 1rem 6rem;
+    
 }
 
 
@@ -241,7 +208,7 @@ transform: scale(1.1);
 
 
 
-@media (max-width: 650px) {
+/* @media (max-width: 650px) {
     .card-container {
         flex-direction: column;
         align-items: center;
@@ -333,5 +300,5 @@ transform: scale(1.1);
     .nm-icon {
         display: none;
     }
-}
+} */
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div v-if="isModalOpen" class="modal-overlay z-[200]" @click="closeModal">
         <div class="modal-content" @click.stop>
-            \ <button @click="closeModal" type="button"
+             <button @click="closeModal" type="button"
                 class="modal-close absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-hide="popup-modal">
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -11,7 +11,7 @@
                 </svg>
                 <span class="sr-only">Close modal</span>
             </button>
-            \ <video controls autoplay class="video-player">
+             <video controls autoplay class="video-player">
                 <source :src="currentVideo" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>

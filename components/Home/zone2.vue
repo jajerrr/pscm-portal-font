@@ -133,7 +133,6 @@ const getContentImageSrc = (imgPath) => {
   justify-content: center;
   box-sizing: border-box;
   border-radius:20px;
-  /* border: 1px solid #000; */ /* Optional */
 }
 
 .inner-img {
@@ -145,18 +144,14 @@ const getContentImageSrc = (imgPath) => {
 }
 
 .text-container {
-  width: 60%;
-  /* หรือกำหนดเป็น % หรือ px ตามขนาดที่ต้องการ */
+  width: 75%;
   overflow: hidden;
 }
 
 .text-ellipsis {
   white-space: nowrap;
-  /* ไม่ให้ข้อความตัดบรรทัด */
   overflow: hidden;
-  /* ซ่อนข้อความที่เกิน */
   text-overflow: ellipsis;
-  /* แสดง ... เมื่อข้อความเกิน */
 }
 
 .card-container {
@@ -168,8 +163,8 @@ const getContentImageSrc = (imgPath) => {
 
 .card-item {
   flex: 1 1 45%;
-  min-width: 400px;
-  margin-bottom: 15px;
+  max-width: 800px;
+    margin-bottom: 15px;
 
 }
 
@@ -184,7 +179,7 @@ const getContentImageSrc = (imgPath) => {
 
 
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
   .card-container {
     flex-direction: column;
     align-items: center;

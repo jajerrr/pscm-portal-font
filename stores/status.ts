@@ -7,6 +7,7 @@ export const useStatusStore = defineStore("status", {
     content: false,
     webGL: false,
     webGLAvatar: true,
+    vdoEL :false,
   }),
   actions: {
     setChatStatus(newStatus: boolean) {
@@ -17,6 +18,9 @@ export const useStatusStore = defineStore("status", {
     },
     setContentStatus(newStatus: boolean) {
       this.content = newStatus;
+    },
+    setVdElearnStore(newStatus: boolean) {
+      this.vdoEL = newStatus;
     },
     setWebGLStatus(newStatus: boolean) {
       this.webGL = newStatus;
