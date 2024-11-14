@@ -1,6 +1,6 @@
 <template>
 
-    <div class="main-content second-main-content" id="zone2">
+    <div class="e-main-content second-main-content" id="zone2">
 
         <div class="col-center">
             <h class="header">Course</h>
@@ -16,23 +16,24 @@
 
         </div>
 
-        <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" />
+        <!-- <img src="assets/images/zone2/Vector 88.svg" class="image-ab w-[35%] mt-[-40px] hide" /> -->
 
 
 
 
         <!-------------------------------------------------- คอนเทนเนอร์ image  -------------------------------------->
 
-        <div class="e-container mt-[5%]">
+        <div class="e-container e-container-sm mt-[5%]">
             <div v-for="(left, index) in ContentStore.mainContentData" :key="index" class=" p-[5%]">
 
-                <div class="content-w-re card-item hide">
+                <div class="content-w-re card-item ">
 
                     <div class="content-re SF-TH cursor-pointer wrap">
                         <NuxtLink :to="left.path">
-                            <div class="text-[#5A5A5A] relative" style="align-content: center;">
+                            <div class="text-[#5A5A5A] relative " style="align-content: center;">
 
-                                <img :src="getContentImageSrc(left.img)" class="w-auto h-[20vw] justify-center transition ease-in-out inner-img " 
+                                <img :src="getContentImageSrc(left.img)"
+                                    class="w-auto h-[20vw] justify-center transition ease-in-out inner-img "
                                     @click="openModal(left)" />
 
                                 <!-- Modal Popup -->
@@ -76,7 +77,7 @@
                             </teleport> -->
                                 <div class="f-col gap-2 mt-[5%]">
                                     <p
-                                        class=" text-[#FF7A00] bg-[#FFE7CE] rounded-full text-[13px] px-3 py-1 w-[4rem] hide text-center">
+                                        class=" text-[#FF7A00] bg-[#FFE7CE] rounded-full text-[13px] px-3 py-1 w-[4rem]  text-center">
                                         {{ left.toppic }}</p>
                                     <div class="i-center sm-icon">
                                         <p class="text-[15px]  px-2">{{ left.date }}</p>
@@ -87,7 +88,7 @@
                                             {{ left.content }}
                                         </p>
                                     </div>
-                                    <div class="i-center nm-icon">
+                                    <div class="i-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
                                             viewBox="0,0,256,256">
                                             <g fill="#5A5A5A" fill-rule="nonzero" stroke="none" stroke-width="1"
@@ -160,15 +161,12 @@ function openModal(content) {
 </script>
 
 <style>
-
-
-
 .inner-img {
-transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .inner-img:hover {
-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 
@@ -182,20 +180,20 @@ transform: scale(1.1);
 .e-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 5rem;
+    gap: 3rem;
     justify-content: center;
     padding: 1rem 6rem;
-    
+
 }
 
 
 
-.card-item {
+/* .card-item {
     flex: 1 1 45%;
     min-width: 400px;
 
 
-}
+} */
 
 .icons-underline-small {
     display: none;
@@ -208,7 +206,17 @@ transform: scale(1.1);
 
 
 
-/* @media (max-width: 650px) {
+@media (max-width: 650px) {
+
+    .e-container-sm {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(350px, 1fr));
+        padding-right: 5vw;
+        justify-content: center;
+        justify-items: center;
+        gap: 0;
+    }
+
     .card-container {
         flex-direction: column;
         align-items: center;
@@ -241,43 +249,21 @@ transform: scale(1.1);
     }
 
     .card-item {
-        width: 100%;
+        width: 80%;
         margin-bottom: 15px;
 
     }
 
 
 
-    .main-content img {
-        width: 80%;
+    .e-main-content img {
+        width: 100%;
         height: auto;
-        padding-inline: 10%;
-    }
 
-    .main-content img.no-style {
-        width: 20rem;
-        height: auto;
-        padding-inline: 10%;
-    }
-
-    .main-content img.calender-style {
-        width: 1rem;
-        height: auto;
-        padding-inline: 0%;
     }
 
 
 
-
-    .small-button {
-        position: relative;
-        width: 50%;
-        height: 7vw;
-        margin-top: 15px;
-        right: 0;
-        justify-content: center;
-        font-size: 3vw;
-    }
 
     .small-view {
         flex-direction: column;
@@ -289,16 +275,15 @@ transform: scale(1.1);
         display: none;
     }
 
-    .icons-underline-small {
-        display: block;
-    }
+
 
     .sm-icon {
         display: flex;
+        justify-content: center
     }
 
     .nm-icon {
         display: none;
     }
-} */
+}
 </style>

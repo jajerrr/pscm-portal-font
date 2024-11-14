@@ -1,7 +1,7 @@
 <template>
-    <!-- <div class="nav-small">
-      <HomeNavbarSm />
-    </div> -->
+    <div class="nav-small">
+      <ELearningNavSm2 />
+    </div>
     <nav
   class="fixed top-0 left-0 z-[50] w-full bg-white text-white SF-TH nav-normal"
 >

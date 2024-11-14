@@ -1,66 +1,58 @@
 <template>
   <div class="w-full h-auto relative text-[#2B2B2B] SF-TH overflow-hidden scrollContainer ">
     <!-- Navbar -->
+
     <ELearningNav2 />
 
-    <!-- Content Section -->
-    <div class="cb-main-content sm">
-      <div class="cb-bg"></div>
 
+    <!-- Content Section -->
+    <div class="cb-main-content  ">
+      <div class="cb-bg  blur-sm "></div>
       <!-- Image and Card Section -->
-      <div class="flex items-center justify-center px-10 pt-[13rem]">
+      <div class="f-row flex-wrap items-center justify-center  mr-[20%] sm-cb-top px-10 pt-[13rem]">
         <!-- Left Image Section with Transition -->
-        <div class="flex justify-end pr-6">
+        <div class="flex justify-end ">
           <div class="transition-wrapper" :class="{ 'fade': isTransitioning }">
-            <img :src="selectedImage" alt="Course Image" class="w-full h-full rounded-lg transition-image"
+            <img :src="selectedImage" alt="Course Image" class="  w-[100vw] sm-img-cb-course h-full  transition-image"
               @load="isTransitioning = false" />
           </div>
         </div>
 
         <!-- Right Card Section -->
-        <div class="w-[25%] p-[2rem] bg-white rounded-lg shadow-lg">
-          <h2 class="text-2xl font-bold mb-2 text-cb-ellipsis">{{ selectedCourse }}</h2>
-          <p class="text-gray-700 text-sm mb-4">
+        <div class=" text-nm nm-card-cb sm-card-cb  max-w-[30%]  bg-white  shadow-lg">
+          <!-- rounded-xl -->
+          <h2 class="text-2xl font-bold mb-2 text-cb-card-ellipsis">{{ selectedCourse }}</h2>
+          <p class="text-gray-700  mb-4">
             This course examines the carotid body (CB), a multimodal sensory organ located at the junction of the common
             carotid artery.
           </p>
           <!-- Course Details -->
-          <div class="mb-4">
-            <p class="text-gray-600 text-sm">รายละเอียด</p>
-            <ul class="text-gray-700 text-sm list-none space-y-1 mt-2">
-              <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 512 512">
-                  <path fill="#5A5A5A"
-                    d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                </svg>
+          <div class="mb-4 sm-detail-cb">
+            <p class="text-gray-600 font-bold">รายละเอียด</p>
+            <ul class="text-gray-700  f-row list-none gap-2 mt-2 justify-center">
+              <li class="e-toppic-card">
+                <img src="/images/e-learing/clock.png">
                 {{ selectedDuration }}
               </li>
-              <li v-if="expandedIndex === null" class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 384 512">
-                  <path fill="#5A5A5A"
-                    d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
-                </svg>
+              <li v-if="expandedIndex === null" class="e-toppic-card">
+
+                <img src="/images/e-learing/news.png">
                 {{ selectedTopic }}
               </li>
-              <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 512 512">
-                  <path fill="#5A5A5A"
-                    d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
-                </svg>
+              <li class="e-toppic-card">
+                <img src="/images/e-learing/youtube.png">
                 {{ selectedVideo }}
               </li>
-              <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15 " viewBox="0 0 512 512">
-                  <path fill="#5A5A5A"
-                    d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                </svg>
+              <li class="e-toppic-card">
+                <img src="/images/e-learing/form.png">
+
                 {{ selectedTest }}
               </li>
             </ul>
           </div>
           <!-- Enter Course Button -->
           <button @click="openModal"
-            class="bg-[#FF7A00] text-white w-full py-[4%] px-[10%] rounded-[40px] hover:bg-[#D14905] transition">
+            class="bg-[#FF7A00] text-white w-full py-[2%] rounded-[40px] hover:bg-[#D14905] transition">
             เข้าเรียน
           </button>
         </div>
@@ -68,14 +60,14 @@
     </div>
 
     <!-- Topics Section -->
-    <div class="px-[10rem] mt-[5rem] pb-[5rem]">
+    <div class="px-[10rem] sm-topic-cb mt-[5rem] pb-[5rem]">
       <h3 class="text-xl font-bold mb-4">หัวข้อ</h3>
       <div class="space-y-3">
         <!-- Each topic item -->
         <div v-for="(topic, index) in topics" :key="index"
           class="p-4 bg-[#f3f7fd69] hover:bg-[#F3F7FD] rounded-lg transition cursor-pointer flex flex-col"
           @click="toggleTopic(index, topic)">
-          <div class="flex justify-between items-center">
+          <div class=" flex justify-between items-center text-sm" @click="scrollToTop">
             <div class="flex items-center space-x-2">
               <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
                   viewBox="0,0,256,256">
@@ -90,9 +82,9 @@
                     </g>
                   </g>
                 </svg></span>
-              <p class="text-[#1E2A52] font-medium text-sm">{{ topic.name }}</p>
+              <p class="text-[#1E2A52] font-medium text-cb-ellipsis">{{ topic.name }}</p>
             </div>
-            <span class="text-[#1E2A52] text-sm flex items-center gap-2">
+            <span class="text-[#1E2A52]  flex items-center gap-2">
               {{ topic.duration }}
               <svg :class="{ 'rotate-180': expandedIndex === index }"
                 class="w-3 h-3 transition duration-300 text-[#005194]" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -131,7 +123,8 @@
               </div>
             </div>
 
-            <div v-for="(test, testIndex) in topic.test" :key="testIndex" class="flex justify-between items-center">
+            <div v-for="(test, testIndex) in topic.test" :key="testIndex"
+              class="text-nm flex justify-between items-center">
               <div class="flex items-center space-x-5 text-gray-600 rounded-lg px-3 py-1 transition w-full">
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
@@ -162,20 +155,20 @@
       </div>
     </div>
 
-    <div class="px-[10rem] mt-[5rem] pb-[5rem]">
+    <div class="px-[10rem] sm-topic-cb mt-[5rem] pb-[5rem]">
       <h3 class="text-xl font-bold mb-4">วิชาอื่นๆ</h3>
       <div class="e-cb-container f-row mt-[5%]">
         <div v-for="(left, index) in ContentStore.mainContentData" :key="index">
 
-          <div  v-if="index === 0 " class="content-w-re card-item hide">
+          <div v-if="index === 1" class="content-w-re card-item hide">
 
             <div class="content-re SF-TH cursor-pointer wrap">
               <NuxtLink :to="left.path">
                 <div class="text-[#5A5A5A] relative" style="align-content: center;">
 
                   <img :src="getContentImageSrc(left.img)"
-                    class="w-auto h-[10vw] justify-center transition ease-in-out inner-img " @click="openModal(left)" />
-                  <div class="f-col gap-2 mt-[5%]">
+                    class="w-auto h-[15vw] justify-center transition ease-in-out inner-img " @click="openModal(left)" />
+                  <div class="f-col gap-2 mt-[5%] w-[70%]">
                     <p class="text-[20px] SF-TH-Semi">
                       {{ left.toppic }}</p>
                     <div class="i-center sm-icon">
@@ -238,7 +231,9 @@
 
     <teleport to="body">
       <div v-if="selectedContent" class="e-modal-overlay" @click="closeModal">
+
         <Video_elearning />
+
       </div>
     </teleport>
 
@@ -250,9 +245,10 @@
 
 <script setup>
 
-import { ref, computed ,watch, onBeforeUnmount } from 'vue';
+import { ref, computed, watch, onBeforeUnmount } from 'vue';
 import Video_elearning from './video_elearning.vue';
 import { useELearnStore } from '@/stores/e-learn.ts';  // นำเข้า Pinia store
+
 
 const ContentStore = useELearnStore();  // ใช้ store จาก Pinia
 const getContentImageSrc = (imgPath) => {
@@ -260,18 +256,14 @@ const getContentImageSrc = (imgPath) => {
 };
 const selectedContent = ref(null);
 const isModalOpen = ref(false);
-
-// Track the current expanded topic
 const expandedIndex = ref(null);
-// const currentImage = ref('/images/e-learing/content1.jpg');
-// const isTransitioning = ref(false);
+const isTransitioning = ref(false);
 
-// Default values for the course display
-const defaultCourse = 'FNM';
+const defaultCourse = 'CB';
 const defaultDuration = '50 นาที';
 const defaultVideo = '6 วิดีโอ';
 const defaultTest = '6 แบบทดสอบ';
-const defaultImage = '/images/e-learing/content2.jpg';
+const defaultImage = '/images/e-learing/content1.jpg';
 
 const selectedCourse = ref(defaultCourse);
 const selectedDuration = ref(defaultDuration);
@@ -285,45 +277,47 @@ const topics = ref([
     name: 'Chest wall and anatomy of ventilation, Pleural cavity and lung 1',
     duration: '20 นาที',
     details: [{ type: 'video', text: '20 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content2.jpg',
   },
   {
     name: 'Chest wall and anatomy of ventilation, Pleural cavity and lung 2',
     duration: '16 นาที',
     details: [{ type: 'video', text: '16 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content1.jpg',
   },
   {
     name: 'Heart and its chambers, Muscle and blood vessels',
     duration: '30 นาที',
     details: [{ type: 'video', text: '30 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content2.jpg',
   },
   {
     name: 'Histology of lung',
     duration: '16 นาที',
     details: [{ type: 'video', text: '16 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content1.jpg',
   },
   {
     name: 'Heart and its chambers, Muscle and blood',
     duration: '10 นาที',
     details: [{ type: 'video', text: '10 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content2.jpg',
   },
   {
     name: 'Anatomy and Imaging- The heart, mediastinum, diaphragm and structures related to the posterior thoracic wall and vertebral column',
     duration: '16 นาที',
     details: [{ type: 'video', text: '16 นาที' }],
-    test: [{ type: 'quiz', text: '1 ข้อ' }],
+    test: [{ type: 'quiz', text: '1 แบบทดสอบ' }],
     img_toppic: '/images/e-learing/content1.jpg',
   },
 ]);
+
+
 
 const openModal = (content) => {
   selectedContent.value = content;
@@ -332,7 +326,7 @@ const openModal = (content) => {
 
 const closeModal = () => {
   selectedContent.value = null;
-  isModalOpen.value = false; 
+  isModalOpen.value = false;
 };
 
 watch(isModalOpen, (newVal) => {
@@ -342,10 +336,16 @@ watch(isModalOpen, (newVal) => {
     document.body.classList.remove('lock-scroll');
   }
 });
-
 onBeforeUnmount(() => {
   document.body.classList.remove('lock-scroll');
 });
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
 
 // Toggle function to expand only one topic at a time and update title and image
 function toggleTopic(index, topic) {
@@ -356,11 +356,6 @@ function toggleTopic(index, topic) {
   } else {
     expandedIndex.value = index;
 
-    // Update current image with a transition if the image is different
-    // if (selectedImage.value !== topic.img_toppic) {
-    //   isTransitioning.value = true;
-    //   selectedImage.value = topic.img_toppic;
-    // }
 
     // Update course details based on the selected topic
     selectedCourse.value = topic.name;
@@ -392,14 +387,6 @@ function resetToDefaults() {
   overflow: hidden;
 }
 
-.cb-bg {
-  @apply absolute w-full h-[70%] object-cover -translate-x-2/4 -translate-y-2/4 z-[-1] left-2/4 top-2/4 bg-[url("assets/images/e-learning/topbg.png")] bg-cover bg-center;
-}
-
-.cb-main-content {
-  @apply w-full relative overflow-hidden;
-}
-
 .transition-wrapper {
   position: relative;
 }
@@ -423,6 +410,7 @@ function resetToDefaults() {
   left: 0;
   right: 0;
   bottom: 0;
+  /* background: url("/images/e-learing/video.jpg"); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -455,12 +443,55 @@ function resetToDefaults() {
   /* grid-template-columns: repeat( minmax(300px, 1fr)); */
   gap: 3rem;
   /* justify-content: center; */
-  width: 50%;
+  width: 60%;
+}
+
+.text-cb-card-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
+  text-overflow: ellipsis;
 }
 
 .text-cb-ellipsis {
+  white-space: wrap;
   overflow: hidden;
-  width: 90%;
+  width: 95%;
   text-overflow: ellipsis;
 }
+
+
+@media (max-width:1024px) {
+  .sm-card-cb {
+    position: relative;
+    max-width: 100vw;
+    right: 0;
+    margin-top: -3%;
+    border-radius: unset;
+
+  }
+
+  .sm-cb-top {
+    margin: 0;
+    padding-inline: 0;
+    padding-top: 5rem;
+  }
+
+  .sm-topic-cb {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .sm-img-cb-course {
+    width: 100vw;
+  }
+
+  .cb-bg {
+    height: 100% !important;
+  }
+}
+
+/* display: flex;
+   flex-direction: column;
+   align-items: center; */
 </style>

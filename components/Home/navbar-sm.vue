@@ -30,6 +30,9 @@
             <a href="#zone8" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">ติดต่อเรา</a>
           </li>
           <li>
+            <NuxtLink to="/e-learning" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">E-Learning</NuxtLink>
+          </li>
+          <li>
             <a href="" class="block py-2 px-3 text-gray-400 rounded hover:bg-gray-700 hover:text-white">เข้าสู่ระบบ</a>
           </li>
         </ul>
