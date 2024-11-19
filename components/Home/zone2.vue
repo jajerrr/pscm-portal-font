@@ -144,7 +144,7 @@ const getContentImageSrc = (imgPath) => {
 }
 
 .text-container {
-  width: 75%;
+  width: 70%;
   overflow: hidden;
 }
 
@@ -162,7 +162,7 @@ const getContentImageSrc = (imgPath) => {
 }
 
 .card-item {
-  flex: 1 1 45%;
+  flex: 1 1 55%;
   max-width: 800px;
     margin-bottom: 15px;
 

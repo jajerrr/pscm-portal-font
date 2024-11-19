@@ -501,15 +501,9 @@
 
   }
 
-  .cb-bg {
-  @apply absolute w-full 
-  
-  object-cover -translate-x-2/4 
-  -translate-y-2/4 z-[-1] left-2/4 top-2/4
-  bg-[url("assets/images/e-learning/topbg.png")]
-  bg-cover
-  overflow-hidden ;
-}
+  /* .cb-bg {
+  @apply absolute w-full object-cover -translate-x-2/4 -translate-y-2/4 z-[-1] left-2/4 top-2/4 bg-[url("assets/images/e-learning/topbg.png")] bg-cover overflow-hidden ;
+} */
 
 
 .cb-main-content {

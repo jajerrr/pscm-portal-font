@@ -17,10 +17,10 @@
             :pagination="true"
 
       >
-      <SwiperSlide class="relative  mx-[10px] card-item"
+      <SwiperSlide class="relative  mx-[10px] card-item-z7"
             v-for="(card, index) in serviceCardStore.serviceCards" :key="index"
           >
-          <div class="container-z7" style="width: 75%; min-height: 35vh">
+          <div class="container-z7" style="width: 75%; min-height: 20vh">
             <IconsZone7-1 v-if="card.icon == 1" />
             <IconsZone7-2 v-if="card.icon == 2" />
             <IconsZone7-1 v-if="card.icon == 3" />
@@ -63,6 +63,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.card-item-z7 {
+  
+  max-width: 800px;
+  margin-bottom: 15px;
+
+}
 
 .swiper-slide {
 display: flex;

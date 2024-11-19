@@ -37,7 +37,8 @@
                 </div>
               </div>
     <img src="assets/images/e-learning/profile.png" class="cursor-pointer w-[3.5vw]" style="margin-left: 2rem;">
-  </div>  </div>
+  </div>  
+</div>
 </nav>
 
   </template>
