@@ -550,6 +550,7 @@ function resetToDefaults() {
 <style>
 .cb-bg {
   background-image: url("assets/images/e-learning/topbg.png");
+ 
 }
 
 .lock-scroll {
