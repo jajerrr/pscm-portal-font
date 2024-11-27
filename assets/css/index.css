@@ -507,7 +507,7 @@
 
 
 .cb-main-content {
-  @apply w-full absolute overflow-hidden;
+  @apply w-full relative overflow-hidden;
 }
 
 .nm-card-cb{

@@ -30,60 +30,21 @@
 
                     <div class="content-re SF-TH cursor-pointer wrap">
                         <NuxtLink :to="left.path">
-                            <div class="text-[#5A5A5A] relative " style="align-content: center;">
+                            <div class="text-[#5A5A5A] f-col content-center relative " style="align-content: center;">
 
                                 <img :src="getContentImageSrc(left.img)"
                                     class="w-auto h-[20vw] justify-center transition ease-in-out inner-img "
                                     @click="openModal(left)" />
 
-                                <!-- Modal Popup -->
-                                <!-- <teleport to="body">
-                                <div v-if="selectedContent" class="e-modal-overlay" @click="closeModal">
-                                    <div class="relative e-modal-content" @click.stop>
-                                        <img :src="getContentImageSrc(selectedContent.img)" class="w-full h-auto" />
-                                        <div class="mt-[5%]">
-
-                                            <h class="text-[#2B2B2B] text-[1.3vw] SF-Bold">{{ selectedContent.toppic }}
-                                            </h>
-                                            <p class="text-[#5A5A5A] SF-TH text-[1vw]">{{ selectedContent.content }}</p>
-
-                                        </div>
-                                        <div class="mt-[10%] flex">
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20"
-                                                height="20" viewBox="0,0,256,256">
-                                                <g fill="#2b2b2b" fill-rule="nonzero" stroke="none" stroke-width="1"
-                                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
-                                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none"
-                                                    font-weight="none" font-size="none" text-anchor="none"
-                                                    style="mix-blend-mode: normal">
-                                                    <g transform="scale(5.33333,5.33333)">
-                                                        <path
-                                                            d="M12.5,4c-2.481,0 -4.5,2.019 -4.5,4.5v31c0,2.481 2.019,4.5 4.5,4.5h23c2.481,0 4.5,-2.019 4.5,-4.5v-19.5h-11.5c-2.481,0 -4.5,-2.019 -4.5,-4.5v-11.5zM27,4.87891v10.62109c0,0.827 0.673,1.5 1.5,1.5h10.62109zM17.5,25h13c0.828,0 1.5,0.672 1.5,1.5c0,0.828 -0.672,1.5 -1.5,1.5h-13c-0.828,0 -1.5,-0.672 -1.5,-1.5c0,-0.828 0.672,-1.5 1.5,-1.5zM17.49023,32h8.99609c0.828,0 1.5,0.671 1.5,1.5c0.001,0.759 -0.56292,1.38733 -1.29492,1.48633l-0.20312,0.01367h-8.99609c-0.828,0 -1.5,-0.672 -1.5,-1.5c0,-0.759 0.56292,-1.38733 1.29492,-1.48633z">
-                                                        </path>
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                            <h class="text-[#2B2B2B] text-[1vw] SF-Bold ml-2">Topic</h>
-                                        </div>
-                                        <div class="flex justify-center mt-4">
-                                            <NuxtLink :to="selectedContent.path"
-                                                class="transition-all hover:bg-[#D14905] e-enter-button SF-TH text-[1vw]">
-                                                เข้าเรียน
-
-                                            </NuxtLink>
-                                        </div>
-                                    </div>
-                                </div>
-                            </teleport> -->
                                 <div class="f-col gap-2 mt-[5%]">
                                     <p
                                         class=" text-[#FF7A00] bg-[#FFE7CE] rounded-full text-[13px] px-3 py-1 w-[4rem]  text-center">
                                         {{ left.toppic }}</p>
                                     <div class="i-center sm-icon">
-                                        <p class="text-[15px]  px-2">{{ left.date }}</p>
+                                        <p class="text-sm  px-2">{{ left.date }}</p>
                                     </div>
-                                    <div class="text-container">
-                                        <p class="text-[15px] SF-TH-Semi el-text-ellipsis   hover:underline"
+                                    <div class="">
+                                        <p class="text-sm SF-TH-Semi el-text-ellipsis   hover:underline"
                                             @click="openModal(left)">
                                             {{ left.content }}
                                         </p>
@@ -179,21 +140,14 @@ function openModal(content) {
 
 .e-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 1rem;
     justify-content: center;
-    padding: 1rem 6rem;
+    padding: 1rem 3rem;
 
 }
 
 
-
-/* .card-item {
-    flex: 1 1 45%;
-    min-width: 400px;
-
-
-} */
 
 .icons-underline-small {
     display: none;
@@ -204,7 +158,17 @@ function openModal(content) {
 
 }
 
+@media (max-width:1200px){
+    .e-container {
+    
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 2rem;
+    
+}
 
+
+
+}
 
 @media (max-width: 650px) {
 

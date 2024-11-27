@@ -33,14 +33,14 @@
 
     <div class="f-center ">
       <div v-for="(left, index) in newsStore.mainContentData" :key="index"
-        class="f-row gap-[5%] mt-[5%] card-container p-[5%]">
+        class="f-row gap-[5%] mt-[5%] card-container-zone-2 p-[5%]">
 
         <div class="f-col content-w-re card-item hide" id="zone2-2">
 
 
           <div class="content-re SF-TH cursor-pointer">
             <div class="">
-  <img :src="getContentImageSrc(left.img)" class="image-full transition ease-in-out inner-img" />
+  <img :src="getContentImageSrc(left.img)" class="h-auto w-[80vw] transition ease-in-out inner-img" />
 </div>
             <div class="f-col gap-3 absolute mt-[40%] p-[5%]">
               <p class="bt-orange hide">มาใหม่ล่าสุด</p>
@@ -154,12 +154,7 @@ const getContentImageSrc = (imgPath) => {
   text-overflow: ellipsis;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 
-}
 
 .card-item {
   flex: 1 1 55%;
@@ -177,12 +172,27 @@ const getContentImageSrc = (imgPath) => {
 
 }
 
+.card-container-zone-2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* ค่าเริ่มต้น: ไม่ให้ wrap */
+}
+
+@media (max-width: 1200px) {
+  .card-container-zone-2 {
+    flex-wrap: wrap; /* เปิดการ wrap เมื่อหน้าจอแคบกว่า 1200px */
+    justify-content: center;
+  }
+}
 
 
-@media (max-width: 750px) {
-  .card-container {
+
+@media (max-width: 850px) {
+  .card-container-zone-2 {
     flex-direction: column;
     align-items: center;
+    
+
 
 
   }

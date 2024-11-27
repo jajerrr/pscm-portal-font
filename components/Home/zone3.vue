@@ -142,7 +142,7 @@ const selectFloor = (index) => {
 
 
 .circle-position{
-    margin-top:-2vw;
+    margin-top:-10vw;
   }
 
 @media (min-width: 1250px){
@@ -178,7 +178,7 @@ const selectFloor = (index) => {
 
 @media (max-width: 850px){
   .circle-position{
-    margin-top: -17vw;
+    margin-top: -33vw;
   }
 }
 
