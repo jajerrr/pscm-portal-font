@@ -1,11 +1,11 @@
 <template>
     
-    <TecherBlog />
+    <StudentBlog />
   
 </template>
 
 <script setup>
-import  TecherBlog  from "~/components/Blog/Teacher.vue";
+import  StudentBlog  from "~/components/Blog/Student.vue";
 </script>
 
 <style lang="scss" scoped></style>
