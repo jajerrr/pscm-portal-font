@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     "vue3-carousel-nuxt",
     "nuxt-swiper",
     "@hypernym/nuxt-gsap",
-    // "nuxt-lazy-load",
 
   ],
 
