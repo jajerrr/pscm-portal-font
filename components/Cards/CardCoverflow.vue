@@ -1,6 +1,6 @@
 <template>
   <div @click="resetClick">
-    <Swiper class="w-[50%] overflow-hidden bg-[#ffffff] p-5"
+    <Swiper class="w-[50%] overflow-hidden bg-transparent p-5"
       :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" :effect="'coverflow'" :grabCursor="true"
       :centeredSlides="true" :slidesPerView="'auto'" :coverflowEffect="{
         rotate: 5,
