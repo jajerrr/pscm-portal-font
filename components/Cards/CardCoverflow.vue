@@ -1,9 +1,11 @@
 <template>
-  <div @click="resetClick">
-    <Swiper class="w-[50%] overflow-hidden bg-transparent p-5"
-      :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" :effect="'coverflow'" :grabCursor="true"
+  <div @click="resetClick" class="flex">
+    <Swiper class="w-[35%] overflow-hidden bg-transparent p-5"
+    style= "margin-left:-10% !important; margin-right:0 !important;"
+      :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" 
+      :effect="'coverflow'" :grabCursor="true"
       :centeredSlides="true" :slidesPerView="'auto'" :coverflowEffect="{
-        rotate: 5,
+        rotate: 2,
         stretch: 0,
         depth: 100,
         modifier: 2,
@@ -42,18 +44,33 @@
       </SwiperSlide>
       <SwiperController />
 
-      <div class="slide-arrow slide-arrow__prev slidePrev-btn">
+      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[30%]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <div class="slide-arrow slide-arrow__next slideNext-btn">
+      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[30%]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
 
     </Swiper>
+
+    <!-- Card Description Section -->
+    <div class="w-[50%] p-5 flex items-center">
+      <div class="bg-transparent p-6">
+        <h2 class="text-2xl font-bold mb-4">{{ cards[activeIndex].title }}</h2>
+        <p class="text-gray-700 mb-4">{{ cards[activeIndex].description }}</p>
+        <button
+          class="mt-4 px-4 py-2 bg-orange-500 text-white rounded-md"
+          @click="onButtonClick(activeIndex)"
+        >
+          เข้าชมห้อง
+        </button>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -97,42 +114,52 @@ const cards = reactive([
     backgroundImage: "/images/cat2.jpg",
   },
 ]);
-// กำหนด activeIndex เพื่อตรวจสอบสไลด์ที่อยู่ตรงกลาง
+// เก็บ index ของสไลด์ที่ active
 const activeIndex = ref(0);
 
 let previousActiveIndex = 0; // เก็บ index ของสไลด์ก่อนหน้า
 
+// ฟังก์ชันเมื่อมีการเปลี่ยนสไลด์
 function onSlideChange(swiper) {
-  // ถ้า previousActiveIndex ไม่เท่ากับ realIndex ปัจจุบัน แสดงว่ามีการเปลี่ยนสไลด์
   if (previousActiveIndex !== swiper.realIndex) {
-    cards[previousActiveIndex].isClicked = false; // รีเซ็ตการคลิกของสไลด์ก่อนหน้า
-    previousActiveIndex = swiper.realIndex; // อัปเดต previousActiveIndex เป็นสไลด์ใหม่
+    cards[previousActiveIndex].isClicked = false;
+    previousActiveIndex = swiper.realIndex;
   }
-  activeIndex.value = swiper.realIndex; // อัปเดตค่า activeIndex เป็นสไลด์ปัจจุบัน
+  activeIndex.value = swiper.realIndex; // อัปเดต index ที่ active
 }
 
-
-// ฟังก์ชัน toggle สำหรับการคลิกการ์ด โดยเช็คว่าตรงกับ activeIndex หรือไม่
+// ฟังก์ชัน toggle สำหรับการคลิกการ์ด
 function toggleClick(index) {
-  if (index === activeIndex.value) { // คลิกได้เฉพาะการ์ดที่เป็น activeIndex เท่านั้น
-    if (cards[index].isClicked) {
-      cards[index].isClicked = false;
-    } else {
-      cards.forEach((card) => (card.isClicked = false));
-      cards[index].isClicked = true;
-    }
+  if (index === activeIndex.value) {
+    cards.forEach((card) => (card.isClicked = false));
+    cards[index].isClicked = true;
   }
+}
+
+// ฟังก์ชันเมื่อคลิกปุ่มใน Card Description
+function onButtonClick(index) {
+  alert(`You clicked on card: ${cards[index].title}`);
 }
 
 function resetClick() {
   cards.forEach((card) => (card.isClicked = false));
 }
-
 </script>
 
 
 
 <style scoped>
+
+.card_effect {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 0.25s;
+}
+
 .slide-arrow {
   position: absolute;
   display: block;
@@ -151,8 +178,8 @@ function resetClick() {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #10b981;
-  border: 2px solid #10b981;
+  background-color: #d8d8d8;
+  border: 2px solid #d8d8d8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,8 +192,8 @@ function resetClick() {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #10b981;
-  border: 2px solid #10b981;
+  background-color: #d8d8d8;
+  border: 2px solid #d8d8d8;
   display: flex;
   align-items: center;
   justify-content: center;

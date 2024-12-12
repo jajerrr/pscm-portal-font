@@ -1,13 +1,99 @@
 <template>
- 
- <div class="w-full h-screen bg-[url(~/assets/images/prod-main-login-1.jpg)] bg-no-repeat bg-cover bg-center object-cover  ">
-        
-                <div  class="absolute w-full  bottom-0  left-0">
-                  <CardsCardCoverflow />
-                </div>
-                  
-                
-            
+  <NuxtLayout name="map">
+
+    <div class="left-5 absolute top-5">
+      <img src="assets/images/map-content/mapbt.png" alt="" />
     </div>
- 
+    <div
+      class="absolute flex justify-center w-screen items-center mt-[44vh] z-[1] ml-[-2px]"
+    >
+      <div
+        type="button"
+        class="w-[140px] h-[140px] bg-[#FFFFFF] rounded-full filter blur-sm"
+      ></div>
+    </div>
+    <div
+      class="absolute f-col justify-center w-screen items-center mt-[45vh] z-[10]"
+    >
+      <button
+        type="button"
+        class="f-col text-white w-[120px] h-[120px] bg-[#406aa0b9] hover:bg-[#4069A0] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="45px"
+          height="45px"
+          fill="currentColor"
+          class="bi bi-lightbulb flex justify-center w-full mb-2"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"
+          />
+        </svg>
+        <div class="f-col text-nm Inter-Regular mb-2">
+          <div>เข้าสู่</div>
+          <div>Metaverse</div>
+        </div>
+      </button>
+      <div>
+        <img src="assets/images/map-content/poduim.png" alt="" />
+      </div>
+    </div>
+
+    <div class="absolute w-full bottom-[10vh] left-0">
+      <CardsCardCoverflow />
+    </div>
+
+    <div class="flex absolute bottom-3 left-10">
+      <button
+        type="button"
+        class=" flex items-center justify-center gap-5 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#00000034] rounded-3xl border hover:bg-[#4069A0] hover:text-gray-300  focus:bg-[#668fcdac] "
+      >
+      <img src="assets/images/map-content/Master_Line.png" />      
+
+        <div >interactive</div>
+      </button>
+      <button
+        type="button"
+        class=" flex items-center justify-center gap-5 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#00000034] rounded-3xl border hover:bg-[#4069A0] hover:text-gray-300  focus:bg-[#668fcdac] "
+      >
+      <img src="assets/images/map-content/form 1.png" />      
+
+        <div >Quiz</div>
+      </button>
+      <button
+        type="button"
+        class=" flex items-center justify-center gap-5 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#00000034] rounded-3xl border hover:bg-[#4069A0] hover:text-gray-300  focus:bg-[#668fcdac] "
+      >
+      <img src="assets/images/map-content/Test Tube.png" />      
+
+        <div >MMI</div>
+      </button>
+      <button
+        type="button"
+        class=" flex items-center justify-center gap-5 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#00000034] rounded-3xl border hover:bg-[#4069A0] hover:text-gray-300  focus:bg-[#668fcdac] "
+      >
+      <img src="assets/images/map-content/Gamepad Minimalistic.png" />      
+
+        <div >Game</div>
+      </button>
+      <button
+        type="button"
+        class=" flex items-center justify-center gap-5 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#00000034] rounded-3xl border hover:bg-[#4069A0] hover:text-gray-300  focus:bg-[#668fcdac] "
+      >
+      <img src="assets/images/map-content/Clapperboard Play.png" />      
+
+        <div >Video</div>
+      </button>
+      <button
+        type="button"
+        class=" flex items-center justify-center gap-5 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#00000034] rounded-3xl border hover:bg-[#4069A0] hover:text-gray-300  focus:bg-[#668fcdac] "
+      >
+      <img src="assets/images/map-content/People Nearby.png" />      
+
+        <div >360°</div>
+      </button>
+    </div>
+  </NuxtLayout>
 </template>
