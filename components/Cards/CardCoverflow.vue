@@ -1,7 +1,7 @@
 <template>
   <div @click="resetClick" class="flex">
-    <Swiper class="w-[35%] overflow-hidden bg-transparent p-5"
-    style= "margin-left:-10% !important; margin-right:0 !important;"
+    <Swiper class="w-[30%] overflow-hidden bg-transparent p-5"
+    style= "margin-left:-5% !important; margin-right:0 !important;"
       :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" 
       :effect="'coverflow'" :grabCursor="true"
       :centeredSlides="true" :slidesPerView="'auto'" :coverflowEffect="{
@@ -16,7 +16,7 @@
       }" :loop="false" :pagination="false" @slideChange="onSlideChange">
       <!-- สร้าง SwiperSlide สำหรับการ์ดแต่ละใบ -->
       <SwiperSlide v-for="(card, index) in cards" :key="index" class="flex " @click.stop="toggleClick(index)"
-        style="width: 30% !important">
+        style="width: 40% !important">
         <div class="card_effect justify-center" :class="{ clicked: card.isClicked }"
           :style="{ backgroundImage: `url(${card.backgroundImage})` }">
           <h4 v-if="card.isClicked">{{ card.title }}</h4>
@@ -44,12 +44,12 @@
       </SwiperSlide>
       <SwiperController />
 
-      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[30%]">
+      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[20%]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[30%]">
+      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[20%]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
