@@ -1,5 +1,5 @@
 <template>
-   <Maps/>
+   <Building />
   </template>
   
   <script setup>

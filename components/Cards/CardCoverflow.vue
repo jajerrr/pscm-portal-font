@@ -58,12 +58,13 @@
     </Swiper>
 
     <!-- Card Description Section -->
-    <div class="w-[50%] p-5 flex items-center">
+    <div class="w-[50%] p-5 flex items-center SF-TH">
       <div class="bg-transparent p-6">
-        <h2 class="text-2xl font-bold mb-4">{{ cards[activeIndex].title }}</h2>
-        <p class="text-gray-700 mb-4">{{ cards[activeIndex].description }}</p>
+        <h2 class="text-2xl  text-[#37629B] font-bold mb-4">{{ cards[activeIndex].title }}</h2>
+        <img src="assets/images/map-content/line.png" alt="Card Image" class="w-[40%] ml-[-3%] mb-4" />
+        <p class="text-gray-700 mb-4 w-[35%] scrollable-text">{{ cards[activeIndex].description }}</p>
         <button
-          class="mt-4 px-4 py-2 bg-orange-500 text-white rounded-md"
+          class="mt-4 px-4 py-2 \ bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md"
           @click="onButtonClick(activeIndex)"
         >
           เข้าชมห้อง
@@ -79,40 +80,40 @@
 const cards = reactive([
   {
     title: "Products",
-    description: "This is the Products card.1",
-    isClicked: false,
-    backgroundImage: "/images/cat.jpg",
-  },
-  {
-    title: "Categories",
-    description: "This is the Categories card.2",
-    isClicked: false,
-    backgroundImage: "/images/cat2.jpg",
-  },
-  {
-    title: "Services",
-    description: "This is the Services card.3",
-    isClicked: false,
-    backgroundImage: "/images/cat.jpg",
-  },
-  {
-    title: "Products",
-    description: "This is the Products card.4",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     isClicked: false,
     backgroundImage: "/images/cat2.jpg",
   },
   {
     title: "Categories",
-    description: "This is the Categories card.5",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     isClicked: false,
-    backgroundImage: "/images/cat.jpg",
+    backgroundImage: "/images/card.jpg",
   },
   {
     title: "Services",
-    description: "This is the Services card.6",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     isClicked: false,
-    backgroundImage: "/images/cat2.jpg",
+    backgroundImage: "/images/cat.jpg",
   },
+  // {
+  //   title: "Products",
+  //   description: "This is the Products card.4",
+  //   isClicked: false,
+  //   backgroundImage: "assets/images/card_img_ex.jpg",
+  // },
+  // {
+  //   title: "Categories",
+  //   description: "This is the Categories card.5",
+  //   isClicked: false,
+  //   backgroundImage: "assets/images/card_img_ex.jpg",
+  // },
+  // {
+  //   title: "Services",
+  //   description: "This is the Services card.6",
+  //   isClicked: false,
+  //   backgroundImage: "assets/images/card_img_ex.jpg",
+  // },
 ]);
 // เก็บ index ของสไลด์ที่ active
 const activeIndex = ref(0);
@@ -149,6 +150,22 @@ function resetClick() {
 
 
 <style scoped>
+
+
+.scrollable-text {
+  max-height: 5.6em;
+  overflow-y: auto;
+  line-height: 1.5em;
+  background: transparent;
+  border: none;
+  scrollbar-width: none;
+  /* สำหรับ Firefox */
+}
+
+.scrollable-text::-webkit-scrollbar {
+  display: none;
+  /* สำหรับ Chrome, Safari */
+}
 
 .card_effect {
   background-size: cover;
