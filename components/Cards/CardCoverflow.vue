@@ -19,8 +19,8 @@
         style="width: 40% !important">
         <div class="card_effect justify-center" :class="{ clicked: card.isClicked }"
           :style="{ backgroundImage: `url(${card.backgroundImage})` }">
-          <h4 v-if="card.isClicked">{{ card.title }}</h4>
-          <p v-if="card.isClicked">{{ card.description }}</p>
+          <h4 v-if="card.isClicked" class="">{{ card.title }}</h4>
+          <p v-if="card.isClicked" class="scrollable-text">{{ card.description }}</p>
           <div class="shine"></div>
           <div class="background">
             <div class="tiles">
@@ -96,24 +96,6 @@ const cards = reactive([
     isClicked: false,
     backgroundImage: "/images/cat.jpg",
   },
-  // {
-  //   title: "Products",
-  //   description: "This is the Products card.4",
-  //   isClicked: false,
-  //   backgroundImage: "assets/images/card_img_ex.jpg",
-  // },
-  // {
-  //   title: "Categories",
-  //   description: "This is the Categories card.5",
-  //   isClicked: false,
-  //   backgroundImage: "assets/images/card_img_ex.jpg",
-  // },
-  // {
-  //   title: "Services",
-  //   description: "This is the Services card.6",
-  //   isClicked: false,
-  //   backgroundImage: "assets/images/card_img_ex.jpg",
-  // },
 ]);
 // เก็บ index ของสไลด์ที่ active
 const activeIndex = ref(0);
