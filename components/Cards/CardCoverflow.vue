@@ -1,4 +1,5 @@
 <template>
+  <div >
   <div @click="resetClick" class="flex">
     <Swiper class="w-[30%] overflow-hidden bg-transparent p-5"
     style= "margin-left:-5% !important; margin-right:0 !important;"
@@ -72,6 +73,7 @@
       </div>
     </div>
 
+  </div>
   </div>
 </template>
 

@@ -8,17 +8,17 @@
       
       <button 
         @click="toggleCard" 
-        class="px-4 py-2 bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md">
+        class="small_card px-4 py-2 bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md">
         Show Card
       </button>
     </div>
 
-    <div class="absolute top-0 z-[1]">
+    <div class="absolute top-0">
       <div class="absolute flex justify-center w-screen h-screen items-center top-0">
         <div class="z-[5] ml-[-2px]">
           <div type="button" class="w-[140px] h-[140px] bg-[#FFFFFF] rounded-full filter blur-sm"></div>
         </div>
-        <div class="absolute f-col justify-center items-center z-[10]">
+        <div class="absolute f-col justify-center items-center z-30">
           <button 
             type="button"
             class="f-col text-white w-[120px] h-[120px] bg-[#406aa0b9] hover:bg-[#4069A0] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2">
@@ -38,9 +38,9 @@
       </div>
     </div>
 
-    <div class="absolute w-full bottom-[15vh] left-0 z-[20]">
+    <div class="absolute w-full   bottom-[15vh] left-0 z-50">
       <CardsCardCoverflow class="hide"/>
-      <BuildingCardmobile v-if="showCard" class="small_card"/>
+      <BuildingCardmobile v-if="showCard" class="small_card "/>
     </div>
 
     <div class="flex absolute bottom-3 left-10 z-[20] hide">
@@ -72,12 +72,12 @@ import { useRouter } from "vue-router";
 
 // Button names
 const buttonname = ref([
-  {icons: '/images/building/Master_Line.png', name: 'interactive', path: '/building/treehall'},
-  {icons: '/images/building/form 1.png', name: 'Quiz', path: '/building/treehall'},
-  {icons: '/images/building/Test Tube.png', name: 'MMI', path: '/building/treehall'},
-  {icons: '/images/building/Gamepad Minimalistic.png', name: 'Game', path: '/building/treehall'},
-  {icons: '/images/building/Clapperboard Play.png', name: 'Video', path: '/building/treehall'},
-  {icons: '/images/building/People Nearby.png', name: '360°', path: '/building/treehall'},
+  {icons: '/images/building/Master_Line.png', name: 'interactive', path: ''},
+  {icons: '/images/building/form 1.png', name: 'Quiz', path: ''},
+  {icons: '/images/building/Test Tube.png', name: 'MMI', path: ''},
+  {icons: '/images/building/Gamepad Minimalistic.png', name: 'Game', path: ''},
+  {icons: '/images/building/Clapperboard Play.png', name: 'Video', path: ''},
+  {icons: '/images/building/People Nearby.png', name: '360°', path: ''},
 ]);
 
 const router = useRouter();

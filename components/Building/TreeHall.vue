@@ -1,7 +1,6 @@
 <template>
   <NuxtLayout
-    name="map"
-    class="w-screen h-screen bg-[url(~/assets/images/map-content/bgtree.png)] bg-no-repeat bg-cover bg-center object-cover"
+    name="treehall"
   >
   <div class="left-5 absolute top-5 cursor-pointer z-50">
         <img src="assets/images/map-content/mapbt.png" alt="" />
@@ -14,7 +13,7 @@
 
         <div class="flex-grow flex justify-center">
             <div class = 'flex space-x-3 justify-center items-center bg-[rgba(34,33,33,0.45)] p-1 rounded-full  text-white SF-TH'>
-            <button class = ' hover:bg-slate-300 focus:bg-slate-300 p-1 rounded-full'>
+            <button class = ' hover:bg-slate-300 focus:bg-slate-200 p-1 rounded-full'>
                 <img src="assets/images/map-content/Hanger.png"  c>
                 
             </button>
