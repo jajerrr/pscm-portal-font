@@ -24,16 +24,4 @@ export const useCardStore = defineStore("cardStore", {
       },
     ]),
   }),
-
-  actions: {
-    toggleCardClick(index: number) {
-      this.cards.forEach((card, i) => {
-        card.isClicked = i === index ? !card.isClicked : false;
-      });
-    },
-
-    resetCards() {
-      this.cards.forEach((card) => (card.isClicked = false));
-    },
-  },
 });
