@@ -1,7 +1,7 @@
 <template>
   <div >
   <div @click="resetClick" class="flex">
-    <Swiper class="w-[30%] overflow-hidden bg-transparent p-5"
+    <Swiper class="w-[25%] overflow-hidden bg-transparent "
     style= "margin-left:-5% !important; margin-right:0 !important;"
       :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" 
       :effect="'coverflow'" :grabCursor="true"
@@ -17,7 +17,7 @@
       }" :loop="false" :pagination="false" @slideChange="onSlideChange">
       <!-- สร้าง SwiperSlide สำหรับการ์ดแต่ละใบ -->
       <SwiperSlide v-for="(card, index) in cards" :key="index" class="flex " @click.stop="toggleClick(index)"
-        style="width: 40% !important">
+      style="width: 230px !important">
         <div class="card_effect justify-center" :class="{ clicked: card.isClicked }"
           :style="{ backgroundImage: `url(${card.backgroundImage})` }">
           <h4 v-if="card.isClicked" class="">{{ card.title }}</h4>
@@ -45,12 +45,12 @@
       </SwiperSlide>
       <SwiperController />
 
-      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[20%]">
+      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[3vw] fixed">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[20%]">
+      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[3vw] fixed">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -84,25 +84,25 @@ const cards = reactive([
     title: "Products",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     isClicked: false,
-    backgroundImage: "/images/cat2.jpg",
+    backgroundImage: "/images/building/card.png",
   },
   {
     title: "Categories",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     isClicked: false,
-    backgroundImage: "/images/card.jpg",
+    backgroundImage: "/images/building/card.png",
   },
   {
     title: "Services",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     isClicked: false,
-    backgroundImage: "/images/cat.jpg",
+    backgroundImage: "/images/building/card.png",
   },
 ]);
 // เก็บ index ของสไลด์ที่ active
 const activeIndex = ref(0);
 
-let previousActiveIndex = 0; // เก็บ index ของสไลด์ก่อนหน้า
+let previousActiveIndex = 0; 
 
 // ฟังก์ชันเมื่อมีการเปลี่ยนสไลด์
 function onSlideChange(swiper) {
@@ -137,7 +137,7 @@ function resetClick() {
 
 
 .scrollable-text {
-  max-height: 5.6em;
+  max-height: 6.6em;
   overflow-y: auto;
   line-height: 1.5em;
   background: transparent;
@@ -154,11 +154,15 @@ function resetClick() {
 .card_effect {
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 350px;
   border-radius: 15px;
   cursor: pointer;
   position: relative;
   transition: box-shadow 0.25s;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05), 0px 15px 25px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  padding: 56px 16px 16px 16px;
+  width: 230px;
 }
 
 .slide-arrow {
@@ -218,18 +222,7 @@ function resetClick() {
   z-index: 1;
 }
 
-.card_effect {
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05), 0px 15px 25px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
-  padding: 56px 16px 16px 16px;
-  height: 350px;
-  border-radius: 15px;
-  cursor: pointer;
-  position: relative;
-  transition: box-shadow 0.25s;
-}
+
 
 .card_effect::before {
   content: "";

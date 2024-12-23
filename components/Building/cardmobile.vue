@@ -1,5 +1,5 @@
 <template>
-    <div @click="resetClick" class="flex">
+    <div @click="resetClick" class="flex w-[100dvw]" :style="{ left: '0px !important' }">
       <Swiper class="w-[100%] overflow-hidden bg-transparent p-0"
       
         :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" 
@@ -16,13 +16,13 @@
         }" :loop="false" :pagination="false" @slideChange="onSlideChange">
         <!-- สร้าง SwiperSlide สำหรับการ์ดแต่ละใบ -->
         <SwiperSlide v-for="(card, index) in cards" :key="index" class="flex " @click.stop="toggleClick(index)"
-          style="width: 50% !important">
+          style="width: 180px !important; height: 260px;">
           <div class="card_effect justify-center SF-TH" :class="{ clicked: card.isClicked }"
             :style="{ backgroundImage: `url(${card.backgroundImage})` }">
-            <h4 v-if="card.isClicked" class="text-3xl">{{ card.title }}</h4>
+            <h v-if="card.isClicked" class="text-3xl">{{ card.title }}</h>
             <p v-if="card.isClicked"  class="scrollable-text">{{ card.description }}</p>
             <div v-if="card.isClicked"  
-            class="z-[20] bottom-5 flex justify-center  absolute  py-2 px-5    bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md"
+            class="text-[12px] z-[20] bottom-5 flex justify-center  absolute  py-2 px-3    bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md"
              @click="onButtonClick(activeIndex)"
             >เข้าชมห้อง</div>
             <div class="shine"></div>
@@ -86,37 +86,31 @@
       title: "Products",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       isClicked: false,
-      backgroundImage: "/images/cat2.jpg",
+      backgroundImage: "/images/building/card.png",
     },
     {
       title: "Categories",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       isClicked: false,
-      backgroundImage: "/images/card.jpg",
+      backgroundImage: "/images/building/card.png",
     },
     {
       title: "Services",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       isClicked: false,
-      backgroundImage: "/images/cat.jpg",
+      backgroundImage: "/images/building/card.png",
     },
     {
       title: "Products",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       isClicked: false,
-      backgroundImage: "/images/cat2.jpg",
-    },
-    {
-      title: "Categories",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      isClicked: false,
-      backgroundImage: "/images/card.jpg",
+      backgroundImage: "/images/building/card.png",
     },
     {
       title: "Services",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       isClicked: false,
-      backgroundImage: "/images/cat.jpg",
+      backgroundImage: "/images/building/card.png",
     },
   ]);
   // เก็บ index ของสไลด์ที่ active
@@ -157,7 +151,7 @@
   
   
   .scrollable-text {
-  max-height: 7.6em;
+  max-height: 10.6em;
   overflow-y: auto;
   line-height: 1.5em;
   background: transparent;
@@ -245,7 +239,8 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05), 0px 15px 25px rgba(0, 0, 0, 0.3),
       0 0 0 1px rgba(255, 255, 255, 0.1);
     padding: 56px 16px 16px 16px;
-    height: 350px;
+    height: 260px;
+    width: 180px;
     border-radius: 15px;
     cursor: pointer;
     position: relative;
@@ -279,13 +274,13 @@
     transition: background-color 0.25s, border-color 0.25s;
   }
   
-  .card_effect h4 {
+  .card_effect h {
     z-index: 1;
     position: relative;
-    margin: 12px 0 4px 0;
+    margin: -5px 0 4px 0;
     font-family: inherit;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 2;
     color: #ffffff;
   }
@@ -294,7 +289,7 @@
     z-index: 1;
     position: relative;
     margin: 0;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 1.7;
     color: #a1a1aa;
   }
