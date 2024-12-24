@@ -65,7 +65,7 @@
         <img src="assets/images/map-content/line.png" alt="Card Image" class="w-[40%] ml-[-3%] mb-4" />
         <p class="text-gray-700 mb-4 w-[35%] scrollable-text">{{ cards[activeIndex].description }}</p>
         <button
-          class="mt-4 px-4 py-2 \ bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md"
+          class="mt-4 px-4 py-2  bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md"
           @click="onButtonClick(activeIndex)"
         >
           เข้าชมห้อง
