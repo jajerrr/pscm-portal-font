@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperController />
+                <SwiperController /> 
 
       <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[3vw] fixed">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -203,6 +203,8 @@ const cards = reactive([
 ]);
 
 const activeIndex = ref(0); // เก็บ index ที่ active
+// เก็บ ID ที่เลือก
+const selectedId = ref(1); // ค่าเริ่มต้น ID 1
 
 // ฟังก์ชันเปลี่ยน ID
 function handleButtonClick(id) {
@@ -210,25 +212,40 @@ function handleButtonClick(id) {
   console.log(`Selected ID: ${id}`);
 }
 
-// ฟังก์ชันจัดการการคลิกใน Swiper Slide
+// ฟังก์ชันเมื่อ Swiper Slide เปลี่ยน
+function onSlideChange(swiper) {
+  activeIndex.value = swiper.realIndex; // อัปเดต active index
+  console.log("Active Index Updated:", activeIndex.value);
+
+  // ปิด toggle สำหรับการ์ดที่ไม่ใช่ real active index
+  filteredData.value.data.forEach((item, index) => {
+    if (index !== activeIndex.value) {
+      item.isClicked = false; // รีเซ็ต isClicked
+    }
+  });
+}
+
+// ฟังก์ชันจัดการคลิก
 function toggleClick(cardId, index) {
   const card = cards.find((card) => card.id === cardId);
-  if (card) {
-    card.data.forEach((item) => (item.isClicked = false)); // รีเซ็ต isClicked
-    card.data[index].isClicked = true; // ตั้ง isClicked ให้ true สำหรับ Slide ที่คลิก
+  if (!card || index !== activeIndex.value) {
+    console.warn("Cannot toggle non-active slide.");
+    return; // หยุดการทำงานหากไม่ใช่ real active index
   }
+
+  card.data.forEach((item) => (item.isClicked = false)); // รีเซ็ต isClicked
+  card.data[index].isClicked = true; // ตั้ง isClicked ให้ true สำหรับ Slide ที่คลิก
+  console.log(`Clicked on active slide: ${index}`);
 }
-// เก็บ ID ที่เลือก
-const selectedId = ref(1); // ค่าเริ่มต้น ID 1
+
+
 
 // คำนวณข้อมูลตาม ID ที่เลือก
 const filteredData = computed(() => {
   return cards.find((card) => card.id === selectedId.value) || { id: null, data: [] };
 });
 
-function onSlideChange(swiper) {
-  activeIndex.value = swiper.realIndex;
-}
+
 
 function onButtonClick(index) {
   alert(`You clicked on: ${filteredData[index]?.title}`);
