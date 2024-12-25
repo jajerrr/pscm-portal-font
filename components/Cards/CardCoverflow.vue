@@ -1,7 +1,7 @@
 <template>
   <div >
   <div @click="resetClick" class="flex">
-    <Swiper class="w-[25%] overflow-hidden bg-transparent "
+    <Swiper class="w-1/4 overflow-hidden bg-transparent "
     style= "margin-left:-5% !important; margin-right:0 !important;"
       :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperNavigation]" 
       :effect="'coverflow'" :grabCursor="true"
@@ -16,7 +16,7 @@
         nextEl: '.slideNext-btn'
       }" :loop="false" :pagination="false" @slideChange="onSlideChange">
       <!-- สร้าง SwiperSlide สำหรับการ์ดแต่ละใบ -->
-      <SwiperSlide v-for="(card, index) in cards" :key="index" class="flex " @click.stop="toggleClick(index)"
+      <SwiperSlide v-for="(card, index) in cardData.cards" :key="index" class="flex " @click.stop="toggleClick(index)"
       style="width: 230px !important">
         <div class="card_effect justify-center" :class="{ clicked: card.isClicked }"
           :style="{ backgroundImage: `url(${card.backgroundImage})` }">
@@ -45,12 +45,12 @@
       </SwiperSlide>
       <SwiperController />
 
-      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[3vw] fixed">
+      <div class="slide-arrow slide-arrow__prev slidePrev-btn ml-[1vw] fixed">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[3vw] fixed">
+      <div class="slide-arrow slide-arrow__next slideNext-btn mr-[1vw] fixed">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -59,11 +59,11 @@
     </Swiper>
 
     <!-- Card Description Section -->
-    <div class="w-[50%] p-5 flex items-center SF-TH">
+    <div class="w-1/2 p-5 flex items-center SF-TH">
       <div class="bg-transparent p-6">
-        <h2 class="text-2xl  text-[#37629B] font-bold mb-4">{{ cards[activeIndex].title }}</h2>
+        <h2 class="text-2xl  text-[#37629B] font-bold mb-4">{{ cardData.cards[activeIndex].title }}</h2>
         <img src="assets/images/map-content/line.png" alt="Card Image" class="w-[40%] ml-[-3%] mb-4" />
-        <p class="text-gray-700 mb-4 w-[35%] scrollable-text">{{ cards[activeIndex].description }}</p>
+        <p class="text-gray-700 mb-4 w-[35%] scrollable-text">{{ cardData.cards[activeIndex].description }}</p>
         <button
           class="mt-4 px-4 py-2  bg-orange-500 hover:bg-[rgb(255,100,28)] text-white rounded-md"
           @click="onButtonClick(activeIndex)"
@@ -73,41 +73,50 @@
       </div>
     </div>
 
+   
   </div>
   </div>
 </template>
 
 <script setup>
+ import {useCardStore} from './stores/cardStore.ts'
+
+const cardData = useCardStore ();
+
+
+
+
+
 // กำหนดข้อมูลของการ์ด
-const cards = reactive([
-  {
-    title: "Products",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    isClicked: false,
-    backgroundImage: "/images/building/card.png",
-  },
-  {
-    title: "Categories",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    isClicked: false,
-    backgroundImage: "/images/building/card.png",
-  },
-  {
-    title: "Services",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    isClicked: false,
-    backgroundImage: "/images/building/card.png",
-  },
-]);
+// const cards = reactive([
+//   {
+//     title: "Products",
+//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+//     isClicked: false,
+//     backgroundImage: "/images/building/card.png",
+//   },
+//   {
+//     title: "Categories",
+//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+//     isClicked: false,
+//     backgroundImage: "/images/building/card.png",
+//   },
+//   {
+//     title: "Services",
+//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+//     isClicked: false,
+//     backgroundImage: "/images/building/card.png",
+//   },
+// ]);
+
 // เก็บ index ของสไลด์ที่ active
 const activeIndex = ref(0);
-
 let previousActiveIndex = 0; 
 
 // ฟังก์ชันเมื่อมีการเปลี่ยนสไลด์
 function onSlideChange(swiper) {
   if (previousActiveIndex !== swiper.realIndex) {
-    cards[previousActiveIndex].isClicked = false;
+    cardData.cards[previousActiveIndex].isClicked = false;
     previousActiveIndex = swiper.realIndex;
   }
   activeIndex.value = swiper.realIndex; // อัปเดต index ที่ active
@@ -116,18 +125,18 @@ function onSlideChange(swiper) {
 // ฟังก์ชัน toggle สำหรับการคลิกการ์ด
 function toggleClick(index) {
   if (index === activeIndex.value) {
-    cards.forEach((card) => (card.isClicked = false));
-    cards[index].isClicked = true;
+    cardData.cards.forEach((card) => (card.isClicked = false));
+    cardData.cards[index].isClicked = true;
   }
 }
 
 // ฟังก์ชันเมื่อคลิกปุ่มใน Card Description
 function onButtonClick(index) {
-  alert(`You clicked on card: ${cards[index].title}`);
+  alert(`You clicked on card: ${cardData.cards[index].title}`);
 }
 
 function resetClick() {
-  cards.forEach((card) => (card.isClicked = false));
+  cardData.cards.forEach((card) => (card.isClicked = false));
 }
 </script>
 

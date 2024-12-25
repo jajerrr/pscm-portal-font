@@ -15,7 +15,7 @@
           nextEl: '.slideNext-btn'
         }" :loop="false" :pagination="false" @slideChange="onSlideChange">
         <!-- สร้าง SwiperSlide สำหรับการ์ดแต่ละใบ -->
-        <SwiperSlide v-for="(card, index) in cards" :key="index" class="flex " @click.stop="toggleClick(index)"
+        <SwiperSlide v-for="(card, index) in cardData.cards" :key="index" class="flex " @click.stop="toggleClick(index)"
           style="width: 180px !important; height: 260px;">
           <div class="card_effect justify-center SF-TH" :class="{ clicked: card.isClicked }"
             :style="{ backgroundImage: `url(${card.backgroundImage})` }">
@@ -80,40 +80,12 @@
   </template>
   
   <script setup>
-  // กำหนดข้อมูลของการ์ด
-  const cards = reactive([
-    {
-      title: "Products",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      isClicked: false,
-      backgroundImage: "/images/building/card.png",
-    },
-    {
-      title: "Categories",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      isClicked: false,
-      backgroundImage: "/images/building/card.png",
-    },
-    {
-      title: "Services",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      isClicked: false,
-      backgroundImage: "/images/building/card.png",
-    },
-    {
-      title: "Products",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      isClicked: false,
-      backgroundImage: "/images/building/card.png",
-    },
-    {
-      title: "Services",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      isClicked: false,
-      backgroundImage: "/images/building/card.png",
-    },
-  ]);
-  // เก็บ index ของสไลด์ที่ active
+
+
+import {useCardStore} from './stores/cardStore.ts'
+
+const cardData = useCardStore ();
+
   const activeIndex = ref(0);
   
   let previousActiveIndex = 0; // เก็บ index ของสไลด์ก่อนหน้า
@@ -121,7 +93,7 @@
   // ฟังก์ชันเมื่อมีการเปลี่ยนสไลด์
   function onSlideChange(swiper) {
     if (previousActiveIndex !== swiper.realIndex) {
-      cards[previousActiveIndex].isClicked = false;
+      cardData.cards[previousActiveIndex].isClicked = false;
       previousActiveIndex = swiper.realIndex;
     }
     activeIndex.value = swiper.realIndex; // อัปเดต index ที่ active
@@ -130,18 +102,18 @@
   // ฟังก์ชัน toggle สำหรับการคลิกการ์ด
   function toggleClick(index) {
     if (index === activeIndex.value) {
-      cards.forEach((card) => (card.isClicked = false));
-      cards[index].isClicked = true;
+      cardData.cards.forEach((card) => (card.isClicked = false));
+      cardData.cards[index].isClicked = true;
     }
   }
   
   // ฟังก์ชันเมื่อคลิกปุ่มใน Card Description
   function onButtonClick(index) {
-    alert(`You clicked on card: ${cards[index].title}`);
+    alert(`You clicked on card: ${cardData.cards[index].title}`);
   }
   
   function resetClick() {
-    cards.forEach((card) => (card.isClicked = false));
+    cardData.cards.forEach((card) => (card.isClicked = false));
   }
   </script>
   

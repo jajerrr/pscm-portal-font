@@ -48,7 +48,7 @@
             :key="index"
             type="button"
             class="w-auto h-auto p-1  rounded-3xl text-white focus:outline-none bg-[#00000034]  border hover:bg-[#4069A0] hover:text-gray-300 focus:bg-[#668fcdac] flex justify-center items-center Inter-Medium"
-            @click="navigateTo(button.path)"
+            @click="changeCard()"
           >
             <img :src="getContentImageSrc(button.icons)" class="max-w-8 p-1" />
             <div>{{ button.name }}</div>
@@ -73,7 +73,7 @@
             :key="index"
             type="button"
             class="w-auto h-auto p-1  rounded-3xl text-white focus:outline-none bg-[#00000034]  border hover:bg-[#4069A0] hover:text-gray-300 focus:bg-[#668fcdac] flex justify-center items-center Inter-Medium"
-            @click="navigateTo(button.path)"
+           @click="changeCard(index)"
           >
             <img :src="getContentImageSrc(button.icons)" class="max-w-8 p-1" />
             <div>{{ button.name }}</div>
@@ -111,32 +111,30 @@
 
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from "vue";
-import { useRouter } from "vue-router";
+
+import {useCardStore} from './stores/cardStore.ts'
+
+const cardData = useCardStore ();
+
+
+const changeCard =(index) => {
+  cardData.setCardsData(index);
+};
 
 // Button names
 const buttonname = ref([
-  { icons: "/images/building/Master_Line.png", name: "interactive", path: "" },
-  { icons: "/images/building/form 1.png", name: "Quiz", path: "" },
-  { icons: "/images/building/Test Tube.png", name: "MMI", path: "" },
-  {
-    icons: "/images/building/Gamepad Minimalistic.png",
-    name: "Game",
-    path: "",
-  },
-  { icons: "/images/building/Clapperboard Play.png", name: "Video", path: "" },
-  { icons: "/images/building/People Nearby.png", name: "360°", path: "" },
+  { icons: "/images/building/Master_Line.png", name: "interactive" },
+  { icons: "/images/building/form 1.png", name: "Quiz" },
+  { icons: "/images/building/Test Tube.png", name: "MMI"  },
+  {icons: "/images/building/Gamepad Minimalistic.png",name: "Game",},
+  { icons: "/images/building/Clapperboard Play.png", name: "Video"},
+  { icons: "/images/building/People Nearby.png", name: "360°"},
 ]);
 
-const router = useRouter();
 
 const getContentImageSrc = (imgPath) => {
   return imgPath; // ใช้พาธที่กำหนดไว้ใน array
 };
-
-// Function to navigate
-function navigateTo(path) {
-  router.push(path);
-}
 
 // State to control the visibility of the component
 const showCard = ref(false);

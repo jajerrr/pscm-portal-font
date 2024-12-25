@@ -64,7 +64,7 @@
             </Swiper>
 
             <!-- Card Description Section -->
-            <div class="w-[50%] p-5 flex items-center SF-TH text-gray-800">
+            <!-- <div class="w-[50%] p-5 flex items-center SF-TH text-gray-800">
                 <div class="bg-transparent p-6">
                     <h2 class="text-2xl text-[#37629B] font-bold mb-4">{{ filteredData[activeIndex]?.title }}</h2>
       <p class="text-gray-700 mb-4 w-[35%] scrollable-text">
@@ -78,7 +78,7 @@
                         เข้าชมห้อง
                     </button>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
