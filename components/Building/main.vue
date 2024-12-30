@@ -48,7 +48,7 @@
             :key="index"
             type="button"
             class="w-auto h-auto p-1  rounded-3xl text-white focus:outline-none bg-[#00000034]  border hover:bg-[#4069A0] hover:text-gray-300 focus:bg-[#668fcdac] flex justify-center items-center Inter-Medium"
-            @click="changeCard()"
+             @click="changeCard(index)"
           >
             <img :src="getContentImageSrc(button.icons)" class="max-w-8 p-1" />
             <div>{{ button.name }}</div>
