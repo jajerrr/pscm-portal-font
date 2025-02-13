@@ -16,6 +16,7 @@
     "@vueuse/core": "^10.10.0",
     "@vueuse/nuxt": "^10.9.0",
     "animate.css": "^4.1.1",
+    "apexcharts": "^4.4.0",
     "axios": "^1.7.7",
     "crypto-js": "^4.2.0",
     "firebase": "^10.12.0",
@@ -38,6 +39,7 @@
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "vue-scrollto": "^2.20.0",
+    "vue3-apexcharts": "^1.8.0",
     "vue3-carousel-nuxt": "^1.1.2",
     "yarn": "^1.22.22"
   },
