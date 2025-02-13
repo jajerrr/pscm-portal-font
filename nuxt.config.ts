@@ -11,12 +11,6 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-gsap",
 
   ],
-
-  
-
-
- 
-
   
 
   gsap: {
@@ -26,14 +20,8 @@ export default defineNuxtConfig({
       scrollTrigger: true,
 
 
-
-
-
     }
   },
-
-
-
 
   piniaPersistedstate: {
     cookieOptions: {
@@ -88,8 +76,16 @@ export default defineNuxtConfig({
     { src: "~/plugins/smv.client", mode: "client" },
     { src: "~/plugins/firebaseConfig", mode: "client" },
     "@/plugins/event-bus",
+    { src: '~/plugins/apexcharts.client.js', mode: 'client' }
+   
 
   ],
+  hooks: {
+    ready() {
+      console.log("✅ Nuxt is ready and plugins should be loaded!");
+    }
+  },
+
 
 
   compatibilityDate: "2024-08-20",
