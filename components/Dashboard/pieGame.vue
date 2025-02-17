@@ -27,35 +27,57 @@ onMounted(() => {
   const option = {
     tooltip: { trigger: "item" },
     legend: {
-      orient: "vertical",
-      right: "5%",
-      top: "center",
-      textStyle: { fontSize: 14 },
+  orient: "vertical",
+  right: "15%",
+  top: "center",
+  icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
+  itemGap: 18, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
+  textStyle: {
+    fontSize: 14,
+    color: "#333",
+    rich: {
+      name: {
+        fontSize: 18,
+        fontWeight: "normal",
+        color: "#333",
+        padding: [5, 50, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
+
+        width: 150, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ขึ้นสองบรรทัดอัตโนมัติ)
+        lineHeight: 18, // ✅ ทำให้แต่ละบรรทัดอ่านง่ายขึ้น
+      },
+      value: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "#333",
+        align: "right", // ✅ ให้ value ชิดขวา
+        width: 50, // ✅ บังคับให้ตัวเลขอยู่ในพื้นที่ที่เท่ากัน
+      },
     },
+  },
+  formatter: (name) => {
+    // ✅ บังคับ name ให้ขึ้นสองบรรทัด โดยใช้ `\n`
+    const item = pieData.find((item) => item.name === name);
+    return `{name|${name.split(" ").slice(0, 2).join(" ")}\n${name.split(" ").slice(2).join(" ")}}   {value|${item?.value.toLocaleString() || 0}}`;
+  },
+},
+
     series: [
       {
         name: "เกมหัตถการ",
         type: "pie",
         radius: ["50%", "70%"], // ✅ ทำให้เป็น Doughnut
-        center: ["50%", "50%"],
+        center: ["30%", "50%"], // ✅ ขยับ Pie ไปทางซ้าย
         avoidLabelOverlap: false,
         startAngle: 90, // ✅ เริ่มจากด้านบน
         label: {
-          show: true,
-          position: "outside", // Label อยู่ด้านนอก
-          fontSize: 14,
-          fontWeight: "bold",
+          show: false,
         },
         labelLine: {
-          show: true,
-          length: 15,
-          length2: 10,
-          lineStyle: { width: 1, color: "#999" },
+          show: false,
         },
         itemStyle: {
-          borderRadius: 30, // ✅ ทำให้ขอบมน (ค่ามาก = มนมากขึ้น)
+          borderRadius: 30, // ✅ ทำให้ขอบมน
         },
-
         data: pieData,
       },
     ],
@@ -68,25 +90,24 @@ onMounted(() => {
     graphic: [
       {
         type: "text",
-        left: "46%", // ✅ ตรงกลาง Pie จริง ๆ
+        left: "26%",
         top: "45%",
         style: {
-          text: total.toLocaleString(), // ✅ ใช้ค่าที่คำนวณมาแสดง
+          text: total.toLocaleString(),
           textAlign: "center",
-          fontSize: 44,
+          fontSize: 34,
           fontWeight: "bold",
           fill: "#333",
         },
       },
       {
         type: "text",
-        left: "48%", // ✅ ตรงกลาง Pie จริง ๆ
-        top: "53%", // ✅ ขยับลงหน่อย
+        left: "28%",
+        top: "54%",
         style: {
           text: "คน",
           textAlign: "center",
-          fontSize: 34,
-          fontWeight: "normal",
+          fontSize: 24,
           fill: "#666",
         },
       },
@@ -98,10 +119,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-screen bg-gray-100">
-    <div
-      class="w-[60%] h-[800px] bg-white shadow-lg p-6 rounded-lg flex items-center"
-    >
+  <div class="flex items-center justify-center">
+    <div class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center">
       <div ref="chartContainer" class="w-full h-full"></div>
     </div>
   </div>

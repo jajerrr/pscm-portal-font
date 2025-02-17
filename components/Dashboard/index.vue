@@ -1,66 +1,66 @@
-<template>
-  <div class="w-screen h-screen  flex justify-center items-center">
-    <div style="width: 100%; height: 400px; border: 2px solid red;">
-      <apexchart type="bar" height="100%" :options="chartOptions" :series="series"></apexchart>
-    </div>
-  </div>
-</template>
+<script setup>
+import { ref, onMounted } from 'vue';
+import * as echarts from 'echarts';
 
+const chartContainer = ref(null);
 
-<script>
+onMounted(() => {
+  if (!chartContainer.value) return;
 
-import VueApexCharts from "/plugins/apexcharts.client.js";
-export default {
-  components: {
-  apexchart: VueApexCharts
-},
-mounted() {
-  console.log("✅ VueApexCharts component is mounted!");
-},
-  data() {
-    return {
-      series: [{
-        name: 'Inflation',
-        data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
-      }],
-      chartOptions: {
-        chart: { height: 350, type: 'bar' },
-        plotOptions: {
-          bar: { borderRadius: 10, dataLabels: { position: 'top' } }
-        },
-        dataLabels: {
-          enabled: true,
-          formatter: val => val + "%",
-          offsetY: -20,
-          style: { fontSize: '12px', colors: ["#304758"] }
-        },
-        xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-          position: 'top',
-          axisBorder: { show: false },
-          axisTicks: { show: false },
-          crosshairs: {
-            fill: {
-              type: 'gradient',
-              gradient: { colorFrom: '#D8E3F0', colorTo: '#BED1E6', stops: [0, 100], opacityFrom: 0.4, opacityTo: 0.5 }
-            }
-          },
-          tooltip: { enabled: true }
-        },
-        yaxis: {
-          axisBorder: { show: false },
-          axisTicks: { show: false },
-          labels: { show: false, formatter: val => val + "%" }
-        },
-        title: {
-          text: 'Monthly Inflation in Argentina, 2002',
-          floating: true,
-          offsetY: 330,
-          align: 'center',
-          style: { color: '#ffffff' }
+  const myChart = echarts.init(chartContainer.value, null, {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+        axisTick: { alignWithLabel: true }
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value'
+      }
+    ],
+    series: [
+      {
+        name: 'ผู้ใช้งาน',
+        type: 'bar',
+        barWidth: '20%',
+        data: [30, 52, 200, 334, 390, 330, 220, 80, 52, 230, 134, 190],
+        itemStyle: {
+          borderRadius: [20, 20, 20, 20], 
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  { offset: 0, color: '#FF7A00' }, // สีบน
+  { offset: 1, color: '#FFD579' }  // สีล่าง
+])
+
         }
       }
-    };
-  }
-};
+    ]
+  };
+
+  myChart.setOption(option);
+
+  window.addEventListener('resize', () => myChart.resize());
+});
 </script>
+
+<template>
+  <div class="flex items-center justify-center">
+    <div ref="chartContainer" class="w-[100%] h-[400px] bg-white shadow-lg p-4 rounded-lg"></div>
+  </div>
+</template>
