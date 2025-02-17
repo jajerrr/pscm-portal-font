@@ -210,6 +210,16 @@
             </div>
           </div>
 
+          <!-- ranking -->
+
+          <div
+            class="f-col gap-5 "
+          >
+          
+           
+          </div>
+          <Rank />
+
           </div>
 
 
@@ -222,6 +232,7 @@
 <script setup>
 import PieFloor from "/components/Dashboard/pieFloor.vue";
 import PieGame from "/components/Dashboard/pieGame.vue";
+import Rank from "/components/Dashboard/ranking.vue";
 
 </script>
 
