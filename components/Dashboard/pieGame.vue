@@ -90,7 +90,7 @@ onMounted(() => {
     graphic: [
       {
         type: "text",
-        left: "26%",
+        left: "24%",
         top: "45%",
         style: {
           text: total.toLocaleString(),
@@ -119,7 +119,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center">
+  <div class="flex items-center justify-center SF-TH">
     <div class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center">
       <div ref="chartContainer" class="w-full h-full"></div>
     </div>

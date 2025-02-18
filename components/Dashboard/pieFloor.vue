@@ -97,7 +97,7 @@ onMounted(() => {
     graphic: [
       {
         type: "text",
-        left: "26%", // ✅ ตรงกลาง Pie จริง ๆ
+        left: "24%", // ✅ ตรงกลาง Pie จริง ๆ
         top: "45%",
         style: {
           text: total.toLocaleString(), // ✅ ใช้ค่าที่คำนวณมาแสดง

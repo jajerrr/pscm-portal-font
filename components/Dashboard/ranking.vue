@@ -35,11 +35,21 @@
         >
           <!-- อันดับ -->
           <div class="text-lg font-semibold text-gray-700">
-            <span v-if="index < 3" class="bg-yellow-400 text-white px-3 py-1 rounded-full">
-              {{ index + 1 }}
-            </span>
-            <span v-else>{{ index + 1 }}th</span>
-          </div>
+  <span
+    :class="{
+      'bg-yellow-400 text-white': index === 0,  /* อันดับ 1 (สีเหลือง) */
+      'bg-gray-400 text-white': index === 1,   /* อันดับ 2 (สีเทา) */
+      'bg-orange-400 text-white': index === 2, /* อันดับ 3 (สีส้ม) */
+      'text-gray-700': index >= 3              /* อันดับ 4 ขึ้นไป (สีเทาปกติ) */
+    }"
+    class="px-3 py-1 rounded-full"
+  >
+    {{ index + 1 }}
+  </span>
+  <span v-if="index >= 3">th</span>
+</div>
+
+
   
           <!-- ชื่อ + รูป -->
           <div class="flex items-center space-x-3">
@@ -58,8 +68,14 @@
           <div class="text-gray-600">{{ user.course }}</div>
   
           <!-- คะแนน -->
-          <div class="text-right text-orange-500 font-semibold text-lg">
+          <!-- <div class="bg-[#FFF6EE] text-orange-500 font-semibold text-sm px-4 py-1 rounded-full text-right inline-block">
             {{ user.score }} เหรียญ
+          </div> -->
+
+          <div class="text-sm font-semibold text-right">
+            <span class="bg-[#FFF6EE] text-orange-500 font-semibold text-sm px-4 py-1 rounded-full  inline-block">
+              {{ user.score }} เหรียญ
+            </span>
           </div>
         </div>
       </div>
