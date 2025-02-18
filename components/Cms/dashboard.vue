@@ -61,18 +61,18 @@
                 </div>
               </div>
 
-              <div>
+              <div class =" flex-col items-center   ml-auto mr-5">
                 <div class="pt-5">
                   <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5"
                     >ส่งออกรายงาน</h
                   >
                 </div>
 
-                <div class="flex items-center space-x-3 p-5">
+                <div class="flex items-center space-x-[5rem] p-5">
                   <!-- Dropdown Selection -->
                   <div class="relative w-full">
                     <select
-                      class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none"
+                      class="w-[25rem] bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none"
                     >
                       <option>เลือกรายงานที่ต้องการส่งออก</option>
                       <option>รายงานยอดขาย</option>
@@ -104,7 +104,7 @@
      
 
       <!-- Filter Options -->
-      <div class="flex items-center space-x-4  ml-auto mr-7 mt-5">
+      <div class="flex items-center space-x-[3rem]  ml-auto mr-7 mt-5">
         <!-- ปี -->
         <select
           class="border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none"

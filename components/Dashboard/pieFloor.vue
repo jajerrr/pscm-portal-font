@@ -28,7 +28,7 @@ onMounted(() => {
     tooltip: { trigger: "item" },
     legend: {
   orient: "vertical",
-  right: "15%",
+  right: "10%",
   top: "center",
   icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
   itemGap: 25, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
@@ -37,19 +37,19 @@ onMounted(() => {
     color: "#333",
     rich: {
       name: {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: "normal",
         color: "#333",
-        padding: [5, 50, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
+        padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
         width: 180, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ value อยู่ตรงกัน)
         overflow: "truncate", // ✅ ถ้าชื่อยาวเกิน จะตัดข้อความ
       },
       value: {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: "bold",
         color: "#333",
         align: "right", // ✅ ให้ value ชิดขวา
-        width: 50, // ✅ บังคับให้ value อยู่ชิดขวาแบบเท่ากัน
+        width: 40, // ✅ บังคับให้ value อยู่ชิดขวาแบบเท่ากัน
       },
     },
   },
