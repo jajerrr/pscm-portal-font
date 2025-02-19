@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import * as echarts from "echarts";
 
+
 const chartContainer = ref(null);
 
 onMounted(() => {

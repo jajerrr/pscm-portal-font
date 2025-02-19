@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
+import PieChart from '/components/Dashboard/pieFloor.vue'; // import PieChart
+
+const totalMonthlyData = ref(0); // สร้างตัวแปรเก็บค่า totalMonthlyData
 
 const chartContainer = ref(null);
 const selectedYear = ref('2566');
@@ -35,10 +38,19 @@ const updateChart = () => {
     data = Object.keys(mockData[selectedYear.value]).map(month => mockData[selectedYear.value][month].reduce((a, b) => a + b, 0));
     categories = Object.keys(mockData[selectedYear.value]);
   } else {
-    // แสดงข้อมูลรายวันในเดือนที่เลือก
-    data = mockData[selectedYear.value][selectedMonth.value];
-    categories = Array.from({ length: data.length }, (_, i) => `วัน ${i + 1}`); 
+     // แสดงข้อมูลรายวันในเดือนที่เลือก
+     data = mockData[selectedYear.value][selectedMonth.value];
+    categories = Array.from({ length: data.length }, (_, i) => `วัน ${i + 1}`);
+    // Log ค่า รวมของเดือนที่เลือก
+    const totalMonthlyData = data.reduce((a, b) => a + b, 0);
+    console.log(`รวมค่าเดือน ${selectedMonth.value}:`, totalMonthlyData);
   }
+
+
+
+const store = useTotalMonthlyDataStore()
+
+store.setTotalMonthlyData(data) // ส่งค่าผ่าน store
 
   const option = {
     tooltip: {
@@ -104,6 +116,6 @@ onMounted(updateChart);
     </div>
     <div class="flex items-center justify-center">
       <div ref="chartContainer" class="w-[100%] h-[400px] bg-white shadow-lg p-4 rounded-lg"></div>
-    </div>
+    </div>     
   </div>
 </template>
