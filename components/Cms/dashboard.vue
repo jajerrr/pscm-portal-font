@@ -76,9 +76,9 @@
                         class="w-[25rem] bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none"
                       >
                         <option>เลือกรายงานที่ต้องการส่งออก</option>
-                        <option>รายงานยอดขาย</option>
-                        <option>รายงานลูกค้า</option>
-                        <option>รายงานการสั่งซื้อ</option>
+                        <option>รายงานสถิติจำนวนผู้เข้าใช้งานเว็บไซต์</option>
+                        <option>รายงานสถิติการเข้าใช้งานแยกตามชั้น</option>
+                        <option>รายงานสถิติอันดับเหรียญและคะแนนทักษะ</option>
                       </select>
                     </div>
 

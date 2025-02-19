@@ -1,32 +1,37 @@
-<script setup>
-import { ref, onMounted } from "vue";
-import * as echarts from "echarts";
 
+
+<script setup>
+import { ref, computed, watch, onMounted } from "vue";
+import * as echarts from "echarts";
+import { useTotalMonthlyDataStore } from "/stores/totalMonthlyData.js";
+
+const store = useTotalMonthlyDataStore();
+
+// สร้าง computed เพื่อคำนวณและใช้งานค่า totalMonthlyData
+const totalMonthlyDataComputed = computed(() => store.totalMonthlyData);
+
+// สร้าง ref สำหรับ chartContainer
 const chartContainer = ref(null);
 
-onMounted(() => {
-  if (!chartContainer.value) return;
-
-  const myChart = echarts.init(chartContainer.value, null, {
-    renderer: "canvas",
-    useDirtyRect: false,
-  });
-
-  // ✅ ตั้งค่า Data
-  const pieData = [
-    { value: 1009, name: "หัตถการที่ 4 Intercostal Drainage" },
-    { value: 958, name: "หัตถการที่ 2 Normal labor" },
-    { value: 769, name: "หัตถการที่ 1 Advance CPR" },
-    { value: 562, name: "หัตถการที่ 3 Intercostal Drainage" },
+// ฟังก์ชันในการสร้าง pieData และอัปเดต chart
+const generateRandomData = (baseValue) => {
+  return [
+    { value: Math.floor(baseValue * Math.random() * 0.15), name: "หัตถการที่ 4 Intercostal Drainage" },
+    { value: Math.floor(baseValue * Math.random() * 0.15), name: "หัตถการที่ 2 Normal labor" },
+    { value: Math.floor(baseValue * Math.random() * 0.15), name: "หัตถการที่ 1 Advance CPR" },
+    { value: Math.floor(baseValue * Math.random() * 0.15), name: "หัตถการที่ 3 Intercostal Drainage" },
   ];
+};
 
-  // ✅ คำนวณผลรวมของค่าทั้งหมด
-  const total = pieData.reduce((sum, item) => sum + item.value, 0);
+onMounted(() => {
+  const myChart = echarts.init(chartContainer.value);
 
-  // ✅ ตั้งค่า Pie Chart (Doughnut)
-  const option = {
-    tooltip: { trigger: "item" },
-    legend: {
+  // เรียกใช้เพื่ออัปเดตกราฟเมื่อค่ามีการเปลี่ยนแปลง
+  const updateChart = () => {
+    const pieData = generateRandomData(totalMonthlyDataComputed.value); // สร้าง pieData จาก totalMonthlyData
+    myChart.setOption({
+      tooltip: { trigger: "item" },
+      legend: {
       orient: "vertical",
       right: "10%",
       top: "center",
@@ -63,58 +68,72 @@ onMounted(() => {
           .join(" ")}}   {value|${item?.value.toLocaleString() || 0}}`;
       },
     },
+      series: [
+        {
+          name: "เกมหัตถการ",
+          type: "pie",
+          radius: ["50%", "70%"], // ทำให้เป็น Doughnut
+          center: ["30%", "50%"],
+          avoidLabelOverlap: false,
+          startAngle: 90, // เริ่มจากด้านบน
+          label: {
+            show: false,
+            position: "outside", // Label อยู่ด้านนอก
+            fontSize: 14,
+            fontWeight: "bold",
+          },
+          labelLine: {
+            show: false,
+            length: 15,
+            length2: 10,
+            lineStyle: { width: 1, color: "#999" },
+          },
+          itemStyle: {
+            borderRadius: 30, // ทำให้ขอบมน
+          },
+          data: pieData,
+        },
+      ],
+    });
 
-    series: [
-      {
-        name: "เกมหัตถการ",
-        type: "pie",
-        radius: ["50%", "70%"], // ✅ ทำให้เป็น Doughnut
-        center: ["30%", "50%"], // ✅ ขยับ Pie ไปทางซ้าย
-        avoidLabelOverlap: false,
-        startAngle: 90, // ✅ เริ่มจากด้านบน
-        label: {
-          show: false,
+    // แสดงตัวเลขตรงกลางแบบอัตโนมัติ
+    myChart.setOption({
+      graphic: [
+        {
+          type: "text",
+          left: "24%", // ตรงกลาง Pie จริง ๆ
+          top: "45%",
+          style: {
+            text: totalMonthlyDataComputed.value.toLocaleString(), // ใช้ค่าที่คำนวณมาแสดง
+            textAlign: "center",
+            fontSize: 34,
+            fontWeight: "bold",
+            fill: "#333",
+          },
         },
-        labelLine: {
-          show: false,
+        {
+          type: "text",
+          left: "28%", // ตรงกลาง Pie จริง ๆ
+          top: "54%", // ขยับลงหน่อย
+          style: {
+            text: "คน",
+            textAlign: "center",
+            fontSize: 24,
+            fontWeight: "normal",
+            fontfamily: "Internet",
+            fill: "#666",
+          },
         },
-        itemStyle: {
-          borderRadius: 30, // ✅ ทำให้ขอบมน
-        },
-        data: pieData,
-      },
-    ],
+      ],
+    });
   };
 
-  myChart.setOption(option);
+  // เรียกใช้ฟังก์ชัน updateChart ในการตั้งค่ากราฟตอนเริ่มต้น
+  updateChart();
 
-  // ✅ แสดงตัวเลขตรงกลางแบบอัตโนมัติ
-  myChart.setOption({
-    graphic: [
-      {
-        type: "text",
-        left: "24%",
-        top: "45%",
-        style: {
-          text: total.toLocaleString(),
-          textAlign: "center",
-          fontSize: 34,
-          fontWeight: "bold",
-          fill: "#333",
-        },
-      },
-      {
-        type: "text",
-        left: "28%",
-        top: "54%",
-        style: {
-          text: "คน",
-          textAlign: "center",
-          fontSize: 24,
-          fill: "#666",
-        },
-      },
-    ],
+  // ใช้ watch เพื่อติดตามการเปลี่ยนแปลงของ totalMonthlyData
+  watch(totalMonthlyDataComputed, () => {
+    updateChart(); // เรียกฟังก์ชัน updateChart เมื่อค่ามีการเปลี่ยนแปลง
   });
 
   window.addEventListener("resize", () => myChart.resize());
@@ -130,11 +149,13 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="flex items-center justify-center SF-TH">
-      <div
-        class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
-      >
-        <div ref="chartContainer" class="w-full h-full"></div>
+    <div>
+      <div class="flex items-center justify-center">
+        <div
+          class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
+        >
+          <div ref="chartContainer" class="w-full h-full"></div>
+        </div>
       </div>
     </div>
   </div>

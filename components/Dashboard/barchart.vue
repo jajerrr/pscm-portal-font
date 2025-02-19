@@ -1,7 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
-import PieChart from '/components/Dashboard/pieFloor.vue'; // import PieChart
+import { useTotalMonthlyDataStore } from '/stores/totalMonthlyData.js';
+
 
 const totalMonthlyData = ref(0); // สร้างตัวแปรเก็บค่า totalMonthlyData
 
@@ -38,19 +39,23 @@ const updateChart = () => {
     data = Object.keys(mockData[selectedYear.value]).map(month => mockData[selectedYear.value][month].reduce((a, b) => a + b, 0));
     categories = Object.keys(mockData[selectedYear.value]);
   } else {
-     // แสดงข้อมูลรายวันในเดือนที่เลือก
-     data = mockData[selectedYear.value][selectedMonth.value];
+    data = mockData[selectedYear.value][selectedMonth.value];
     categories = Array.from({ length: data.length }, (_, i) => `วัน ${i + 1}`);
-    // Log ค่า รวมของเดือนที่เลือก
-    const totalMonthlyData = data.reduce((a, b) => a + b, 0);
-    console.log(`รวมค่าเดือน ${selectedMonth.value}:`, totalMonthlyData);
+    totalMonthlyData.value = data.reduce((a, b) => a + b, 0);
+    console.log(`รวมค่าเดือน ${selectedMonth.value}:`, totalMonthlyData.value);
   }
 
+  const store = useTotalMonthlyDataStore();
+  store.setTotalMonthlyData(totalMonthlyData.value); // เก็บค่าใน store
+  watch(() => store.totalMonthlyData, (newValue) => {
+  if (newValue !== 0) {
+    console.log('ค่าถูกเข้ามาแล้ว:', newValue); // ตรวจสอบค่าที่อัปเดตแล้วใน console
+  }
+});
 
-
-const store = useTotalMonthlyDataStore()
-
-store.setTotalMonthlyData(data) // ส่งค่าผ่าน store
+onMounted(() => {
+  store.setTotalMonthlyData(100);  // เปลี่ยนค่าใน store เป็น 100
+});
 
   const option = {
     tooltip: {
