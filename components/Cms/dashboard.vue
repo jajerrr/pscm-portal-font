@@ -101,7 +101,7 @@
               class="f-col gap-5 border-[1px] border-[#fbfbfb] rounded-xl text-[#6F6B6B] shadow-lg"
             >
               <div>
-                <Dashboard />
+                <Bar />
               </div>
             </div>
 
@@ -141,6 +141,8 @@
 import PieFloor from "/components/Dashboard/pieFloor.vue";
 import PieGame from "/components/Dashboard/pieGame.vue";
 import Rank from "/components/Dashboard/ranking.vue";
+import Bar from "/components/Dashboard/barchart.vue";
+
 </script>
 
 <style>

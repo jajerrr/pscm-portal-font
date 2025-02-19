@@ -27,39 +27,42 @@ onMounted(() => {
   const option = {
     tooltip: { trigger: "item" },
     legend: {
-  orient: "vertical",
-  right: "10%",
-  top: "center",
-  icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
-  itemGap: 18, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
-  textStyle: {
-    fontSize: 14,
-    color: "#333",
-    rich: {
-      name: {
+      orient: "vertical",
+      right: "10%",
+      top: "center",
+      icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
+      itemGap: 18, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
+      textStyle: {
         fontSize: 14,
-        fontWeight: "normal",
         color: "#333",
-        padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
+        rich: {
+          name: {
+            fontSize: 14,
+            fontWeight: "normal",
+            color: "#333",
+            padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
 
-        width: 150, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ขึ้นสองบรรทัดอัตโนมัติ)
-        lineHeight: 18, // ✅ ทำให้แต่ละบรรทัดอ่านง่ายขึ้น
+            width: 150, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ขึ้นสองบรรทัดอัตโนมัติ)
+            lineHeight: 18, // ✅ ทำให้แต่ละบรรทัดอ่านง่ายขึ้น
+          },
+          value: {
+            fontSize: 14,
+            fontWeight: "bold",
+            color: "#333",
+            align: "right", // ✅ ให้ value ชิดขวา
+            width: 50, // ✅ บังคับให้ตัวเลขอยู่ในพื้นที่ที่เท่ากัน
+          },
+        },
       },
-      value: {
-        fontSize: 14,
-        fontWeight: "bold",
-        color: "#333",
-        align: "right", // ✅ ให้ value ชิดขวา
-        width: 50, // ✅ บังคับให้ตัวเลขอยู่ในพื้นที่ที่เท่ากัน
+      formatter: (name) => {
+        // ✅ บังคับ name ให้ขึ้นสองบรรทัด โดยใช้ `\n`
+        const item = pieData.find((item) => item.name === name);
+        return `{name|${name.split(" ").slice(0, 2).join(" ")}\n${name
+          .split(" ")
+          .slice(2)
+          .join(" ")}}   {value|${item?.value.toLocaleString() || 0}}`;
       },
     },
-  },
-  formatter: (name) => {
-    // ✅ บังคับ name ให้ขึ้นสองบรรทัด โดยใช้ `\n`
-    const item = pieData.find((item) => item.name === name);
-    return `{name|${name.split(" ").slice(0, 2).join(" ")}\n${name.split(" ").slice(2).join(" ")}}   {value|${item?.value.toLocaleString() || 0}}`;
-  },
-},
 
     series: [
       {
@@ -119,26 +122,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <div class="flex items-center justify-center SF-TH">
-    <div class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center">
-      <div ref="chartContainer" class="w-full h-full"></div>
-    </div>
-  </div> -->
-
   <div class="f-col">
-                  <div>
-                    <div class="pt-5">
-                      <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5"
-                        >เกมหัตถการ</h
-                      >
-                      <div class="border-t border-gray-300 my-4 p-5"></div>
-                    </div>
-                  </div>
+    <div>
+      <div class="pt-5">
+        <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5">เกมหัตถการ</h>
+        <div class="border-t border-gray-300 my-4 p-5"></div>
+      </div>
+    </div>
 
-                  <div class="flex items-center justify-center SF-TH">
-    <div class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center">
-      <div ref="chartContainer" class="w-full h-full"></div>
+    <div class="flex items-center justify-center SF-TH">
+      <div
+        class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
+      >
+        <div ref="chartContainer" class="w-full h-full"></div>
+      </div>
     </div>
   </div>
-                </div>
 </template>

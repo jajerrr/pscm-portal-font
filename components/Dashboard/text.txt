@@ -1,0 +1,299 @@
+ 'เมษา': Array(30).fill().map(() => Math.floor(Math.random() * 200)),
+    'พฤษภา': Array(31).fill().map(() => Math.floor(Math.random() * 200)),  
+    'มิถุนา': Array(30).fill().map(() => Math.floor(Math.random() * 200)), 
+    'กรกฎา': Array(31).fill().map(() => Math.floor(Math.random() * 200)),
+    'สิงหา': Array(31).fill().map(() => Math.floor(Math.random() * 200)),  
+    'กันยา': Array(30).fill().map(() => Math.floor(Math.random() * 200)),  
+    'ตุลา': Array(31).fill().map(() => Math.floor(Math.random() * 200)),  
+    'พฤศจิกา': Array(30).fill().map(() => Math.floor(Math.random() * 200)),  
+    'ธันวา': Array(31).fill().map(() => Math.floor(Math.random() * 200)), 
+
+
+     <option>ทุกเดือน</option>
+          <option>มกรา</option>
+          <option>กุมภา</option>
+          <option>มีนา</option>
+          <option>เมษา</option>
+          <option>พฤษภา</option>
+          <option>มิถุนา</option>
+          <option>กรกฎา</option>
+          <option>สิงหา</option>
+          <option>กันยา</option>
+          <option>ตุลา</option>
+          <option>พฤศจิกา</option>
+          <option>ธันวา</option>
+
+
+bar chart original
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import * as echarts from 'echarts';
+
+const chartContainer = ref(null);
+const selectedYear = ref('2566');
+const selectedMonth = ref('ทุกเดือน');
+const startDate = ref('');
+const endDate = ref('');
+
+// Mock data สำหรับแต่ละปี
+const mockData = {
+  '2566': {
+    'มกรา': Array(31).fill().map(() => Math.floor(Math.random() * 200)), 
+    'กุมภา': Array(28).fill().map(() => Math.floor(Math.random() * 200)), 
+    'มีนา': Array(31).fill().map(() => Math.floor(Math.random() * 200)),
+  },
+};
+
+let myChart;
+
+const updateChart = () => {
+  if (!chartContainer.value) return;
+  
+  if (!myChart) {
+    myChart = echarts.init(chartContainer.value, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+  }
+
+  let data = [];
+  let categories = [];
+
+  if (selectedMonth.value === 'ทุกเดือน') {
+    // แสดงข้อมูลรายปี (ข้อมูลรวมทุกเดือน)
+    data = Object.keys(mockData[selectedYear.value]).map(month => mockData[selectedYear.value][month].reduce((a, b) => a + b, 0));
+    categories = Object.keys(mockData[selectedYear.value]);
+  } else {
+    // แสดงข้อมูลรายวันในเดือนที่เลือก
+    data = mockData[selectedYear.value][selectedMonth.value];
+    categories = Array.from({ length: data.length }, (_, i) => `วัน ${i + 1}`); 
+  }
+
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: [{
+      type: 'category',
+      data: categories,
+      axisTick: { alignWithLabel: true }
+    }],
+    yAxis: [{ type: 'value' }],
+    series: [{
+      name: 'ผู้ใช้งาน',
+      type: 'bar',
+      barWidth: '20%',
+      data: data,
+      itemStyle: {
+        borderRadius: [20, 20, 20, 20],
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: '#FF7A00' },
+          { offset: 1, color: '#FFD579' }
+        ])
+      }
+    }]
+  };
+
+  myChart.setOption(option);
+};
+
+onMounted(updateChart);
+</script>
+
+<template>
+  <div class="f-col">
+    <div class="flex right-[6%] items-center mb-5">
+      <div class="flex items-center space-x-[3rem] ml-auto mr-7 mt-5">
+        <!-- ปี -->
+        <select v-model="selectedYear" class="border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none">
+          <option>2566</option>
+        </select>
+
+        <!-- เดือน -->
+        <select v-model="selectedMonth" class="border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none">
+          <option>ทุกเดือน</option>
+          <option>มกรา</option>
+          <option>กุมภา</option>
+          <option>มีนา</option>
+         
+          <!-- เพิ่มเดือนอื่นๆ ที่ต้องการ -->
+        </select>
+        <!-- ปุ่มยืนยัน -->
+        <button @click="updateChart" class="bg-black text-white px-5 py-2 rounded-lg shadow-md hover:bg-gray-900">
+          ยืนยัน
+        </button>
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <div ref="chartContainer" class="w-[100%] h-[400px] bg-white shadow-lg p-4 rounded-lg"></div>
+    </div>
+  </div>
+</template>
+
+
+
+
+
+
+
+pir floor
+
+
+
+<script setup>
+import { ref, onMounted } from "vue";
+import * as echarts from "echarts";
+
+const chartContainer = ref(null);
+
+onMounted(() => {
+  if (!chartContainer.value) return;
+
+  const myChart = echarts.init(chartContainer.value, null, {
+    renderer: "canvas",
+    useDirtyRect: false,
+  });
+
+  // ✅ ตั้งค่า Data
+  const pieData = [
+    { value: 1009, name: "Lobby" },
+    { value: 958, name: "ชั้นที่ 1" },
+    { value: 769, name: "ชั้นที่ 2" },
+    { value: 562, name: "ชั้นที่ 3" },
+  ];
+
+  // ✅ คำนวณผลรวมของค่าทั้งหมด
+  const total = pieData.reduce((sum, item) => sum + item.value, 0);
+
+  // ✅ ตั้งค่า Pie Chart (Doughnut)
+  const option = {
+    tooltip: { trigger: "item" },
+    legend: {
+      orient: "vertical",
+      right: "10%",
+      top: "center",
+      icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
+      itemGap: 25, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
+      textStyle: {
+        fontSize: 14,
+        color: "#333",
+        rich: {
+          name: {
+            fontSize: 14,
+            fontWeight: "normal",
+            color: "#333",
+            padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
+            width: 180, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ value อยู่ตรงกัน)
+            overflow: "truncate", // ✅ ถ้าชื่อยาวเกิน จะตัดข้อความ
+          },
+          value: {
+            fontSize: 14,
+            fontWeight: "bold",
+            color: "#333",
+            align: "right", // ✅ ให้ value ชิดขวา
+            width: 40, // ✅ บังคับให้ value อยู่ชิดขวาแบบเท่ากัน
+          },
+        },
+      },
+      formatter: (name) => {
+        // ✅ หา value ที่ตรงกับชื่อ และแสดงเลขตามหลัง
+        const item = pieData.find((item) => item.name === name);
+        return `{name|${name}}  {value|${item?.value.toLocaleString() || 0}}`;
+      },
+    },
+
+    series: [
+      {
+        name: "เกมหัตถการ",
+        type: "pie",
+        radius: ["50%", "70%"], // ✅ ทำให้เป็น Doughnut
+        center: ["30%", "50%"],
+        avoidLabelOverlap: false,
+        startAngle: 90, // ✅ เริ่มจากด้านบน
+        label: {
+          show: false,
+          position: "outside", // Label อยู่ด้านนอก
+          fontSize: 14,
+          fontWeight: "bold",
+        },
+        labelLine: {
+          show: false,
+          length: 15,
+          length2: 10,
+          lineStyle: { width: 1, color: "#999" },
+        },
+        itemStyle: {
+          borderRadius: 30, // ✅ ทำให้ขอบมน (ค่ามาก = มนมากขึ้น)
+        },
+
+        data: pieData,
+      },
+    ],
+  };
+
+  myChart.setOption(option);
+
+  // ✅ แสดงตัวเลขตรงกลางแบบอัตโนมัติ
+  myChart.setOption({
+    graphic: [
+      {
+        type: "text",
+        left: "24%", // ✅ ตรงกลาง Pie จริง ๆ
+        top: "45%",
+        style: {
+          text: total.toLocaleString(), // ✅ ใช้ค่าที่คำนวณมาแสดง
+          textAlign: "center",
+          fontSize: 34,
+          fontWeight: "bold",
+          fill: "#333",
+        },
+      },
+      {
+        type: "text",
+        left: "28%", // ✅ ตรงกลาง Pie จริง ๆ
+        top: "54%", // ✅ ขยับลงหน่อย
+        style: {
+          text: "คน",
+          textAlign: "center",
+          fontSize: 24,
+          fontWeight: "normal",
+          fontfamily: "Internet",
+          fill: "#666",
+        },
+      },
+    ],
+  });
+
+  window.addEventListener("resize", () => myChart.resize());
+});
+</script>
+
+<template>
+  <div class="f-col">
+    <div>
+      <div class="pt-5">
+        <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5">PSCMชั้นต่างๆ</h>
+        <div class="border-t border-gray-300 my-4 p-5"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center justify-center">
+        <div
+          class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
+        >
+          <div ref="chartContainer" class="w-full h-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+

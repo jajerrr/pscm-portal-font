@@ -27,39 +27,38 @@ onMounted(() => {
   const option = {
     tooltip: { trigger: "item" },
     legend: {
-  orient: "vertical",
-  right: "10%",
-  top: "center",
-  icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
-  itemGap: 25, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
-  textStyle: {
-    fontSize: 14,
-    color: "#333",
-    rich: {
-      name: {
+      orient: "vertical",
+      right: "10%",
+      top: "center",
+      icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
+      itemGap: 25, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
+      textStyle: {
         fontSize: 14,
-        fontWeight: "normal",
         color: "#333",
-        padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
-        width: 180, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ value อยู่ตรงกัน)
-        overflow: "truncate", // ✅ ถ้าชื่อยาวเกิน จะตัดข้อความ
+        rich: {
+          name: {
+            fontSize: 14,
+            fontWeight: "normal",
+            color: "#333",
+            padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
+            width: 180, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ value อยู่ตรงกัน)
+            overflow: "truncate", // ✅ ถ้าชื่อยาวเกิน จะตัดข้อความ
+          },
+          value: {
+            fontSize: 14,
+            fontWeight: "bold",
+            color: "#333",
+            align: "right", // ✅ ให้ value ชิดขวา
+            width: 40, // ✅ บังคับให้ value อยู่ชิดขวาแบบเท่ากัน
+          },
+        },
       },
-      value: {
-        fontSize: 14,
-        fontWeight: "bold",
-        color: "#333",
-        align: "right", // ✅ ให้ value ชิดขวา
-        width: 40, // ✅ บังคับให้ value อยู่ชิดขวาแบบเท่ากัน
+      formatter: (name) => {
+        // ✅ หา value ที่ตรงกับชื่อ และแสดงเลขตามหลัง
+        const item = pieData.find((item) => item.name === name);
+        return `{name|${name}}  {value|${item?.value.toLocaleString() || 0}}`;
       },
     },
-  },
-  formatter: (name) => {
-    // ✅ หา value ที่ตรงกับชื่อ และแสดงเลขตามหลัง
-    const item = pieData.find((item) => item.name === name);
-    return `{name|${name}}  {value|${item?.value.toLocaleString() || 0}}`;
-  },
-},
-
 
     series: [
       {
@@ -128,34 +127,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <div class="flex items-center justify-center">
-    <div
-      class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
-    >
-      <div ref="chartContainer" class="w-full h-full"></div>
-    </div>
-  </div> -->
-
   <div class="f-col">
-                  <div>
-                    <div class="pt-5">
-                      <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5"
-                        >PACMชั้นต่างๆ</h
-                      >
-                      <div class="border-t border-gray-300 my-4 p-5"></div>
-                    </div>
-                  </div>
+    <div>
+      <div class="pt-5">
+        <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5">PSCMชั้นต่างๆ</h>
+        <div class="border-t border-gray-300 my-4 p-5"></div>
+      </div>
+    </div>
 
-                  <div>
-                    <div class="flex items-center justify-center">
-    <div
-      class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
-    >
-      <div ref="chartContainer" class="w-full h-full"></div>
+    <div>
+      <div class="flex items-center justify-center">
+        <div
+          class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center"
+        >
+          <div ref="chartContainer" class="w-full h-full"></div>
+        </div>
+      </div>
     </div>
   </div>
-                  </div>
-                </div>
-
-
 </template>
