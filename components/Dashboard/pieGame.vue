@@ -119,9 +119,26 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center SF-TH">
+  <!-- <div class="flex items-center justify-center SF-TH">
+    <div class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center">
+      <div ref="chartContainer" class="w-full h-full"></div>
+    </div>
+  </div> -->
+
+  <div class="f-col">
+                  <div>
+                    <div class="pt-5">
+                      <h class="text-[#1E1F21] SF-TH-Semi text-nm p-5"
+                        >เกมหัตถการ</h
+                      >
+                      <div class="border-t border-gray-300 my-4 p-5"></div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-center SF-TH">
     <div class="w-full h-[400px] bg-white shadow-lg p-6 rounded-lg flex items-center">
       <div ref="chartContainer" class="w-full h-full"></div>
     </div>
   </div>
+                </div>
 </template>
