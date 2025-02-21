@@ -33,7 +33,7 @@ onMounted(() => {
       tooltip: { trigger: "item" },
       legend: {
       orient: "vertical",
-      right: "10%",
+      right: "5%",
       top: "center",
       icon: "circle", // ✅ จุดสีของ legend เป็นวงกลม
       itemGap: 18, // ✅ เพิ่มระยะห่างระหว่างบรรทัด
@@ -47,7 +47,7 @@ onMounted(() => {
             color: "#333",
             padding: [5, 5, 5, 0], // ✅ เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
 
-            width: 150, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ขึ้นสองบรรทัดอัตโนมัติ)
+            width: 120, // ✅ บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ขึ้นสองบรรทัดอัตโนมัติ)
             lineHeight: 18, // ✅ ทำให้แต่ละบรรทัดอ่านง่ายขึ้น
           },
           value: {

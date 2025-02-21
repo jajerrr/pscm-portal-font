@@ -44,7 +44,7 @@ onMounted(() => {
               fontWeight: "normal",
               color: "#333",
               padding: [5, 5, 5, 0], // เพิ่ม padding ด้านขวา (เว้นที่ให้ value)
-              width: 180, // บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ value อยู่ตรงกัน)
+              width: 80, // บังคับให้ name มีพื้นที่เท่ากัน (ทำให้ value อยู่ตรงกัน)
               overflow: "truncate", // ถ้าชื่อยาวเกิน จะตัดข้อความ
             },
             value: {
