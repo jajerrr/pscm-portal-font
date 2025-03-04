@@ -38,26 +38,27 @@
   </NuxtLink>
     </topnav>
     <div
-      v-for="(button, index) in buttons"
-      :key="index"
-      :ref="(el) => (buttonRefs[index] = el)"
-      :style="{
-        position: 'absolute',
-        left: button.x + 'px',
-        top: button.y - 10 + 'px',
-      }"
-      class="cursor-move"
-      @mousedown="(event) => startDrag(event, index)"
-    >
-      <button type="button" :class="button.class">
-        <img
-          class="w-[25px]"
-          src="assets/images/map-content/Gamepad Minimalistic.png"
-          alt="Gamepad"
-        />
-        <div class="text-sm Inter-Regular">{{ button.label }}</div>
-      </button>
-    </div>
+  v-for="(button, index) in buttons"
+  :key="index"
+  :ref="(el) => (buttonRefs[index] = el)"
+  :style="{
+    position: 'absolute',
+    left: button.x + 'vw',  // แสดงเป็นเปอร์เซ็นต์
+    top: button.y + 'vh',   // แสดงเป็นเปอร์เซ็นต์
+  }"
+  class="cursor-move"
+  @mousedown="(event) => startDrag(event, index)"
+>
+  <button type="button" :class="button.class">
+    <img
+      class="w-[25px]"
+      src="assets/images/map-content/Gamepad Minimalistic.png"
+      alt="Gamepad"
+    />
+    <div class="text-sm Inter-Regular">{{ button.label }}</div>
+  </button>
+</div>
+
 
     <div class="absolute top-5 right-5 flex flex-row gap-2">
       <button
@@ -73,7 +74,7 @@
         Reset Position
       </button>
     </div>
-    <CardsCardCoverflow />
+    <!-- <CardsCardCoverflow /> -->
   </NuxtLayout>
 </template>
 
@@ -88,24 +89,26 @@ let offsetY = 0;
 let currentIndex = null;
 
 const defaultPositions = () => {
-  const startX = window.innerWidth - 350;
-  const startY = window.innerHeight - 70;
+  // คำนวณตำแหน่งเริ่มต้นในรูปแบบของเปอร์เซ็นต์
+  const startX = (window.innerWidth - 350) / window.innerWidth * 100;  // คำนวณจาก viewport width
+  const startY = (window.innerHeight - 70) / window.innerHeight * 100;  // คำนวณจาก viewport height
+
   return [
     {
-      x: startX + 80,
-      y: startY,
+      x: startX + 8,  // เพิ่มค่าเป็นเปอร์เซ็นต์
+      y: startY,  // เพิ่มค่าเป็นเปอร์เซ็นต์
       label: "ปุ่ม 1",
       class:
         "px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 rounded-full",
     },
     {
-      x: startX + 160,
+      x: startX + 16,  // เพิ่มค่าเป็นเปอร์เซ็นต์
       y: startY,
       label: "ปุ่ม 2",
       class: "px-4 py-2 bg-red-600 text-white rounded shadow hover:bg-red-700 rounded-full",
     },
     {
-      x: startX + 240,
+      x: startX + 24,  // เพิ่มค่าเป็นเปอร์เซ็นต์
       y: startY,
       label: "ปุ่ม 3",
       class:
@@ -113,6 +116,7 @@ const defaultPositions = () => {
     },
   ];
 };
+
 
 const startDrag = (event, index) => {
   dragging = true;
@@ -126,15 +130,16 @@ const startDrag = (event, index) => {
 const onDrag = (event) => {
   if (dragging && currentIndex !== null) {
     buttons.value[currentIndex].x = Math.min(
-      Math.max(event.clientX - offsetX, 10),
-      window.innerWidth - 100
+      Math.max((event.clientX / window.innerWidth) * 100, 0), // แปลงเป็นเปอร์เซ็นต์จากขนาดหน้าจอ
+      95
     );
     buttons.value[currentIndex].y = Math.min(
-      Math.max(event.clientY - offsetY, 10),
-      window.innerHeight - 110
+      Math.max((event.clientY / window.innerHeight) * 100, 0), // แปลงเป็นเปอร์เซ็นต์จากขนาดหน้าจอ
+      90
     );
   }
 };
+ 
 
 const stopDrag = () => {
   dragging = false;
